@@ -1,7 +1,20 @@
 /*
 Creacion de tablas
 */
-
+create table TDocente
+( -- lista de atributos
+    CodDocente         varchar (6),
+    Paterno             Varchar(30)       not null,
+    Materno             Varchar(30)       not null,
+    Nombres             Varchar(30)       not null,
+    Departamento         varchar(30)      not null,
+	Condicion			varchar(20)   check (Condicion in ('NOMBRADO','CONTRATADO')),
+    Correo				varchar(30)		not null,
+	Telefono	        varchar(20),
+-- definicion de la clave principal 
+Primary key (CodDocente)
+)
+Go
 
 /*
 Creacion de Funciones
