@@ -1,1 +1,2 @@
 # Sistema_Escritorio_Gestion_Silabos
+Aplicacion de escritorio
