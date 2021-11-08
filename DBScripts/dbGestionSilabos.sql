@@ -1,6 +1,9 @@
 /*
 Creacion de tablas
 */
+---------------------------------------------------------------------------------------
+----------------------- Tabla para Docentes--------------------------------------------
+---------------------------------------------------------------------------------------
 create table TDocente
 ( -- lista de atributos
     CodDocente         varchar (6),
@@ -13,6 +16,21 @@ create table TDocente
 	Telefono	        varchar(20),
 -- definicion de la clave principal 
 Primary key (CodDocente)
+)
+Go
+---------------------------------------------------------------------------------------
+----------------------- Tabla para Curso-----------------------------------------------
+---------------------------------------------------------------------------------------
+create table TCurso
+( -- lista de atributos
+    CodCurso            varchar (10),
+    Nombre              Varchar(100)       not null,
+    CodDocente          VARCHAR(10)		   not null,
+	Creditos            INT				   not null,
+	Categoria           VARCHAR(10),
+-- definicion de la clave principal 
+Primary key (CodCurso)
+foreign key(CodDocente) references TDocente(CodDocente)
 )
 Go
 
