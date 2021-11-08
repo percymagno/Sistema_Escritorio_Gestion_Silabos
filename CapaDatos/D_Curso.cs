@@ -13,87 +13,85 @@ namespace CapaDatos
     {
         // Definir la conexion a la base de datos
         readonly SqlConnection Conectar = new SqlConnection(ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString);
-
-        // Metodo para insertar un registro de curso
-        //public void CreateCurso(E_Curso Curso)
-        public void CreateCurso()
+        // Metodos abrir y cerrar la conexion
+        public void Abrir()
         {
-            // Ejecutar el procedimiento almacenado "spuCreateCurso"
-            SqlCommand Comando = new SqlCommand("spuCreateCurso", Conectar)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-
-            // Agregar los parametros necesarios para el procedimiento
-            Conectar.Open();
-            Comando.Parameters.AddWithValue("@CodCurso", "IF614AIN");
-            Comando.Parameters.AddWithValue("@Nombre", "Ingenieria de Software I");
-            Comando.Parameters.AddWithValue("@CodDocente", "");
-            Comando.Parameters.AddWithValue("@Creditos", "4");
-            Comando.Parameters.AddWithValue("@Categoria", "OEES");
-            Comando.ExecuteNonQuery();
-            Conectar.Close();
+            if (Conectar.State == ConnectionState.Open)
+                    Conectar.Close();
         }
-        // Metodo para buscar un determinado curso (tabla de datos)
-        public DataTable ReadCurso(string CodCurso)
+        public void Cerrar()
         {
-            // Declar una tabla de datos para los cursos
-            DataTable Resultado = new DataTable();
-
-            // Ejecutar el procedimiento almacenado "spuReadCurso"
-            SqlCommand Comando = new SqlCommand("spuReadCurso", Conectar)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-
-            // Agregar el parametro necesario para el procedimiento
-            Comando.Parameters.AddWithValue("@CodCurso", CodCurso);
-
-            // Obtener los resultados del procedimiento almacenado la base de datos
-            SqlDataAdapter Data = new SqlDataAdapter(Comando);
-
-            // Asignar los resultados a la tabla de datos
-            Data.Fill(Resultado);
-
-            // Retornar la tabla de datos con los datos del curso buscado
-            return Resultado;
+            if (Conectar.State == ConnectionState.Closed)
+                Conectar.Open();
         }
-        // Metodo para editar un registro de curso
-        //public void EditarRegistro(E_Curso Curso)
-        public void UpdateCurso()
+        
+        // Metodos para ejecutar sql
+        public int Consulta_Sql_ans_int(string sql)
         {
-            // Ejecutar el procedimiento almacenado "spuUpdateCurso"
-            SqlCommand Comando = new SqlCommand("spuUpdateCurso", Conectar)
+            try
             {
-                CommandType = CommandType.StoredProcedure
-            };
-
-            // Agregar los parametros necesarios para el procedimiento
-            Conectar.Open();
-            Comando.Parameters.AddWithValue("@CodCurso", "IF614AIN");
-            Comando.Parameters.AddWithValue("@Nombre", "Ingenieria de Software");
-            Comando.Parameters.AddWithValue("@CodDocente", "");
-            Comando.Parameters.AddWithValue("@Creditos", "4");
-            Comando.Parameters.AddWithValue("@Categoria", "OEES");
-            Comando.ExecuteNonQuery();
-            Conectar.Close();
+                SqlCommand Comando = new SqlCommand(sql, Conectar);
+                Abrir();
+                int res = Comando.ExecuteNonQuery();
+                Cerrar();
+                return res;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
+                return -1;
+            }
         }
-
-        // Metodo para eliminar un registro de curso
-        //public void EliminarCurso(E_Curso Curso)
-        public void DeleteCurso()
+        public SqlDataReader Consulta_Sql_ans_datareader(string sql)
         {
-            // Ejecutar el procedimiento almacenado "spuDeleteCurso"
-            SqlCommand Comando = new SqlCommand("spuDeleteCurso", Conectar)
+            try
             {
-                CommandType = CommandType.StoredProcedure
-            };
-
-            // Agregar los parametros necesarios para el procedimiento
-            Conectar.Open();
-            Comando.Parameters.AddWithValue("@CodCurso", "IF614AIN");
-            Comando.ExecuteNonQuery();
-            Conectar.Close();
+                SqlCommand Comando = new SqlCommand(sql, Conectar);
+                Abrir();
+                SqlDataReader dr = Comando.ExecuteReader(CommandBehavior.CloseConnection);
+                Cerrar();
+                return dr;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
+                return null;
+            }
+        }
+        // Metodos CRUD
+        public bool Guardar()
+        {
+            string sql = "";
+            int ans = Consulta_Sql_ans_int(sql);
+            return ans == 1;
+        }
+        public DataTable Leer()
+        {
+            string sql = "SELECT * FROM TCurso";
+            DataTable dt = new DataTable();
+            SqlDataReader dr = Consulta_Sql_ans_datareader(sql);
+            dt.Load(dr);
+            return dt;
+        }
+        public DataTable Buscar()
+        {
+            string sql = "SELECT * FROM TCurso Where CodCurso = 1234";
+            DataTable dt = new DataTable();
+            SqlDataReader dr = Consulta_Sql_ans_datareader(sql);
+            dt.Load(dr);
+            return dt;
+        }
+        public bool Actualizar()
+        {
+            string sql = "";
+            int ans = Consulta_Sql_ans_int(sql);
+            return ans == 1;
+        }
+        public bool Borrar()
+        {
+            string sql = "";
+            int ans = Consulta_Sql_ans_int(sql);
+            return ans == 1;
         }
     }
 }
