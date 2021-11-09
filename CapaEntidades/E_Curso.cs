@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    class E_Curso
+    public class E_Curso
     {
         // Definir los atributos o campos que tiene un docente
         public string CodCurso { get; set; }
