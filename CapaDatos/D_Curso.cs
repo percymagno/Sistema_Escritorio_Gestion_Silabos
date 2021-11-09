@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using CapaEntidades;
 
 namespace CapaDatos
 {
@@ -26,22 +27,6 @@ namespace CapaDatos
         }
         
         // Metodos para ejecutar sql
-        public int Consulta_Sql_ans_int(string sql)
-        {
-            try
-            {
-                SqlCommand Comando = new SqlCommand(sql, Conectar);
-                Abrir();
-                int res = Comando.ExecuteNonQuery();
-                Cerrar();
-                return res;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
-                return -1;
-            }
-        }
         public SqlDataReader Consulta_Sql_ans_datareader(string sql)
         {
             try
@@ -59,11 +44,27 @@ namespace CapaDatos
             }
         }
         // Metodos CRUD
-        public bool Guardar()
+        public bool Guardar(E_Curso Curso)
         {
-            string sql = "";
-            int ans = Consulta_Sql_ans_int(sql);
-            return ans == 1;
+            string sql = "INSERT INTO TCurso (CodCurso, Nombre, CodDocente, Creditos, Categoria) VALUES (@CodCurso, @Nombre, @CodDocente, @Creditos, @Categoria)";
+            SqlCommand Comando = new SqlCommand(sql, Conectar);
+            Comando.Parameters.AddWithValue("@CodCurso", Curso.CodCurso);
+            Comando.Parameters.AddWithValue("@Nombre", Curso.Nombre);
+            Comando.Parameters.AddWithValue("@CodDocente", Curso.CodDocente);
+            Comando.Parameters.AddWithValue("@Creditos", Curso.Creditos);
+            Comando.Parameters.AddWithValue("@Categoria", Curso.Categoria);
+            try
+            {
+                Abrir();
+                int res = Comando.ExecuteNonQuery();
+                Cerrar();
+                return res==1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
+                return false;
+            }
         }
         public DataTable Leer()
         {
@@ -73,25 +74,67 @@ namespace CapaDatos
             dt.Load(dr);
             return dt;
         }
-        public DataTable Buscar()
+        public DataTable Buscar(E_Curso Curso)
         {
-            string sql = "SELECT * FROM TCurso Where CodCurso = 1234";
-            DataTable dt = new DataTable();
-            SqlDataReader dr = Consulta_Sql_ans_datareader(sql);
-            dt.Load(dr);
-            return dt;
+
+            string sql = "SELECT * FROM TCurso WHERE CodCurso = @CodCurso OR Nombre LIKE @Nombre";
+            SqlCommand Comando = new SqlCommand(sql, Conectar);
+            Comando.Parameters.AddWithValue("@CodCurso", Curso.CodCurso);
+            Comando.Parameters.AddWithValue("@Nombre", Curso.Nombre);
+            try
+            {
+                Abrir();
+                SqlDataReader dr = Comando.ExecuteReader(CommandBehavior.CloseConnection);
+                Cerrar();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
+                return null;
+            }
         }
-        public bool Actualizar()
+        public bool Actualizar(E_Curso Curso)
         {
-            string sql = "";
-            int ans = Consulta_Sql_ans_int(sql);
-            return ans == 1;
+            string sql = "UPDATE TCurso SET (Nombre = @Nombre, CodDocente = @CodDocente, Creditos = @Creditos, Categoria = @Categoria) WHERE CodCurso = @CodCurso";
+            SqlCommand Comando = new SqlCommand(sql, Conectar);
+            Comando.Parameters.AddWithValue("@CodCurso", Curso.CodCurso);
+            Comando.Parameters.AddWithValue("@Nombre", Curso.Nombre);
+            Comando.Parameters.AddWithValue("@CodDocente", Curso.CodDocente);
+            Comando.Parameters.AddWithValue("@Creditos", Curso.Creditos);
+            Comando.Parameters.AddWithValue("@Categoria", Curso.Categoria);
+            try
+            {
+                Abrir();
+                int res = Comando.ExecuteNonQuery();
+                Cerrar();
+                return res == 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
+                return false;
+            }
         }
-        public bool Borrar()
+        public bool Borrar(E_Curso Curso)
         {
-            string sql = "";
-            int ans = Consulta_Sql_ans_int(sql);
-            return ans == 1;
+            string sql = "DELETE FROM TCurso WHERE CodCurso = @CodCurso";
+            SqlCommand Comando = new SqlCommand(sql, Conectar);
+            Comando.Parameters.AddWithValue("@CodCurso", Curso.CodCurso);
+            try
+            {
+                Abrir();
+                int res = Comando.ExecuteNonQuery();
+                Cerrar();
+                return res == 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
+                return false;
+            }
         }
     }
 }
