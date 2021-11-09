@@ -69,24 +69,36 @@ namespace CapaDatos
         public DataTable Leer()
         {
             string sql = "SELECT * FROM TCurso";
+            SqlCommand Comando = new SqlCommand(sql, Conectar);
             DataTable dt = new DataTable();
-            SqlDataReader dr = Consulta_Sql_ans_datareader(sql);
-            dt.Load(dr);
-            return dt;
+            try
+            {
+                
+                Abrir();
+                SqlDataReader dr = Comando.ExecuteReader(CommandBehavior.CloseConnection);
+                Cerrar();
+                dt.Load(dr);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
+                return null;
+            }
+
         }
         public DataTable Buscar(E_Curso Curso)
         {
-
             string sql = "SELECT * FROM TCurso WHERE CodCurso = @CodCurso OR Nombre LIKE @Nombre";
             SqlCommand Comando = new SqlCommand(sql, Conectar);
             Comando.Parameters.AddWithValue("@CodCurso", Curso.CodCurso);
             Comando.Parameters.AddWithValue("@Nombre", Curso.Nombre);
+            DataTable dt = new DataTable();
             try
             {
                 Abrir();
                 SqlDataReader dr = Comando.ExecuteReader(CommandBehavior.CloseConnection);
                 Cerrar();
-                DataTable dt = new DataTable();
                 dt.Load(dr);
                 return dt;
             }
