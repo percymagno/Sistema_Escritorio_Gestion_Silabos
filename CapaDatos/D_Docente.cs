@@ -15,41 +15,16 @@ namespace CapaDatos
         // Definir la conexion a la base de datos
         readonly SqlConnection Conectar = new SqlConnection(ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString);
 
-        // Metodo para buscar un determinado docente (tabla de datos)
-        public DataTable BuscarDocente(string CodDocente)
-        {
-            // Declarar una tabla de datos para los docentes
-            DataTable Tabla = new DataTable();
-
-            //Cadena de texto de Consulta a la BD
-            string query = "SELECT * FROM TDocente WHERE CodDocente = @CodDocente";
-
-            // Ejecutar el procedimiento almacenado "spuBuscarDocente"
-            SqlCommand Comando = new SqlCommand(query, Conectar);
-
-            // Agregar el parametro necesario para el procedimiento
-            Comando.Parameters.AddWithValue("@CodDocente", CodDocente);
-
-            // Obtener los resultados del procedimiento almacenado la base de datos
-            SqlDataAdapter Data = new SqlDataAdapter(Comando);
-
-            // Asignar los resultados a la tabla de datos
-            Data.Fill(Tabla);
-
-            // Retornar la tabla de datos con los datos del docente buscado
-            return Tabla;
-        }
-
-        // Metodo para mostrar la tabla de docentes de un determinado director de escuela con algun filtro
+        // Metodo para mostrar la tabla de docentes de un determinado docente con algun filtro
         public DataTable BuscarDocentes(string Texto)
         {
             // Declar una tabla de datos para los docentes
             DataTable Resultado = new DataTable();
 
             //Cadena de texto de Consulta a la BD
-            string query = "SELECT * FROM TDocente WHERE Paterno LIKE (@Texto + '%') OR Materno LIKE(@Texto +'%') OR Nombres LIKE(@Texto +'%')";
+            string query = "SELECT * FROM TDocente WHERE CodDocente LIKE (@Texto + '%') OR Paterno LIKE (@Texto + '%') OR Materno LIKE(@Texto +'%') OR Nombres LIKE(@Texto +'%')";
 
-            // Ejecutar el procedimiento almacenado "spuBuscarDocentes"
+            // Ejecutar la consulta
             SqlCommand Comando = new SqlCommand(query, Conectar);
 
             // Agregar los parametros necesarios para el procedimiento
@@ -71,7 +46,7 @@ namespace CapaDatos
             //Cadena de texto de Consulta a la BD
             string query = "INSERT INTO TDocente VALUES(@CodDocente, @APaterno, @AMaterno, @Nombres, @Departamento, @Condicion, @Correo, @Telefono)";
 
-            // Ejecutar el procedimiento almacenado "spuInsertarDocente"
+            // Ejecutar la consulta
             SqlCommand Comando = new SqlCommand(query, Conectar);
 
             // Agregar los parametros necesarios para el procedimiento
@@ -95,7 +70,7 @@ namespace CapaDatos
             string query = "UPDATE TDocente SET CodDocente = @CodDocente, Paterno = @APaterno, Materno = @AMaterno, Nombres = @Nombres, " +
                 "Departamento = @Departamento, Condicion = @Condicion, Correo = @Correo, Telefono = @Telefono";
 
-            // Ejecutar el procedimiento almacenado "spuActualizarDocente"
+            // Ejecutar la consulta"
             SqlCommand Comando = new SqlCommand(query, Conectar);
 
             // Agregar los parametros necesarios para el procedimiento
@@ -117,7 +92,7 @@ namespace CapaDatos
             //Cadena de texto de Consulta a la BD
             string query = "DELETE FROM TDocente WHERE CodDocente = @CodDocente";
 
-            // Ejecutar el procedimiento almacenado "spuEliminarDocente"
+            // Ejecutar la consulta
             SqlCommand Comando = new SqlCommand(query, Conectar);
 
             // Agregar los parametros necesarios para el procedimiento
