@@ -10,38 +10,20 @@ using CapaEntidades;
 
 namespace CapaDatos
 {
-    class D_Curso
+    public class D_Curso
     {
         // Definir la conexion a la base de datos
         readonly SqlConnection Conectar = new SqlConnection(ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString);
         // Metodos abrir y cerrar la conexion
         public void Abrir()
         {
-            if (Conectar.State == ConnectionState.Open)
-                    Conectar.Close();
-        }
-        public void Cerrar()
-        {
             if (Conectar.State == ConnectionState.Closed)
                 Conectar.Open();
         }
-        
-        // Metodos para ejecutar sql
-        public SqlDataReader Consulta_Sql_ans_datareader(string sql)
+        public void Cerrar()
         {
-            try
-            {
-                SqlCommand Comando = new SqlCommand(sql, Conectar);
-                Abrir();
-                SqlDataReader dr = Comando.ExecuteReader(CommandBehavior.CloseConnection);
-                Cerrar();
-                return dr;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
-                return null;
-            }
+            if (Conectar.State == ConnectionState.Open)
+                Conectar.Close();
         }
         // Metodos CRUD
         public bool Guardar(E_Curso Curso)
@@ -62,7 +44,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
+                Console.WriteLine("C. Error al tratar de conectar con la base de datos", ex.Message);
                 return false;
             }
         }
@@ -82,7 +64,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
+                Console.WriteLine("R. Error al tratar de conectar con la base de datos", ex.Message);
                 return null;
             }
 
@@ -104,7 +86,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
+                Console.WriteLine("R. Error al tratar de conectar con la base de datos", ex.Message);
                 return null;
             }
         }
@@ -126,7 +108,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
+                Console.WriteLine("U. Error al tratar de conectar con la base de datos", ex.Message);
                 return false;
             }
         }
@@ -144,7 +126,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al tratar de conectar con la base de datos", ex.Message);
+                Console.WriteLine("D. Error al tratar de conectar con la base de datos", ex.Message);
                 return false;
             }
         }
