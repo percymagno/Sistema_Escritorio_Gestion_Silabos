@@ -10,7 +10,7 @@ using CapaEntidades;
 
 namespace CapaDatos
 {
-    class D_Docente
+    public class D_Docente
     {
         // Definir la conexion a la base de datos
         readonly SqlConnection Conectar = new SqlConnection(ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString);
@@ -83,6 +83,7 @@ namespace CapaDatos
             Comando.Parameters.AddWithValue("@Condicion", Docente.Condicion);
             Comando.Parameters.AddWithValue("@Correo", Docente.Correo);
             Comando.Parameters.AddWithValue("@Telefono", Docente.Telefono);
+            Comando.ExecuteNonQuery();
             Conectar.Close();
         }
 
