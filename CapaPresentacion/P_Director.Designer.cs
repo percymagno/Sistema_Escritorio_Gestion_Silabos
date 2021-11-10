@@ -61,7 +61,7 @@ namespace CapaPresentacion
             this.panelTop.Controls.Add(this.panel5);
             this.panelTop.Controls.Add(this.panel1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Location = new System.Drawing.Point(2, 2);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(800, 30);
             this.panelTop.TabIndex = 3;
@@ -94,7 +94,7 @@ namespace CapaPresentacion
             this.panelLeft.Controls.Add(this.panel3);
             this.panelLeft.Controls.Add(this.panel2);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 30);
+            this.panelLeft.Location = new System.Drawing.Point(2, 32);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(200, 420);
             this.panelLeft.TabIndex = 4;
@@ -187,7 +187,7 @@ namespace CapaPresentacion
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(200, 30);
+            this.panelMain.Location = new System.Drawing.Point(202, 32);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(600, 420);
             this.panelMain.TabIndex = 5;
@@ -249,17 +249,18 @@ namespace CapaPresentacion
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // P_ControlDirector
+            // P_Director
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(805, 455);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "P_ControlDirector";
+            this.Name = "P_Director";
+            this.Padding = new System.Windows.Forms.Padding(2, 2, 3, 3);
             this.Text = "P_ControlDirector";
             this.panelTop.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

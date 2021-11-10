@@ -16,6 +16,7 @@ namespace CapaPresentacion
 {
     public partial class P_Director : Form
     {
+        #region funciones para abrir, cerrar, minimizar mover y cambiar tamaño de form
         // hacer el form movible
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
@@ -23,12 +24,56 @@ namespace CapaPresentacion
         public static extern bool ReleaseCapture();
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        protected override void WndProc(ref Message m)
+        {
+            const int RESIZE_HANDLE_SIZE = 10;
 
+            switch (m.Msg)
+            {
+                case 0x0084/*NCHITTEST*/ :
+                    base.WndProc(ref m);
+
+                    if ((int)m.Result == 0x01/*HTCLIENT*/)
+                    {
+                        Point screenPoint = new Point(m.LParam.ToInt32());
+                        Point clientPoint = this.PointToClient(screenPoint);
+                        if (clientPoint.Y <= RESIZE_HANDLE_SIZE)
+                        {
+                            if (clientPoint.X <= RESIZE_HANDLE_SIZE)
+                                m.Result = (IntPtr)13/*HTTOPLEFT*/ ;
+                            else if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
+                                m.Result = (IntPtr)12/*HTTOP*/ ;
+                            else
+                                m.Result = (IntPtr)14/*HTTOPRIGHT*/ ;
+                        }
+                        else if (clientPoint.Y <= (Size.Height - RESIZE_HANDLE_SIZE))
+                        {
+                            if (clientPoint.X <= RESIZE_HANDLE_SIZE)
+                                m.Result = (IntPtr)10/*HTLEFT*/ ;
+                            else if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
+                                m.Result = (IntPtr)2/*HTCAPTION*/ ;
+                            else
+                                m.Result = (IntPtr)11/*HTRIGHT*/ ;
+                        }
+                        else
+                        {
+                            if (clientPoint.X <= RESIZE_HANDLE_SIZE)
+                                m.Result = (IntPtr)16/*HTBOTTOMLEFT*/ ;
+                            else if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
+                                m.Result = (IntPtr)15/*HTBOTTOM*/ ;
+                            else
+                                m.Result = (IntPtr)17/*HTBOTTOMRIGHT*/ ;
+                        }
+                    }
+                    return;
+            }
+            base.WndProc(ref m);
+        }
+        #endregion
         public P_Director()
         {
             InitializeComponent();
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
@@ -69,6 +114,6 @@ namespace CapaPresentacion
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
-        }
+        } 
     }
 }
