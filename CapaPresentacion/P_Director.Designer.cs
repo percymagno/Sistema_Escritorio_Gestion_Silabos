@@ -138,6 +138,7 @@ namespace CapaPresentacion
             this.btnDocentes.TabIndex = 0;
             this.btnDocentes.Text = "Docentes";
             this.btnDocentes.UseVisualStyleBackColor = false;
+            this.btnDocentes.Click += new System.EventHandler(this.btnDocentes_Click);
             // 
             // panel3
             // 
