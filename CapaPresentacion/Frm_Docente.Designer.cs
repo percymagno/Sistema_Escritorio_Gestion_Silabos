@@ -32,8 +32,8 @@ namespace CapaPresentacion
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -47,41 +47,41 @@ namespace CapaPresentacion
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column4,
-            this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 65);
+            this.Column3,
+            this.Column4});
+            this.dataGridView1.Location = new System.Drawing.Point(7, 44);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(783, 370);
+            this.dataGridView1.Size = new System.Drawing.Size(786, 398);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Codigo";
+            this.Column1.HeaderText = "CODIGO";
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Nombres";
+            this.Column2.HeaderText = "NOMBRES";
             this.Column2.Name = "Column2";
             this.Column2.Width = 200;
             // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "APELLIDOS";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 250;
+            // 
             // Column4
             // 
-            this.Column4.HeaderText = "Apellidos";
+            this.Column4.HeaderText = "CORREO";
             this.Column4.Name = "Column4";
-            this.Column4.Width = 250;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Correo";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 200;
+            this.Column4.Width = 200;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(203, 37);
             this.label1.TabIndex = 1;
@@ -89,30 +89,30 @@ namespace CapaPresentacion
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(590, 13);
+            this.button1.Location = new System.Drawing.Point(596, 9);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(62, 41);
+            this.button1.Size = new System.Drawing.Size(51, 32);
             this.button1.TabIndex = 2;
-            this.button1.Text = "AGREGAR";
+            this.button1.Text = "agregar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(658, 13);
+            this.button2.Location = new System.Drawing.Point(667, 9);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(62, 41);
+            this.button2.Size = new System.Drawing.Size(51, 32);
             this.button2.TabIndex = 3;
-            this.button2.Text = "EDITAR";
+            this.button2.Text = "editar";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(726, 13);
+            this.button3.Location = new System.Drawing.Point(737, 9);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(62, 41);
+            this.button3.Size = new System.Drawing.Size(51, 32);
             this.button3.TabIndex = 4;
-            this.button3.Text = "ELIMINAR";
+            this.button3.Text = "eliminar";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // Frm_Docente
@@ -138,8 +138,8 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

@@ -118,9 +118,9 @@ namespace CapaPresentacion
 
         private void btnDocentes_Click(object sender, EventArgs e)
         {
-            Frm_Docente Doccente = new Frm_Docente();
+            Frm_Docente AddDocente = new Frm_Docente();
             this.Visible = false;
-            Doccente.Show();
+            AddDocente.Show();
         }
     }
 }

@@ -19,9 +19,10 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Frm_AddDocente AddDoccente = new Frm_AddDocente();
-            this.Visible = false;
-            AddDoccente.Show();
+            Frm_AddDocente AddDocente = new Frm_AddDocente();
+            this.Visible=false;
+            AddDocente.Show();
+
         }
     }
 }
