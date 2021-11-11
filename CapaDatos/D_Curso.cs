@@ -91,11 +91,10 @@ namespace CapaDatos
         }
         public bool EditarCurso(E_Curso Curso)
         {
-            string sql = "UPDATE TCurso SET (Nombre = @Nombre, CodDocente = @CodDocente, Creditos = @Creditos, Categoria = @Categoria) WHERE CodCurso = @CodCurso";
+            string sql = "UPDATE TCurso SET (Nombre = @Nombre, Creditos = @Creditos, Categoria = @Categoria) WHERE CodCurso = @CodCurso";
             SqlCommand Comando = new SqlCommand(sql, Conectar);
             Comando.Parameters.AddWithValue("@CodCurso", Curso.CodCurso);
             Comando.Parameters.AddWithValue("@Nombre", Curso.Nombre);
-            Comando.Parameters.AddWithValue("@CodDocente", Curso.CodDocente);
             Comando.Parameters.AddWithValue("@Creditos", Curso.Creditos);
             Comando.Parameters.AddWithValue("@Categoria", Curso.Categoria);
             try
