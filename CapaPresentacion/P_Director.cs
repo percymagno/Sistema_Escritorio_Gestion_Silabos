@@ -122,5 +122,12 @@ namespace CapaPresentacion
             this.Visible = false;
             AddDocente.Show();
         }
+
+        private void btnCursos_Click(object sender, EventArgs e)
+        {
+            Frm_AddCurso AddCurso = new Frm_AddCurso();
+            this.Visible = false;
+            AddCurso.Show();
+        }
     }
 }

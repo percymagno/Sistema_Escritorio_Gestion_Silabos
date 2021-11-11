@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Frm_AddCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_AddCurso.Designer.cs">
+      <DependentUpon>Frm_AddCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_AddDocente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm_AddDocente.Designer.cs">
       <DependentUpon>Frm_AddDocente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Curso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Curso.Designer.cs">
+      <DependentUpon>Frm_Curso.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Docente.cs">
       <SubType>Form</SubType>
@@ -66,8 +78,14 @@
     <Compile Include="P_Director.Designer.cs">
       <DependentUpon>P_Director.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Frm_AddCurso.resx">
+      <DependentUpon>Frm_AddCurso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_AddDocente.resx">
       <DependentUpon>Frm_AddDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Curso.resx">
+      <DependentUpon>Frm_Curso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Docente.resx">
       <DependentUpon>Frm_Docente.cs</DependentUpon>
