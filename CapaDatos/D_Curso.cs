@@ -17,13 +17,13 @@ namespace CapaDatos
         // Metodos abrir y cerrar la conexion
         public void Abrir()
         {
-            if (Conectar.State == ConnectionState.Open)
-                    Conectar.Close();
+            if (Conectar.State == ConnectionState.Closed)
+                Conectar.Open();
         }
         public void Cerrar()
         {
-            if (Conectar.State == ConnectionState.Closed)
-                Conectar.Open();
+            if (Conectar.State == ConnectionState.Open)
+                Conectar.Close();
         }
         // Metodos CRUD
         public bool Guardar(E_Curso Curso)
