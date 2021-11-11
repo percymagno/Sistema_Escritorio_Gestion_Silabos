@@ -28,12 +28,11 @@ namespace CapaDatos
         // Metodos CRUD
         public bool AgregarCurso(E_Curso Curso)
         {
-            string sql = "INSERT INTO TCurso (CodCurso, Nombre, CodDocente, Creditos, Categoria) VALUES (@CodCurso, @Nombre, @CodDocente, @Creditos, @Categoria)";
+            string sql = "INSERT INTO dbo.TCurso (CodCurso, Nombre, Creditos, Categoria) VALUES (@CodCurso, @Nombre, @Creditos, @Categoria)";
             SqlCommand Comando = new SqlCommand(sql, Conectar);
             Comando.Parameters.AddWithValue("@CodCurso", Curso.CodCurso);
             Comando.Parameters.AddWithValue("@Nombre", Curso.Nombre);
-            Comando.Parameters.AddWithValue("@CodDocente", Curso.CodDocente);
-            Comando.Parameters.AddWithValue("@Creditos", Curso.Creditos);
+            Comando.Parameters.AddWithValue("@Creditos", 4);
             Comando.Parameters.AddWithValue("@Categoria", Curso.Categoria);
             try
             {
@@ -48,7 +47,7 @@ namespace CapaDatos
                 return false;
             }
         }
-        public DataTable Leer()
+        public DataTable ObtenerCursos()
         {
             string sql = "SELECT * FROM TCurso";
             SqlCommand Comando = new SqlCommand(sql, Conectar);
