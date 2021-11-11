@@ -114,6 +114,13 @@ namespace CapaPresentacion
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
-        } 
+        }
+
+        private void btnDocentes_Click(object sender, EventArgs e)
+        {
+            Frm_Docente Doccente = new Frm_Docente();
+            this.Visible = false;
+            Doccente.Show();
+        }
     }
 }

@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Frm_AddDocente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_AddDocente.Designer.cs">
+      <DependentUpon>Frm_AddDocente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Docente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Docente.Designer.cs">
+      <DependentUpon>Frm_Docente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="P_Director.cs">
@@ -54,6 +66,12 @@
     <Compile Include="P_Director.Designer.cs">
       <DependentUpon>P_Director.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Frm_AddDocente.resx">
+      <DependentUpon>Frm_AddDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Docente.resx">
+      <DependentUpon>Frm_Docente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
