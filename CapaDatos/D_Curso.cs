@@ -26,7 +26,7 @@ namespace CapaDatos
                 Conectar.Close();
         }
         // Metodos CRUD
-        public bool Guardar(E_Curso Curso)
+        public bool AgregarCurso(E_Curso Curso)
         {
             string sql = "INSERT INTO TCurso (CodCurso, Nombre, CodDocente, Creditos, Categoria) VALUES (@CodCurso, @Nombre, @CodDocente, @Creditos, @Categoria)";
             SqlCommand Comando = new SqlCommand(sql, Conectar);
@@ -69,7 +69,7 @@ namespace CapaDatos
             }
 
         }
-        public DataTable Buscar(E_Curso Curso)
+        public DataTable BuscarCurso(E_Curso Curso)
         {
             string sql = "SELECT * FROM TCurso WHERE CodCurso = @CodCurso OR Nombre LIKE @Nombre";
             SqlCommand Comando = new SqlCommand(sql, Conectar);
@@ -90,7 +90,7 @@ namespace CapaDatos
                 return null;
             }
         }
-        public bool Actualizar(E_Curso Curso)
+        public bool EditarCurso(E_Curso Curso)
         {
             string sql = "UPDATE TCurso SET (Nombre = @Nombre, CodDocente = @CodDocente, Creditos = @Creditos, Categoria = @Categoria) WHERE CodCurso = @CodCurso";
             SqlCommand Comando = new SqlCommand(sql, Conectar);
@@ -112,7 +112,7 @@ namespace CapaDatos
                 return false;
             }
         }
-        public bool Borrar(E_Curso Curso)
+        public bool EliminarCurso(E_Curso Curso)
         {
             string sql = "DELETE FROM TCurso WHERE CodCurso = @CodCurso";
             SqlCommand Comando = new SqlCommand(sql, Conectar);
