@@ -26,6 +26,31 @@ namespace CapaDatos
                 Conectar.Close();
         }
         // Metodos CRUD
+        // Metodo para mostrar la tabla de docentes 
+        public DataTable MostrarDocentes()
+        {
+            //Cadena de texto de Consulta a la BD
+            string query = "SELECT * FROM TDocente";
+
+            // Ejecutar la consulta
+            SqlCommand Comando = new SqlCommand(query, Conectar);
+            DataTable dt = new DataTable();
+            try
+            {
+
+                Abrir();
+                SqlDataReader dr = Comando.ExecuteReader(CommandBehavior.CloseConnection);
+                Cerrar();
+                dt.Load(dr);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("R. Error al tratar de conectar con la base de datos", ex.Message);
+                return null;
+            }
+
+        }
 
         // Metodo para mostrar la tabla de docentes de un determinado docente con algun filtro
         public DataTable BuscarDocentes(string Texto)
