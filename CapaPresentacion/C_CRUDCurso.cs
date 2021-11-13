@@ -17,7 +17,7 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             Frm_AddCurso AddCurso = new Frm_AddCurso();
             AddCurso.Show();
