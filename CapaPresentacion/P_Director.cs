@@ -118,20 +118,18 @@ namespace CapaPresentacion
 
         private void btnDocentes_Click(object sender, EventArgs e)
         {
-            //Frm_Docente AddDocente = new Frm_Docente();
-            //this.Visible = false;
-            //AddDocente.Show();
-            this.c_CRUDCurso1.Visible = false;
             this.c_CRUDDocente1.Visible = true;
+            this.c_CRUDCurso1.Visible = false;
+            this.btnDocentes.BackColor = Color.White;
+            this.btnCursos.BackColor = Color.FromArgb(68, 170, 211);
         }
 
         private void btnCursos_Click(object sender, EventArgs e)
         {
-            //Frm_AddCurso AddCurso = new Frm_AddCurso();
-            //this.Visible = false;
-            //AddCurso.Show();
             this.c_CRUDCurso1.Visible = true;
             this.c_CRUDDocente1.Visible = false;
+            this.btnCursos.BackColor = Color.White;
+            this.btnDocentes.BackColor = Color.FromArgb(68, 170, 211);
         }
     }
 }

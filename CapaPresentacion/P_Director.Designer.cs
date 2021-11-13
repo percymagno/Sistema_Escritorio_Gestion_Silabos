@@ -177,7 +177,7 @@ namespace CapaPresentacion
             // 
             // btnDocentes
             // 
-            this.btnDocentes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(170)))), ((int)(((byte)(211)))));
+            this.btnDocentes.BackColor = System.Drawing.Color.White;
             this.btnDocentes.FlatAppearance.BorderSize = 0;
             this.btnDocentes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnDocentes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -250,6 +250,7 @@ namespace CapaPresentacion
             // 
             this.panelMain.Controls.Add(this.c_CRUDCurso1);
             this.panelMain.Controls.Add(this.c_CRUDDocente1);
+            this.panelMain.Padding = new System.Windows.Forms.Padding(10, 0, 7, 7);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(202, 32);
             this.panelMain.Name = "panelMain";
