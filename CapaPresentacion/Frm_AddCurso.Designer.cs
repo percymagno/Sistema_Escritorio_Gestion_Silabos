@@ -45,27 +45,24 @@ namespace CapaPresentacion
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(177, 49);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(133, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 46);
+            this.label1.Size = new System.Drawing.Size(158, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "CURSOS";
             // 
             // text_codigo
             // 
-            this.text_codigo.Location = new System.Drawing.Point(43, 164);
-            this.text_codigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.text_codigo.Location = new System.Drawing.Point(32, 133);
             this.text_codigo.Name = "text_codigo";
-            this.text_codigo.Size = new System.Drawing.Size(449, 22);
+            this.text_codigo.Size = new System.Drawing.Size(338, 20);
             this.text_codigo.TabIndex = 1;
             // 
             // text_nombre
             // 
-            this.text_nombre.Location = new System.Drawing.Point(43, 233);
-            this.text_nombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.text_nombre.Location = new System.Drawing.Point(32, 189);
             this.text_nombre.Name = "text_nombre";
-            this.text_nombre.Size = new System.Drawing.Size(449, 22);
+            this.text_nombre.Size = new System.Drawing.Size(338, 20);
             this.text_nombre.TabIndex = 2;
             // 
             // Cb_creditos
@@ -76,57 +73,51 @@ namespace CapaPresentacion
             "2",
             "3",
             "4"});
-            this.Cb_creditos.Location = new System.Drawing.Point(48, 335);
-            this.Cb_creditos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Cb_creditos.Location = new System.Drawing.Point(32, 272);
             this.Cb_creditos.Name = "Cb_creditos";
-            this.Cb_creditos.Size = new System.Drawing.Size(180, 24);
+            this.Cb_creditos.Size = new System.Drawing.Size(136, 21);
             this.Cb_creditos.TabIndex = 3;
             // 
             // text_categoria
             // 
-            this.text_categoria.Location = new System.Drawing.Point(280, 335);
-            this.text_categoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.text_categoria.Location = new System.Drawing.Point(210, 272);
             this.text_categoria.Name = "text_categoria";
-            this.text_categoria.Size = new System.Drawing.Size(213, 22);
+            this.text_categoria.Size = new System.Drawing.Size(161, 20);
             this.text_categoria.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 127);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(34, 103);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 16);
+            this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Codigo_curso";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 213);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(33, 173);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 16);
+            this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Nombre";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 293);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(34, 246);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 16);
+            this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Creditos";
             // 
             // btn_agregarCurso
             // 
             this.btn_agregarCurso.BackColor = System.Drawing.Color.YellowGreen;
-            this.btn_agregarCurso.Location = new System.Drawing.Point(185, 453);
-            this.btn_agregarCurso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_agregarCurso.Location = new System.Drawing.Point(119, 382);
             this.btn_agregarCurso.Name = "btn_agregarCurso";
-            this.btn_agregarCurso.Size = new System.Drawing.Size(155, 38);
+            this.btn_agregarCurso.Size = new System.Drawing.Size(116, 31);
             this.btn_agregarCurso.TabIndex = 8;
             this.btn_agregarCurso.Text = "AGREGAR";
             this.btn_agregarCurso.UseVisualStyleBackColor = false;
@@ -135,18 +126,18 @@ namespace CapaPresentacion
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(277, 303);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(207, 246);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 16);
+            this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Categoria";
             // 
             // Frm_AddCurso
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 574);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(407, 466);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_agregarCurso);
             this.Controls.Add(this.label4);
@@ -157,7 +148,6 @@ namespace CapaPresentacion
             this.Controls.Add(this.text_nombre);
             this.Controls.Add(this.text_codigo);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Frm_AddCurso";
             this.Text = "Frm_AddCurso";
             this.ResumeLayout(false);
