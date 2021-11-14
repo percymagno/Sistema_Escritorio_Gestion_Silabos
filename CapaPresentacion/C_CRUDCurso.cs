@@ -25,11 +25,11 @@ namespace CapaPresentacion
         private void MostrarCursos(String str = "")
         {
             DataTable dt;
-            if (str == "")
+            if (str == "") // Mostrar todos los cursos
             {
                 dt = new D_Curso().ObtenerCursos();
             }
-            else
+            else // buscar docentes
             {
                 dt = new D_Curso().BuscarCurso(str);
             }
