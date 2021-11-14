@@ -56,9 +56,17 @@ namespace CapaDatos
             {
                 
                 Abrir();
-                SqlDataReader dr = Comando.ExecuteReader(CommandBehavior.CloseConnection);
+                using (SqlDataReader dr = Comando.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                        dt.Load(dr);
+                    else
+                    {
+                        Console.WriteLine("dr cursos vacio");
+                        dt = null;
+                    }
+                }
                 Cerrar();
-                dt.Load(dr);
                 return dt;
             }
             catch (Exception ex)
@@ -68,19 +76,26 @@ namespace CapaDatos
             }
 
         }
-        public DataTable BuscarCurso(E_Curso Curso)
+        public DataTable BuscarCurso(String Texto)
         {
-            string sql = "SELECT * FROM TCurso WHERE CodCurso = @CodCurso OR Nombre LIKE @Nombre";
+            string sql = "SELECT * FROM TCurso WHERE CodCurso LIKE (@Texto + '%') OR Nombre LIKE (@Texto + '%')";
             SqlCommand Comando = new SqlCommand(sql, Conectar);
-            Comando.Parameters.AddWithValue("@CodCurso", Curso.CodCurso);
-            Comando.Parameters.AddWithValue("@Nombre", Curso.Nombre);
+            Comando.Parameters.AddWithValue("@Texto", Texto);
             DataTable dt = new DataTable();
             try
             {
                 Abrir();
-                SqlDataReader dr = Comando.ExecuteReader(CommandBehavior.CloseConnection);
+                using (SqlDataReader dr = Comando.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                        dt.Load(dr);
+                    else
+                    {
+                        Console.WriteLine("dr cursos vacio");
+                        dt = null;
+                    }
+                }
                 Cerrar();
-                dt.Load(dr);
                 return dt;
             }
             catch (Exception ex)
