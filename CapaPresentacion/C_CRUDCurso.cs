@@ -42,12 +42,30 @@ namespace CapaPresentacion
             AddCurso.Show();
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            if (dgvCursos.Rows.Count > 0)
+            {
+                int index = dgvCursos.SelectedCells[0].RowIndex;
+                if (index >= 0 && index < dgvCursos.Rows.Count - 1)
+                {
+                    String CodCurso = dgvCursos.Rows[index].Cells[0].Value.ToString();
+                    E_Curso Curso = new E_Curso();
+                    Curso.CodCurso = CodCurso;
+                    DialogResult confirm = MessageBox.Show("¿Realmente desea eliminar el curso " + CodCurso + "?", "Sistema de Silabos", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (confirm == DialogResult.OK)
+                    {
+                        if (new D_Curso().EliminarCurso(Curso))
+                            MessageBox.Show("Curso " + CodCurso + " eliminado!");
+                        else
+                            MessageBox.Show("No se pudo eliminar Curso " + CodCurso + "!");
+                        MostrarCursos();
+                    }
+                }
+            }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
 
         }
