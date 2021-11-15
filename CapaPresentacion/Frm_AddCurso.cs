@@ -13,9 +13,24 @@ namespace CapaPresentacion
 {
     public partial class Frm_AddCurso : Form
     {
+        bool editar = false;
         public Frm_AddCurso()
         {
             InitializeComponent();
+        }
+
+        public Frm_AddCurso(E_Curso Curso)
+        {
+
+            editar = true;
+            InitializeComponent();
+            text_codigo.Text = Curso.CodCurso;
+            text_nombre.Text = Curso.Nombre;
+            Cb_creditos.Text = Curso.Creditos.ToString();
+            text_categoria.Text = Curso.Categoria.ToString();
+
+            text_codigo.Enabled = false;
+
         }
 
         private void btn_agregarCurso_Click(object sender, EventArgs e)
@@ -25,13 +40,29 @@ namespace CapaPresentacion
                                             Creditos=(Cb_creditos.SelectedIndex+1),
                                             Categoria=text_categoria.Text};
             D_Curso d_Curso = new D_Curso();
-            if (d_Curso.AgregarCurso(e_Curso))
+
+            if (this.editar)
             {
-                MessageBox.Show("Se agrego correctamenete el curso");
+                if (d_Curso.EditarCurso(e_Curso))
+                {
+                    MessageBox.Show("Se edito correctamenete");
+                }
+                else
+                {
+                    MessageBox.Show("Error. No se pudo editar curso");
+                }
+                Close();
             }
             else
             {
-                MessageBox.Show("Error. No se pudo agregar curso");
+                if (d_Curso.AgregarCurso(e_Curso))
+                {
+                    MessageBox.Show("Se agrego correctamenete el curso");
+                }
+                else
+                {
+                    MessageBox.Show("Error. No se pudo agregar curso");
+                }
             }
         }
     }

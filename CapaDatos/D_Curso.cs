@@ -32,7 +32,7 @@ namespace CapaDatos
             SqlCommand Comando = new SqlCommand(sql, Conectar);
             Comando.Parameters.AddWithValue("@CodCurso", Curso.CodCurso);
             Comando.Parameters.AddWithValue("@Nombre", Curso.Nombre);
-            Comando.Parameters.AddWithValue("@Creditos", 4);
+            Comando.Parameters.AddWithValue("@Creditos", Curso.Creditos);
             Comando.Parameters.AddWithValue("@Categoria", Curso.Categoria);
             try
             {
@@ -106,24 +106,16 @@ namespace CapaDatos
         }
         public bool EditarCurso(E_Curso Curso)
         {
-            string sql = "UPDATE TCurso SET (Nombre = @Nombre, Creditos = @Creditos, Categoria = @Categoria) WHERE CodCurso = @CodCurso";
+            string sql = "UPDATE dbo.TCurso SET Nombre = @Nombre, Creditos = @Creditos, Categoria = @Categoria WHERE CodCurso = @CodCurso";
             SqlCommand Comando = new SqlCommand(sql, Conectar);
             Comando.Parameters.AddWithValue("@CodCurso", Curso.CodCurso);
             Comando.Parameters.AddWithValue("@Nombre", Curso.Nombre);
             Comando.Parameters.AddWithValue("@Creditos", Curso.Creditos);
             Comando.Parameters.AddWithValue("@Categoria", Curso.Categoria);
-            try
-            {
                 Abrir();
                 int res = Comando.ExecuteNonQuery();
                 Cerrar();
                 return res == 1;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("U. Error al tratar de conectar con la base de datos", ex.Message);
-                return false;
-            }
         }
         public bool EliminarCurso(E_Curso Curso)
         {
