@@ -257,6 +257,7 @@ namespace CapaPresentacion
             0,
             0,
             0});
+            this.numMartesFin.Enter += new System.EventHandler(this.numMartesFin_Enter);
             // 
             // numMartesIni
             // 
@@ -387,9 +388,11 @@ namespace CapaPresentacion
             0,
             0,
             0});
+            this.numLunesFin.Enter += new System.EventHandler(this.numLunesFin_Enter);
             // 
             // numLunesIni
             // 
+            this.numLunesIni.ForeColor = System.Drawing.SystemColors.WindowText;
             this.numLunesIni.Location = new System.Drawing.Point(0, 0);
             this.numLunesIni.Maximum = new decimal(new int[] {
             20,
@@ -496,6 +499,7 @@ namespace CapaPresentacion
             0,
             0,
             0});
+            this.numMiercolesFin.Enter += new System.EventHandler(this.numMiercolesFin_Enter);
             // 
             // numMiercolesIni
             // 
@@ -573,6 +577,7 @@ namespace CapaPresentacion
             0,
             0,
             0});
+            this.numViernesFin.Enter += new System.EventHandler(this.numViernesFin_Enter);
             // 
             // numViernesIni
             // 
@@ -650,6 +655,7 @@ namespace CapaPresentacion
             0,
             0,
             0});
+            this.numSabadoFin.Enter += new System.EventHandler(this.numSabadoFin_Enter);
             // 
             // numSabadoIni
             // 
@@ -727,6 +733,7 @@ namespace CapaPresentacion
             0,
             0,
             0});
+            this.numJuevesFin.Enter += new System.EventHandler(this.numJuevesFin_Enter);
             // 
             // numJuevesIni
             // 

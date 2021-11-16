@@ -32,6 +32,11 @@ namespace CapaPresentacion
             text_codigo.Enabled = false;
 
         }
+        #region Validacion
+        private bool Validar()
+        {
+            return (VerificarCampos() && VerificarHorarios());
+        }
         private bool VerificarCampos()
         {
             bool valido = true;
@@ -48,6 +53,44 @@ namespace CapaPresentacion
             if (!valido) MessageBox.Show("Campo vacío!!!");
             return valido;
         }
+        private bool VerificarHorarios()
+        {
+            bool valido = true;
+            // Check Lunes
+            if (checkLunes.Checked && numLunesIni.Value >= numLunesFin.Value)
+            {
+                valido = false;
+                numLunesFin.ForeColor = Color.Red;
+            }
+            else if (checkMartes.Checked && numMartesIni.Value >= numMartesFin.Value)
+            {
+                valido = false;
+                numMartesFin.ForeColor = Color.Red;
+            }
+            else if(checkMiercoles.Checked && numMiercolesIni.Value >= numMiercolesFin.Value)
+            {
+                valido = false;
+                numMiercolesFin.ForeColor = Color.Red;
+            }
+            else if(checkJueves.Checked && numJuevesIni.Value >= numJuevesFin.Value)
+            {
+                valido = false;
+                numJuevesFin.ForeColor =  Color.Red;
+            }
+            else if(checkViernes.Checked && numViernesIni.Value >= numViernesFin.Value)
+            {
+                valido = false;
+                numViernesFin.ForeColor = Color.Red;
+            }
+            else if(checkSabado.Checked && numSabadoIni.Value >= numSabadoFin.Value)
+            {
+                valido = false;
+                numSabadoFin.ForeColor = Color.Red;
+            }
+            if (!valido) MessageBox.Show("Error! La hora de inicio debe ser menor a la hora de fin");
+            return valido;
+        }
+        #endregion validacion
         private void RellenarDocentes()
         {
             DataTable dt = new D_Docente().MostrarDocentes();
@@ -59,13 +102,13 @@ namespace CapaPresentacion
 
         private void btn_agregarCurso_Click(object sender, EventArgs e)
         {
-            if (VerificarCampos())
+            if (Validar())
             {
                 E_Curso e_Curso = new E_Curso
                 {
                     CodCurso = text_codigo.Text,
                     Nombre = text_nombre.Text,
-                    Creditos = (Cb_creditos.SelectedIndex + 1),
+                    Creditos = Int32.Parse(Cb_creditos.SelectedItem.ToString()),
                     Categoria = text_categoria.Text
                 };
                 D_Curso d_Curso = new D_Curso();
@@ -73,25 +116,18 @@ namespace CapaPresentacion
                 if (this.editar)
                 {
                     if (d_Curso.EditarCurso(e_Curso))
-                    {
                         MessageBox.Show("Se edito correctamenete");
-                    }
                     else
-                    {
-                        MessageBox.Show("Error. No se pudo editar curso");
-                    }
+                        MessageBox.Show("Error. Curso no editado");
                     Close();
                 }
                 else
                 {
                     if (d_Curso.AgregarCurso(e_Curso))
-                    {
-                        MessageBox.Show("Se agrego correctamenete el curso");
-                    }
+                        MessageBox.Show("Se agrego correctamente");
                     else
-                    {
-                        MessageBox.Show("Error. No se pudo agregar curso");
-                    }
+                        MessageBox.Show("Error. Curso no agregado");
+                    reestablecer();
                 }
             }
         }
@@ -133,6 +169,23 @@ namespace CapaPresentacion
         }
         #endregion Checkbox
 
+        #region restablecer
+        private void reestablecer()
+        {
+            // texbox
+            text_codigo.Text = "";
+            text_nombre.Text = "";
+            Cb_creditos.SelectedItem = "4";
+            text_categoria.Text = "";
+            cbDocente.SelectedItem = "";
+            // checkbox
+            checkLunes.Checked = false;
+            checkMartes.Checked = false;
+            checkMiercoles.Checked = false;
+            checkJueves.Checked = false;
+            checkViernes.Checked = false;
+            checkSabado.Checked = false;
+        }
         private void text_codigo_Enter(object sender, EventArgs e)
         {
             lblCodCurso.ForeColor = Color.Black;
@@ -142,5 +195,36 @@ namespace CapaPresentacion
         {
             lblNombre.ForeColor = Color.Black;
         }
+
+        private void numLunesFin_Enter(object sender, EventArgs e)
+        {
+            numLunesFin.ForeColor = Color.Black;        
+        }
+
+        private void numMartesFin_Enter(object sender, EventArgs e)
+        {
+            numMartesFin.ForeColor = Color.Black;
+        }
+
+        private void numMiercolesFin_Enter(object sender, EventArgs e)
+        {
+            numMiercolesFin.ForeColor = Color.Black;
+        }
+
+        private void numJuevesFin_Enter(object sender, EventArgs e)
+        {
+            numJuevesFin.ForeColor = Color.Black;
+        }
+
+        private void numViernesFin_Enter(object sender, EventArgs e)
+        {
+            numViernesFin.ForeColor = Color.Black;
+        }
+
+        private void numSabadoFin_Enter(object sender, EventArgs e)
+        {
+            numSabadoFin.ForeColor = Color.Black;
+        }
+        #endregion reestablecer
     }
 }
