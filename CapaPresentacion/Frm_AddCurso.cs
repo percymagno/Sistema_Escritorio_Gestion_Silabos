@@ -31,6 +31,8 @@ namespace CapaPresentacion
 
             text_codigo.Enabled = false;
 
+            btn_agregarCurso.Text = "EDITAR";
+
         }
         #region Validacion
         private bool Validar()
