@@ -139,7 +139,6 @@ namespace CapaPresentacion
             "5"});
             this.Cb_creditos.Location = new System.Drawing.Point(34, 161);
             this.Cb_creditos.Name = "Cb_creditos";
-            this.Cb_creditos.SelectedItem = "4";
             this.Cb_creditos.Size = new System.Drawing.Size(136, 21);
             this.Cb_creditos.TabIndex = 3;
             // 
@@ -179,10 +178,12 @@ namespace CapaPresentacion
             // 
             // btn_agregarCurso
             // 
-            this.btn_agregarCurso.BackColor = System.Drawing.Color.YellowGreen;
-            this.btn_agregarCurso.Location = new System.Drawing.Point(182, 423);
+            this.btn_agregarCurso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(0)))));
+            this.btn_agregarCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregarCurso.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_agregarCurso.Location = new System.Drawing.Point(120, 418);
             this.btn_agregarCurso.Name = "btn_agregarCurso";
-            this.btn_agregarCurso.Size = new System.Drawing.Size(116, 31);
+            this.btn_agregarCurso.Size = new System.Drawing.Size(250, 35);
             this.btn_agregarCurso.TabIndex = 8;
             this.btn_agregarCurso.Text = "AGREGAR";
             this.btn_agregarCurso.UseVisualStyleBackColor = false;
@@ -830,6 +831,9 @@ namespace CapaPresentacion
             this.Controls.Add(this.Cb_creditos);
             this.Controls.Add(this.text_nombre);
             this.Controls.Add(this.text_codigo);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(490, 500);
+            this.MinimumSize = new System.Drawing.Size(490, 500);
             this.Name = "Frm_AddCurso";
             ((System.ComponentModel.ISupportInitialize)(this.numMartesFin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMartesIni)).EndInit();
