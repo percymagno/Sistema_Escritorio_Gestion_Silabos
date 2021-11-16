@@ -29,7 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.text_codigo = new System.Windows.Forms.TextBox();
             this.text_nombre = new System.Windows.Forms.TextBox();
             this.Cb_creditos = new System.Windows.Forms.ComboBox();
@@ -41,15 +41,15 @@ namespace CapaPresentacion
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(133, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "CURSOS";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(123, 32);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(158, 37);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "CURSOS";
             // 
             // text_codigo
             // 
@@ -147,7 +147,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.Cb_creditos);
             this.Controls.Add(this.text_nombre);
             this.Controls.Add(this.text_codigo);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
             this.Name = "Frm_AddCurso";
             this.Text = "Frm_AddCurso";
             this.ResumeLayout(false);
@@ -157,7 +157,7 @@ namespace CapaPresentacion
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox text_codigo;
         private System.Windows.Forms.TextBox text_nombre;
         private System.Windows.Forms.ComboBox Cb_creditos;
