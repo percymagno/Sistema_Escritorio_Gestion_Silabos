@@ -39,9 +39,16 @@ namespace CapaDatos
             {
 
                 Abrir();
-                SqlDataReader dr = Comando.ExecuteReader(CommandBehavior.CloseConnection);
+                using (SqlDataReader dr = Comando.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                        dt.Load(dr);
+                    else
+                    {
+                        dt = null;
+                    }
+                }
                 Cerrar();
-                dt.Load(dr);
                 return dt;
             }
             catch (Exception ex)
@@ -65,9 +72,16 @@ namespace CapaDatos
             try
             {
                 Abrir();
-                SqlDataReader dr = Comando.ExecuteReader(CommandBehavior.CloseConnection);
+                using (SqlDataReader dr = Comando.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                        dt.Load(dr);
+                    else
+                    {
+                        dt = null;
+                    }
+                }
                 Cerrar();
-                dt.Load(dr);
                 return dt;
             }
             catch (Exception ex)
