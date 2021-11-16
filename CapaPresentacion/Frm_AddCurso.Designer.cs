@@ -106,7 +106,7 @@ namespace CapaPresentacion
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(177, 10);
+            this.lblTitulo.Location = new System.Drawing.Point(177, 1);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(136, 37);
             this.lblTitulo.TabIndex = 0;
@@ -114,7 +114,7 @@ namespace CapaPresentacion
             // 
             // text_codigo
             // 
-            this.text_codigo.Location = new System.Drawing.Point(34, 69);
+            this.text_codigo.Location = new System.Drawing.Point(34, 57);
             this.text_codigo.Name = "text_codigo";
             this.text_codigo.Size = new System.Drawing.Size(396, 20);
             this.text_codigo.TabIndex = 1;
@@ -122,7 +122,7 @@ namespace CapaPresentacion
             // 
             // text_nombre
             // 
-            this.text_nombre.Location = new System.Drawing.Point(34, 113);
+            this.text_nombre.Location = new System.Drawing.Point(34, 101);
             this.text_nombre.Name = "text_nombre";
             this.text_nombre.Size = new System.Drawing.Size(396, 20);
             this.text_nombre.TabIndex = 2;
@@ -137,14 +137,14 @@ namespace CapaPresentacion
             "3",
             "4",
             "5"});
-            this.Cb_creditos.Location = new System.Drawing.Point(34, 161);
+            this.Cb_creditos.Location = new System.Drawing.Point(34, 149);
             this.Cb_creditos.Name = "Cb_creditos";
             this.Cb_creditos.Size = new System.Drawing.Size(136, 21);
             this.Cb_creditos.TabIndex = 3;
             // 
             // text_categoria
             // 
-            this.text_categoria.Location = new System.Drawing.Point(269, 161);
+            this.text_categoria.Location = new System.Drawing.Point(269, 149);
             this.text_categoria.Name = "text_categoria";
             this.text_categoria.Size = new System.Drawing.Size(161, 20);
             this.text_categoria.TabIndex = 4;
@@ -152,7 +152,7 @@ namespace CapaPresentacion
             // lblCodCurso
             // 
             this.lblCodCurso.AutoSize = true;
-            this.lblCodCurso.Location = new System.Drawing.Point(31, 53);
+            this.lblCodCurso.Location = new System.Drawing.Point(31, 41);
             this.lblCodCurso.Name = "lblCodCurso";
             this.lblCodCurso.Size = new System.Drawing.Size(73, 13);
             this.lblCodCurso.TabIndex = 5;
@@ -161,7 +161,7 @@ namespace CapaPresentacion
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(31, 97);
+            this.lblNombre.Location = new System.Drawing.Point(31, 85);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(48, 13);
             this.lblNombre.TabIndex = 6;
@@ -170,7 +170,7 @@ namespace CapaPresentacion
             // lblCreditos
             // 
             this.lblCreditos.AutoSize = true;
-            this.lblCreditos.Location = new System.Drawing.Point(31, 145);
+            this.lblCreditos.Location = new System.Drawing.Point(31, 133);
             this.lblCreditos.Name = "lblCreditos";
             this.lblCreditos.Size = new System.Drawing.Size(45, 13);
             this.lblCreditos.TabIndex = 7;
@@ -181,7 +181,7 @@ namespace CapaPresentacion
             this.btn_agregarCurso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(0)))));
             this.btn_agregarCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_agregarCurso.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_agregarCurso.Location = new System.Drawing.Point(120, 418);
+            this.btn_agregarCurso.Location = new System.Drawing.Point(120, 402);
             this.btn_agregarCurso.Name = "btn_agregarCurso";
             this.btn_agregarCurso.Size = new System.Drawing.Size(250, 35);
             this.btn_agregarCurso.TabIndex = 8;
@@ -192,7 +192,7 @@ namespace CapaPresentacion
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(266, 145);
+            this.lblCategoria.Location = new System.Drawing.Point(266, 133);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(52, 13);
             this.lblCategoria.TabIndex = 9;
@@ -201,7 +201,7 @@ namespace CapaPresentacion
             // lblCodDocente
             // 
             this.lblCodDocente.AutoSize = true;
-            this.lblCodDocente.Location = new System.Drawing.Point(31, 215);
+            this.lblCodDocente.Location = new System.Drawing.Point(31, 203);
             this.lblCodDocente.Name = "lblCodDocente";
             this.lblCodDocente.Size = new System.Drawing.Size(84, 13);
             this.lblCodDocente.TabIndex = 10;
@@ -211,7 +211,7 @@ namespace CapaPresentacion
             // 
             this.cbDocente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDocente.FormattingEnabled = true;
-            this.cbDocente.Location = new System.Drawing.Point(34, 231);
+            this.cbDocente.Location = new System.Drawing.Point(34, 219);
             this.cbDocente.Name = "cbDocente";
             this.cbDocente.Size = new System.Drawing.Size(136, 21);
             this.cbDocente.TabIndex = 11;
@@ -219,7 +219,7 @@ namespace CapaPresentacion
             // lblHorario
             // 
             this.lblHorario.AutoSize = true;
-            this.lblHorario.Location = new System.Drawing.Point(31, 282);
+            this.lblHorario.Location = new System.Drawing.Point(31, 270);
             this.lblHorario.Name = "lblHorario";
             this.lblHorario.Size = new System.Drawing.Size(41, 13);
             this.lblHorario.TabIndex = 12;
@@ -228,7 +228,7 @@ namespace CapaPresentacion
             // checkLunes
             // 
             this.checkLunes.AutoSize = true;
-            this.checkLunes.Location = new System.Drawing.Point(34, 318);
+            this.checkLunes.Location = new System.Drawing.Point(34, 306);
             this.checkLunes.Name = "checkLunes";
             this.checkLunes.Size = new System.Drawing.Size(44, 17);
             this.checkLunes.TabIndex = 14;
@@ -285,7 +285,7 @@ namespace CapaPresentacion
             // checkMartes
             // 
             this.checkMartes.AutoSize = true;
-            this.checkMartes.Location = new System.Drawing.Point(34, 344);
+            this.checkMartes.Location = new System.Drawing.Point(34, 332);
             this.checkMartes.Name = "checkMartes";
             this.checkMartes.Size = new System.Drawing.Size(44, 17);
             this.checkMartes.TabIndex = 17;
@@ -296,7 +296,7 @@ namespace CapaPresentacion
             // checkMiercoles
             // 
             this.checkMiercoles.AutoSize = true;
-            this.checkMiercoles.Location = new System.Drawing.Point(34, 370);
+            this.checkMiercoles.Location = new System.Drawing.Point(34, 358);
             this.checkMiercoles.Name = "checkMiercoles";
             this.checkMiercoles.Size = new System.Drawing.Size(43, 17);
             this.checkMiercoles.TabIndex = 20;
@@ -307,7 +307,7 @@ namespace CapaPresentacion
             // checkJueves
             // 
             this.checkJueves.AutoSize = true;
-            this.checkJueves.Location = new System.Drawing.Point(246, 319);
+            this.checkJueves.Location = new System.Drawing.Point(246, 307);
             this.checkJueves.Name = "checkJueves";
             this.checkJueves.Size = new System.Drawing.Size(43, 17);
             this.checkJueves.TabIndex = 23;
@@ -318,7 +318,7 @@ namespace CapaPresentacion
             // checkViernes
             // 
             this.checkViernes.AutoSize = true;
-            this.checkViernes.Location = new System.Drawing.Point(246, 345);
+            this.checkViernes.Location = new System.Drawing.Point(246, 333);
             this.checkViernes.Name = "checkViernes";
             this.checkViernes.Size = new System.Drawing.Size(41, 17);
             this.checkViernes.TabIndex = 26;
@@ -329,7 +329,7 @@ namespace CapaPresentacion
             // checkSabado
             // 
             this.checkSabado.AutoSize = true;
-            this.checkSabado.Location = new System.Drawing.Point(246, 370);
+            this.checkSabado.Location = new System.Drawing.Point(246, 358);
             this.checkSabado.Name = "checkSabado";
             this.checkSabado.Size = new System.Drawing.Size(45, 17);
             this.checkSabado.TabIndex = 29;
@@ -340,7 +340,7 @@ namespace CapaPresentacion
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(181, 300);
+            this.label6.Location = new System.Drawing.Point(181, 288);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 13);
             this.label6.TabIndex = 34;
@@ -349,7 +349,7 @@ namespace CapaPresentacion
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(394, 300);
+            this.label7.Location = new System.Drawing.Point(394, 288);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(33, 13);
             this.label7.TabIndex = 45;
@@ -362,7 +362,7 @@ namespace CapaPresentacion
             this.pnlLunes.Controls.Add(this.rbLunesPra);
             this.pnlLunes.Controls.Add(this.rbLunesTeo);
             this.pnlLunes.Enabled = false;
-            this.pnlLunes.Location = new System.Drawing.Point(84, 316);
+            this.pnlLunes.Location = new System.Drawing.Point(84, 304);
             this.pnlLunes.Name = "pnlLunes";
             this.pnlLunes.Size = new System.Drawing.Size(133, 20);
             this.pnlLunes.TabIndex = 47;
@@ -441,7 +441,7 @@ namespace CapaPresentacion
             this.pnlMartes.Controls.Add(this.numMartesFin);
             this.pnlMartes.Controls.Add(this.numMartesIni);
             this.pnlMartes.Enabled = false;
-            this.pnlMartes.Location = new System.Drawing.Point(84, 343);
+            this.pnlMartes.Location = new System.Drawing.Point(84, 331);
             this.pnlMartes.Name = "pnlMartes";
             this.pnlMartes.Size = new System.Drawing.Size(133, 20);
             this.pnlMartes.TabIndex = 48;
@@ -473,7 +473,7 @@ namespace CapaPresentacion
             this.pnlMiercoles.Controls.Add(this.rbMiercolesPra);
             this.pnlMiercoles.Controls.Add(this.rbMiercolesTeo);
             this.pnlMiercoles.Enabled = false;
-            this.pnlMiercoles.Location = new System.Drawing.Point(84, 368);
+            this.pnlMiercoles.Location = new System.Drawing.Point(84, 356);
             this.pnlMiercoles.Name = "pnlMiercoles";
             this.pnlMiercoles.Size = new System.Drawing.Size(133, 20);
             this.pnlMiercoles.TabIndex = 48;
@@ -551,7 +551,7 @@ namespace CapaPresentacion
             this.pnlViernes.Controls.Add(this.rbViernesPra);
             this.pnlViernes.Controls.Add(this.rbViernesTeo);
             this.pnlViernes.Enabled = false;
-            this.pnlViernes.Location = new System.Drawing.Point(296, 342);
+            this.pnlViernes.Location = new System.Drawing.Point(296, 330);
             this.pnlViernes.Name = "pnlViernes";
             this.pnlViernes.Size = new System.Drawing.Size(133, 20);
             this.pnlViernes.TabIndex = 49;
@@ -629,7 +629,7 @@ namespace CapaPresentacion
             this.pnlSabado.Controls.Add(this.rbSabadoPra);
             this.pnlSabado.Controls.Add(this.rbSabadoTeo);
             this.pnlSabado.Enabled = false;
-            this.pnlSabado.Location = new System.Drawing.Point(296, 368);
+            this.pnlSabado.Location = new System.Drawing.Point(296, 356);
             this.pnlSabado.Name = "pnlSabado";
             this.pnlSabado.Size = new System.Drawing.Size(133, 20);
             this.pnlSabado.TabIndex = 50;
@@ -707,7 +707,7 @@ namespace CapaPresentacion
             this.pnlJueves.Controls.Add(this.rbJuevesPra);
             this.pnlJueves.Controls.Add(this.rbJuevesTeo);
             this.pnlJueves.Enabled = false;
-            this.pnlJueves.Location = new System.Drawing.Point(296, 316);
+            this.pnlJueves.Location = new System.Drawing.Point(296, 304);
             this.pnlJueves.Name = "pnlJueves";
             this.pnlJueves.Size = new System.Drawing.Size(133, 20);
             this.pnlJueves.TabIndex = 50;
@@ -781,7 +781,7 @@ namespace CapaPresentacion
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(81, 300);
+            this.label8.Location = new System.Drawing.Point(81, 288);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 13);
             this.label8.TabIndex = 51;
@@ -790,7 +790,7 @@ namespace CapaPresentacion
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(293, 301);
+            this.label9.Location = new System.Drawing.Point(293, 289);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 13);
             this.label9.TabIndex = 52;
