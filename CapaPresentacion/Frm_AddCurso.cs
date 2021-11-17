@@ -97,14 +97,17 @@ namespace CapaPresentacion
         private void RellenarDocentes(String CodDocente = "")
         {
             DataTable dt = new D_Docente().MostrarDocentes();
-            DataRow row = dt.NewRow();
-            row["CodDocente"] = "";
-            row["Paterno"] = "";
-            row["Materno"] = "";
-            row["Nombres"] = "-- Vacio --";
-            row["Departamento"] = "";
-            row["Correo"] = "";
-            dt.Rows.InsertAt(row, 0);
+            if (dt != null)
+            {
+                DataRow row = dt.NewRow();
+                row["CodDocente"] = "";
+                row["Paterno"] = "";
+                row["Materno"] = "";
+                row["Nombres"] = "-- Vacio --";
+                row["Departamento"] = "";
+                row["Correo"] = "";
+                dt.Rows.InsertAt(row, 0);
+            }
             cbDocente.DataSource = dt;
             cbDocente.DisplayMember = "Nombres";
             cbDocente.ValueMember = "CodDocente";
