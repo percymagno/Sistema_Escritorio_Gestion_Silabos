@@ -24,6 +24,7 @@ namespace CapaPresentacion
 
             editar = true;
             InitializeComponent();
+            RellenarDocentes();
             text_codigo.Text = Curso.CodCurso;
             text_nombre.Text = Curso.Nombre;
             Cb_creditos.Text = Curso.Creditos.ToString();
@@ -93,13 +94,21 @@ namespace CapaPresentacion
             return valido;
         }
         #endregion validacion
-        private void RellenarDocentes()
+        private void RellenarDocentes(String CodDocente = "")
         {
             DataTable dt = new D_Docente().MostrarDocentes();
+            DataRow row = dt.NewRow();
+            row["CodDocente"] = "";
+            row["Paterno"] = "";
+            row["Materno"] = "";
+            row["Nombres"] = "-- Vacio --";
+            row["Departamento"] = "";
+            row["Correo"] = "";
+            dt.Rows.InsertAt(row, 0);
             cbDocente.DataSource = dt;
-            cbDocente.DisplayMember = "CodDocente";
+            cbDocente.DisplayMember = "Nombres";
             cbDocente.ValueMember = "CodDocente";
-            cbDocente.Enabled = true;
+            cbDocente.SelectedValue = CodDocente;
         }
 
         private void btn_agregarCurso_Click(object sender, EventArgs e)
