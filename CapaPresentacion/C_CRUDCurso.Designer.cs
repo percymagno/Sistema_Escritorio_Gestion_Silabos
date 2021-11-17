@@ -79,6 +79,7 @@ namespace CapaPresentacion
             this.dgvCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCursos.Size = new System.Drawing.Size(800, 400);
             this.dgvCursos.TabIndex = 1;
+            this.dgvCursos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCursos_CellDoubleClick);
             // 
             // panel1
             // 

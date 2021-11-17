@@ -179,9 +179,11 @@ namespace CapaPresentacion
             // btn_agregarCurso
             // 
             this.btn_agregarCurso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(0)))));
+            this.btn_agregarCurso.FlatAppearance.BorderSize = 0;
+            this.btn_agregarCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_agregarCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_agregarCurso.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_agregarCurso.Location = new System.Drawing.Point(120, 402);
+            this.btn_agregarCurso.Location = new System.Drawing.Point(110, 402);
             this.btn_agregarCurso.Name = "btn_agregarCurso";
             this.btn_agregarCurso.Size = new System.Drawing.Size(250, 35);
             this.btn_agregarCurso.TabIndex = 8;
