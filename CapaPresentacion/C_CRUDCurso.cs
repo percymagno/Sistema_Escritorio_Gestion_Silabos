@@ -110,5 +110,27 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (tbBuscar.Text != "" && tbBuscar.Text != "Buscar")
+            {
+
+            }
+        }
+
+        private void tbBuscar_Leave(object sender, EventArgs e)
+        {
+            if (tbBuscar.Text == "")
+                tbBuscar.Text = "Buscar";
+            if (tbBuscar.Text == "Buscar")
+                tbBuscar.ForeColor = Color.FromArgb(100, 100, 100);
+        }
+
+        private void tbBuscar_Click(object sender, EventArgs e)
+        {
+            tbBuscar.SelectAll();
+            tbBuscar.ForeColor = Color.Black;
+        }
     }
 }

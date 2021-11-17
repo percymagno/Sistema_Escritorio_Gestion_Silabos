@@ -34,6 +34,8 @@ namespace CapaPresentacion
             this.dgvCursos = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbBuscar = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -94,18 +96,43 @@ namespace CapaPresentacion
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.tbBuscar);
             this.panel2.Controls.Add(this.btnEliminar);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnAgregar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(617, 0);
+            this.panel2.Location = new System.Drawing.Point(410, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(183, 50);
+            this.panel2.Size = new System.Drawing.Size(390, 50);
             this.panel2.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Location = new System.Drawing.Point(13, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(180, 1);
+            this.label2.TabIndex = 7;
+            // 
+            // tbBuscar
+            // 
+            this.tbBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.tbBuscar.Location = new System.Drawing.Point(13, 16);
+            this.tbBuscar.Multiline = true;
+            this.tbBuscar.Name = "tbBuscar";
+            this.tbBuscar.Size = new System.Drawing.Size(180, 20);
+            this.tbBuscar.TabIndex = 6;
+            this.tbBuscar.Text = "Buscar";
+            this.tbBuscar.Click += new System.EventHandler(this.tbBuscar_Click);
+            this.tbBuscar.TextChanged += new System.EventHandler(this.tbBuscar_TextChanged);
+            this.tbBuscar.Leave += new System.EventHandler(this.tbBuscar_Leave);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(125, 9);
+            this.btnEliminar.Location = new System.Drawing.Point(330, 9);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(55, 30);
             this.btnEliminar.TabIndex = 5;
@@ -115,7 +142,7 @@ namespace CapaPresentacion
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(65, 9);
+            this.btnEditar.Location = new System.Drawing.Point(270, 9);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(55, 30);
             this.btnEditar.TabIndex = 4;
@@ -125,7 +152,7 @@ namespace CapaPresentacion
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(4, 9);
+            this.btnAgregar.Location = new System.Drawing.Point(209, 9);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(55, 30);
             this.btnAgregar.TabIndex = 3;
@@ -156,6 +183,7 @@ namespace CapaPresentacion
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -168,5 +196,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbBuscar;
     }
 }
