@@ -69,7 +69,6 @@ namespace CapaPresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
             if (dgvCursos.Rows.Count > 0)
             {
                 int index = dgvCursos.SelectedCells[0].RowIndex;
@@ -88,6 +87,50 @@ namespace CapaPresentacion
                     AddCurso.Show();
                 }
             }
+        }
+
+        private void dgvCursos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCursos.Rows.Count > 0)
+            {
+                int index = dgvCursos.SelectedCells[0].RowIndex;
+                if (index >= 0 && index < dgvCursos.Rows.Count - 1)
+                {
+                    E_Curso Curso = new E_Curso();
+                    Curso.CodCurso = dgvCursos.Rows[index].Cells[0].Value.ToString();
+                    Curso.Nombre = dgvCursos.Rows[index].Cells[1].Value.ToString();
+                    Curso.Creditos = Int32.Parse(dgvCursos.Rows[index].Cells[2].Value.ToString());
+                    Curso.Categoria = dgvCursos.Rows[index].Cells[3].Value.ToString();
+
+
+                    Frm_AddCurso AddCurso = new Frm_AddCurso(Curso);
+                    AddCurso.FormClosed += new FormClosedEventHandler(Form_Closed);
+                    void Form_Closed(object sndr, FormClosedEventArgs E) { MostrarCursos(); }
+                    AddCurso.Show();
+                }
+            }
+        }
+
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (tbBuscar.Text != "" && tbBuscar.Text != "Buscar")
+            {
+
+            }
+        }
+
+        private void tbBuscar_Leave(object sender, EventArgs e)
+        {
+            if (tbBuscar.Text == "")
+                tbBuscar.Text = "Buscar";
+            if (tbBuscar.Text == "Buscar")
+                tbBuscar.ForeColor = Color.FromArgb(100, 100, 100);
+        }
+
+        private void tbBuscar_Click(object sender, EventArgs e)
+        {
+            tbBuscar.SelectAll();
+            tbBuscar.ForeColor = Color.Black;
         }
     }
 }
