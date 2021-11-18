@@ -113,10 +113,10 @@ namespace CapaPresentacion
 
         private void tbBuscar_TextChanged(object sender, EventArgs e)
         {
-            if (tbBuscar.Text != "" && tbBuscar.Text != "Buscar")
-            {
-
-            }
+            if(tbBuscar.Text == "")
+                MostrarCursos();
+            else if (tbBuscar.Text != "Buscar")
+                MostrarCursos(tbBuscar.Text);
         }
 
         private void tbBuscar_Leave(object sender, EventArgs e)
