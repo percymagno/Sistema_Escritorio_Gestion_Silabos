@@ -117,11 +117,11 @@ namespace CapaDatos
                 Cerrar();
                 return res == 1;
         }
-        public bool EliminarCurso(E_Curso Curso)
+        public bool EliminarCurso(string CodCurso)
         {
             string sql = "DELETE FROM TCurso WHERE CodCurso = @CodCurso";
             SqlCommand Comando = new SqlCommand(sql, Conectar);
-            Comando.Parameters.AddWithValue("@CodCurso", Curso.CodCurso);
+            Comando.Parameters.AddWithValue("@CodCurso", CodCurso);
             try
             {
                 Abrir();
