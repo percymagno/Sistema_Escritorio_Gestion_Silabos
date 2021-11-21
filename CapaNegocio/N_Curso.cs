@@ -41,7 +41,7 @@ namespace CapaNegocio
         }
         public DataTable BuscarCurso(String Texto)
         {
-            return BuscarCurso(Texto);
+            return d_Curso.BuscarCurso(Texto);
         }
         public bool EditarCurso()
         {
