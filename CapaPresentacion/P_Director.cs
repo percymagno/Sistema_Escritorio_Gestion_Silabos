@@ -159,6 +159,7 @@ namespace CapaPresentacion
         {
             this.c_CRUDDocente1.BringToFront();
             this.btnDocentes.BackColor = Color.White;
+            this.btnCarga.BackColor = Color.FromArgb(68, 170, 211);
             this.btnCursos.BackColor = Color.FromArgb(68, 170, 211);
         }
 
@@ -166,6 +167,15 @@ namespace CapaPresentacion
         {
             this.c_CRUDCurso1.BringToFront();
             this.btnCursos.BackColor = Color.White;
+            this.btnCarga.BackColor = Color.FromArgb(68, 170, 211);
+            this.btnDocentes.BackColor = Color.FromArgb(68, 170, 211);
+        }
+
+        private void btnCarga_Click(object sender, EventArgs e)
+        {
+            //this.c_CRUDCurso1.BringToFront();
+            this.btnCarga.BackColor = Color.White;
+            this.btnCursos.BackColor = Color.FromArgb(68, 170, 211);
             this.btnDocentes.BackColor = Color.FromArgb(68, 170, 211);
         }
     }
