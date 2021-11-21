@@ -38,6 +38,7 @@ namespace CapaPresentacion
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnCarga = new System.Windows.Forms.Button();
             this.btnCursos = new System.Windows.Forms.Button();
             this.btnDocentes = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -46,7 +47,6 @@ namespace CapaPresentacion
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.btnCarga = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panelLeft.SuspendLayout();
@@ -158,6 +158,22 @@ namespace CapaPresentacion
             this.panel4.Size = new System.Drawing.Size(200, 280);
             this.panel4.TabIndex = 3;
             // 
+            // btnCarga
+            // 
+            this.btnCarga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(170)))), ((int)(((byte)(211)))));
+            this.btnCarga.FlatAppearance.BorderSize = 0;
+            this.btnCarga.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(0)))));
+            this.btnCarga.Location = new System.Drawing.Point(0, 90);
+            this.btnCarga.Name = "btnCarga";
+            this.btnCarga.Size = new System.Drawing.Size(200, 40);
+            this.btnCarga.TabIndex = 2;
+            this.btnCarga.Text = "Carga";
+            this.btnCarga.UseVisualStyleBackColor = false;
+            this.btnCarga.Click += new System.EventHandler(this.btnCarga_Click);
+            // 
             // btnCursos
             // 
             this.btnCursos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(170)))), ((int)(((byte)(211)))));
@@ -253,22 +269,6 @@ namespace CapaPresentacion
             this.panelMain.Padding = new System.Windows.Forms.Padding(10, 0, 7, 7);
             this.panelMain.Size = new System.Drawing.Size(600, 420);
             this.panelMain.TabIndex = 5;
-            // 
-            // btnCarga
-            // 
-            this.btnCarga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(170)))), ((int)(((byte)(211)))));
-            this.btnCarga.FlatAppearance.BorderSize = 0;
-            this.btnCarga.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnCarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(0)))));
-            this.btnCarga.Location = new System.Drawing.Point(0, 90);
-            this.btnCarga.Name = "btnCarga";
-            this.btnCarga.Size = new System.Drawing.Size(200, 40);
-            this.btnCarga.TabIndex = 2;
-            this.btnCarga.Text = "Carga";
-            this.btnCarga.UseVisualStyleBackColor = false;
-            this.btnCarga.Click += new System.EventHandler(this.btnCarga_Click);
             // 
             // P_Director
             // 
