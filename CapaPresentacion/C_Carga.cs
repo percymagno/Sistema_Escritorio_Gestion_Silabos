@@ -27,6 +27,9 @@ namespace CapaPresentacion
                 Excel excel = new Excel(file, 1);
 
                 MessageBox.Show(excel.ReadCell(2,2));
+
+                MessageBox.Show(excel.nroRows().ToString());
+                MessageBox.Show(excel.nroCols().ToString());
             }
         }
     }
