@@ -46,8 +46,7 @@ namespace CapaPresentacion
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.c_CRUDDocente1 = new CapaPresentacion.C_CRUDDocente();
-            this.c_CRUDCurso1 = new CapaPresentacion.C_CRUDCurso();
+            this.btnCarga = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panelLeft.SuspendLayout();
@@ -55,7 +54,6 @@ namespace CapaPresentacion
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxUsuario)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTop
@@ -151,6 +149,7 @@ namespace CapaPresentacion
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnCarga);
             this.panel4.Controls.Add(this.btnCursos);
             this.panel4.Controls.Add(this.btnDocentes);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
@@ -248,31 +247,28 @@ namespace CapaPresentacion
             // 
             // panelMain
             // 
-            this.panelMain.Controls.Add(this.c_CRUDCurso1);
-            this.panelMain.Controls.Add(this.c_CRUDDocente1);
-            this.panelMain.Padding = new System.Windows.Forms.Padding(10, 0, 7, 7);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(202, 32);
             this.panelMain.Name = "panelMain";
+            this.panelMain.Padding = new System.Windows.Forms.Padding(10, 0, 7, 7);
             this.panelMain.Size = new System.Drawing.Size(600, 420);
             this.panelMain.TabIndex = 5;
             // 
-            // c_CRUDDocente1
+            // btnCarga
             // 
-            this.c_CRUDDocente1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.c_CRUDDocente1.Location = new System.Drawing.Point(0, 0);
-            this.c_CRUDDocente1.Name = "c_CRUDDocente1";
-            this.c_CRUDDocente1.Size = new System.Drawing.Size(600, 420);
-            this.c_CRUDDocente1.TabIndex = 0;
-            // 
-            // c_CRUDCurso1
-            // 
-            this.c_CRUDCurso1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.c_CRUDCurso1.Location = new System.Drawing.Point(0, 0);
-            this.c_CRUDCurso1.Name = "c_CRUDCurso1";
-            this.c_CRUDCurso1.Size = new System.Drawing.Size(600, 420);
-            this.c_CRUDCurso1.TabIndex = 1;
-            this.c_CRUDCurso1.Visible = false;
+            this.btnCarga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(170)))), ((int)(((byte)(211)))));
+            this.btnCarga.FlatAppearance.BorderSize = 0;
+            this.btnCarga.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(0)))));
+            this.btnCarga.Location = new System.Drawing.Point(0, 90);
+            this.btnCarga.Name = "btnCarga";
+            this.btnCarga.Size = new System.Drawing.Size(200, 40);
+            this.btnCarga.TabIndex = 2;
+            this.btnCarga.Text = "Carga";
+            this.btnCarga.UseVisualStyleBackColor = false;
+            this.btnCarga.Click += new System.EventHandler(this.btnCarga_Click);
             // 
             // P_Director
             // 
@@ -294,7 +290,6 @@ namespace CapaPresentacion
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxUsuario)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panelMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -316,7 +311,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Button btnClose;
-        private C_CRUDDocente c_CRUDDocente1;
-        private C_CRUDCurso c_CRUDCurso1;
+        private System.Windows.Forms.Button btnCarga;
     }
 }
