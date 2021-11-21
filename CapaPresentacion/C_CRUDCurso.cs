@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
 using CapaDatos;
+using CapaNegocio;
 using CapaEntidades;
 
 namespace CapaPresentacion
@@ -52,12 +53,10 @@ namespace CapaPresentacion
                 if (index >= 0 && index < dgvCursos.Rows.Count - 1)
                 {
                     String CodCurso = dgvCursos.Rows[index].Cells[0].Value.ToString();
-                    E_Curso Curso = new E_Curso();
-                    Curso.CodCurso = CodCurso;
                     DialogResult confirm = MessageBox.Show("¿Realmente desea eliminar el curso " + CodCurso + "?", "Sistema de Silabos", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                     if (confirm == DialogResult.OK)
                     {
-                        if (new D_Curso().EliminarCurso(Curso))
+                        if (new D_Curso().EliminarCurso(CodCurso))
                             MessageBox.Show("Curso " + CodCurso + " eliminado!");
                         else
                             MessageBox.Show("No se pudo eliminar Curso " + CodCurso + "!");
@@ -74,7 +73,7 @@ namespace CapaPresentacion
                 int index = dgvCursos.SelectedCells[0].RowIndex;
                 if (index >= 0 && index < dgvCursos.Rows.Count - 1)
                 {
-                    E_Curso Curso = new E_Curso();
+                    N_Curso Curso = new N_Curso();
                     Curso.CodCurso = dgvCursos.Rows[index].Cells[0].Value.ToString();
                     Curso.Nombre = dgvCursos.Rows[index].Cells[1].Value.ToString();
                     Curso.Creditos = Int32.Parse(dgvCursos.Rows[index].Cells[2].Value.ToString());
@@ -96,7 +95,7 @@ namespace CapaPresentacion
                 int index = dgvCursos.SelectedCells[0].RowIndex;
                 if (index >= 0 && index < dgvCursos.Rows.Count - 1)
                 {
-                    E_Curso Curso = new E_Curso();
+                    N_Curso Curso = new N_Curso();
                     Curso.CodCurso = dgvCursos.Rows[index].Cells[0].Value.ToString();
                     Curso.Nombre = dgvCursos.Rows[index].Cells[1].Value.ToString();
                     Curso.Creditos = Int32.Parse(dgvCursos.Rows[index].Cells[2].Value.ToString());
