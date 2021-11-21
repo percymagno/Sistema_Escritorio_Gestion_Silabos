@@ -19,11 +19,13 @@ namespace CapaPresentacion
         // controles
         private C_CRUDDocente c_CRUDDocente1;
         private C_CRUDCurso c_CRUDCurso1;
+        private C_Carga c_Carga1;
         public P_Director()
         {
             InitializeComponent();
             Init_C_CRUD_Docente();
             Init_C_CRUD_Curso();
+            Init_C_Carga();
         }
 
         #region funciones para abrir, cerrar, minimizar mover y cambiar tamaño de form
@@ -125,21 +127,6 @@ namespace CapaPresentacion
         }
         #endregion
         #region CONTROLES
-        private void Init_C_CRUD_Curso()
-        {
-            this.c_CRUDCurso1 = new CapaPresentacion.C_CRUDCurso();
-            this.panelMain.Controls.Add(this.c_CRUDCurso1);
-
-            // 
-            // c_CRUDCurso1
-            // 
-            this.c_CRUDCurso1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.c_CRUDCurso1.Location = new System.Drawing.Point(0, 0);
-            this.c_CRUDCurso1.Name = "c_CRUDCurso1";
-            this.c_CRUDCurso1.Size = new System.Drawing.Size(600, 420);
-            this.c_CRUDCurso1.TabIndex = 1;
-            this.SendToBack();
-        }
         private void Init_C_CRUD_Docente()
         {
             this.c_CRUDDocente1 = new CapaPresentacion.C_CRUDDocente();
@@ -153,6 +140,36 @@ namespace CapaPresentacion
             this.c_CRUDDocente1.Name = "c_CRUDDocente1";
             this.c_CRUDDocente1.Size = new System.Drawing.Size(600, 420);
             this.c_CRUDDocente1.TabIndex = 0;
+        }
+        private void Init_C_CRUD_Curso()
+        {
+            this.c_CRUDCurso1 = new CapaPresentacion.C_CRUDCurso();
+            this.panelMain.Controls.Add(this.c_CRUDCurso1);
+
+            // 
+            // c_CRUDCurso1
+            // 
+            this.c_CRUDCurso1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c_CRUDCurso1.Location = new System.Drawing.Point(0, 0);
+            this.c_CRUDCurso1.Name = "c_CRUDCurso1";
+            this.c_CRUDCurso1.Size = new System.Drawing.Size(600, 420);
+            this.c_CRUDCurso1.TabIndex = 1;
+            this.c_CRUDCurso1.SendToBack();
+        }
+        private void Init_C_Carga()
+        {
+            this.c_Carga1 = new CapaPresentacion.C_Carga();
+            this.panelMain.Controls.Add(this.c_Carga1);
+
+            // 
+            // c_Carga1
+            //
+            this.c_Carga1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c_Carga1.Location = new System.Drawing.Point(0, 0);
+            this.c_Carga1.Name = "c_Carga1";
+            this.c_Carga1.Size = new System.Drawing.Size(600, 420);
+            this.c_Carga1.TabIndex = 2;
+            this.c_Carga1.SendToBack();
         }
         #endregion
         private void btnDocentes_Click(object sender, EventArgs e)
@@ -173,7 +190,7 @@ namespace CapaPresentacion
 
         private void btnCarga_Click(object sender, EventArgs e)
         {
-            //this.c_CRUDCurso1.BringToFront();
+            this.c_Carga1.BringToFront();
             this.btnCarga.BackColor = Color.White;
             this.btnCursos.BackColor = Color.FromArgb(68, 170, 211);
             this.btnDocentes.BackColor = Color.FromArgb(68, 170, 211);

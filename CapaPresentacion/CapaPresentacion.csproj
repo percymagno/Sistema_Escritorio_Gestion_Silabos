@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C_Carga.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="C_Carga.Designer.cs">
+      <DependentUpon>C_Carga.cs</DependentUpon>
+    </Compile>
     <Compile Include="C_CRUDCurso.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     <Compile Include="P_Director.Designer.cs">
       <DependentUpon>P_Director.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="C_Carga.resx">
+      <DependentUpon>C_Carga.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="C_CRUDCurso.resx">
       <DependentUpon>C_CRUDCurso.cs</DependentUpon>
     </EmbeddedResource>
