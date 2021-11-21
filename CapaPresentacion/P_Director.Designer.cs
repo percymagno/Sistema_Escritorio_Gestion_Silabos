@@ -46,8 +46,6 @@ namespace CapaPresentacion
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.c_CRUDDocente1 = new CapaPresentacion.C_CRUDDocente();
-            this.c_CRUDCurso1 = new CapaPresentacion.C_CRUDCurso();
             this.panelTop.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panelLeft.SuspendLayout();
@@ -248,31 +246,12 @@ namespace CapaPresentacion
             // 
             // panelMain
             // 
-            this.panelMain.Controls.Add(this.c_CRUDCurso1);
-            this.panelMain.Controls.Add(this.c_CRUDDocente1);
             this.panelMain.Padding = new System.Windows.Forms.Padding(10, 0, 7, 7);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(202, 32);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(600, 420);
             this.panelMain.TabIndex = 5;
-            // 
-            // c_CRUDDocente1
-            // 
-            this.c_CRUDDocente1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.c_CRUDDocente1.Location = new System.Drawing.Point(0, 0);
-            this.c_CRUDDocente1.Name = "c_CRUDDocente1";
-            this.c_CRUDDocente1.Size = new System.Drawing.Size(600, 420);
-            this.c_CRUDDocente1.TabIndex = 0;
-            // 
-            // c_CRUDCurso1
-            // 
-            this.c_CRUDCurso1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.c_CRUDCurso1.Location = new System.Drawing.Point(0, 0);
-            this.c_CRUDCurso1.Name = "c_CRUDCurso1";
-            this.c_CRUDCurso1.Size = new System.Drawing.Size(600, 420);
-            this.c_CRUDCurso1.TabIndex = 1;
-            this.c_CRUDCurso1.Visible = false;
             // 
             // P_Director
             // 
@@ -316,7 +295,5 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Button btnClose;
-        private C_CRUDDocente c_CRUDDocente1;
-        private C_CRUDCurso c_CRUDCurso1;
     }
 }
