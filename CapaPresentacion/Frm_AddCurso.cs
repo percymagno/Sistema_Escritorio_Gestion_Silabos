@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaDatos;
-using CapaEntidades;
 using CapaNegocio;
 
 namespace CapaPresentacion
@@ -78,8 +77,6 @@ namespace CapaPresentacion
             }
             else
             {
-                D_Curso d_Curso = new D_Curso();
-
                 if (this.Editar)
                 {
                     if (n_Curso.EditarCurso())
