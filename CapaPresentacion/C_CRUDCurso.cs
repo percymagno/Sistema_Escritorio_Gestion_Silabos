@@ -8,9 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
-using CapaDatos;
 using CapaNegocio;
-using CapaEntidades;
 
 namespace CapaPresentacion
 {
@@ -28,11 +26,11 @@ namespace CapaPresentacion
             DataTable dt;
             if (str == "") // Mostrar todos los cursos
             {
-                dt = new D_Curso().ObtenerCursos();
+                dt = new N_Curso().ObtenerCursos();
             }
             else // buscar docentes
             {
-                dt = new D_Curso().BuscarCurso(str);
+                dt = new N_Curso().BuscarCurso(str);
             }
             dgvCursos.DataSource = dt;
         }
@@ -55,7 +53,7 @@ namespace CapaPresentacion
                     DialogResult confirm = MessageBox.Show("¿Realmente desea eliminar el curso " + CodCurso + "?", "Sistema de Silabos", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                     if (confirm == DialogResult.OK)
                     {
-                        if (new D_Curso().EliminarCurso(CodCurso))
+                        if (new N_Curso { CodCurso = CodCurso }.EliminarCurso())
                             MessageBox.Show("Curso " + CodCurso + " eliminado!");
                         else
                             MessageBox.Show("No se pudo eliminar Curso " + CodCurso + "!");
