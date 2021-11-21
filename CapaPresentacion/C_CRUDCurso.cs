@@ -40,9 +40,8 @@ namespace CapaPresentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Frm_AddCurso AddCurso = new Frm_AddCurso();
-            AddCurso.FormClosed += new FormClosedEventHandler(Form_Closed);
-            void Form_Closed(object sndr, FormClosedEventArgs E) { MostrarCursos(); }
-            AddCurso.Show();
+            AddCurso.ShowDialog();
+            MostrarCursos();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -73,17 +72,17 @@ namespace CapaPresentacion
                 int index = dgvCursos.SelectedCells[0].RowIndex;
                 if (index >= 0 && index < dgvCursos.Rows.Count - 1)
                 {
-                    N_Curso Curso = new N_Curso();
-                    Curso.CodCurso = dgvCursos.Rows[index].Cells[0].Value.ToString();
-                    Curso.Nombre = dgvCursos.Rows[index].Cells[1].Value.ToString();
-                    Curso.Creditos = Int32.Parse(dgvCursos.Rows[index].Cells[2].Value.ToString());
-                    Curso.Categoria = dgvCursos.Rows[index].Cells[3].Value.ToString();
-
+                    N_Curso Curso = new N_Curso 
+                    {
+                        CodCurso = dgvCursos.Rows[index].Cells[0].Value.ToString(),
+                        Nombre = dgvCursos.Rows[index].Cells[1].Value.ToString(),
+                        Creditos = Int32.Parse(dgvCursos.Rows[index].Cells[2].Value.ToString()),
+                        Categoria = dgvCursos.Rows[index].Cells[3].Value.ToString(),
+                    };
 
                     Frm_AddCurso AddCurso = new Frm_AddCurso(Curso);
-                    AddCurso.FormClosed += new FormClosedEventHandler(Form_Closed);
-                    void Form_Closed(object sndr, FormClosedEventArgs E) { MostrarCursos(); }
-                    AddCurso.Show();
+                    AddCurso.ShowDialog();
+                    MostrarCursos();
                 }
             }
         }
@@ -95,17 +94,17 @@ namespace CapaPresentacion
                 int index = dgvCursos.SelectedCells[0].RowIndex;
                 if (index >= 0 && index < dgvCursos.Rows.Count - 1)
                 {
-                    N_Curso Curso = new N_Curso();
-                    Curso.CodCurso = dgvCursos.Rows[index].Cells[0].Value.ToString();
-                    Curso.Nombre = dgvCursos.Rows[index].Cells[1].Value.ToString();
-                    Curso.Creditos = Int32.Parse(dgvCursos.Rows[index].Cells[2].Value.ToString());
-                    Curso.Categoria = dgvCursos.Rows[index].Cells[3].Value.ToString();
+                    N_Curso Curso = new N_Curso{
 
+                        CodCurso = dgvCursos.Rows[index].Cells[0].Value.ToString(),
+                        Nombre = dgvCursos.Rows[index].Cells[1].Value.ToString(),
+                        Creditos = Int32.Parse(dgvCursos.Rows[index].Cells[2].Value.ToString()),
+                        Categoria = dgvCursos.Rows[index].Cells[3].Value.ToString(),
+                    };
 
                     Frm_AddCurso AddCurso = new Frm_AddCurso(Curso);
-                    AddCurso.FormClosed += new FormClosedEventHandler(Form_Closed);
-                    void Form_Closed(object sndr, FormClosedEventArgs E) { MostrarCursos(); }
-                    AddCurso.Show();
+                    AddCurso.ShowDialog();
+                    MostrarCursos();
                 }
             }
         }
