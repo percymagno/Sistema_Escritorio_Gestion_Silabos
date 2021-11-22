@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Carga.cs" />
     <Compile Include="Excel.cs" />
+    <Compile Include="N_Asignacion.cs" />
     <Compile Include="N_Curso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

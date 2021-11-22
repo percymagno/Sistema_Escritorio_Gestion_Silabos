@@ -32,11 +32,15 @@
             this.btnAbrir = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.dgvCarga = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarga)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.btnAbrir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -56,6 +60,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.dgvCarga);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 50);
             this.panel2.Name = "panel2";
@@ -67,6 +72,19 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm|CSV files (*.csv)|*.csv";
             // 
+            // dgvCarga
+            // 
+            this.dgvCarga.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvCarga.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCarga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCarga.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCarga.Location = new System.Drawing.Point(0, 0);
+            this.dgvCarga.Name = "dgvCarga";
+            this.dgvCarga.ReadOnly = true;
+            this.dgvCarga.RowHeadersVisible = false;
+            this.dgvCarga.Size = new System.Drawing.Size(800, 400);
+            this.dgvCarga.TabIndex = 0;
+            // 
             // C_Carga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -76,6 +94,8 @@
             this.Name = "C_Carga";
             this.Size = new System.Drawing.Size(800, 450);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarga)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -86,5 +106,6 @@
         private System.Windows.Forms.Button btnAbrir;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.DataGridView dgvCarga;
     }
 }
