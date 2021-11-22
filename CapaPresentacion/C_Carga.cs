@@ -13,6 +13,8 @@ namespace CapaPresentacion
 {
     public partial class C_Carga : UserControl
     {
+
+        N_Asignacion n_Asignacion = new N_Asignacion();
         public C_Carga()
         {
             InitializeComponent();
@@ -29,8 +31,9 @@ namespace CapaPresentacion
 
                 MessageBox.Show(excel.nroRows().ToString() + " filas leidas");
 
-                N_Asignacion n_Asignacion = new N_Asignacion();
                 n_Asignacion.Procesar(file);
+                List<Carga> cargas = n_Asignacion.getCargas();
+                listBoxCarga.DataSource = cargas;
             }
         }
     }

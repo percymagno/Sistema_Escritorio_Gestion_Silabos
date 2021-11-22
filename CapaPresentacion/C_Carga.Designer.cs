@@ -32,7 +32,9 @@
             this.btnAbrir = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.listBoxCarga = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,6 +58,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.listBoxCarga);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 50);
             this.panel2.Name = "panel2";
@@ -67,6 +70,15 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm|CSV files (*.csv)|*.csv";
             // 
+            // listBoxCarga
+            // 
+            this.listBoxCarga.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxCarga.FormattingEnabled = true;
+            this.listBoxCarga.Location = new System.Drawing.Point(0, 0);
+            this.listBoxCarga.Name = "listBoxCarga";
+            this.listBoxCarga.Size = new System.Drawing.Size(800, 400);
+            this.listBoxCarga.TabIndex = 0;
+            // 
             // C_Carga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -76,6 +88,7 @@
             this.Name = "C_Carga";
             this.Size = new System.Drawing.Size(800, 450);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -86,5 +99,6 @@
         private System.Windows.Forms.Button btnAbrir;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ListBox listBoxCarga;
     }
 }
