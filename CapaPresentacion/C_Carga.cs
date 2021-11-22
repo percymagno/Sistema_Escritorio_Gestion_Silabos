@@ -24,12 +24,13 @@ namespace CapaPresentacion
             if (result == DialogResult.OK)
             {
                 string file = openFileDialog1.FileName;
+
                 Excel excel = new Excel(file, 1);
 
-                MessageBox.Show(excel.ReadCell(2,2));
+                MessageBox.Show(excel.nroRows().ToString() + " filas leidas");
 
-                MessageBox.Show(excel.nroRows().ToString());
-                MessageBox.Show(excel.nroCols().ToString());
+                N_Asignacion n_Asignacion = new N_Asignacion();
+                n_Asignacion.Procesar(file);
             }
         }
     }
