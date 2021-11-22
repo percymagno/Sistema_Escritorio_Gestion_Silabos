@@ -24,7 +24,7 @@ namespace CapaNegocio
         public int Matriculados { get; set; }
         public override string ToString()
         {
-            return "CodCurso: " + CodCurso + ", Docente: " + Coddocente + ", Aula:" + Aula + ", Tipo" + Tipo;
+            return "CodCurso: " + CodCurso.Substring(0,5) + ", Docente: " + Coddocente + ", Tipo: " + Tipo + ", Grupo: " + Grupo;
         }
         public bool Guardar()
         {
