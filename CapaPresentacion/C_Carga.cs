@@ -31,9 +31,28 @@ namespace CapaPresentacion
 
                 MessageBox.Show(excel.nroRows().ToString() + " filas leidas");
 
+                Frm_Cargando frm_Cargando = new Frm_Cargando();
+                frm_Cargando.Show();
                 n_Asignacion.Procesar(file);
+                frm_Cargando.Close();
+
+
                 List<Carga> cargas = n_Asignacion.getCargas();
-                listBoxCarga.DataSource = cargas;
+
+                dgvCarga.ColumnCount = 5;
+                dgvCarga.Columns[0].Name = "#";
+                dgvCarga.Columns[1].Name = "Docente";
+                dgvCarga.Columns[2].Name = "CodCurso";
+                dgvCarga.Columns[3].Name = "Grupo";
+                dgvCarga.Columns[4].Name = "Tipo";
+
+                int i = 0;
+                foreach (Carga carga in cargas)
+                {
+                    string[] row = { i.ToString(), carga.Coddocente , carga.CodCurso.Substring(0,5), carga.Grupo, carga.Tipo};
+                    dgvCarga.Rows.Add(row);
+                    i++;
+                }
             }
         }
     }
