@@ -4,16 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using CapaDatos;
+using CapaEntidades;
 
 namespace CapaNegocio
 {
     public class N_Asignacion
     {
+        private readonly Random _random = new Random();
+
         Excel excel;
         int row = 0;
         int col = 0;
         List<Carga> cargas = new List<Carga>();
-
+        List<E_Docente> docentes = new List<E_Docente>();
         public void Procesar(string path)
         {
             excel = new Excel(path, 1);
@@ -24,6 +28,7 @@ namespace CapaNegocio
                 Console.WriteLine("");
             }
         }
+        #region Leer archivo
         private void ActualizarIndexCarga()
         {
             for (int i = row; i < excel.nroRows(); i++)
@@ -45,7 +50,11 @@ namespace CapaNegocio
         private void ProcesarCarga()
         {
             // Nombre de docente
+            string codDocente = _random.Next(100000, 999999).ToString();
             string docente = excel.ReadCell(row, col+2);
+            string regimen = excel.ReadCell(row, col);
+            E_Docente e_Docente = new E_Docente { CodDocente = codDocente, Nombres = docente, Regimen = regimen };
+            docentes.Add(e_Docente);
             row++;
             // Carga
             for (int i = row; i < excel.nroRows(); i++)
@@ -71,7 +80,8 @@ namespace CapaNegocio
                     Carga carga1 = new Carga
                     {
                         CodCurso = lista[0],
-                        Coddocente = docente,
+                        CodDocente = codDocente,
+                        Docente = docente,
                         Carrera = lista[1],
                         NombreCurso = lista[2],
                         Creditos = lista[3],
@@ -93,6 +103,7 @@ namespace CapaNegocio
                     row = -1;
             }
         }
+        #endregion Leer archivo
         public List<Carga> getCargas()
         {
             return cargas;
