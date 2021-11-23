@@ -22,6 +22,7 @@ namespace CapaPresentacion
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
+            dgvCarga.DataSource = null;
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -29,7 +30,7 @@ namespace CapaPresentacion
 
                 Excel excel = new Excel(file, 1);
 
-                MessageBox.Show(excel.nroRows().ToString() + " filas leidas");
+                //MessageBox.Show(excel.nroRows().ToString() + " filas leidas");
 
                 Frm_Cargando frm_Cargando = new Frm_Cargando();
                 frm_Cargando.Show();
@@ -53,7 +54,17 @@ namespace CapaPresentacion
                     dgvCarga.Rows.Add(row);
                     i++;
                 }
+                btnGuardar.Enabled = true;
             }
+            else
+                btnGuardar.Enabled = false;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            n_Asignacion.Guardar();
+            dgvCarga.DataSource = null;
+            btnGuardar.Enabled = false;
         }
     }
 }

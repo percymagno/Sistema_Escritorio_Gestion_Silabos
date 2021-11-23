@@ -35,7 +35,7 @@ namespace CapaNegocio
         {
             i++; j++;
             if(ws.Cells[i,j] != null)
-                return ws.Cells[i, j].Text.ToString();
+                return ws.Cells[i, j].Text.ToString().Trim();
             else
                 return "";
         }
