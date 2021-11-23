@@ -68,6 +68,7 @@ namespace CapaPresentacion
                 if (index >= 0 && index < dgvDocentes.Rows.Count - 1)
                 {
                     E_Docente Docente = new E_Docente();
+                    Docente.ID = dgvDocentes.Rows[index].Cells[0].Value.ToString();
                     Docente.CodDocente = dgvDocentes.Rows[index].Cells[1].Value.ToString();
                     Docente.Paterno = dgvDocentes.Rows[index].Cells[2].Value.ToString();
                     Docente.Materno = dgvDocentes.Rows[index].Cells[3].Value.ToString();

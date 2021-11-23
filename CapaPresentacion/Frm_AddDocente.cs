@@ -13,6 +13,7 @@ namespace CapaPresentacion
 {
     public partial class Frm_AddDocente : Form
     {
+        E_Docente e_Docente;
         bool editar = false;
         public Frm_AddDocente()
         {
@@ -22,6 +23,7 @@ namespace CapaPresentacion
         {
             editar = true;
             InitializeComponent();
+            e_Docente = Docente;
             text_codigo.Text = Docente.CodDocente;
             text_nombre.Text = Docente.Nombres;
             text_paterno.Text = Docente.Paterno;
@@ -35,16 +37,14 @@ namespace CapaPresentacion
         private void btn_agregarDocente_Click(object sender, EventArgs e)
         {
             D_Docente d_Docente = new D_Docente();
-            E_Docente e_Docente = new E_Docente { 
-                                                CodDocente=text_codigo.Text,
-                                                Paterno=text_paterno.Text,
-                                                Materno=text_materno.Text,
-                                                Nombres=text_nombre.Text,
-                                                Departamento=text_departamento.Text,
-                                                Condicion=text_condicion.Text,
-                                                Correo=text_correo.Text,
-                                                Telefono=text_telefono.Text
-            };
+            e_Docente.CodDocente = text_codigo.Text;
+            e_Docente.Paterno = text_paterno.Text;
+            e_Docente.Materno = text_materno.Text;
+            e_Docente.Nombres = text_nombre.Text;
+            e_Docente.Departamento = text_departamento.Text;
+            e_Docente.Condicion = text_condicion.Text;
+            e_Docente.Correo = text_correo.Text;
+            e_Docente.Telefono = text_telefono.Text;
             if (this.editar)
             {
                 if (d_Docente.EditarDocente(e_Docente))
