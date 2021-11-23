@@ -12,7 +12,7 @@ create table TDocente
     Nombres             Varchar(30)       not null,
     Departamento         varchar(30)      ,
 	Condicion			varchar(20)   check (Condicion in ('NOMBRADO','CONTRATADO', null)),
-	Regimen          varchar(5) default 'no-re' foreign key references TRegimen(CodRegimen) not null,
+	Regimen          varchar(5) default 'no-re' foreign key references TRegimen(CodRegimen),
     Correo				varchar(30)		,
 	Telefono	        varchar(20)     ,
 )
@@ -27,7 +27,15 @@ CREATE TABLE TUsuarios(
 INSERt INTO [dbo].[TUsuarios] (Usuario, Contraseña, Acceso) VALUES ('admin','admin','Admin')
 INSERt INTO [dbo].[TUsuarios] (Usuario, Contraseña, Acceso) VALUES ('docente','docente','Docente')
 
-insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values()
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('no-re', 0)
+
+insert into [dbo].[TDocente] (Nombres) Values ('docente')
+
+
+select * from [dbo].[TDocente]
+select * from [dbo].[TRegimen]
+select * from [dbo].[TUsuarios]
+select * from [dbo].[TCurso]
 
 
 
