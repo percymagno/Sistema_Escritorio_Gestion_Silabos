@@ -22,6 +22,7 @@ namespace CapaPresentacion
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
+            dgvCarga.DataSource = null;
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -29,31 +30,41 @@ namespace CapaPresentacion
 
                 Excel excel = new Excel(file, 1);
 
-                MessageBox.Show(excel.nroRows().ToString() + " filas leidas");
+                //MessageBox.Show(excel.nroRows().ToString() + " filas leidas");
 
                 Frm_Cargando frm_Cargando = new Frm_Cargando();
                 frm_Cargando.Show();
                 n_Asignacion.Procesar(file);
                 frm_Cargando.Close();
 
-
                 List<Carga> cargas = n_Asignacion.getCargas();
 
-                dgvCarga.ColumnCount = 5;
+                dgvCarga.ColumnCount = 6;
                 dgvCarga.Columns[0].Name = "#";
-                dgvCarga.Columns[1].Name = "Docente";
-                dgvCarga.Columns[2].Name = "CodCurso";
-                dgvCarga.Columns[3].Name = "Grupo";
-                dgvCarga.Columns[4].Name = "Tipo";
+                dgvCarga.Columns[1].Name = "CodDocente";
+                dgvCarga.Columns[2].Name = "Docente";
+                dgvCarga.Columns[3].Name = "CodCurso";
+                dgvCarga.Columns[4].Name = "Grupo";
+                dgvCarga.Columns[5].Name = "Tipo";
 
                 int i = 1;
                 foreach (Carga carga in cargas)
                 {
-                    string[] row = { i.ToString(), carga.Coddocente , carga.CodCurso.Substring(0,5), carga.Grupo, carga.Tipo};
+                    string[] row = { i.ToString(), carga.CodDocente , carga.Docente, carga.CodCurso.Substring(0,5), carga.Grupo, carga.Tipo};
                     dgvCarga.Rows.Add(row);
                     i++;
                 }
+                btnGuardar.Enabled = true;
             }
+            else
+                btnGuardar.Enabled = false;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            n_Asignacion.Guardar();
+            dgvCarga.DataSource = null;
+            btnGuardar.Enabled = false;
         }
     }
 }

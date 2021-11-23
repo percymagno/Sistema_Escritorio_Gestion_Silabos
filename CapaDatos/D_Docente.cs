@@ -122,7 +122,32 @@ namespace CapaDatos
                 return false;
             }
         }
+        // Agregar docente mediante carga
+        public bool AgregarDocenteCarga(E_Docente Docente)
+        {
+            //Cadena de texto de Consulta a la BD
+            string query = "INSERT INTO TDocente (CodDocente, Nombres, Regimen) VALUES(@CodDocente, @Nombres, @Regimen)";
 
+            // Ejecutar la consulta
+            SqlCommand Comando = new SqlCommand(query, Conectar);
+
+            // Agregar los parametros necesarios para el procedimiento
+            Comando.Parameters.AddWithValue("@CodDocente", Docente.CodDocente);
+            Comando.Parameters.AddWithValue("@Nombres", Docente.Nombres);
+            Comando.Parameters.AddWithValue("@Regimen", Docente.Regimen);
+            try
+            {
+                Abrir();
+                int res = Comando.ExecuteNonQuery();
+                Cerrar();
+                return res == 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("C. Error al tratar de conectar con la base de datos", ex.ToString());
+                return false;
+            }
+        }
         // Metodo para editar un registro de docente
         public bool EditarDocente(E_Docente Docente)
         {

@@ -167,5 +167,17 @@
       <Name>CapaNegocio</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="img\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\diskette-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\diskette-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\diskette-32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

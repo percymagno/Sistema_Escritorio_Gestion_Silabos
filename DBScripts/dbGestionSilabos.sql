@@ -24,12 +24,30 @@ CREATE TABLE TUsuarios(
    Contraseña varchar (20)     NOT NULL,
    Acceso  CHAR (25)  Check (Acceso in ('Admin','Docente')),
 );
+
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('no-re', 0)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('PR-DE', 10)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('PR-TC', 10)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('PR-TP', 10)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('AS-DE', 10)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('AS-TC', 10)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('AS-TP', 10)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('AU-TC', 10)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('A1', 16)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('B1', 16)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('B2', 8)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('B3', 4)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('JP-40H', 14)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('JP-20H', 12)
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('JP-10H', 8)
+
+insert into [dbo].[TDocente] (Nombres) Values ('docente')
+
 INSERt INTO [dbo].[TUsuarios] (Usuario, Contraseña, Acceso) VALUES ('admin','admin','Admin')
 INSERt INTO [dbo].[TUsuarios] (Usuario, Contraseña, Acceso) VALUES ('docente','docente','Docente')
 
-insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('no-re', 0)
 
-insert into [dbo].[TDocente] (Nombres) Values ('docente')
+
 
 
 select * from [dbo].[TDocente]
