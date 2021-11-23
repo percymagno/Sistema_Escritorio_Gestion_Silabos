@@ -68,6 +68,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Visible = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnAbrir
@@ -116,6 +117,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "C_Carga";
             this.Size = new System.Drawing.Size(800, 450);
+            this.Load += new System.EventHandler(this.C_Carga_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarga)).EndInit();
