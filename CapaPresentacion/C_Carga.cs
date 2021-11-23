@@ -54,17 +54,22 @@ namespace CapaPresentacion
                     dgvCarga.Rows.Add(row);
                     i++;
                 }
-                btnGuardar.Enabled = true;
+                btnGuardar.Visible = true;
             }
             else
-                btnGuardar.Enabled = false;
+                btnGuardar.Visible = false;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             n_Asignacion.Guardar();
             dgvCarga.DataSource = null;
-            btnGuardar.Enabled = false;
+            btnGuardar.Visible = false;
+        }
+
+        private void C_Carga_Load(object sender, EventArgs e)
+        {
+            btnGuardar.Visible = false;
         }
     }
 }

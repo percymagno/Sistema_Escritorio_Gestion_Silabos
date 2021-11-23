@@ -39,8 +39,6 @@ namespace CapaPresentacion
             this.lblCreditos = new System.Windows.Forms.Label();
             this.btn_agregarCurso = new System.Windows.Forms.Button();
             this.lblCategoria = new System.Windows.Forms.Label();
-            this.lblCodDocente = new System.Windows.Forms.Label();
-            this.cbDocente = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -122,7 +120,7 @@ namespace CapaPresentacion
             this.btn_agregarCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_agregarCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_agregarCurso.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_agregarCurso.Location = new System.Drawing.Point(97, 268);
+            this.btn_agregarCurso.Location = new System.Drawing.Point(97, 205);
             this.btn_agregarCurso.Name = "btn_agregarCurso";
             this.btn_agregarCurso.Size = new System.Drawing.Size(250, 35);
             this.btn_agregarCurso.TabIndex = 8;
@@ -139,33 +137,13 @@ namespace CapaPresentacion
             this.lblCategoria.TabIndex = 9;
             this.lblCategoria.Text = "Categoria";
             // 
-            // lblCodDocente
-            // 
-            this.lblCodDocente.AutoSize = true;
-            this.lblCodDocente.Location = new System.Drawing.Point(31, 203);
-            this.lblCodDocente.Name = "lblCodDocente";
-            this.lblCodDocente.Size = new System.Drawing.Size(84, 13);
-            this.lblCodDocente.TabIndex = 10;
-            this.lblCodDocente.Text = "Codigo Docente";
-            // 
-            // cbDocente
-            // 
-            this.cbDocente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDocente.FormattingEnabled = true;
-            this.cbDocente.Location = new System.Drawing.Point(34, 219);
-            this.cbDocente.Name = "cbDocente";
-            this.cbDocente.Size = new System.Drawing.Size(136, 21);
-            this.cbDocente.TabIndex = 11;
-            // 
             // Frm_AddCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(429, 351);
+            this.ClientSize = new System.Drawing.Size(429, 263);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.cbDocente);
-            this.Controls.Add(this.lblCodDocente);
             this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.btn_agregarCurso);
             this.Controls.Add(this.lblCreditos);
@@ -194,7 +172,5 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblCreditos;
         private System.Windows.Forms.Button btn_agregarCurso;
         private System.Windows.Forms.Label lblCategoria;
-        private System.Windows.Forms.Label lblCodDocente;
-        private System.Windows.Forms.ComboBox cbDocente;
     }
 }

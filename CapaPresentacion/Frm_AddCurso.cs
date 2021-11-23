@@ -19,7 +19,6 @@ namespace CapaPresentacion
         public Frm_AddCurso(N_Curso Curso=null)
         {
             InitializeComponent();
-            RellenarDocentes();
             if (Curso != null)
             {
                 text_codigo.Text = Curso.CodCurso;
@@ -38,25 +37,6 @@ namespace CapaPresentacion
                 this.Cb_creditos.SelectedItem = "4";
                 Editar &= false;
             }
-        }
-        private void RellenarDocentes(String CodDocente = "")
-        {
-            DataTable dt = new D_Docente().MostrarDocentes();
-            if (dt != null)
-            {
-                DataRow row = dt.NewRow();
-                row["CodDocente"] = "";
-                row["Paterno"] = "";
-                row["Materno"] = "";
-                row["Nombres"] = "-- Vacio --";
-                row["Departamento"] = "";
-                row["Correo"] = "";
-                dt.Rows.InsertAt(row, 0);
-            }
-            cbDocente.DataSource = dt;
-            cbDocente.DisplayMember = "Nombres";
-            cbDocente.ValueMember = "CodDocente";
-            cbDocente.SelectedValue = CodDocente;
         }
 
         private void btn_agregarCurso_Click(object sender, EventArgs e)
@@ -104,7 +84,6 @@ namespace CapaPresentacion
             text_nombre.Text = "";
             Cb_creditos.SelectedItem = "4";
             text_categoria.Text = "";
-            cbDocente.SelectedItem = "";
         }
         #endregion reestablecer
     }
