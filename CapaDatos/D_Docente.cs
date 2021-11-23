@@ -153,12 +153,14 @@ namespace CapaDatos
         {
             //Cadena de texto de Consulta a la BD
             string query = "UPDATE TDocente SET CodDocente = @CodDocente, Paterno = @APaterno, Materno = @AMaterno, Nombres = @Nombres, " +
-                "Departamento = @Departamento, Condicion = @Condicion, Correo = @Correo, Telefono = @Telefono";
+                "Departamento = @Departamento, Condicion = @Condicion, Correo = @Correo, Telefono = @Telefono WHERE ID=@ID";
 
             // Ejecutar la consulta"
             SqlCommand Comando = new SqlCommand(query, Conectar);
 
             // Agregar los parametros necesarios para el procedimiento
+
+            Comando.Parameters.AddWithValue("@ID", Docente.ID);
             Comando.Parameters.AddWithValue("@CodDocente", Docente.CodDocente);
             Comando.Parameters.AddWithValue("@APaterno", Docente.Paterno);
             Comando.Parameters.AddWithValue("@AMaterno", Docente.Materno);
@@ -167,18 +169,10 @@ namespace CapaDatos
             Comando.Parameters.AddWithValue("@Condicion", Docente.Condicion);
             Comando.Parameters.AddWithValue("@Correo", Docente.Correo);
             Comando.Parameters.AddWithValue("@Telefono", Docente.Telefono);
-            try
-            {
                 Abrir();
                 int res = Comando.ExecuteNonQuery();
                 Cerrar();
                 return res == 1;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("U. Error al tratar de conectar con la base de datos", ex.Message);
-                return false;
-            }
         }
 
         // Metodo para eliminar un registro de docente

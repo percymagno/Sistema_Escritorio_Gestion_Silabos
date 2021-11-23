@@ -147,6 +147,7 @@ namespace CapaNegocio
         }
         public bool existeDocente(string pNombres, DataTable dt)
         {
+            if (dt == null) return false;
             foreach (DataRow row in dt.Rows)
             {
                 string Nombres = (row["Nombres"].ToString() + " " + row["Paterno"].ToString() + " " + row["Materno"].ToString()).Trim();
