@@ -1,3 +1,56 @@
+create table TRegimen(
+    CodRegimen varchar(5) PRIMARY KEY,
+	NroHoras INT,
+)
+drop table [dbo].[TDocente]
+create table TDocente
+( -- lista de atributos
+	ID int identity primary key,
+    CodDocente         varchar (6),
+    Paterno             Varchar(30)       ,
+    Materno             Varchar(30)       ,
+    Nombres             Varchar(30)       not null,
+    Departamento         varchar(30)      ,
+	Condicion			varchar(20)   check (Condicion in ('NOMBRADO','CONTRATADO', null)),
+	Regimen          varchar(5) default 'no-re' foreign key references TRegimen(CodRegimen),
+    Correo				varchar(30)		,
+	Telefono	        varchar(20)     ,
+)
+drop table [dbo].[TUsuarios]
+CREATE TABLE TUsuarios(
+   ID              INT           NOT NULL    IDENTITY    PRIMARY KEY,
+   IDDocente INT FOREIGN KEY REFERENCES TDocente(ID),
+   Usuario VARCHAR (20)     NOT NULL,
+   Contraseña varchar (20)     NOT NULL,
+   Acceso  CHAR (25)  Check (Acceso in ('Admin','Docente')),
+);
+INSERt INTO [dbo].[TUsuarios] (Usuario, Contraseña, Acceso) VALUES ('admin','admin','Admin')
+INSERt INTO [dbo].[TUsuarios] (Usuario, Contraseña, Acceso) VALUES ('docente','docente','Docente')
+
+insert into [dbo].[TRegimen] (CodRegimen, NroHoras) Values('no-re', 0)
+
+insert into [dbo].[TDocente] (Nombres) Values ('docente')
+
+
+select * from [dbo].[TDocente]
+select * from [dbo].[TRegimen]
+select * from [dbo].[TUsuarios]
+select * from [dbo].[TCurso]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 Creacion de tablas
 */

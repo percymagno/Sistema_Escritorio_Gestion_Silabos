@@ -170,7 +170,7 @@ namespace CapaPresentacion
             this.btnCarga.Name = "btnCarga";
             this.btnCarga.Size = new System.Drawing.Size(200, 40);
             this.btnCarga.TabIndex = 2;
-            this.btnCarga.Text = "Carga";
+            this.btnCarga.Text = "Subir Carga";
             this.btnCarga.UseVisualStyleBackColor = false;
             this.btnCarga.Click += new System.EventHandler(this.btnCarga_Click);
             // 

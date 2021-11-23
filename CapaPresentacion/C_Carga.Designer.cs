@@ -31,8 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAbrir = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dgvCarga = new System.Windows.Forms.DataGridView();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarga)).BeginInit();
@@ -54,7 +54,7 @@
             this.btnAbrir.Name = "btnAbrir";
             this.btnAbrir.Size = new System.Drawing.Size(100, 30);
             this.btnAbrir.TabIndex = 0;
-            this.btnAbrir.Text = "Abrir Carga";
+            this.btnAbrir.Text = "Buscar Archivo";
             this.btnAbrir.UseVisualStyleBackColor = true;
             this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
             // 
@@ -67,23 +67,24 @@
             this.panel2.Size = new System.Drawing.Size(800, 400);
             this.panel2.TabIndex = 1;
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm|CSV files (*.csv)|*.csv";
-            // 
             // dgvCarga
             // 
-            this.dgvCarga.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvCarga.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCarga.BackgroundColor = System.Drawing.Color.White;
             this.dgvCarga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarga.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCarga.Location = new System.Drawing.Point(0, 0);
+            this.dgvCarga.MultiSelect = false;
             this.dgvCarga.Name = "dgvCarga";
             this.dgvCarga.ReadOnly = true;
             this.dgvCarga.RowHeadersVisible = false;
             this.dgvCarga.Size = new System.Drawing.Size(800, 400);
             this.dgvCarga.TabIndex = 0;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm|CSV files (*.csv)|*.csv";
             // 
             // C_Carga
             // 

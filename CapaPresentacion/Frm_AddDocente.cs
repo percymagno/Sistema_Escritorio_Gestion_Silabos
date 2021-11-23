@@ -29,8 +29,7 @@ namespace CapaPresentacion
             text_telefono.Text = Docente.Telefono;
             text_correo.Text = Docente.Correo;
             text_departamento.Text = Docente.Departamento;
-            text_condicion.Text = Docente.Condicion;   
-            text_codigo.Enabled = false;
+            text_condicion.Text = Docente.Condicion;
             btn_agregarDocente.Text = "EDITAR";
         }
         private void btn_agregarDocente_Click(object sender, EventArgs e)

@@ -46,7 +46,7 @@ namespace CapaPresentacion
                 dgvCarga.Columns[3].Name = "Grupo";
                 dgvCarga.Columns[4].Name = "Tipo";
 
-                int i = 0;
+                int i = 1;
                 foreach (Carga carga in cargas)
                 {
                     string[] row = { i.ToString(), carga.Coddocente , carga.CodCurso.Substring(0,5), carga.Grupo, carga.Tipo};
