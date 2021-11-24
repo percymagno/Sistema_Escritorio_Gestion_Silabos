@@ -36,7 +36,6 @@ namespace CapaPresentacion
             
             // Mostramos en el DataGridView los Docentes
             dgvDocentes.DataSource = Docentes;
-            dgvDocentes.Columns["ID"].Visible = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -71,14 +70,13 @@ namespace CapaPresentacion
                 {
                     E_Docente Docente = new E_Docente();
                     Docente.ID = dgvDocentes.Rows[index].Cells[0].Value.ToString();
-                    Docente.CodDocente = dgvDocentes.Rows[index].Cells[1].Value.ToString();
-                    Docente.Paterno = dgvDocentes.Rows[index].Cells[2].Value.ToString();
-                    Docente.Materno = dgvDocentes.Rows[index].Cells[3].Value.ToString();
-                    Docente.Nombres = dgvDocentes.Rows[index].Cells[4].Value.ToString();
-                    Docente.Departamento = dgvDocentes.Rows[index].Cells[5].Value.ToString();
-                    Docente.Condicion = dgvDocentes.Rows[index].Cells[6].Value.ToString();
-                    Docente.Correo = dgvDocentes.Rows[index].Cells[8].Value.ToString();
-                    Docente.Telefono = dgvDocentes.Rows[index].Cells[9].Value.ToString();
+                    Docente.CodDocente = dgvDocentes.Rows[index].Cells["CodDocente"].Value.ToString();
+                    Docente.Paterno = dgvDocentes.Rows[index].Cells["Paterno"].Value.ToString();
+                    Docente.Materno = dgvDocentes.Rows[index].Cells["Materno"].Value.ToString();
+                    Docente.Nombres = dgvDocentes.Rows[index].Cells["Nombres"].Value.ToString();
+                    Docente.Regimen = dgvDocentes.Rows[index].Cells["Regimen"].Value.ToString();
+                    Docente.Correo = dgvDocentes.Rows[index].Cells["Correo"].Value.ToString();
+                    Docente.Telefono = dgvDocentes.Rows[index].Cells["Telefono"].Value.ToString();
                     Frm_AddDocente AddDocente = new Frm_AddDocente(Docente);
                     AddDocente.FormClosed += new FormClosedEventHandler(Form_Closed);
                     void Form_Closed(object sndr, FormClosedEventArgs E) { MostrarDocentes(); }

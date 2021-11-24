@@ -60,6 +60,7 @@
     <Compile Include="Excel.cs" />
     <Compile Include="N_Asignacion.cs" />
     <Compile Include="N_Curso.cs" />
+    <Compile Include="N_Regimen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
