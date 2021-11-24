@@ -13,6 +13,7 @@ namespace CapaPresentacion
 {
     public partial class C_CRUDDocente : UserControl
     {
+        DataTable Docentes;
         public C_CRUDDocente()
         {
             InitializeComponent();
@@ -31,10 +32,11 @@ namespace CapaPresentacion
         public void MostrarDocentes()
         {
             // Buscamos los docentes que existen en la BD y lo almacenamos en un DataTable
-            DataTable Docentes = new D_Docente().MostrarDocentes();
-
+            Docentes = new D_Docente().MostrarDocentes();
+            
             // Mostramos en el DataGridView los Docentes
             dgvDocentes.DataSource = Docentes;
+            dgvDocentes.Columns["ID"].Visible = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace CapaPresentacion
                 int index = dgvDocentes.SelectedCells[0].RowIndex;
                 if (index >= 0 && index < dgvDocentes.Rows.Count - 1)
                 {
-                    String CodDocente = dgvDocentes.Rows[index].Cells[0].Value.ToString();
+                    String CodDocente = dgvDocentes.Rows[index].Cells[1].Value.ToString();
                     E_Docente Docente = new E_Docente();
                     Docente.CodDocente = CodDocente;
                     DialogResult confirm = MessageBox.Show("¿Realmente desea eliminar el docente " + CodDocente + "?", "Sistema de Silabos", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
