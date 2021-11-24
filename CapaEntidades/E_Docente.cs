@@ -19,5 +19,6 @@ namespace CapaEntidades
         public string Condicion { get; set; }
         public string Regimen { get; set; }
         public string Departamento { get; set; }
+        public int NroHoras { get; set; }
     }
 }

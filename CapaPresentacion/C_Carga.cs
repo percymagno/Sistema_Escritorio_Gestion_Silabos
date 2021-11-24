@@ -8,16 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
+using CapaEntidades;
+using CapaDatos;
 
 namespace CapaPresentacion
 {
     public partial class C_Carga : UserControl
     {
 
-        N_Asignacion n_Asignacion = new N_Asignacion();
+        N_Carga carga = new N_Carga();
         public C_Carga()
         {
             InitializeComponent();
+        }
+
+        private void RefrescarDGV()
+        {
+            dgvCarga.Rows.Clear();
+            dgvCarga.Refresh();
         }
 
         private void btnAbrir_Click(object sender, EventArgs e)
@@ -30,23 +38,20 @@ namespace CapaPresentacion
 
                 Frm_Cargando frm_Cargando = new Frm_Cargando("Leyendo Archivo...");
                 frm_Cargando.Show();
-                int nroFilas = n_Asignacion.Procesar(file);
+                int nroFilas = carga.Procesar(file);
                 frm_Cargando.Close();
-                MessageBox.Show(nroFilas + " filas leidas");
-
-
-                List<Carga> cargas = n_Asignacion.getCargas();
 
                 int i = 1;
-                foreach (Carga carga in cargas)
+                foreach (N_Asignacion asignacion in carga.getCarga())
                 {
                     string[] row = {
-                        i.ToString(), carga.Docente, carga.NombreCurso,
-                        carga.Grupo, carga.Tipo, carga.Dia, carga.HR_inicio.ToString(),
-                        carga.HR_fin.ToString()};
+                        i.ToString(), asignacion.Docente.Nombres, asignacion.Curso.Nombre,
+                        asignacion.Grupo, asignacion.Tipo, asignacion.Dia, asignacion.HR_inicio.ToString(),
+                        asignacion.HR_fin.ToString()};
                     dgvCarga.Rows.Add(row);
                     i++;
                 }
+                MessageBox.Show(nroFilas + " filas leidas");
                 btnGuardar.Visible = true;
             }
             else
@@ -56,16 +61,29 @@ namespace CapaPresentacion
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Frm_Cargando frm = new Frm_Cargando("Configurando...");
+            D_Docente d_Docente = new D_Docente();
+            DataTable dt_Docentes = d_Docente.MostrarDocentes();
+            N_Curso n_Curso = new N_Curso();
+            DataTable dt_Cursos = n_Curso.ObtenerCursos();
 
             frm.Show();
-            n_Asignacion.ActualizarDocentes();
-            n_Asignacion.ActualizarCursos();
-            n_Asignacion.Guardar();
+            foreach (N_Asignacion asignacion in carga.getCarga())
+            {
+                if (!asignacion.existeDocente(dt_Docentes)) {
+                    Frm_AddDocente frmDocente = new Frm_AddDocente(asignacion.Docente);
+                    frmDocente.ShowDialog();
+                    dt_Docentes = d_Docente.MostrarDocentes();
+                }
+                if (!asignacion.existeCurso(dt_Cursos)) {
+                    Frm_AddCurso frmCurso = new Frm_AddCurso(asignacion.Curso);
+                    frmCurso.ShowDialog();
+                    dt_Cursos = n_Curso.ObtenerCursos();
+                }
+            }
+            carga.Limpiar();
             frm.Close();
             MessageBox.Show("Se guardó carga académica");
-
-            dgvCarga.Rows.Clear();
-            dgvCarga.Refresh();
+            RefrescarDGV();
         }
 
         private void C_Carga_Load(object sender, EventArgs e)

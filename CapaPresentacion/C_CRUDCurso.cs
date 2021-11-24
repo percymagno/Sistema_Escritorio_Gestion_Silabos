@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
 using CapaNegocio;
+using CapaEntidades;
 
 namespace CapaPresentacion
 {
@@ -70,7 +71,7 @@ namespace CapaPresentacion
                 int index = dgvCursos.SelectedCells[0].RowIndex;
                 if (index >= 0 && index < dgvCursos.Rows.Count - 1)
                 {
-                    N_Curso Curso = new N_Curso 
+                    E_Curso Curso = new E_Curso 
                     {
                         CodCurso = dgvCursos.Rows[index].Cells[0].Value.ToString(),
                         Nombre = dgvCursos.Rows[index].Cells[1].Value.ToString(),
@@ -78,7 +79,7 @@ namespace CapaPresentacion
                         Categoria = dgvCursos.Rows[index].Cells[3].Value.ToString(),
                     };
 
-                    Frm_AddCurso AddCurso = new Frm_AddCurso(Curso);
+                    Frm_AddCurso AddCurso = new Frm_AddCurso(Curso, true);
                     AddCurso.ShowDialog();
                     MostrarCursos();
                 }
@@ -92,7 +93,7 @@ namespace CapaPresentacion
                 int index = dgvCursos.SelectedCells[0].RowIndex;
                 if (index >= 0 && index < dgvCursos.Rows.Count - 1)
                 {
-                    N_Curso Curso = new N_Curso{
+                    E_Curso Curso = new E_Curso{
 
                         CodCurso = dgvCursos.Rows[index].Cells[0].Value.ToString(),
                         Nombre = dgvCursos.Rows[index].Cells[1].Value.ToString(),

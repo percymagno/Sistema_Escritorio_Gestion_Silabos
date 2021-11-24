@@ -10,47 +10,32 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaDatos;
 using CapaNegocio;
+using CapaEntidades;
 
 namespace CapaPresentacion
 {
     public partial class Frm_AddCurso : Form
     {
+        E_Curso Curso;
         bool Editar;
-        public Frm_AddCurso(N_Curso Curso=null)
+        public Frm_AddCurso(E_Curso Curso=null, bool Editar = false)
         {
+            if(Curso != null)
+                this.Curso = Curso;
+            this.Editar = Editar;
             InitializeComponent();
-            if (Curso != null)
-            {
-                text_codigo.Text = Curso.CodCurso;
-                text_nombre.Text = Curso.Nombre;
-                Cb_creditos.Text = Curso.Creditos.ToString();
-                text_categoria.Text = Curso.Categoria.ToString();
-
-                text_codigo.Enabled = false;
-
-                btn_agregarCurso.Text = "EDITAR";
-
-                Editar = true;
-            }
-            else
-            {
-                this.Cb_creditos.SelectedItem = "4";
-                Editar &= false;
-            }
         }
 
         private void btn_agregarCurso_Click(object sender, EventArgs e)
         {
-            N_Curso n_Curso = new N_Curso
-            {
-                CodCurso = text_codigo.Text.Trim(),
-                Nombre = text_nombre.Text.Trim(),
-                Creditos = Int32.Parse(Cb_creditos.SelectedItem.ToString().Trim()),
-                Categoria = text_categoria.Text.Trim()
-            };
-            ValidationContext context = new ValidationContext(n_Curso, null, null);
+            N_Curso n_Curso = new N_Curso();
+            n_Curso.CodCurso = text_codigo.Text.Trim();
+            n_Curso.Nombre = text_nombre.Text.Trim();
+            n_Curso.Creditos = Int32.Parse(Cb_creditos.SelectedItem.ToString().Trim());
+            n_Curso.Categoria = text_categoria.Text.Trim();
+            ValidationContext context = new ValidationContext(Curso, null, null);
             IList<ValidationResult> errors = new List<ValidationResult>();
-            if(!Validator.TryValidateObject(n_Curso, context, errors, true))
+            if(!Validator.TryValidateObject(Curso, context, errors, true))
             {
                 foreach (ValidationResult result in errors)
                     MessageBox.Show(result.ErrorMessage);
@@ -79,6 +64,7 @@ namespace CapaPresentacion
         #region restablecer
         private void reestablecer()
         {
+            Curso = new E_Curso();
             // texbox
             text_codigo.Text = "";
             text_nombre.Text = "";
@@ -86,5 +72,27 @@ namespace CapaPresentacion
             text_categoria.Text = "";
         }
         #endregion reestablecer
+
+        private void Frm_AddCurso_Load(object sender, EventArgs e)
+        {
+            if (Curso != null)
+            {
+                text_codigo.Text = Curso.CodCurso;
+                text_nombre.Text = Curso.Nombre;
+                Cb_creditos.Text = Curso.Creditos.ToString();
+                text_categoria.Text = Curso.Categoria.ToString();
+
+                text_codigo.Enabled = false;
+
+                btn_agregarCurso.Text = "EDITAR";
+
+                Editar = true;
+            }
+            else
+            {
+                this.Cb_creditos.SelectedItem = "4";
+                Curso = new E_Curso();
+            }
+        }
     }
 }

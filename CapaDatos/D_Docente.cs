@@ -95,7 +95,7 @@ namespace CapaDatos
         public bool AgregarDocente(E_Docente Docente)
         {
             //Cadena de texto de Consulta a la BD
-            string query = "INSERT INTO TDocente VALUES(@CodDocente, @APaterno, @AMaterno, @Nombres, @Departamento, @Condicion, @Correo, @Telefono)";
+            string query = "INSERT INTO TDocente VALUES(@CodDocente, @APaterno, @AMaterno, @Nombres, @Regimen, @Correo, @Telefono)";
 
             // Ejecutar la consulta
             SqlCommand Comando = new SqlCommand(query, Conectar);
@@ -105,8 +105,7 @@ namespace CapaDatos
             Comando.Parameters.AddWithValue("@APaterno", Docente.Paterno);
             Comando.Parameters.AddWithValue("@AMaterno", Docente.Materno);
             Comando.Parameters.AddWithValue("@Nombres", Docente.Nombres);
-            Comando.Parameters.AddWithValue("@Departamento", Docente.Departamento);
-            Comando.Parameters.AddWithValue("@Condicion", Docente.Condicion);
+            Comando.Parameters.AddWithValue("@Regimen", Docente.Regimen);
             Comando.Parameters.AddWithValue("@Correo", Docente.Correo);
             Comando.Parameters.AddWithValue("@Telefono", Docente.Telefono);
             try
@@ -152,21 +151,19 @@ namespace CapaDatos
         public bool EditarDocente(E_Docente Docente)
         {
             //Cadena de texto de Consulta a la BD
-            string query = "UPDATE TDocente SET CodDocente = @CodDocente, Paterno = @APaterno, Materno = @AMaterno, Nombres = @Nombres, " +
-                "Departamento = @Departamento, Condicion = @Condicion, Correo = @Correo, Telefono = @Telefono WHERE ID=@ID";
+            string query = "UPDATE TDocente SET Paterno = @APaterno, Materno = @AMaterno, Nombres = @Nombres, " +
+                "Regimen = @Regimen, Correo = @Correo, Telefono = @Telefono WHERE CodDocente = @CodDocente";
 
             // Ejecutar la consulta"
             SqlCommand Comando = new SqlCommand(query, Conectar);
 
             // Agregar los parametros necesarios para el procedimiento
 
-            Comando.Parameters.AddWithValue("@ID", Docente.ID);
             Comando.Parameters.AddWithValue("@CodDocente", Docente.CodDocente);
             Comando.Parameters.AddWithValue("@APaterno", Docente.Paterno);
             Comando.Parameters.AddWithValue("@AMaterno", Docente.Materno);
             Comando.Parameters.AddWithValue("@Nombres", Docente.Nombres);
-            Comando.Parameters.AddWithValue("@Departamento", Docente.Departamento);
-            Comando.Parameters.AddWithValue("@Condicion", Docente.Condicion);
+            Comando.Parameters.AddWithValue("@Regimen", Docente.Regimen);
             Comando.Parameters.AddWithValue("@Correo", Docente.Correo);
             Comando.Parameters.AddWithValue("@Telefono", Docente.Telefono);
                 Abrir();
