@@ -124,6 +124,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.dgvDocentes);
             this.Name = "C_CRUDDocente";
             this.Size = new System.Drawing.Size(800, 450);
+            this.EnabledChanged += new System.EventHandler(this.C_CRUDDocente_EnabledChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
