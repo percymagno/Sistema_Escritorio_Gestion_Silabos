@@ -86,5 +86,11 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void C_CRUDDocente_EnabledChanged(object sender, EventArgs e)
+        {
+            if (this.Enabled)
+                MostrarDocentes();
+        }
     }
 }
