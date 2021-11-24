@@ -1,35 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Office.Interop.Excel;
-using _Excel = Microsoft.Office.Interop.Excel;
+using OfficeOpenXml;
 
 namespace CapaNegocio
 {
     public class Excel
     {
-        string path = "";
-        _Application excel = new _Excel.Application();
-        Workbook wb;
-        Worksheet ws;
+        ExcelPackage package;
+        ExcelWorksheet ws;
         int lastUsedRow = 0;
         int lastUsedColumn = 0;
 
         public Excel(string path, int sheet)
         {
-            this.path = path;
-            wb = excel.Workbooks.Open(path);
-            ws = excel.Worksheets[sheet];
-            lastUsedRow = ws.Cells.Find("*", System.Reflection.Missing.Value,
-                                System.Reflection.Missing.Value, System.Reflection.Missing.Value,
-                                _Excel.XlSearchOrder.xlByRows, _Excel.XlSearchDirection.xlPrevious,
-                                false, System.Reflection.Missing.Value, System.Reflection.Missing.Value).Row;
-            lastUsedColumn = ws.Cells.Find("*", System.Reflection.Missing.Value,
-                               System.Reflection.Missing.Value, System.Reflection.Missing.Value,
-                               _Excel.XlSearchOrder.xlByColumns, _Excel.XlSearchDirection.xlPrevious,
-                               false, System.Reflection.Missing.Value, System.Reflection.Missing.Value).Column;
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            package = new ExcelPackage(new FileInfo(path));
+            ws = package.Workbook.Worksheets[0];
+            lastUsedRow = ws.Dimension.End.Row;
+            lastUsedColumn = ws.Dimension.End.Column;
         }
         public string ReadCell(int i, int j)
         {
@@ -49,8 +41,8 @@ namespace CapaNegocio
         }
         public void closeExcel()
         {
-            wb.Close(0);
-            excel.Quit();
+            package.Dispose();
+            Console.WriteLine("Works???");
         }
     }
 }
