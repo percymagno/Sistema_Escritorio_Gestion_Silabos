@@ -13,14 +13,9 @@ namespace CapaPresentacion
     public partial class Frm_Cargando : Form
     {
         string mensaje = "";
-        public Frm_Cargando(string str = "Cargando")
+        public Frm_Cargando(string str = "Cargando...")
         {
             InitializeComponent();
-            mensaje = str;
-        }
-
-        private void Frm_Cargando_Load(object sender, EventArgs e)
-        {
             lblMensaje.Text = mensaje;
         }
     }

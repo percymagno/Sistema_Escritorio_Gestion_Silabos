@@ -127,5 +127,11 @@ namespace CapaPresentacion
             tbBuscar.SelectAll();
             tbBuscar.ForeColor = Color.Black;
         }
+
+        private void C_CRUDCurso_EnabledChanged(object sender, EventArgs e)
+        {
+            if (this.Enabled)
+                MostrarCursos();
+        }
     }
 }
