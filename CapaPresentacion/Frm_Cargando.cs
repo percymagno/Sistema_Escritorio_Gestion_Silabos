@@ -12,9 +12,16 @@ namespace CapaPresentacion
 {
     public partial class Frm_Cargando : Form
     {
-        public Frm_Cargando()
+        string mensaje = "";
+        public Frm_Cargando(string str = "Cargando")
         {
             InitializeComponent();
+            mensaje = str;
+        }
+
+        private void Frm_Cargando_Load(object sender, EventArgs e)
+        {
+            lblMensaje.Text = mensaje;
         }
     }
 }
