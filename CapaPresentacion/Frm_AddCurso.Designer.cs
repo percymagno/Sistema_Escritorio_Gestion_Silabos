@@ -155,6 +155,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.text_codigo);
             this.MaximizeBox = false;
             this.Name = "Frm_AddCurso";
+            this.Load += new System.EventHandler(this.Frm_AddCurso_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

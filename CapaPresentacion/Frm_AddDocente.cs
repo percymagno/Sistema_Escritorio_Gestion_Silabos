@@ -16,18 +16,16 @@ namespace CapaPresentacion
     {
         E_Docente e_Docente;
         DataTable dt = new N_Regimen().Mostrar();
-        bool editar = false;
+        bool Editar = false;
         public Frm_AddDocente()
         {
             InitializeComponent();
         }
-        public Frm_AddDocente(E_Docente Docente = null)
+        public Frm_AddDocente(E_Docente Docente = null, bool Editar = false)
         {
             if (Docente != null)
-            {
                 e_Docente = Docente;
-                editar = true;
-            }
+            this.Editar = Editar;
             InitializeComponent();
         }
         private void btn_agregarDocente_Click(object sender, EventArgs e)
@@ -40,7 +38,7 @@ namespace CapaPresentacion
             e_Docente.Regimen = comboBox_regimen.SelectedItem.ToString().Trim();
             e_Docente.Correo = text_correo.Text.Trim();
             e_Docente.Telefono = text_telefono.Text.Trim();
-            if (this.editar)
+            if (Editar)
             {
                 if (d_Docente.EditarDocente(e_Docente))
                     MessageBox.Show("Se edito correctamenete");
@@ -77,7 +75,7 @@ namespace CapaPresentacion
                 comboBox_regimen.Items.Add(row[0]);
             }
             comboBox_regimen.SelectedItem = dt.Rows[0][0];
-            if (editar)
+            if (Editar)
             {
                 text_codigo.Text = e_Docente.CodDocente;
                 text_nombre.Text = e_Docente.Nombres;
@@ -87,6 +85,8 @@ namespace CapaPresentacion
                 text_correo.Text = e_Docente.Correo;
                 comboBox_regimen.SelectedItem = e_Docente.Regimen;
                 btn_agregarDocente.Text = "EDITAR";
+
+                text_codigo.Enabled = false;
             }
         }
     }
