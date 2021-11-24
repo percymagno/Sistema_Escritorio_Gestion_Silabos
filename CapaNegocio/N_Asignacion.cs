@@ -20,15 +20,21 @@ namespace CapaNegocio
         int col = 0;
         List<Carga> cargas = new List<Carga>();
         List<E_Docente> docentes = new List<E_Docente>();
-        public void Procesar(string path)
+        List<E_Curso> cursos = new List<E_Curso>();
+        public int Procesar(string path)
         {
             excel = new Excel(path, 1);
-            while (row != -1 && row < excel.nroRows())
+            int nroRows = excel.nroRows();
+            while (row != -1 && row < nroRows)
             {
                 ActualizarIndexCarga();
                 ProcesarCarga();
                 Console.WriteLine("");
             }
+
+            excel.closeExcel();
+            excel = null;
+            return nroRows;
         }
         #region Leer archivo
         private void ActualizarIndexCarga()
@@ -60,13 +66,6 @@ namespace CapaNegocio
                     CodDocente = codDocente,
                     Nombres = docente,
                     Regimen = regimen,
-
-                    Paterno = null,
-                    Materno = null,
-                    Correo = null,
-                    Telefono = null,
-                    Condicion = null,
-                    Departamento = null,
                 };
             docentes.Add(e_Docente);
             row++;
@@ -93,7 +92,7 @@ namespace CapaNegocio
                 {
                     Carga carga1 = new Carga
                     {
-                        CodCurso = lista[0],
+                        CodCurso = lista[0].Substring(0,5),
                         CodDocente = codDocente,
                         Docente = docente,
                         Carrera = lista[1],
@@ -119,12 +118,11 @@ namespace CapaNegocio
         #endregion Leer archivo
         public void Guardar()
         {
-            GuardarDocentes();
             GuardarCargas();
             cargas.Clear();
             docentes.Clear();
         }
-        public void GuardarDocentes()
+        public void ActualizarDocentes()
         {
             D_Docente d_Docente = new D_Docente();
             DataTable dt_Docentes = d_Docente.MostrarDocentes();
@@ -135,6 +133,26 @@ namespace CapaNegocio
                 {
                     Console.WriteLine("Guardando docente: " + docente.Nombres + ", regimen: '" + docente.Regimen + "', codigo: " + docente.CodDocente);
                     bool ans = d_Docente.AgregarDocenteCarga(docente);
+                }
+            }
+        }
+        public void ActualizarCursos()
+        {
+            D_Curso d_Curso = new D_Curso();
+            DataTable dt_Cursos = d_Curso.ObtenerCursos();
+            foreach (Carga carga in cargas)
+            {
+                if (!existeCurso(carga.CodCurso, dt_Cursos))
+                {
+                    Console.WriteLine("Guardando curso: " + carga.NombreCurso + ", cod: '" + carga.CodCurso + "', creditos: " + carga.Creditos);
+                    E_Curso e_Curso = new E_Curso
+                    {
+                        CodCurso = carga.CodCurso,
+                        Nombre = carga.NombreCurso,
+                        Creditos = Int32.Parse(carga.Creditos),
+                        Categoria = "",
+                    };
+                    d_Curso.AgregarCurso(e_Curso);
                 }
             }
         }
@@ -151,6 +169,17 @@ namespace CapaNegocio
             foreach (DataRow row in dt.Rows)
             {
                 string Nombres = (row["Nombres"].ToString() + " " + row["Paterno"].ToString() + " " + row["Materno"].ToString()).Trim();
+                if (pNombres == Nombres)
+                    return true;
+            }
+            return false;
+        }
+        public bool existeCurso(string pNombres, DataTable dt)
+        {
+            if (dt == null) return false;
+            foreach (DataRow row in dt.Rows)
+            {
+                string Nombres = row["CodCurso"].ToString();
                 if (pNombres == Nombres)
                     return true;
             }

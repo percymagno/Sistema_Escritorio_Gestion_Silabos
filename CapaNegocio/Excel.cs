@@ -47,5 +47,10 @@ namespace CapaNegocio
         {
             return lastUsedColumn;
         }
+        public void closeExcel()
+        {
+            wb.Close(0);
+            excel.Quit();
+        }
     }
 }

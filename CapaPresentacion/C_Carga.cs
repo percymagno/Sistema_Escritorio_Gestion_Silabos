@@ -28,29 +28,22 @@ namespace CapaPresentacion
             {
                 string file = openFileDialog1.FileName;
 
-                Excel excel = new Excel(file, 1);
-
-                //MessageBox.Show(excel.nroRows().ToString() + " filas leidas");
-
-                Frm_Cargando frm_Cargando = new Frm_Cargando();
+                Frm_Cargando frm_Cargando = new Frm_Cargando("Leyendo Archivo...");
                 frm_Cargando.Show();
-                n_Asignacion.Procesar(file);
+                int nroFilas = n_Asignacion.Procesar(file);
                 frm_Cargando.Close();
+                MessageBox.Show(nroFilas + " filas leidas");
+
 
                 List<Carga> cargas = n_Asignacion.getCargas();
-
-                dgvCarga.ColumnCount = 6;
-                dgvCarga.Columns[0].Name = "#";
-                dgvCarga.Columns[1].Name = "CodDocente";
-                dgvCarga.Columns[2].Name = "Docente";
-                dgvCarga.Columns[3].Name = "CodCurso";
-                dgvCarga.Columns[4].Name = "Grupo";
-                dgvCarga.Columns[5].Name = "Tipo";
 
                 int i = 1;
                 foreach (Carga carga in cargas)
                 {
-                    string[] row = { i.ToString(), carga.CodDocente , carga.Docente, carga.CodCurso.Substring(0,5), carga.Grupo, carga.Tipo};
+                    string[] row = {
+                        i.ToString(), carga.Docente, carga.NombreCurso,
+                        carga.Grupo, carga.Tipo, carga.Dia, carga.HR_inicio.ToString(),
+                        carga.HR_fin.ToString()};
                     dgvCarga.Rows.Add(row);
                     i++;
                 }
@@ -62,9 +55,17 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            Frm_Cargando frm = new Frm_Cargando("Configurando...");
+
+            frm.Show();
+            n_Asignacion.ActualizarDocentes();
+            n_Asignacion.ActualizarCursos();
             n_Asignacion.Guardar();
-            dgvCarga.DataSource = null;
-            btnGuardar.Visible = false;
+            frm.Close();
+            MessageBox.Show("Se guardó carga académica");
+
+            dgvCarga.Rows.Clear();
+            dgvCarga.Refresh();
         }
 
         private void C_Carga_Load(object sender, EventArgs e)
