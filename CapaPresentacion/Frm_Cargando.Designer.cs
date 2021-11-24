@@ -64,7 +64,7 @@
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(240, 20);
             this.lblMensaje.TabIndex = 1;
-            this.lblMensaje.Text = "Cargando Archivo...";
+            this.lblMensaje.Text = "Cargando...";
             this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Frm_Cargando
@@ -78,7 +78,6 @@
             this.Name = "Frm_Cargando";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Cargando";
-            this.Load += new System.EventHandler(this.Frm_Cargando_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
