@@ -37,14 +37,14 @@ namespace CapaPresentacion
         private void btn_agregarDocente_Click(object sender, EventArgs e)
         {
             D_Docente d_Docente = new D_Docente();
-            e_Docente.CodDocente = text_codigo.Text;
-            e_Docente.Paterno = text_paterno.Text;
-            e_Docente.Materno = text_materno.Text;
-            e_Docente.Nombres = text_nombre.Text;
-            e_Docente.Departamento = text_departamento.Text;
-            e_Docente.Condicion = text_condicion.Text;
-            e_Docente.Correo = text_correo.Text;
-            e_Docente.Telefono = text_telefono.Text;
+            e_Docente.CodDocente = text_codigo.Text.Trim();
+            e_Docente.Paterno = text_paterno.Text.Trim();
+            e_Docente.Materno = text_materno.Text.Trim();
+            e_Docente.Nombres = text_nombre.Text.Trim();
+            e_Docente.Departamento = text_departamento.Text.Trim();
+            e_Docente.Condicion = text_condicion.Text.Trim();
+            e_Docente.Correo = text_correo.Text.Trim();
+            e_Docente.Telefono = text_telefono.Text.Trim();
             if (this.editar)
             {
                 if (d_Docente.EditarDocente(e_Docente))

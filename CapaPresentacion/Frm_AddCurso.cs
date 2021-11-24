@@ -43,10 +43,10 @@ namespace CapaPresentacion
         {
             N_Curso n_Curso = new N_Curso
             {
-                CodCurso = text_codigo.Text,
-                Nombre = text_nombre.Text,
-                Creditos = Int32.Parse(Cb_creditos.SelectedItem.ToString()),
-                Categoria = text_categoria.Text
+                CodCurso = text_codigo.Text.Trim(),
+                Nombre = text_nombre.Text.Trim(),
+                Creditos = Int32.Parse(Cb_creditos.SelectedItem.ToString().Trim()),
+                Categoria = text_categoria.Text.Trim()
             };
             ValidationContext context = new ValidationContext(n_Curso, null, null);
             IList<ValidationResult> errors = new List<ValidationResult>();
