@@ -12,7 +12,7 @@ namespace CapaDatos
 {
     public class D_Regimen
     {
-        D_Conexion conexion = new D_Conexion();
+        Conexion conexion = new Conexion();
         // Metodos CRUD
         public DataTable ObtenerRegimen()
         {

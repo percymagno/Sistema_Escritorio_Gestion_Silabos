@@ -12,7 +12,7 @@ namespace CapaDatos
 {
     public class D_Docente
     {
-        D_Conexion conexion = new D_Conexion();
+        Conexion conexion = new Conexion();
         // Metodos CRUD
         // Metodo para mostrar la tabla de docentes 
         public DataTable MostrarDocentes()

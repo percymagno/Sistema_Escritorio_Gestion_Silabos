@@ -12,7 +12,7 @@ namespace CapaDatos
 {
     public class D_Curso
     {
-        D_Conexion conexion = new D_Conexion();
+        Conexion conexion = new Conexion();
         // Metodos CRUD
         public bool AgregarCurso(E_Curso Curso)
         {
