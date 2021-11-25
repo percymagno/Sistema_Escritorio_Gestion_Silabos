@@ -26,6 +26,7 @@ namespace CapaNegocio
             while (row != -1 && row < nroRows)
             {
                 ActualizarIndexCarga();
+                if (row == -1) continue;
                 ProcesarCarga();
                 Console.WriteLine("");
             }
@@ -44,7 +45,6 @@ namespace CapaNegocio
                     string cell = excel.ReadCell(i, j);
                     if (cell != null && cell.ToUpper() == "CARRERA")
                     {
-
                         row = i;
                         col = j-1;
                         return;
