@@ -11,6 +11,7 @@ namespace CapaNegocio
 {
     public class N_Asignacion
     {
+        public int ID { get; set; }
         public E_Docente Docente { get; set; }
         public E_Curso Curso { get; set; }
         public string Carrera { get; set; }

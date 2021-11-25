@@ -73,7 +73,11 @@ namespace CapaPresentacion
                 }
                 MessageBox.Show(nroFilas + " filas leidas", "Sistema de Gestion de Sílabos");
             }
-            btnGuardar.Visible = carga.getCarga().Count() > 0;
+            if(carga.getCarga().Count() > 0)
+            {
+                btnGuardar.Visible = true;
+                panelCrud.Visible = false;
+            }
             if (carga.getCarga().Count() == 0)
             {
                 RefrescarDGV();
@@ -123,12 +127,73 @@ namespace CapaPresentacion
                 MessageBox.Show("Se guardó carga correctamente", "Sistema de Gestión de Silabos");
 
             btnGuardar.Visible = false;
+            panelCrud.Visible = true;
             RefrescarDGV();
         }
 
         private void C_Carga_Load(object sender, EventArgs e)
         {
             btnGuardar.Visible = false;
+            panelCrud.Visible = true;
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            //Frm_AddAsignacion AddCurso = new Frm_AddAsignacion(e_Asignacion, true);
+            //AddCurso.ShowDialog();
+            RefrescarDGV();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvCarga.Rows.Count > 0)
+            {
+                int index = dgvCarga.SelectedCells[0].RowIndex;
+                if (index >= 0 && index < dgvCarga.Rows.Count - 1)
+                {
+                    E_Asignacion e_Asignacion = new E_Asignacion
+                    {
+                        ID = Int32.Parse(dgvCarga.Rows[index].Cells[0].Value.ToString()),
+                        Semestre = dgvCarga.Rows[index].Cells[1].Value.ToString(),
+                        CodDocente = dgvCarga.Rows[index].Cells[2].Value.ToString(),
+                        CodCurso = dgvCarga.Rows[index].Cells[3].Value.ToString(),
+                        Tipo = dgvCarga.Rows[index].Cells[4].Value.ToString(),
+                        Grupo = dgvCarga.Rows[index].Cells[5].Value.ToString(),
+                        HT = Int32.Parse(dgvCarga.Rows[index].Cells[6].Value.ToString()),
+                        HP = Int32.Parse(dgvCarga.Rows[index].Cells[7].Value.ToString()),
+                        Dia = dgvCarga.Rows[index].Cells[8].Value.ToString(),
+                        HR_inicio = Int32.Parse(dgvCarga.Rows[index].Cells[9].Value.ToString()),
+                        HR_fin = Int32.Parse(dgvCarga.Rows[index].Cells[10].Value.ToString()),
+                        Aula = dgvCarga.Rows[index].Cells[11].Value.ToString(),
+                    };
+
+                    //Frm_AddAsignacion AddCurso = new Frm_AddAsignacion(e_Asignacion, true);
+                    //AddCurso.ShowDialog();
+                    RefrescarDGV();
+                }
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            if (dgvCarga.Rows.Count > 0)
+            {
+                int index = dgvCarga.SelectedCells[0].RowIndex;
+                if (index >= 0 && index < dgvCarga.Rows.Count - 1)
+                {
+                    String ID = dgvCarga.Rows[index].Cells[0].Value.ToString();
+                    DialogResult confirm = MessageBox.Show("¿Realmente desea eliminar el curso " + ID + "?", "Sistema de Silabos", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (confirm == DialogResult.OK)
+                    {
+                        if (new N_Asignacion().Eliminar(ID))
+                            MessageBox.Show("Curso " + ID + " eliminado!");
+                        else
+                            MessageBox.Show("No se pudo eliminar Curso " + ID + "!");
+                        RefrescarDGV();
+                    }
+                }
+            }
         }
     }
 }
