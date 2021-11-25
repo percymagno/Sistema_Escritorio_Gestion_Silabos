@@ -12,6 +12,7 @@ namespace CapaNegocio
     public class N_Asignacion
     {
         public int ID { get; set; }
+        public string Semestre { get; set; }
         public E_Docente Docente { get; set; }
         public E_Curso Curso { get; set; }
         public string Carrera { get; set; }
@@ -29,7 +30,7 @@ namespace CapaNegocio
 
         public override string ToString()
         {
-            return "CodCurso: " + Curso.CodCurso.Substring(0,5) + ", Docente: " + Docente.CodDocente + ", Tipo: " + Tipo + ", Grupo: " + Grupo;
+            return "CodCurso: " + Curso.CodCurso.Substring(0,5) + ", Docente: " + Docente.CodDocente + ", Tipo: " + Tipo + ", Grupo: " + Grupo + ", Semestre: "+ Semestre;
         }
         public int Guardar(DataTable dt_docente, DataTable dt_curso, DataTable dt_Asignacion)
         {
@@ -42,6 +43,7 @@ namespace CapaNegocio
                 return -1;
             E_Asignacion e_Asignacion = new E_Asignacion
             {
+                Semestre = this.Semestre,
                 CodDocente = Docente.CodDocente,
                 CodCurso = Curso.CodCurso,
                 Tipo = this.Tipo,
@@ -64,9 +66,9 @@ namespace CapaNegocio
         {
             return d_Asignacion.Mostrar();
         }
-        public DataTable Buscar(string ID)
+        public DataTable Buscar(string texto)
         {
-            return d_Asignacion.Buscar(ID);
+            return d_Asignacion.Buscar(texto);
         }
         public bool Editar(E_Asignacion ea)
         {
@@ -109,6 +111,7 @@ namespace CapaNegocio
                 string tmpDia = row["Dia"].ToString();
                 string tmpHR_inicio = row["HR_inicio"].ToString();
                 string tmpHr_fin = row["HR_fin"].ToString();
+                Console.WriteLine(tmpCodCurso + " " + tmpCodDocente + " " + tmpGrupo);
                 if (Curso.CodCurso == tmpCodCurso && Docente.CodDocente == tmpCodDocente && Grupo == tmpGrupo &&
                     Dia == tmpDia && HR_inicio.ToString() == tmpHR_inicio && HR_fin.ToString() == tmpHr_fin)
                     return true;

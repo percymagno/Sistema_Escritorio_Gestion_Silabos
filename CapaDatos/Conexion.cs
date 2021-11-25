@@ -13,7 +13,7 @@ namespace CapaDatos
     {
         // Definir la conexion a la base de datos
         public readonly SqlConnection Conectar = new SqlConnection(ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString);
-        public SqlCommand cmd = new SqlCommand();
+        public SqlCommand cmd;
         // Metodos abrir y cerrar la conexion
         private void Abrir()
         {
@@ -27,6 +27,7 @@ namespace CapaDatos
         }
         public void setComando(string sql)
         {
+            cmd = new SqlCommand();
             cmd.Connection = Conectar;
             cmd.CommandText = sql;
         }

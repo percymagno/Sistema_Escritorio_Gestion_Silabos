@@ -316,11 +316,6 @@
             0,
             0,
             0});
-            this.numHT.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numHT.Name = "numHT";
             this.numHT.Size = new System.Drawing.Size(70, 20);
             this.numHT.TabIndex = 30;
@@ -335,11 +330,6 @@
             this.numHP.Location = new System.Drawing.Point(294, 205);
             this.numHP.Maximum = new decimal(new int[] {
             2,
-            0,
-            0,
-            0});
-            this.numHP.Minimum = new decimal(new int[] {
-            1,
             0,
             0,
             0});

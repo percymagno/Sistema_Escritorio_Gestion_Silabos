@@ -31,7 +31,7 @@ namespace CapaDatos
             conexion.cmd.Parameters.AddWithValue("@HR_fin", asignacion.HR_fin);
             conexion.cmd.Parameters.AddWithValue("@Aula", asignacion.Aula);
 
-            return conexion.cmd.ExecuteNonQuery() == 1;
+            return conexion.executeNonQuery() == 1;
         }
         public DataTable Mostrar()
         {
@@ -42,7 +42,8 @@ namespace CapaDatos
         }
         public DataTable Buscar(String Texto)
         {
-            string sql = "SELECT * FROM TAsignacion WHERE ID LIKE (@Texto + '%')";
+            string sql = "SELECT * FROM TAsignacion WHERE ID LIKE (@Texto + '%') OR Semestre LIKE (@Texto + '%') " +
+                "OR CodCurso LIKE (@Texto + '%') OR CodDocente LIKE (@Texto + '%')";
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@Texto", Texto);
 
@@ -65,7 +66,7 @@ namespace CapaDatos
             conexion.cmd.Parameters.AddWithValue("@HR_inicio", asignacion.HR_inicio);
             conexion.cmd.Parameters.AddWithValue("@HR_fin", asignacion.HR_fin);
             conexion.cmd.Parameters.AddWithValue("@Aula", asignacion.Aula);
-            return conexion.cmd.ExecuteNonQuery() == 1;
+            return conexion.executeNonQuery() == 1;
         }
         public bool Eliminar(string ID)
         {
@@ -73,7 +74,7 @@ namespace CapaDatos
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@ID", ID);
 
-            return conexion.cmd.ExecuteNonQuery() == 1;
+            return conexion.executeNonQuery() == 1;
         }
     }
 }

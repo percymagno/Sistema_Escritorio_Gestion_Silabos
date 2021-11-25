@@ -18,20 +18,47 @@ namespace CapaPresentacion
 
         N_Carga carga;
         N_Asignacion n_Asignacion = new N_Asignacion();
+        N_Semestre n_Semestre = new N_Semestre();
         DataTable dt_Asignacion;
+        string curSemestre;
         public C_Carga()
         {
             InitializeComponent();
-            dt_Asignacion = n_Asignacion.Mostrar();
+            RellenarSemestre();
             RefrescarDGV();
+            panelSemestre.Visible = true;
+            panelSemestre.BringToFront();
         }
 
-        private void RefrescarDGV()
+        private void RefrescarDGV(string Semestre = "")
         {
+            dgvCarga.DataSource = null;
             dgvCarga.Rows.Clear();
-            dgvCarga.Refresh();
             dgvCarga.Columns.Clear();
-            dgvCarga.DataSource = dt_Asignacion;
+            dgvCarga.Refresh();
+
+            if (Semestre == "")
+                Semestre = curSemestre;
+
+            dt_Asignacion = n_Asignacion.Buscar(Semestre);
+            if (dt_Asignacion != null)
+            {
+                dgvCarga.DataSource = dt_Asignacion;
+                dgvCarga.Columns["ID"].Visible = false;
+                dgvCarga.Columns["Semestre"].Visible = false;
+                dgvCarga.Columns["Aula"].Visible = false;
+                dgvCarga.Columns["HT"].Visible = false;
+                dgvCarga.Columns["HP"].Visible = false;
+            }
+        }
+        private void RellenarSemestre()
+        {
+            DataTable dt_Semestres = n_Semestre.Mostrar();
+            cbSemestre.DataSource = dt_Semestres;
+            cbSemestre.DisplayMember = "Semestre";
+            cbSemestre.ValueMember = "Semestre";
+            cbSemestre.SelectedIndex = 0;
+            curSemestre = dt_Semestres.Rows[0][0].ToString();
         }
         private void RellenarHeaders()
         {
@@ -75,7 +102,7 @@ namespace CapaPresentacion
             }
             if(carga.getCarga().Count() > 0)
             {
-                btnGuardar.Visible = true;
+                panelGuardar.Visible = true;
                 panelCrud.Visible = false;
             }
             if (carga.getCarga().Count() == 0)
@@ -97,6 +124,7 @@ namespace CapaPresentacion
 
             foreach (N_Asignacion asignacion in carga.getCarga())
             {
+                asignacion.Semestre = curSemestre;
                 if (asignacion.buscarDocente(dt_Docentes) == "")
                 {
                     Frm_AddDocente frmDocente = new Frm_AddDocente(asignacion.Docente);
@@ -126,14 +154,14 @@ namespace CapaPresentacion
             else
                 MessageBox.Show("Se guardó carga correctamente", "Sistema de Gestión de Silabos");
 
-            btnGuardar.Visible = false;
+            panelGuardar.Visible = false;
             panelCrud.Visible = true;
             RefrescarDGV();
         }
 
         private void C_Carga_Load(object sender, EventArgs e)
         {
-            btnGuardar.Visible = false;
+            panelGuardar.Visible = false;
             panelCrud.Visible = true;
         }
 
@@ -194,6 +222,16 @@ namespace CapaPresentacion
                     }
                 }
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbSemestre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
