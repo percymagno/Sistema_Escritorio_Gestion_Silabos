@@ -33,44 +33,45 @@ namespace CapaPresentacion
             dgvCarga.Columns.Clear();
             dgvCarga.DataSource = dt_Asignacion;
         }
+        private void RellenarHeaders()
+        {
+            // rellenar DGV
+            dgvCarga.DataSource = null;
+            dgvCarga.Rows.Clear();
+            dgvCarga.Refresh();
+
+            dgvCarga.ColumnCount = 8;
+            dgvCarga.Columns[0].Name = "#";
+            dgvCarga.Columns[1].Name = "Docente";
+            dgvCarga.Columns[2].Name = "Curso";
+            dgvCarga.Columns[3].Name = "Grupo";
+            dgvCarga.Columns[4].Name = "Tipo";
+            dgvCarga.Columns[5].Name = "Dia";
+            dgvCarga.Columns[6].Name = "HR_inicio";
+            dgvCarga.Columns[7].Name = "HR_fin";
+        }
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
             carga = new N_Carga();
-            dgvCarga.DataSource = null;
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
                 string file = openFileDialog1.FileName;
 
-                Frm_Cargando frm_Cargando = new Frm_Cargando("Leyendo Archivo...");
-                frm_Cargando.Show();
                 int nroFilas = carga.Procesar(file);
-                frm_Cargando.Close();
 
-                // rellenar DGV
-                dgvCarga.Rows.Clear();
-                dgvCarga.Refresh();
-                dgvCarga.ColumnCount = 8;
-                dgvCarga.Columns[0].Name = "#";
-                dgvCarga.Columns[1].Name = "Docente";
-                dgvCarga.Columns[2].Name = "Curso";
-                dgvCarga.Columns[3].Name = "Grupo";
-                dgvCarga.Columns[4].Name = "Tipo";
-                dgvCarga.Columns[5].Name = "Dia";
-                dgvCarga.Columns[6].Name = "HR_inicio";
-                dgvCarga.Columns[7].Name = "HR_fin";
+                RellenarHeaders();
                 int i = 1;
                 foreach (N_Asignacion asignacion in carga.getCarga())
                 {
                     string[] row = {
-                        i.ToString(), asignacion.Docente.Nombres, asignacion.Curso.Nombre,
-                        asignacion.Grupo, asignacion.Tipo, asignacion.Dia, asignacion.HR_inicio.ToString(),
-                        asignacion.HR_fin.ToString()};
+                        i.ToString(), asignacion.Docente.Nombres, asignacion.Curso.Nombre, asignacion.Grupo,
+                        asignacion.Tipo, asignacion.Dia, asignacion.HR_inicio.ToString(), asignacion.HR_fin.ToString()};
                     dgvCarga.Rows.Add(row);
                     i++;
                 }
-                MessageBox.Show(nroFilas + " filas leidas");
+                MessageBox.Show(nroFilas + " filas leidas", "Sistema de Gestion de Sílabos");
                 btnGuardar.Visible = true;
             }
             else
@@ -112,10 +113,10 @@ namespace CapaPresentacion
                 {
                     tmp += "\n" + asignacion.Curso.Nombre + ", grupo: " + asignacion.Grupo;
                 }
-                MessageBox.Show("Asignaciones no agregadas: " + tmp);
+                MessageBox.Show("Asignaciones no agregadas: " + tmp, "Sistema de Gestion de Silabos");
             }
             else
-                MessageBox.Show("Se guardó carga correctamente");
+                MessageBox.Show("Se guardó carga correctamente", "Sistema de Gestión de Silabos");
 
             btnGuardar.Visible = false;
             RefrescarDGV();
