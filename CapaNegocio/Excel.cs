@@ -42,7 +42,6 @@ namespace CapaNegocio
         public void closeExcel()
         {
             package.Dispose();
-            Console.WriteLine("Works???");
         }
     }
 }
