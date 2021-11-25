@@ -40,12 +40,12 @@ namespace CapaPresentacion
             if (Semestre == "")
                 Semestre = curSemestre;
 
-            dt_Asignacion = n_Asignacion.Buscar(Semestre);
+            dt_Asignacion = n_Asignacion.BuscarSemestre(Semestre);
             if (dt_Asignacion != null)
             {
                 dgvCarga.DataSource = dt_Asignacion;
                 dgvCarga.Columns["ID"].Visible = false;
-                dgvCarga.Columns["Semestre"].Visible = false;
+                //dgvCarga.Columns["Semestre"].Visible = false;
                 dgvCarga.Columns["Aula"].Visible = false;
                 dgvCarga.Columns["HT"].Visible = false;
                 dgvCarga.Columns["HP"].Visible = false;
@@ -54,11 +54,12 @@ namespace CapaPresentacion
         private void RellenarSemestre()
         {
             DataTable dt_Semestres = n_Semestre.Mostrar();
-            cbSemestre.DataSource = dt_Semestres;
-            cbSemestre.DisplayMember = "Semestre";
-            cbSemestre.ValueMember = "Semestre";
-            cbSemestre.SelectedIndex = 0;
+            foreach (DataRow row in dt_Semestres.Rows)
+            {
+                cbSemestre.Items.Add(row[0]);
+            }
             curSemestre = dt_Semestres.Rows[0][0].ToString();
+            cbSemestre.SelectedItem = curSemestre;
         }
         private void RellenarHeaders()
         {
@@ -67,15 +68,14 @@ namespace CapaPresentacion
             dgvCarga.Rows.Clear();
             dgvCarga.Refresh();
 
-            dgvCarga.ColumnCount = 8;
-            dgvCarga.Columns[0].Name = "#";
-            dgvCarga.Columns[1].Name = "Docente";
-            dgvCarga.Columns[2].Name = "Curso";
-            dgvCarga.Columns[3].Name = "Grupo";
-            dgvCarga.Columns[4].Name = "Tipo";
-            dgvCarga.Columns[5].Name = "Dia";
-            dgvCarga.Columns[6].Name = "HR_inicio";
-            dgvCarga.Columns[7].Name = "HR_fin";
+            dgvCarga.ColumnCount = 7;
+            dgvCarga.Columns[0].Name = "Docente";
+            dgvCarga.Columns[1].Name = "Curso";
+            dgvCarga.Columns[2].Name = "Grupo";
+            dgvCarga.Columns[3].Name = "Tipo";
+            dgvCarga.Columns[4].Name = "Dia";
+            dgvCarga.Columns[5].Name = "HR_inicio";
+            dgvCarga.Columns[6].Name = "HR_fin";
         }
 
         private void btnAbrir_Click(object sender, EventArgs e)
@@ -89,14 +89,12 @@ namespace CapaPresentacion
                 int nroFilas = carga.Procesar(file);
 
                 RellenarHeaders();
-                int i = 1;
                 foreach (N_Asignacion asignacion in carga.getCarga())
                 {
                     string[] row = {
-                        i.ToString(), asignacion.Docente.Nombres, asignacion.Curso.Nombre, asignacion.Grupo,
+                        asignacion.Docente.Nombres, asignacion.Curso.Nombre, asignacion.Grupo,
                         asignacion.Tipo, asignacion.Dia, asignacion.HR_inicio.ToString(), asignacion.HR_fin.ToString()};
                     dgvCarga.Rows.Add(row);
-                    i++;
                 }
                 MessageBox.Show(nroFilas + " filas leidas", "Sistema de Gestion de Sílabos");
             }
@@ -226,12 +224,13 @@ namespace CapaPresentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            carga = null;
+            RefrescarDGV();
         }
 
         private void cbSemestre_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            RefrescarDGV(cbSemestre.SelectedItem.ToString());
         }
     }
 }

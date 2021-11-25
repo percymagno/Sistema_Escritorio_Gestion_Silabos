@@ -49,6 +49,14 @@ namespace CapaDatos
 
             return conexion.executeReader();
         }
+        public DataTable BuscarSemestre(String Texto)
+        {
+            string sql = "SELECT * FROM TAsignacion WHERE Semestre = @Texto";
+            conexion.setComando(sql);
+            conexion.cmd.Parameters.AddWithValue("@Texto", Texto);
+
+            return conexion.executeReader();
+        }
         public bool Editar(E_Asignacion asignacion)
         {
             string sql = "UPDATE dbo.TAsignacion SET (Semestre = @Semestre, CodDocente = @CodDocente, CodCurso = @CodCurso, Tipo = @Tipo, Grupo = @Grupo, " +

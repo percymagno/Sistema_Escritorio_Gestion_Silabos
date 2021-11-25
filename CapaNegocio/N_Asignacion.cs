@@ -66,9 +66,9 @@ namespace CapaNegocio
         {
             return d_Asignacion.Mostrar();
         }
-        public DataTable Buscar(string texto)
+        public DataTable BuscarSemestre(string texto)
         {
-            return d_Asignacion.Buscar(texto);
+            return d_Asignacion.BuscarSemestre(texto);
         }
         public bool Editar(E_Asignacion ea)
         {
@@ -111,10 +111,12 @@ namespace CapaNegocio
                 string tmpDia = row["Dia"].ToString();
                 string tmpHR_inicio = row["HR_inicio"].ToString();
                 string tmpHr_fin = row["HR_fin"].ToString();
-                Console.WriteLine(tmpCodCurso + " " + tmpCodDocente + " " + tmpGrupo);
                 if (Curso.CodCurso == tmpCodCurso && Docente.CodDocente == tmpCodDocente && Grupo == tmpGrupo &&
                     Dia == tmpDia && HR_inicio.ToString() == tmpHR_inicio && HR_fin.ToString() == tmpHr_fin)
+                {
+                    Console.WriteLine(tmpCodDocente + " " + tmpCodCurso + " " + tmpGrupo + " " + tmpDia + " " + tmpHR_inicio + " " + tmpHr_fin);
                     return true;
+                }
             }
             return false;
         }
