@@ -72,10 +72,14 @@ namespace CapaPresentacion
                     i++;
                 }
                 MessageBox.Show(nroFilas + " filas leidas", "Sistema de Gestion de Sílabos");
-                btnGuardar.Visible = true;
             }
-            else
-                btnGuardar.Visible = false;
+            btnGuardar.Visible = carga.getCarga().Count() > 0;
+            if (carga.getCarga().Count() == 0)
+            {
+                RefrescarDGV();
+                MessageBox.Show("Error! Elegir otro archivo", "Sistema de Gestion de Sílabos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+                
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
