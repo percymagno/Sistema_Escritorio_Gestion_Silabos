@@ -60,28 +60,27 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Frm_Cargando frm = new Frm_Cargando("Configurando...");
             D_Docente d_Docente = new D_Docente();
             DataTable dt_Docentes = d_Docente.MostrarDocentes();
             N_Curso n_Curso = new N_Curso();
             DataTable dt_Cursos = n_Curso.ObtenerCursos();
 
-            frm.Show();
             foreach (N_Asignacion asignacion in carga.getCarga())
             {
-                if (!asignacion.existeDocente(dt_Docentes)) {
+                if (!asignacion.existeDocente(dt_Docentes))
+                {
                     Frm_AddDocente frmDocente = new Frm_AddDocente(asignacion.Docente);
                     frmDocente.ShowDialog();
                     dt_Docentes = d_Docente.MostrarDocentes();
                 }
-                if (!asignacion.existeCurso(dt_Cursos)) {
+                if (!asignacion.existeCurso(dt_Cursos))
+                {
                     Frm_AddCurso frmCurso = new Frm_AddCurso(asignacion.Curso);
                     frmCurso.ShowDialog();
                     dt_Cursos = n_Curso.ObtenerCursos();
                 }
             }
             carga.Limpiar();
-            frm.Close();
             MessageBox.Show("Se guardó carga académica");
             RefrescarDGV();
         }

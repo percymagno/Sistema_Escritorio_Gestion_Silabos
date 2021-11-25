@@ -17,14 +17,9 @@ namespace CapaPresentacion
         E_Docente e_Docente;
         DataTable dt = new N_Regimen().Mostrar();
         bool Editar = false;
-        public Frm_AddDocente()
-        {
-            InitializeComponent();
-        }
         public Frm_AddDocente(E_Docente Docente = null, bool Editar = false)
         {
-            if (Docente != null)
-                e_Docente = Docente;
+            e_Docente = Docente;
             this.Editar = Editar;
             InitializeComponent();
         }
@@ -52,6 +47,8 @@ namespace CapaPresentacion
                     MessageBox.Show("Se agrego correctamente");
                 else
                     MessageBox.Show("Error. Curso no agregado");
+                if(btn_agregarDocente.Text == "GUARDAR")
+                    Close();
                 restablecer();
             }
         }
@@ -75,17 +72,24 @@ namespace CapaPresentacion
                 comboBox_regimen.Items.Add(row[0]);
             }
             comboBox_regimen.SelectedItem = dt.Rows[0][0];
+
+            if (e_Docente != null)
+            {
+                text_codigo.Text = e_Docente.CodDocente == null ? "" : e_Docente.CodDocente;
+                text_nombre.Text = e_Docente.Nombres == null ? "" : e_Docente.Nombres;
+                text_paterno.Text = e_Docente.Paterno == null ? "" : e_Docente.Paterno;
+                text_materno.Text = e_Docente.Materno == null ? "" : e_Docente.Materno;
+                text_telefono.Text = e_Docente.Telefono == null ? "" : e_Docente.Telefono;
+                text_correo.Text = e_Docente.Correo == null ? "" : e_Docente.Correo;
+                comboBox_regimen.SelectedItem = e_Docente.Regimen == null ? "" : dt.Rows[0][0];
+
+                btn_agregarDocente.Text = "GUARDAR";
+            }
+            else
+                e_Docente = new E_Docente();
             if (Editar)
             {
-                text_codigo.Text = e_Docente.CodDocente;
-                text_nombre.Text = e_Docente.Nombres;
-                text_paterno.Text = e_Docente.Paterno;
-                text_materno.Text = e_Docente.Materno;
-                text_telefono.Text = e_Docente.Telefono;
-                text_correo.Text = e_Docente.Correo;
-                comboBox_regimen.SelectedItem = e_Docente.Regimen;
                 btn_agregarDocente.Text = "EDITAR";
-
                 text_codigo.Enabled = false;
             }
         }
