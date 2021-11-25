@@ -139,8 +139,8 @@ namespace CapaPresentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            //Frm_AddAsignacion AddCurso = new Frm_AddAsignacion(e_Asignacion, true);
-            //AddCurso.ShowDialog();
+            Frm_AddAsignacion AddAsignacion = new Frm_AddAsignacion();
+            AddAsignacion.ShowDialog();
             RefrescarDGV();
         }
 
@@ -167,8 +167,8 @@ namespace CapaPresentacion
                         Aula = dgvCarga.Rows[index].Cells[11].Value.ToString(),
                     };
 
-                    //Frm_AddAsignacion AddCurso = new Frm_AddAsignacion(e_Asignacion, true);
-                    //AddCurso.ShowDialog();
+                    Frm_AddAsignacion AddAsignacion = new Frm_AddAsignacion(e_Asignacion, true);
+                    AddAsignacion.ShowDialog();
                     RefrescarDGV();
                 }
             }

@@ -78,6 +78,12 @@
     <Compile Include="C_CRUDDocente.Designer.cs">
       <DependentUpon>C_CRUDDocente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_AddAsignacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_AddAsignacion.Designer.cs">
+      <DependentUpon>Frm_AddAsignacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_AddCurso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="C_CRUDDocente.resx">
       <DependentUpon>C_CRUDDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_AddAsignacion.resx">
+      <DependentUpon>Frm_AddAsignacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_AddCurso.resx">
       <DependentUpon>Frm_AddCurso.cs</DependentUpon>
