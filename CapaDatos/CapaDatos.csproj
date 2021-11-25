@@ -43,9 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="D_Asignacion.cs" />
+    <Compile Include="Conexion.cs" />
     <Compile Include="D_Curso.cs" />
     <Compile Include="D_Docente.cs" />
     <Compile Include="D_Regimen.cs" />
+    <Compile Include="D_Semestre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -10,19 +10,6 @@ CREATE TABLE [dbo].[TCurso](
 	[Categoria] [varchar](10) NULL,
 )
 GO
-/****** Object:  Table [dbo].[TDocente]    Script Date: 24/11/2021 13:04:32 ******/
-
---drop table TDocente
-CREATE TABLE [dbo].[TDocente](
-	[CodDocente] [varchar](6) PRIMARY KEY,
-	[Paterno] [varchar](30) NULL,
-	[Materno] [varchar](30) NULL,
-	[Nombres] [varchar](100) NOT NULL,
-	[Regimen] [varchar](6) NULL,
-	[Correo] [varchar](30) NULL,
-	[Telefono] [varchar](20) NULL,
-)
-GO
 /****** Object:  Table [dbo].[TRegimen]    Script Date: 24/11/2021 13:04:32 ******/
 
 --drop table TRegimen
@@ -31,6 +18,20 @@ CREATE TABLE [dbo].[TRegimen](
 	[NroHoras] [int] NULL,
 )
 GO
+/****** Object:  Table [dbo].[TDocente]    Script Date: 24/11/2021 13:04:32 ******/
+
+--drop table TDocente
+CREATE TABLE [dbo].[TDocente](
+	[CodDocente] [varchar](6) PRIMARY KEY,
+	[Paterno] [varchar](30) NULL,
+	[Materno] [varchar](30) NULL,
+	[Nombres] [varchar](100) NOT NULL,
+	[Regimen] [varchar](6) FOREIGN KEY REFERENCES TRegimen(CodRegimen),
+	[Correo] [varchar](30) NULL,
+	[Telefono] [varchar](20) NULL,
+)
+GO
+
 /****** Object:  Table [dbo].[TUsuarios]    Script Date: 24/11/2021 13:04:32 ******/
 
 --drop table TUsuarios
@@ -42,12 +43,22 @@ CREATE TABLE [dbo].[TUsuarios](
 	[Acceso] [varchar](25) NULL,
 )
 GO
+/****** Object:  Table [dbo].[TSemestre]    Script Date: 24/11/2021 13:04:32 ******/
+
+--drop table TSemestre
+CREATE TABLE [dbo].[TSemestre](
+	[Semestre] [varchar](10) PRIMARY KEY,
+	[Fecha_inicio] [DATE] NOT NULL,
+	[Fecha_fin] [DATE] NOT NULL,
+)
+GO
 
 /****** Object:  Table [dbo].[TAsignacion]    Script Date: 24/11/2021 13:04:32 ******/
 
 --drop table TAsignacion
 CREATE TABLE [dbo].[TAsignacion](
 	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Semestre] [varchar](10) NOT NULL FOREIGN KEY REFERENCES TSemestre(Semestre),
 	[CodDocente] [varchar](6) NOT NULL FOREIGN KEY REFERENCES TDocente(CodDocente),
 	[CodCurso] [varchar](10) NOT NULL FOREIGN KEY REFERENCES TCurso(CodCurso),
 	[Tipo] [varchar](2) NOT NULL,
@@ -327,3 +338,15 @@ GO
 INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'PR-TP', 10)
 GO
 
+INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'000000', N'', N'', N'docente', N'PR-DE', N'', N'')
+GO
+INSERT [dbo].[TUsuarios] ([CodDocente], [Usuario], [Contraseña], [Acceso]) VALUES (N'000000', N'docente', N'docente', N'Docente')
+GO
+INSERT [dbo].[TUsuarios] ([CodDocente], [Usuario], [Contraseña], [Acceso]) VALUES (N'000000', N'administrador', N'administrador', N'Administrador')
+GO
+
+INSERT [dbo].[TSemestre] ([Semestre], [Fecha_inicio], [Fecha_fin]) VALUES ('2021-I', CONVERT(DATE,'31-5-2021',105), CONVERT(DATE,'27-9-2021',105))
+INSERT [dbo].[TSemestre] ([Semestre], [Fecha_inicio], [Fecha_fin]) VALUES ('2021-II', CONVERT(DATE,'18-10-2021',105), CONVERT(DATE,'14-2-2022',105))
+
+select * from TSemestre
+select MAX(Semestre) from TSemestre
