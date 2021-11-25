@@ -17,11 +17,10 @@ namespace CapaPresentacion
     public partial class Frm_AddCurso : Form
     {
         E_Curso Curso;
-        bool Editar;
+        bool Editar = false;
         public Frm_AddCurso(E_Curso Curso=null, bool Editar = false)
         {
-            if(Curso != null)
-                this.Curso = Curso;
+            this.Curso = Curso;
             this.Editar = Editar;
             InitializeComponent();
         }
@@ -56,6 +55,8 @@ namespace CapaPresentacion
                         MessageBox.Show("Se agrego correctamente");
                     else
                         MessageBox.Show("Error. Curso no agregado");
+                    if (btn_agregarCurso.Text == "GUARDAR")
+                        Close();
                     reestablecer();
                 }
             }
@@ -75,24 +76,25 @@ namespace CapaPresentacion
 
         private void Frm_AddCurso_Load(object sender, EventArgs e)
         {
+            this.Cb_creditos.SelectedItem = "4";
             if (Curso != null)
             {
-                text_codigo.Text = Curso.CodCurso;
-                text_nombre.Text = Curso.Nombre;
-                Cb_creditos.Text = Curso.Creditos.ToString();
-                text_categoria.Text = Curso.Categoria.ToString();
+                text_codigo.Text = Curso.CodCurso == null ? "" : Curso.CodCurso;
+                text_nombre.Text = Curso.Nombre == null ? "" : Curso.Nombre;
+                Cb_creditos.Text = Curso.Creditos == null ? "" : Curso.Creditos.ToString();
+                text_categoria.Text = Curso.Categoria == null ? "" : Curso.Categoria.ToString();
 
-                text_codigo.Enabled = false;
-
-                btn_agregarCurso.Text = "EDITAR";
-
-                Editar = true;
+                btn_agregarCurso.Text = "GUARDAR";
             }
             else
-            {
-                this.Cb_creditos.SelectedItem = "4";
                 Curso = new E_Curso();
+
+            if (Editar)
+            {
+                text_codigo.Enabled = false;
+                btn_agregarCurso.Text = "EDITAR";
             }
+
         }
     }
 }
