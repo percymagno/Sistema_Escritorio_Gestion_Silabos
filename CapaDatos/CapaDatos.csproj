@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="D_Asignacion.cs" />
+    <Compile Include="D_Conexion.cs" />
     <Compile Include="D_Curso.cs" />
     <Compile Include="D_Docente.cs" />
     <Compile Include="D_Regimen.cs" />

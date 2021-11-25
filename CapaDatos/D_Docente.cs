@@ -12,19 +12,7 @@ namespace CapaDatos
 {
     public class D_Docente
     {
-        // Definir la conexion a la base de datos
-        readonly SqlConnection Conectar = new SqlConnection(ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString);
-        // Metodos abrir y cerrar la conexion
-        public void Abrir()
-        {
-            if (Conectar.State == ConnectionState.Closed)
-                Conectar.Open();
-        }
-        public void Cerrar()
-        {
-            if (Conectar.State == ConnectionState.Open)
-                Conectar.Close();
-        }
+        D_Conexion conexion = new D_Conexion();
         // Metodos CRUD
         // Metodo para mostrar la tabla de docentes 
         public DataTable MostrarDocentes()
@@ -33,30 +21,9 @@ namespace CapaDatos
             string query = "SELECT * FROM TDocente";
 
             // Ejecutar la consulta
-            SqlCommand Comando = new SqlCommand(query, Conectar);
-            DataTable dt = new DataTable();
-            try
-            {
+            conexion.setComando(query);
 
-                Abrir();
-                using (SqlDataReader dr = Comando.ExecuteReader())
-                {
-                    if (dr.HasRows)
-                        dt.Load(dr);
-                    else
-                    {
-                        dt = null;
-                    }
-                }
-                Cerrar();
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("R. Error al tratar de conectar con la base de datos", ex.Message);
-                return null;
-            }
-
+            return conexion.executeReader();
         }
 
         // Metodo para mostrar la tabla de docentes de un determinado docente con algun filtro
@@ -66,29 +33,10 @@ namespace CapaDatos
             string query = "SELECT * FROM TDocente WHERE CodDocente LIKE (@Texto + '%') OR Paterno LIKE (@Texto + '%') OR Materno LIKE(@Texto +'%') OR Nombres LIKE(@Texto +'%')";
 
             // Ejecutar la consulta
-            SqlCommand Comando = new SqlCommand(query, Conectar);
-            Comando.Parameters.AddWithValue("@Texto", Texto);
-            DataTable dt = new DataTable();
-            try
-            {
-                Abrir();
-                using (SqlDataReader dr = Comando.ExecuteReader())
-                {
-                    if (dr.HasRows)
-                        dt.Load(dr);
-                    else
-                    {
-                        dt = null;
-                    }
-                }
-                Cerrar();
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("R. Error al tratar de conectar con la base de datos", ex.Message);
-                return null;
-            }
+            conexion.setComando(query);
+            conexion.cmd.Parameters.AddWithValue("@Texto", Texto);
+            
+            return conexion.executeReader();
         }
 
         // Metodo para insertar un registro de docente
@@ -98,28 +46,18 @@ namespace CapaDatos
             string query = "INSERT INTO TDocente VALUES(@CodDocente, @APaterno, @AMaterno, @Nombres, @Regimen, @Correo, @Telefono)";
 
             // Ejecutar la consulta
-            SqlCommand Comando = new SqlCommand(query, Conectar);
+            conexion.setComando(query);
 
             // Agregar los parametros necesarios para el procedimiento
-            Comando.Parameters.AddWithValue("@CodDocente", Docente.CodDocente);
-            Comando.Parameters.AddWithValue("@APaterno", Docente.Paterno);
-            Comando.Parameters.AddWithValue("@AMaterno", Docente.Materno);
-            Comando.Parameters.AddWithValue("@Nombres", Docente.Nombres);
-            Comando.Parameters.AddWithValue("@Regimen", Docente.Regimen);
-            Comando.Parameters.AddWithValue("@Correo", Docente.Correo);
-            Comando.Parameters.AddWithValue("@Telefono", Docente.Telefono);
-            try
-            {
-                Abrir();
-                int res = Comando.ExecuteNonQuery();
-                Cerrar();
-                return res == 1;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("C. Error al tratar de conectar con la base de datos", ex.Message);
-                return false;
-            }
+            conexion.cmd.Parameters.AddWithValue("@CodDocente", Docente.CodDocente);
+            conexion.cmd.Parameters.AddWithValue("@APaterno", Docente.Paterno);
+            conexion.cmd.Parameters.AddWithValue("@AMaterno", Docente.Materno);
+            conexion.cmd.Parameters.AddWithValue("@Nombres", Docente.Nombres);
+            conexion.cmd.Parameters.AddWithValue("@Regimen", Docente.Regimen);
+            conexion.cmd.Parameters.AddWithValue("@Correo", Docente.Correo);
+            conexion.cmd.Parameters.AddWithValue("@Telefono", Docente.Telefono);
+
+            return conexion.executeNonQuery() == 1;
         }
         // Agregar docente mediante carga
         public bool AgregarDocenteCarga(E_Docente Docente)
@@ -128,24 +66,14 @@ namespace CapaDatos
             string query = "INSERT INTO TDocente (CodDocente, Nombres, Regimen) VALUES(@CodDocente, @Nombres, @Regimen)";
 
             // Ejecutar la consulta
-            SqlCommand Comando = new SqlCommand(query, Conectar);
+            conexion.setComando(query);
 
             // Agregar los parametros necesarios para el procedimiento
-            Comando.Parameters.AddWithValue("@CodDocente", Docente.CodDocente);
-            Comando.Parameters.AddWithValue("@Nombres", Docente.Nombres);
-            Comando.Parameters.AddWithValue("@Regimen", Docente.Regimen);
-            try
-            {
-                Abrir();
-                int res = Comando.ExecuteNonQuery();
-                Cerrar();
-                return res == 1;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("C. Error al tratar de conectar con la base de datos", ex.ToString());
-                return false;
-            }
+            conexion.cmd.Parameters.AddWithValue("@CodDocente", Docente.CodDocente);
+            conexion.cmd.Parameters.AddWithValue("@Nombres", Docente.Nombres);
+            conexion.cmd.Parameters.AddWithValue("@Regimen", Docente.Regimen);
+            
+            return conexion.executeNonQuery()==1;
         }
         // Metodo para editar un registro de docente
         public bool EditarDocente(E_Docente Docente)
@@ -155,21 +83,19 @@ namespace CapaDatos
                 "Regimen = @Regimen, Correo = @Correo, Telefono = @Telefono WHERE CodDocente = @CodDocente";
 
             // Ejecutar la consulta"
-            SqlCommand Comando = new SqlCommand(query, Conectar);
+            conexion.setComando(query);
 
             // Agregar los parametros necesarios para el procedimiento
 
-            Comando.Parameters.AddWithValue("@CodDocente", Docente.CodDocente);
-            Comando.Parameters.AddWithValue("@APaterno", Docente.Paterno);
-            Comando.Parameters.AddWithValue("@AMaterno", Docente.Materno);
-            Comando.Parameters.AddWithValue("@Nombres", Docente.Nombres);
-            Comando.Parameters.AddWithValue("@Regimen", Docente.Regimen);
-            Comando.Parameters.AddWithValue("@Correo", Docente.Correo);
-            Comando.Parameters.AddWithValue("@Telefono", Docente.Telefono);
-                Abrir();
-                int res = Comando.ExecuteNonQuery();
-                Cerrar();
-                return res == 1;
+            conexion.cmd.Parameters.AddWithValue("@CodDocente", Docente.CodDocente);
+            conexion.cmd.Parameters.AddWithValue("@APaterno", Docente.Paterno);
+            conexion.cmd.Parameters.AddWithValue("@AMaterno", Docente.Materno);
+            conexion.cmd.Parameters.AddWithValue("@Nombres", Docente.Nombres);
+            conexion.cmd.Parameters.AddWithValue("@Regimen", Docente.Regimen);
+            conexion.cmd.Parameters.AddWithValue("@Correo", Docente.Correo);
+            conexion.cmd.Parameters.AddWithValue("@Telefono", Docente.Telefono);
+            
+            return conexion.executeNonQuery() == 1;
         }
 
         // Metodo para eliminar un registro de docente
@@ -179,22 +105,12 @@ namespace CapaDatos
             string query = "DELETE FROM TDocente WHERE CodDocente = @CodDocente";
 
             // Ejecutar la consulta
-            SqlCommand Comando = new SqlCommand(query, Conectar);
+            conexion.setComando(query);
 
             // Agregar los parametros necesarios para el procedimiento
-            Comando.Parameters.AddWithValue("@CodDocente", Docente.CodDocente);
-            try
-            {
-                Abrir();
-                int res = Comando.ExecuteNonQuery();
-                Cerrar();
-                return res == 1;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("D. Error al tratar de conectar con la base de datos", ex.Message);
-                return false;
-            }
+            conexion.cmd.Parameters.AddWithValue("@CodDocente", Docente.CodDocente);
+            
+            return conexion.executeNonQuery()==1;
         }
     }
 }
