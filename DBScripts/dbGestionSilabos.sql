@@ -346,7 +346,7 @@ INSERT [dbo].[TUsuarios] ([CodDocente], [Usuario], [Contraseña], [Acceso]) VALU
 GO
 
 INSERT [dbo].[TSemestre] ([Semestre], [Fecha_inicio], [Fecha_fin]) VALUES ('2021-I', CONVERT(DATE,'31-5-2021',105), CONVERT(DATE,'27-9-2021',105))
-INSERT [dbo].[TSemestre] ([Semestre], [Fecha_inicio], [Fecha_fin]) VALUES ('2021-II', CONVERT(DATE,'18-10-2021',105), CONVERT(DATE,'14-2-2021',105))
+INSERT [dbo].[TSemestre] ([Semestre], [Fecha_inicio], [Fecha_fin]) VALUES ('2021-II', CONVERT(DATE,'18-10-2021',105), CONVERT(DATE,'14-2-2022',105))
 
 select * from TSemestre
 select MAX(Semestre) from TSemestre
