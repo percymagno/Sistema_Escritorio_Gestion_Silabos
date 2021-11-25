@@ -4,60 +4,64 @@
 
 --drop table TCurso
 CREATE TABLE [dbo].[TCurso](
-	[CodCurso] [varchar](10) NOT NULL,
+	[CodCurso] [varchar](10) NOT NULL PRIMARY KEY,
 	[Nombre] [varchar](100) NOT NULL,
 	[Creditos] [int] NOT NULL,
 	[Categoria] [varchar](10) NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[CodCurso] ASC
-)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
+)
 GO
 /****** Object:  Table [dbo].[TDocente]    Script Date: 24/11/2021 13:04:32 ******/
 
 --drop table TDocente
 CREATE TABLE [dbo].[TDocente](
-	[CodDocente] [varchar](6),
+	[CodDocente] [varchar](6) PRIMARY KEY,
 	[Paterno] [varchar](30) NULL,
 	[Materno] [varchar](30) NULL,
 	[Nombres] [varchar](100) NOT NULL,
 	[Regimen] [varchar](6) NULL,
 	[Correo] [varchar](30) NULL,
 	[Telefono] [varchar](20) NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[CodDocente] ASC
-)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
+)
 GO
 /****** Object:  Table [dbo].[TRegimen]    Script Date: 24/11/2021 13:04:32 ******/
 
 --drop table TRegimen
 CREATE TABLE [dbo].[TRegimen](
-	[CodRegimen] [varchar](6) NOT NULL,
+	[CodRegimen] [varchar](6) NOT NULL PRIMARY KEY,
 	[NroHoras] [int] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[CodRegimen] ASC
-)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
+)
 GO
 /****** Object:  Table [dbo].[TUsuarios]    Script Date: 24/11/2021 13:04:32 ******/
 
 --drop table TUsuarios
 CREATE TABLE [dbo].[TUsuarios](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[CodDocente] [int] NULL,
+	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[CodDocente] [varchar](6) NOT NULL FOREIGN KEY REFERENCES TDOCENTE(CodDocente),
 	[Usuario] [varchar](20) NOT NULL,
 	[Contraseña] [varchar](25) NOT NULL,
-	[Acceso] [char](25) NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
+	[Acceso] [varchar](25) NULL,
+)
 GO
+
+/****** Object:  Table [dbo].[TAsignacion]    Script Date: 24/11/2021 13:04:32 ******/
+
+--drop table TAsignacion
+CREATE TABLE [dbo].[TAsignacion](
+	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[CodDocente] [varchar](6) NOT NULL FOREIGN KEY REFERENCES TDocente(CodDocente),
+	[CodCurso] [varchar](10) NOT NULL FOREIGN KEY REFERENCES TCurso(CodCurso),
+	[Tipo] [varchar](2) NOT NULL,
+	[Grupo] [varchar](2) NOT NULL,
+	[HT] [int] NOT NULL,
+	[HP] [int] NOT NULL,
+	[Dia] [varchar](15) NOT NULL,
+	[HR_inicio] [int] NOT NULL,
+	[HR_fin] [int] NOT NULL,
+	[Aula] [varchar](15) NOT NULL,
+)
+GO
+
+
 INSERT [dbo].[TCurso] ([CodCurso], [Nombre], [Creditos], [Categoria]) VALUES (N'IF060', N'MUSICA', 2, N'')
 GO
 INSERT [dbo].[TCurso] ([CodCurso], [Nombre], [Creditos], [Categoria]) VALUES (N'IF063', N'QUECHUA', 2, N'')
@@ -322,25 +326,4 @@ INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'PR-TC', 10)
 GO
 INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'PR-TP', 10)
 GO
-SET IDENTITY_INSERT [dbo].[TUsuarios] ON 
-GO
-INSERT [dbo].[TUsuarios] ([CodDocente], [Usuario], [Contraseña], [Acceso]) VALUES (NULL, N'admin', N'admin', N'Admin')
-GO
-INSERT [dbo].[TUsuarios] ([CodDocente], [Usuario], [Contraseña], [Acceso]) VALUES (NULL, N'docente', N'docente', N'Docente')
-GO
-SET IDENTITY_INSERT [dbo].[TUsuarios] OFF
-GO
-ALTER TABLE [dbo].[TDocente] ADD  DEFAULT ('no-re') FOR [Regimen]
-GO
-ALTER TABLE [dbo].[TDocente]  WITH CHECK ADD FOREIGN KEY([Regimen])
-REFERENCES [dbo].[TRegimen] ([CodRegimen])
-GO
-ALTER TABLE [dbo].[TUsuarios]  WITH CHECK ADD FOREIGN KEY([IDDocente])
-REFERENCES [dbo].[TDocente] ([ID])
-GO
-ALTER TABLE [dbo].[TDocente]  WITH CHECK ADD CHECK  (([Condicion]=NULL OR [Condicion]='CONTRATADO' OR [Condicion]='NOMBRADO'))
-GO
-ALTER TABLE [dbo].[TUsuarios]  WITH CHECK ADD CHECK  (([Acceso]='Docente' OR [Acceso]='Admin'))
-GO
-ALTER DATABASE [dbGestionSilabos] SET  READ_WRITE 
-GO
+
