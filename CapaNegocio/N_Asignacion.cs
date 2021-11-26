@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,24 @@ namespace CapaNegocio
     public class N_Asignacion
     {
         public int ID { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Semestre requerido")]
         public string Semestre { get; set; }
         public E_Docente Docente { get; set; }
         public E_Curso Curso { get; set; }
         public string Carrera { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Tipo es requerido")]
         public string Tipo { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Grupo es requerido")]
         public string Grupo { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "HT(Horas teoricas) es requerido")]
         public int HT { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "HP(Horas Practicas) es requerido")]
         public int HP { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Dia es requerido")]
         public string Dia { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "HR_inicio es requerido")]
         public int HR_inicio { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "HR_fin es requerido")]
         public int HR_fin { get; set; }
         public string Aula { get; set; }
         public int Matriculados { get; set; }
@@ -32,8 +41,10 @@ namespace CapaNegocio
         {
             return "CodCurso: " + Curso.CodCurso.Substring(0,5) + ", Docente: " + Docente.CodDocente + ", Tipo: " + Tipo + ", Grupo: " + Grupo + ", Semestre: "+ Semestre;
         }
-        public int Guardar(DataTable dt_docente, DataTable dt_curso, DataTable dt_Asignacion)
+        public int Guardar(DataTable dt_docente, DataTable dt_curso, DataTable dt_Asignacion=null)
         {
+            if (dt_Asignacion == null)
+                dt_Asignacion = Mostrar();
             // buscar docente
             Docente.CodDocente = buscarDocente(dt_docente);
             Curso.CodCurso = buscarCurso(dt_curso);
@@ -54,7 +65,6 @@ namespace CapaNegocio
                 HR_inicio = this.HR_inicio,
                 HR_fin = this.HR_fin,
                 Aula = this.Aula,
-
             };
             if (buscar(dt_Asignacion)) return 0;
 
@@ -70,9 +80,22 @@ namespace CapaNegocio
         {
             return d_Asignacion.BuscarSemestre(texto);
         }
-        public bool Editar(E_Asignacion ea)
+        public bool Editar()
         {
-            return d_Asignacion.Editar(ea);
+            return d_Asignacion.Editar(new E_Asignacion {
+                ID = this.ID,
+                Semestre = this.Semestre,
+                CodDocente = Docente.CodDocente,
+                CodCurso = Curso.CodCurso,
+                Tipo = this.Tipo,
+                Grupo = this.Grupo,
+                HT = this.HT,
+                HP = this.HP,
+                Dia = this.Dia,
+                HR_inicio = this.HR_inicio,
+                HR_fin = this.HR_fin,
+                Aula = this.Aula,
+            });
         }
         public bool Eliminar(string ID)
         {
@@ -114,7 +137,6 @@ namespace CapaNegocio
                 if (Curso.CodCurso == tmpCodCurso && Docente.CodDocente == tmpCodDocente && Grupo == tmpGrupo &&
                     Dia == tmpDia && HR_inicio.ToString() == tmpHR_inicio && HR_fin.ToString() == tmpHr_fin)
                 {
-                    Console.WriteLine(tmpCodDocente + " " + tmpCodCurso + " " + tmpGrupo + " " + tmpDia + " " + tmpHR_inicio + " " + tmpHr_fin);
                     return true;
                 }
             }

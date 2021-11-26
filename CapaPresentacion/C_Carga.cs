@@ -45,7 +45,7 @@ namespace CapaPresentacion
             {
                 dgvCarga.DataSource = dt_Asignacion;
                 dgvCarga.Columns["ID"].Visible = false;
-                //dgvCarga.Columns["Semestre"].Visible = false;
+                dgvCarga.Columns["Semestre"].Visible = false;
                 dgvCarga.Columns["Aula"].Visible = false;
                 dgvCarga.Columns["HT"].Visible = false;
                 dgvCarga.Columns["HP"].Visible = false;

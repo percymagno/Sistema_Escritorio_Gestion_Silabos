@@ -59,8 +59,8 @@ namespace CapaDatos
         }
         public bool Editar(E_Asignacion asignacion)
         {
-            string sql = "UPDATE dbo.TAsignacion SET (Semestre = @Semestre, CodDocente = @CodDocente, CodCurso = @CodCurso, Tipo = @Tipo, Grupo = @Grupo, " +
-                              "HT = @HT, HP = @HP, Dia = @Dia, HR_inicio = @HR_inicio, HR_fin = @HR_fin, Aula = @Aula) WHERE ID = @ID";
+            string sql = "UPDATE dbo.TAsignacion SET Semestre = @Semestre, CodDocente = @CodDocente, CodCurso = @CodCurso, Tipo = @Tipo, Grupo = @Grupo, " +
+                              "HT = @HT, HP = @HP, Dia = @Dia, HR_inicio = @HR_inicio, HR_fin = @HR_fin, Aula = @Aula WHERE ID = @ID";
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@ID", asignacion.ID);
             conexion.cmd.Parameters.AddWithValue("@Semestre", asignacion.Semestre);
