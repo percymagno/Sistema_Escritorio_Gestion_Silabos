@@ -185,119 +185,130 @@ INSERT [dbo].[TCurso] ([CodCurso], [Nombre], [Creditos], [Categoria]) VALUES (N'
 GO
 SET IDENTITY_INSERT [dbo].[TDocente] ON 
 GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'716753', N'ACURIO', N'USCA', N'NILA ZONIA', N'PR-DE', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'553642', N'ROZAS', N'HUACHO', N'JAVIER ARTURO', N'PR-DE', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'746199', N'FLORES', N'PACHECO', N'LINO PRISCILIANO', N'PR-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'737719', N'CARRASCO', N'POBLETE', N'EDWIN', N'PR-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'984424', N'PALOMINO', N'OLIVERA', N'EMILIO', N'PR-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'320665', N'GAMARRA', N'SALDIVAR', N'ENRIQUE', N'PR-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'123676', N'TICONA', N'PARI', N'GUZMÁN', N'AS-DE', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'185297', N'ORMEÑO', N'AYALA', N'YESHICA ISELA', N'AS-DE', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'465559', N'MEDRANO', N'VALENCIA', N'IVÁN CESAR', N'AS-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'699192', N'PALMA', N'TTITO', N'LUIS BELTRÁN', N'AS-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'594458', N'ALZAMORA', N'PAREDES', N'ROBERT WILBERT', N'AS-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'647272', N'CANDIA', N'OVIEDO', N'DENNIS IVÁN', N'AS-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'780342', N'VILLAFUERTE', N'SERNA', N'RONY', N'AS-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'114617', N'IBARRA', N'ZAMBRANO', N'WALDO ELIO', N'AS-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'765125', N'CHÁVEZ', N'CENTENO', N'JAVIER DAVID', N'AS-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'413599', N'MEDINA', N'MIRANDA', N'KARELIA', N'AS-TP', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'958746', N'PEÑALOZA', N'FIGUEROA', N'MANUEL AURELIO', N'AS-TP', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'605030', N'PILLCO', N'QUISPE', N'JOSÉ MAURO', N'AU-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'334171', N'BACA', N'CARDENAS', N'LINO AQUILES', N'AU-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'704404', N'PACHECO', N'VÁSQUEZ', N'ESTHER CRISTINA', N'AU-TC', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'543379', N'CHULLO', N'LLAVE', N'BORIS', N'A1', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'691376', N'QUINTANILLA', N'PORTUGAL', N'ROXANA LISETTE', N'A1', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'754279', N'CUTIPA', N'ARAPA', N'EFRAINA GLADYS', N'B1', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'535879', N'SEGUNDO', N'CARPIO', N'LISETH URPY', N'B1', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'854187', N'QUISPE', N'ONOFRE', N'CARLOS RAMÓN', N'B1', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'734138', N'IRPANOCA', N'CUSIMAYTA', N'MARITZA KATHERINE', N'B1', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'542493', N'ZAMALLOA', N'PARO', N'WILLIAN', N'B1', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'250497', N'VENEGAS', N'VERGARA', N'MARÍA DEL PILAR', N'B1', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'359310', N'SOSA', N'JAUREGUI', N'VÍCTOR DARIO', N'B1', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'637223', N'UGARTE', N'ROJAS', N'HÉCTOR EDUARDO', N'B1', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'359087', N'CUSIHUAMAN', N'PHOCCO', N'ROGER MARIO', N'B1', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'959941', N'DUEÑAS', N'DE LA CRUZ', N'HENRY SAMUEL', N'B2', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'804510', N'CHOQUE', N'SOTO', N'VANESSA MARIBEL', N'B2', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'664065', N'CHÁVEZ', N'ESPINOZA', N'WILLIAM ALBERTO', N'B2', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'517073', N'QUISPE', N'SOTA', N'JULIO VLADIMIR', N'B2', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'355018', N'VILLALBA', N'VILLALBA', N'TANY', N'B3', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'184245', N'AGUIRRE', N'CARBAJAL', N'DORIS SABINA', N'B3', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'976528', N'FALCÓN', N'HUALLPA', N'ÉLIDA', N'B2', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'479091', N'DUEÑAS', N'BUSTINZA', N'DARIO FRANCISCO', N'B2', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'179903', N'MONZÓN', N'CONDORI', N'LUIS ALVARO', N'B3', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'230593', N'GAMARRA', N'SALAS', N'JISBAJ', N'B3', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'750534', N'MONTOYA', N'CUBAS', N'CARLOS FERNANDO', N'B2', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'216139', N'VERA', N'OLIVERA', N'HARLEY', N'B3', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'153047', N'DUEÑAS', N'JIMÉNEZ', N'RAY', N'B1', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'456243', N'HUANCAHUIRE', N'BRAVO', N'CLAUDIO ISAIAS', N'B1', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'648948', N'RODRÍGUEZ', N'AYLLONE', N'AVELUZ', N'JP-40H', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'515898', N'LAVILLA', N'ALVAREZ', N'VANESA', N'JP-10H', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'643483', N'VILLENA', N'LEON', N'OLMER CLAUDIO', N'JP-10H', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'108757', N'ÁLVAREZ', N'MAMANI', N'EDWIN', N'JP-10H', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'370754', N'ABARCA', N'MORA', N'RAIMAR', N'JP-10H', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'951890', N'ALAGÓN', N'MARTÍNEZ', N'WUILLIAN', N'JP-10H', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'119815', N'ZÚÑIGA', N'ROJAS', N'GABRIELA', N'JP-20H', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'274225', N'MERMA', N'QUISPE', N'MARCIO FERNANDO', N'JP-20H', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'970531', N'DIAZ', N'CACERES', N'LISHA SABAH', N'JP-10H', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'913460', N'ENCISO', N'RODAS', N'LAURO', N'PR-DE', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'499417', N'CARBAJAL', N'LUNA', N'JULIO CESAR', N'PR-DE', N'', N'')
-GO
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'140156', N'HUAMAN', N'MENDOZA', N'JOHAN WILFREDO', N'PR-DE', N'140156@unsaac.edu.pe', N'')
+select * from TUsuarios
+delete from TUsuarios WHERE Acceso = 'Docente'
+--Docente
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'716753', N'ACURIO', N'USCA', N'NILA ZONIA', N'PR-DE', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'553642', N'ROZAS', N'HUACHO', N'JAVIER ARTURO', N'PR-DE', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'746199', N'FLORES', N'PACHECO', N'LINO PRISCILIANO', N'PR-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'737719', N'CARRASCO', N'POBLETE', N'EDWIN', N'PR-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'984424', N'PALOMINO', N'OLIVERA', N'EMILIO', N'PR-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'320665', N'GAMARRA', N'SALDIVAR', N'ENRIQUE', N'PR-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'123676', N'TICONA', N'PARI', N'GUZMÁN', N'AS-DE', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'185297', N'ORMEÑO', N'AYALA', N'YESHICA ISELA', N'AS-DE', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'465559', N'MEDRANO', N'VALENCIA', N'IVÁN CESAR', N'AS-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'699192', N'PALMA', N'TTITO', N'LUIS BELTRÁN', N'AS-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'594458', N'ALZAMORA', N'PAREDES', N'ROBERT WILBERT', N'AS-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'647272', N'CANDIA', N'OVIEDO', N'DENNIS IVÁN', N'AS-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'780342', N'VILLAFUERTE', N'SERNA', N'RONY', N'AS-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'114617', N'IBARRA', N'ZAMBRANO', N'WALDO ELIO', N'AS-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'765125', N'CHÁVEZ', N'CENTENO', N'JAVIER DAVID', N'AS-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'413599', N'MEDINA', N'MIRANDA', N'KARELIA', N'AS-TP', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'958746', N'PEÑALOZA', N'FIGUEROA', N'MANUEL AURELIO', N'AS-TP', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'605030', N'PILLCO', N'QUISPE', N'JOSÉ MAURO', N'AU-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'334171', N'BACA', N'CARDENAS', N'LINO AQUILES', N'AU-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'704404', N'PACHECO', N'VÁSQUEZ', N'ESTHER CRISTINA', N'AU-TC', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'543379', N'CHULLO', N'LLAVE', N'BORIS', N'A1', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'691376', N'QUINTANILLA', N'PORTUGAL', N'ROXANA LISETTE', N'A1', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'754279', N'CUTIPA', N'ARAPA', N'EFRAINA GLADYS', N'B1', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'535879', N'SEGUNDO', N'CARPIO', N'LISETH URPY', N'B1', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'854187', N'QUISPE', N'ONOFRE', N'CARLOS RAMÓN', N'B1', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'734138', N'IRPANOCA', N'CUSIMAYTA', N'MARITZA KATHERINE', N'B1', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'542493', N'ZAMALLOA', N'PARO', N'WILLIAN', N'B1', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'250497', N'VENEGAS', N'VERGARA', N'MARÍA DEL PILAR', N'B1', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'359310', N'SOSA', N'JAUREGUI', N'VÍCTOR DARIO', N'B1', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'637223', N'UGARTE', N'ROJAS', N'HÉCTOR EDUARDO', N'B1', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'359087', N'CUSIHUAMAN', N'PHOCCO', N'ROGER MARIO', N'B1', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'959941', N'DUEÑAS', N'DE LA CRUZ', N'HENRY SAMUEL', N'B2', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'804510', N'CHOQUE', N'SOTO', N'VANESSA MARIBEL', N'B2', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'664065', N'CHÁVEZ', N'ESPINOZA', N'WILLIAM ALBERTO', N'B2', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'517073', N'QUISPE', N'SOTA', N'JULIO VLADIMIR', N'B2', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'355018', N'VILLALBA', N'VILLALBA', N'TANY', N'B3', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'184245', N'AGUIRRE', N'CARBAJAL', N'DORIS SABINA', N'B3', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'976528', N'FALCÓN', N'HUALLPA', N'ÉLIDA', N'B2', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'479091', N'DUEÑAS', N'BUSTINZA', N'DARIO FRANCISCO', N'B2', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'179903', N'MONZÓN', N'CONDORI', N'LUIS ALVARO', N'B3', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'230593', N'GAMARRA', N'SALAS', N'JISBAJ', N'B3', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'750534', N'MONTOYA', N'CUBAS', N'CARLOS FERNANDO', N'B2', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'216139', N'VERA', N'OLIVERA', N'HARLEY', N'B3', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'153047', N'DUEÑAS', N'JIMÉNEZ', N'RAY', N'B1', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'456243', N'HUANCAHUIRE', N'BRAVO', N'CLAUDIO ISAIAS', N'B1', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'648948', N'RODRÍGUEZ', N'AYLLONE', N'AVELUZ', N'JP-40H', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'515898', N'LAVILLA', N'ALVAREZ', N'VANESA', N'JP-10H', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'643483', N'VILLENA', N'LEON', N'OLMER CLAUDIO', N'JP-10H', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'108757', N'ÁLVAREZ', N'MAMANI', N'EDWIN', N'JP-10H', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'370754', N'ABARCA', N'MORA', N'RAIMAR', N'JP-10H', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'951890', N'ALAGÓN', N'MARTÍNEZ', N'WUILLIAN', N'JP-10H', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'119815', N'ZÚÑIGA', N'ROJAS', N'GABRIELA', N'JP-20H', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'274225', N'MERMA', N'QUISPE', N'MARCIO FERNANDO', N'JP-20H', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'970531', N'DIAZ', N'CACERES', N'LISHA SABAH', N'JP-10H', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'913460', N'ENCISO', N'RODAS', N'LAURO', N'PR-DE', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'499417', N'CARBAJAL', N'LUNA', N'JULIO CESAR', N'PR-DE', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'140156', N'HUAMAN', N'MENDOZA', N'JOHAN WILFREDO', N'PR-DE', N'140156@unsaac.edu.pe', N'')
+go
+-- Usuarios
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('000000','docente','docente','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('716753','716753','716753','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('553642','553642','553642','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('746199','746199','746199','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('737719','737719','737719','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('984424','984424','984424','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('320665','320665','320665','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('123676','123676','123676','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('185297','185297','185297','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('465559','465559','465559','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('699192','699192','699192','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('594458','594458','594458','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('647272','647272','647272','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('780342','780342','780342','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('114617','114617','114617','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('765125','765125','765125','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('413599','413599','413599','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('958746','958746','958746','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('605030','605030','605030','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('334171','334171','334171','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('704404','704404','704404','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('543379','543379','543379','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('691376','691376','691376','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('754279','754279','754279','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('535879','535879','535879','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('535879','535879','535879','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('854187','854187','854187','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('734138','734138','734138','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('542493','542493','542493','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('250497','250497','250497','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('359310','359310','359310','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('637223','637223','637223','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('359087','359087','359087','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('959941','959941','959941','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('804510','804510','804510','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('664065','664065','664065','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('517073','517073','517073','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('355018','355018','355018','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('184245','184245','184245','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('976528','976528','976528','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('479091','479091','479091','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('179903','179903','179903','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('230593','230593','230593','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('750534','750534','750534','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('216139','216139','216139','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('153047','153047','153047','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('456243','456243','456243','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('648948','648948','648948','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('515898','515898','515898','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('643483','643483','643483','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('108757','108757','108757','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('370754','370754','370754','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('951890','951890','951890','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('119815','119815','119815','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('274225','274225','274225','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('970531','970531','970531','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('913460','913460','913460','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('499417','499417','499417','Docente')
+INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('499417','499417','499417','Docente')
+go
+--select * from TUsuarios
+
 GO
 SET IDENTITY_INSERT [dbo].[TDocente] OFF
 GO
