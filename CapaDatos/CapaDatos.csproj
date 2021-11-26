@@ -48,6 +48,7 @@
     <Compile Include="D_Docente.cs" />
     <Compile Include="D_Regimen.cs" />
     <Compile Include="D_Semestre.cs" />
+    <Compile Include="D_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

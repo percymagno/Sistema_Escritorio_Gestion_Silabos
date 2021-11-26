@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-
+using CapaNegocio;
+using CapaEntidades;
 
 namespace CapaPresentacion
 {
     public partial class FormLogin : Form
     {
-        public string Coduser { get; set; }
+        E_Usuario usuario;
+        N_Usuario n_usuario;
+        P_Director p_Director;
         public FormLogin()
         {
             InitializeComponent();
@@ -70,10 +73,28 @@ namespace CapaPresentacion
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             string Usuario = textUsuario.Text;
-            string Contraseña = textContraseña.Text;
-            P_Director p_Director = new P_Director();
-            p_Director.Show();
-            this.Visible = false;
+            string Contrasenia = textContraseña.Text;
+            N_Usuario n_Usuario = new N_Usuario();
+            usuario = n_Usuario.BuscarUsuario(Usuario, Contrasenia);
+            if(usuario == null)
+            {
+                textUsuario.Text = "USUARIO";
+                textContraseña.Text = "CONTRASEÑA";
+                MessageBox.Show("Usuario o Contraseña incorrectos");
+            }
+            else
+            {
+                if(usuario.Acceso == "Administrador")
+                {
+                    p_Director = new P_Director();
+                    p_Director.Show();
+                    this.Visible = false;
+                }
+                else
+                {
+
+                }
+            }
         }
 
         private void Close_Click(object sender, EventArgs e)
