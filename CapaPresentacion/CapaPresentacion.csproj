@@ -78,6 +78,12 @@
     <Compile Include="C_CRUDDocente.Designer.cs">
       <DependentUpon>C_CRUDDocente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_AddAsignacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="C_CRUDDocente.resx">
       <DependentUpon>C_CRUDDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_AddAsignacion.resx">
       <DependentUpon>Frm_AddAsignacion.cs</DependentUpon>
