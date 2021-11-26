@@ -40,6 +40,7 @@ namespace CapaDatos
 
             return conexion.executeReader();
         }
+
         public bool EditarCurso(E_Curso Curso)
         {
             string sql = "UPDATE dbo.TCurso SET Nombre = @Nombre, Creditos = @Creditos, Categoria = @Categoria WHERE CodCurso = @CodCurso";

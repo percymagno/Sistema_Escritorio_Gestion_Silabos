@@ -62,9 +62,10 @@ namespace CapaPresentacion
             this.panelTop.Controls.Add(this.panel5);
             this.panelTop.Controls.Add(this.panel1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(2, 2);
+            this.panelTop.Location = new System.Drawing.Point(3, 2);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(800, 30);
+            this.panelTop.Size = new System.Drawing.Size(1066, 37);
             this.panelTop.TabIndex = 3;
             this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
             // 
@@ -74,9 +75,10 @@ namespace CapaPresentacion
             this.panel5.Controls.Add(this.btnMaximize);
             this.panel5.Controls.Add(this.btnClose);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(695, 0);
+            this.panel5.Location = new System.Drawing.Point(926, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(105, 30);
+            this.panel5.Size = new System.Drawing.Size(140, 37);
             this.panel5.TabIndex = 4;
             // 
             // btnMinimize
@@ -87,9 +89,10 @@ namespace CapaPresentacion
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.Image = global::CapaPresentacion.Properties.Resources.minus;
-            this.btnMinimize.Location = new System.Drawing.Point(5, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(7, 0);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimize.Size = new System.Drawing.Size(40, 37);
             this.btnMinimize.TabIndex = 4;
             this.btnMinimize.UseVisualStyleBackColor = true;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
@@ -102,9 +105,10 @@ namespace CapaPresentacion
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximize.Image = global::CapaPresentacion.Properties.Resources.stop;
-            this.btnMaximize.Location = new System.Drawing.Point(40, 0);
+            this.btnMaximize.Location = new System.Drawing.Point(53, 0);
+            this.btnMaximize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(30, 30);
+            this.btnMaximize.Size = new System.Drawing.Size(40, 37);
             this.btnMaximize.TabIndex = 2;
             this.btnMaximize.UseVisualStyleBackColor = true;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
@@ -118,10 +122,10 @@ namespace CapaPresentacion
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::CapaPresentacion.Properties.Resources.close;
-            this.btnClose.Location = new System.Drawing.Point(75, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(5);
+            this.btnClose.Location = new System.Drawing.Point(100, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(30, 30);
+            this.btnClose.Size = new System.Drawing.Size(40, 37);
             this.btnClose.TabIndex = 1;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -130,8 +134,9 @@ namespace CapaPresentacion
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(0)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 30);
+            this.panel1.Size = new System.Drawing.Size(267, 37);
             this.panel1.TabIndex = 2;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -142,9 +147,10 @@ namespace CapaPresentacion
             this.panelLeft.Controls.Add(this.panel3);
             this.panelLeft.Controls.Add(this.panel2);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(2, 32);
+            this.panelLeft.Location = new System.Drawing.Point(3, 39);
+            this.panelLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(200, 420);
+            this.panelLeft.Size = new System.Drawing.Size(267, 517);
             this.panelLeft.TabIndex = 4;
             // 
             // panel4
@@ -153,9 +159,10 @@ namespace CapaPresentacion
             this.panel4.Controls.Add(this.btnCursos);
             this.panel4.Controls.Add(this.btnDocentes);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 100);
+            this.panel4.Location = new System.Drawing.Point(0, 123);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 280);
+            this.panel4.Size = new System.Drawing.Size(267, 345);
             this.panel4.TabIndex = 3;
             // 
             // btnCarga
@@ -166,9 +173,10 @@ namespace CapaPresentacion
             this.btnCarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(0)))));
-            this.btnCarga.Location = new System.Drawing.Point(0, 90);
+            this.btnCarga.Location = new System.Drawing.Point(0, 111);
+            this.btnCarga.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCarga.Name = "btnCarga";
-            this.btnCarga.Size = new System.Drawing.Size(200, 40);
+            this.btnCarga.Size = new System.Drawing.Size(267, 49);
             this.btnCarga.TabIndex = 2;
             this.btnCarga.Text = "Carga Academica";
             this.btnCarga.UseVisualStyleBackColor = false;
@@ -182,9 +190,10 @@ namespace CapaPresentacion
             this.btnCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCursos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(0)))));
-            this.btnCursos.Location = new System.Drawing.Point(0, 50);
+            this.btnCursos.Location = new System.Drawing.Point(0, 62);
+            this.btnCursos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCursos.Name = "btnCursos";
-            this.btnCursos.Size = new System.Drawing.Size(200, 40);
+            this.btnCursos.Size = new System.Drawing.Size(267, 49);
             this.btnCursos.TabIndex = 1;
             this.btnCursos.Text = "Cursos";
             this.btnCursos.UseVisualStyleBackColor = false;
@@ -198,9 +207,10 @@ namespace CapaPresentacion
             this.btnDocentes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDocentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDocentes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(0)))));
-            this.btnDocentes.Location = new System.Drawing.Point(0, 10);
+            this.btnDocentes.Location = new System.Drawing.Point(0, 12);
+            this.btnDocentes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDocentes.Name = "btnDocentes";
-            this.btnDocentes.Size = new System.Drawing.Size(200, 40);
+            this.btnDocentes.Size = new System.Drawing.Size(267, 49);
             this.btnDocentes.TabIndex = 0;
             this.btnDocentes.Text = "Docentes";
             this.btnDocentes.UseVisualStyleBackColor = false;
@@ -213,26 +223,29 @@ namespace CapaPresentacion
             this.panel3.Controls.Add(this.lblUsuario);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 100);
+            this.panel3.Size = new System.Drawing.Size(267, 123);
             this.panel3.TabIndex = 1;
             // 
             // pbxUsuario
             // 
             this.pbxUsuario.BackgroundImage = global::CapaPresentacion.Properties.Resources.admin;
             this.pbxUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxUsuario.Location = new System.Drawing.Point(50, 10);
+            this.pbxUsuario.Location = new System.Drawing.Point(67, 12);
+            this.pbxUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbxUsuario.Name = "pbxUsuario";
-            this.pbxUsuario.Size = new System.Drawing.Size(100, 60);
+            this.pbxUsuario.Size = new System.Drawing.Size(133, 74);
             this.pbxUsuario.TabIndex = 1;
             this.pbxUsuario.TabStop = false;
             // 
             // lblUsuario
             // 
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(0, 75);
+            this.lblUsuario.Location = new System.Drawing.Point(0, 92);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(200, 20);
+            this.lblUsuario.Size = new System.Drawing.Size(267, 25);
             this.lblUsuario.TabIndex = 0;
             this.lblUsuario.Text = "Juan Perez";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -241,9 +254,10 @@ namespace CapaPresentacion
             // 
             this.panel2.Controls.Add(this.btnSalir);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 380);
+            this.panel2.Location = new System.Drawing.Point(0, 468);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 40);
+            this.panel2.Size = new System.Drawing.Size(267, 49);
             this.panel2.TabIndex = 0;
             // 
             // btnSalir
@@ -255,8 +269,9 @@ namespace CapaPresentacion
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(170)))), ((int)(((byte)(211)))));
             this.btnSalir.Location = new System.Drawing.Point(0, 0);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(200, 40);
+            this.btnSalir.Size = new System.Drawing.Size(267, 49);
             this.btnSalir.TabIndex = 0;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -264,24 +279,27 @@ namespace CapaPresentacion
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(202, 32);
+            this.panelMain.Location = new System.Drawing.Point(270, 39);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Padding = new System.Windows.Forms.Padding(10, 0, 7, 7);
-            this.panelMain.Size = new System.Drawing.Size(600, 420);
+            this.panelMain.Padding = new System.Windows.Forms.Padding(13, 0, 9, 9);
+            this.panelMain.Size = new System.Drawing.Size(799, 517);
             this.panelMain.TabIndex = 5;
+            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
             // P_Director
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(805, 455);
+            this.ClientSize = new System.Drawing.Size(1073, 560);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "P_Director";
-            this.Padding = new System.Windows.Forms.Padding(2, 2, 3, 3);
+            this.Padding = new System.Windows.Forms.Padding(3, 2, 4, 4);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "P_ControlDirector";
             this.panelTop.ResumeLayout(false);

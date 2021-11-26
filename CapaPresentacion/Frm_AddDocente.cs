@@ -25,28 +25,28 @@ namespace CapaPresentacion
         }
         private void btn_agregarDocente_Click(object sender, EventArgs e)
         {
-            D_Docente d_Docente = new D_Docente();
-            e_Docente.CodDocente = text_codigo.Text.Trim();
-            e_Docente.Paterno = text_paterno.Text.Trim();
-            e_Docente.Materno = text_materno.Text.Trim();
-            e_Docente.Nombres = text_nombre.Text.Trim();
-            e_Docente.Regimen = comboBox_regimen.SelectedItem.ToString().Trim();
-            e_Docente.Correo = text_correo.Text.Trim();
-            e_Docente.Telefono = text_telefono.Text.Trim();
+            N_Docente n_Docente = new N_Docente();
+            n_Docente.CodDocente = text_codigo.Text.Trim();
+            n_Docente.Paterno = text_paterno.Text.Trim();
+            n_Docente.Materno = text_materno.Text.Trim();
+            n_Docente.Nombre = text_nombre.Text.Trim();
+            n_Docente.Regimen = comboBox_regimen.SelectedItem.ToString().Trim();
+            n_Docente.Correo = text_correo.Text.Trim();
+            n_Docente.Telefono = text_telefono.Text.Trim();
             if (Editar)
             {
-                if (d_Docente.EditarDocente(e_Docente))
+                if (n_Docente.EditarDocente())
                     MessageBox.Show("Se edito correctamenete");
                 else
-                    MessageBox.Show("Error. Curso no editado");
+                    MessageBox.Show("Error. Docente no editado");
                 Close();
             }
             else
             {
-                if (d_Docente.AgregarDocente(e_Docente))
+                if (n_Docente.AgregarDocente())
                     MessageBox.Show("Se agrego correctamente");
                 else
-                    MessageBox.Show("Error. Curso no agregado");
+                    MessageBox.Show("Error. Docente no agregado");
                 if(btn_agregarDocente.Text == "GUARDAR")
                     Close();
                 restablecer();
