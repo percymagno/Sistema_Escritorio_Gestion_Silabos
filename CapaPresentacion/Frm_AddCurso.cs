@@ -32,9 +32,9 @@ namespace CapaPresentacion
             n_Curso.Nombre = text_nombre.Text.Trim();
             n_Curso.Creditos = Int32.Parse(Cb_creditos.SelectedItem.ToString().Trim());
             n_Curso.Categoria = text_categoria.Text.Trim();
-            ValidationContext context = new ValidationContext(Curso, null, null);
+            ValidationContext context = new ValidationContext(n_Curso, null, null);
             IList<ValidationResult> errors = new List<ValidationResult>();
-            if(!Validator.TryValidateObject(Curso, context, errors, true))
+            if(!Validator.TryValidateObject(n_Curso, context, errors, true))
             {
                 foreach (ValidationResult result in errors)
                     MessageBox.Show(result.ErrorMessage);

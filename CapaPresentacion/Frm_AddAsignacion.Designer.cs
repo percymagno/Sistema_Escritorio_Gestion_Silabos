@@ -82,9 +82,11 @@
             this.btnAgregarAsignacion.TabIndex = 1;
             this.btnAgregarAsignacion.Text = "AGREGAR";
             this.btnAgregarAsignacion.UseVisualStyleBackColor = false;
+            this.btnAgregarAsignacion.Click += new System.EventHandler(this.btnAgregarAsignacion_Click);
             // 
             // tbID
             // 
+            this.tbID.Enabled = false;
             this.tbID.Location = new System.Drawing.Point(40, 79);
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(151, 20);

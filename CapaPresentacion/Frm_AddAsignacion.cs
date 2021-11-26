@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocio;
 using CapaDatos;
+using System.ComponentModel.DataAnnotations;
 
 namespace CapaPresentacion
 {
@@ -17,9 +18,8 @@ namespace CapaPresentacion
     {
         E_Asignacion Asignacion;
         bool Editar = false;
-        D_Docente d_Docente = new D_Docente();
-        N_Curso n_Curso = new N_Curso();
-        N_Semestre n_Semestre = new N_Semestre();
+        DataTable dt_docente;
+        DataTable dt_curso;
 
         public Frm_AddAsignacion(E_Asignacion Asignacion = null, bool Editar = false)
         {
@@ -33,7 +33,8 @@ namespace CapaPresentacion
         }
         public void RellenarDocentes()
         {
-            DataTable dt_docente = d_Docente.MostrarDocentes();
+            D_Docente d_Docente = new D_Docente();
+            dt_docente = d_Docente.MostrarDocentes();
             if (dt_docente != null)
             {
                 cboxDocente.DataSource = dt_docente;
@@ -44,7 +45,8 @@ namespace CapaPresentacion
         }
         public void RellenarCursos()
         {
-            DataTable dt_curso = n_Curso.ObtenerCursos();
+            N_Curso n_Curso = new N_Curso();
+            dt_curso = n_Curso.ObtenerCursos();
             if(dt_curso != null)
             {
                 cboxCurso.DataSource = dt_curso;
@@ -55,6 +57,7 @@ namespace CapaPresentacion
         }
         public void RellenarSemestre()
         {
+            N_Semestre n_Semestre = new N_Semestre();
             DataRow dr_Semestre = n_Semestre.MostrarUltimo();
             if (dr_Semestre != null)
             {
@@ -95,6 +98,55 @@ namespace CapaPresentacion
             if (Editar)
             {
                 btnAgregarAsignacion.Text = "EDITAR";
+            }
+        }
+
+        private void btnAgregarAsignacion_Click(object sender, EventArgs e)
+        {
+            N_Asignacion n_Asignacion = new N_Asignacion();
+            n_Asignacion.ID = Int32.Parse(tbID != null && tbID.Text != "" ? tbID.Text : "-1");
+            n_Asignacion.Docente = new E_Docente { CodDocente = cboxDocente.SelectedValue.ToString() };
+            n_Asignacion.Curso = new E_Curso { CodCurso = cboxCurso.SelectedValue.ToString() };
+            n_Asignacion.Semestre = tbSemestre.Text;
+            n_Asignacion.Tipo = cboxTipo.SelectedItem.ToString();
+            n_Asignacion.Grupo = cboxGrupo.SelectedItem.ToString();
+            n_Asignacion.HT = (int)numHT.Value;
+            n_Asignacion.HP = (int)numHP.Value;
+            n_Asignacion.Dia = cboxDia.SelectedItem.ToString();
+            n_Asignacion.Aula = tbAula.Text.Trim();
+            n_Asignacion.HR_inicio = (int)numHR_inicio.Value;
+            n_Asignacion.HR_fin = (int)numHR_fin.Value;
+            
+            ValidationContext context = new ValidationContext(n_Asignacion, null, null);
+            IList<ValidationResult> errors = new List<ValidationResult>();
+            if (!Validator.TryValidateObject(n_Asignacion, context, errors, true))
+            {
+                foreach (ValidationResult result in errors)
+                    MessageBox.Show(result.ErrorMessage);
+            }
+            else
+            {
+                if (this.Editar)
+                {
+                    if (n_Asignacion.Editar())
+                        MessageBox.Show("Se edito correctamenete");
+                    else
+                        MessageBox.Show("Error. Curso no editado");
+                    Close();
+                }
+                else
+                {
+                    int ans = n_Asignacion.Guardar(dt_docente, dt_curso);
+                    if (ans == 1)
+                        MessageBox.Show("Se agrego correctamente");
+                    else if (ans == 0)
+                        MessageBox.Show("Curso ya existe en la base de datos");
+                    else
+                        MessageBox.Show("Error. Curso no agregado");
+                    if (btnAgregarAsignacion.Text == "GUARDAR")
+                        Close();
+                    defaultComboBoxItems();
+                }
             }
         }
     }
