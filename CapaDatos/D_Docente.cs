@@ -99,7 +99,7 @@ namespace CapaDatos
         }
 
         // Metodo para eliminar un registro de docente
-        public bool EliminarDocente(E_Docente Docente)
+        public bool EliminarDocente(string pDocente)
         {
             //Cadena de texto de Consulta a la BD
             string query = "DELETE FROM TDocente WHERE CodDocente = @CodDocente";
@@ -108,7 +108,7 @@ namespace CapaDatos
             conexion.setComando(query);
 
             // Agregar los parametros necesarios para el procedimiento
-            conexion.cmd.Parameters.AddWithValue("@CodDocente", Docente.CodDocente);
+            conexion.cmd.Parameters.AddWithValue("@CodDocente",pDocente);
             
             return conexion.executeNonQuery()==1;
         }

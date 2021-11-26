@@ -60,8 +60,10 @@
     <Compile Include="Excel.cs" />
     <Compile Include="N_Carga.cs" />
     <Compile Include="N_Curso.cs" />
+    <Compile Include="N_Docente.cs" />
     <Compile Include="N_Regimen.cs" />
     <Compile Include="N_Semestre.cs" />
+    <Compile Include="N_Servicio.cs" />
     <Compile Include="N_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

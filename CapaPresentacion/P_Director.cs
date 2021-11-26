@@ -199,5 +199,10 @@ namespace CapaPresentacion
             this.btnCursos.BackColor = Color.FromArgb(68, 170, 211);
             this.btnDocentes.BackColor = Color.FromArgb(68, 170, 211);
         }
+
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

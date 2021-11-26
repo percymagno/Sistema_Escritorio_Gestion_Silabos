@@ -28,7 +28,8 @@ namespace CapaPresentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Frm_AddDocente AddDocente = new Frm_AddDocente();
-            AddDocente.Show();
+            AddDocente.ShowDialog();
+            MostrarDocentes();
         }
         // Mostrar Docentes
         public void MostrarDocentes()
@@ -53,7 +54,7 @@ namespace CapaPresentacion
                     DialogResult confirm = MessageBox.Show("¿Realmente desea eliminar el docente " + CodDocente + "?", "Sistema de Silabos", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                     if (confirm == DialogResult.OK)
                     {
-                        if (new D_Docente().EliminarDocente(Docente))
+                        if (new D_Docente().EliminarDocente(Docente.CodDocente))
                             MessageBox.Show("Docente " + CodDocente + " eliminado!");
                         else
                             MessageBox.Show("No se pudo eliminar Docente " + CodDocente + "!");
@@ -80,6 +81,7 @@ namespace CapaPresentacion
                     Docente.Telefono = dgvDocentes.Rows[index].Cells[6].Value.ToString();
                     Frm_AddDocente AddDocente = new Frm_AddDocente(Docente, true);
                     AddDocente.ShowDialog();
+                    MostrarDocentes();
                 }
             }
         }
