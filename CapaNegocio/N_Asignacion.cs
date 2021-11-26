@@ -114,7 +114,6 @@ namespace CapaNegocio
                 if (Curso.CodCurso == tmpCodCurso && Docente.CodDocente == tmpCodDocente && Grupo == tmpGrupo &&
                     Dia == tmpDia && HR_inicio.ToString() == tmpHR_inicio && HR_fin.ToString() == tmpHr_fin)
                 {
-                    Console.WriteLine(tmpCodDocente + " " + tmpCodCurso + " " + tmpGrupo + " " + tmpDia + " " + tmpHR_inicio + " " + tmpHr_fin);
                     return true;
                 }
             }
