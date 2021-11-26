@@ -75,16 +75,15 @@ namespace CapaPresentacion
             defaultComboBoxItems();
             if (Asignacion != null)
             {
-                //text_codigo.Text = Asignacion.CodCurso == null ? "" : Curso.CodCurso;
                 tbID.Text = Asignacion.ID.ToString();
                 tbSemestre.Text = Asignacion.Semestre;
-                cboxDocente.SelectedItem = Asignacion.CodDocente;
-                cboxCurso.SelectedItem = Asignacion.CodCurso;
+                cboxDocente.SelectedValue = Asignacion.CodDocente;
+                cboxCurso.SelectedValue = Asignacion.CodCurso;
                 cboxTipo.SelectedItem = Asignacion.Tipo;
                 cboxGrupo.SelectedItem = Asignacion.Grupo;
                 numHT.Value = Asignacion.HT;
                 numHP.Value = Asignacion.HP;
-                cboxDia.SelectedItem = Asignacion.Dia;
+                cboxDia.Text = Asignacion.Dia;
                 tbAula.Text = Asignacion.Aula;
                 numHR_inicio.Value = Asignacion.HR_inicio;
                 numHR_fin.Value = Asignacion.HR_fin;
