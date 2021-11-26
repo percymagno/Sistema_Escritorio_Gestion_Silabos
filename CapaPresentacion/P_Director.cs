@@ -85,7 +85,7 @@ namespace CapaPresentacion
         #region min,max, close
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
