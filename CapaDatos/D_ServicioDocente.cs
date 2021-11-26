@@ -12,7 +12,7 @@ namespace CapaDatos
         Conexion conexion = new Conexion();
         public DataTable BuscarCurso(String CodDocente)
         {
-            string sql = "select C.CodCurso, C.Nombre, C.Creditos, C.Categoria from (Dbo.TAsignacion A inner join Dbo.TDocente B  ON (A.CodDocente = B.CodDocente)) inner join Dbo.TCurso C ON (A.CodCurso = C.CodCurso) Where (B.CodDocente = @CodDocente)";
+            string sql = "select distinct C.CodCurso, C.Nombre, C.Creditos, C.Categoria from (Dbo.TAsignacion A inner join Dbo.TDocente B  ON (A.CodDocente = B.CodDocente)) inner join Dbo.TCurso C ON (A.CodCurso = C.CodCurso) Where (B.CodDocente = @CodDocente)";
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@CodDocente", CodDocente);
 
