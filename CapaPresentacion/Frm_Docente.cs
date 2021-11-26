@@ -27,5 +27,29 @@ namespace CapaPresentacion
         {
             dgvCursoDocentes.DataSource = n_Servicio.BuscarCurso(this.cod_docente);
         }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnMaximize_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState != FormWindowState.Maximized)
+            {
+                this.btnMaximize.Image = global::CapaPresentacion.Properties.Resources.minimize;
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.btnMaximize.Image = global::CapaPresentacion.Properties.Resources.stop;
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
