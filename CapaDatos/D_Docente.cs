@@ -57,7 +57,7 @@ namespace CapaDatos
             conexion.cmd.Parameters.AddWithValue("@Correo", Docente.Correo);
             conexion.cmd.Parameters.AddWithValue("@Telefono", Docente.Telefono);
 
-            return conexion.executeNonQuery() == 1;
+            return conexion.executeNonQuery() >= 1;
         }
         // Agregar docente mediante carga
         public bool AgregarDocenteCarga(E_Docente Docente)

@@ -54,7 +54,7 @@ namespace CapaPresentacion
                     DialogResult confirm = MessageBox.Show("¿Realmente desea eliminar el docente " + CodDocente + "?", "Sistema de Silabos", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                     if (confirm == DialogResult.OK)
                     {
-                        if (new D_Docente().EliminarDocente(Docente.CodDocente))
+                        if (new N_Docente { CodDocente = Docente.CodDocente }.EliminarDocente())
                             MessageBox.Show("Docente " + CodDocente + " eliminado!");
                         else
                             MessageBox.Show("No se pudo eliminar Docente " + CodDocente + "!");
