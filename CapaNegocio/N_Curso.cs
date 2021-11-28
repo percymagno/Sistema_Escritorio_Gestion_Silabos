@@ -56,7 +56,11 @@ namespace CapaNegocio
         }
         public bool EliminarCurso()
         {
-            return d_Curso.EliminarCurso(CodCurso);
+            if (new D_Asignacion().ElminarCodDocenteCurso(CodCurso))
+                return d_Curso.EliminarCurso(CodCurso);
+            else
+                Console.WriteLine("No se pudo borrar asignaciones");
+            return false;
         }
     }
 }
