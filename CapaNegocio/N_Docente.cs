@@ -73,7 +73,19 @@ namespace CapaNegocio
         }
         public bool EliminarDocente()
         {
-            return d_Docente.EliminarDocente(CodDocente);
+            if (new D_Asignacion().ElminarCodDocenteCurso(CodDocente))
+            {
+                if (new D_Usuario().EliminarCodDocente(CodDocente))
+                {
+
+                    return d_Docente.EliminarDocente(CodDocente);
+                }
+                else
+                    Console.WriteLine("usuario no borrador");
+            }
+            else
+                Console.WriteLine("asignaciones no borradas");
+            return false;
         }
     }
 }

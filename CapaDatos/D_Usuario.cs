@@ -19,5 +19,12 @@ namespace CapaDatos
             conexion.cmd.Parameters.AddWithValue("@pContrasenia", pContrasenia);
             return conexion.executeReader();
         }
+        public bool EliminarCodDocente(string CodDocente)
+        {
+            string sql = "DELETE FROM TUsuarios WHERE CodDocente = @CodDocente";
+            conexion.setComando(sql);
+            conexion.cmd.Parameters.AddWithValue("@CodDocente", CodDocente);
+            return conexion.executeNonQuery() >= 0;
+        }
     }
 }

@@ -113,8 +113,8 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            D_Docente d_Docente = new D_Docente();
-            DataTable dt_Docentes = d_Docente.MostrarDocentes();
+            N_Docente n_Docente = new N_Docente();
+            DataTable dt_Docentes = n_Docente.ObtenerDocentes();
 
             N_Curso n_Curso = new N_Curso();
             DataTable dt_Cursos = n_Curso.ObtenerCursos();
@@ -127,7 +127,7 @@ namespace CapaPresentacion
                 {
                     Frm_AddDocente frmDocente = new Frm_AddDocente(asignacion.Docente);
                     frmDocente.ShowDialog();
-                    dt_Docentes = d_Docente.MostrarDocentes();
+                    dt_Docentes = n_Docente.ObtenerDocentes();
                 }
                 if (asignacion.buscarCurso(dt_Cursos) == "")
                 {

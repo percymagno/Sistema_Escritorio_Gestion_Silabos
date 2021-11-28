@@ -25,6 +25,7 @@ namespace CapaPresentacion
 
         private void Frm_Docente_Load(object sender, EventArgs e)
         {
+            lblUsuario.Text = new N_Docente().BuscarDocente(this.cod_docente).Rows[0]["Nombres"].ToString();
             dgvCursoDocentes.DataSource = n_Servicio.BuscarCurso(this.cod_docente);
         }
 

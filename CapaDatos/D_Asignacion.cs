@@ -84,5 +84,13 @@ namespace CapaDatos
 
             return conexion.executeNonQuery() == 1;
         }
+        public bool ElminarCodDocenteCurso(string Cod)
+        {
+            string sql = "DELETE FROM TAsignacion WHERE CodDocente = @Cod OR CodCurso = @Cod";
+            conexion.setComando(sql);
+            conexion.cmd.Parameters.AddWithValue("@Cod", Cod);
+
+            return conexion.executeNonQuery() >= 0;
+        }
     }
 }
