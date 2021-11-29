@@ -37,18 +37,21 @@ namespace CapaPresentacion
             this.buttonLogin = new System.Windows.Forms.Button();
             this.Minimize = new System.Windows.Forms.PictureBox();
             this.Close = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Close)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Yellow;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(277, 266);
+            this.panel1.Size = new System.Drawing.Size(208, 216);
             this.panel1.TabIndex = 0;
             // 
             // textUsuario
@@ -57,10 +60,9 @@ namespace CapaPresentacion
             this.textUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textUsuario.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textUsuario.ForeColor = System.Drawing.Color.DimGray;
-            this.textUsuario.Location = new System.Drawing.Point(308, 79);
-            this.textUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.textUsuario.Location = new System.Drawing.Point(231, 64);
             this.textUsuario.Name = "textUsuario";
-            this.textUsuario.Size = new System.Drawing.Size(436, 23);
+            this.textUsuario.Size = new System.Drawing.Size(327, 19);
             this.textUsuario.TabIndex = 1;
             this.textUsuario.Text = "USUARIO";
             this.textUsuario.Enter += new System.EventHandler(this.textUsuario_Enter);
@@ -72,10 +74,9 @@ namespace CapaPresentacion
             this.textContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textContraseña.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textContraseña.ForeColor = System.Drawing.Color.DimGray;
-            this.textContraseña.Location = new System.Drawing.Point(308, 139);
-            this.textContraseña.Margin = new System.Windows.Forms.Padding(4);
+            this.textContraseña.Location = new System.Drawing.Point(231, 113);
             this.textContraseña.Name = "textContraseña";
-            this.textContraseña.Size = new System.Drawing.Size(436, 23);
+            this.textContraseña.Size = new System.Drawing.Size(327, 19);
             this.textContraseña.TabIndex = 2;
             this.textContraseña.Text = "CONTRASEÑA";
             this.textContraseña.Enter += new System.EventHandler(this.textContraseña_Enter);
@@ -86,10 +87,9 @@ namespace CapaPresentacion
             this.labelLogin.AutoSize = true;
             this.labelLogin.Font = new System.Drawing.Font("Franklin Gothic Medium", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLogin.ForeColor = System.Drawing.Color.DimGray;
-            this.labelLogin.Location = new System.Drawing.Point(488, 11);
-            this.labelLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelLogin.Location = new System.Drawing.Point(366, 9);
             this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(77, 30);
+            this.labelLogin.Size = new System.Drawing.Size(60, 24);
             this.labelLogin.TabIndex = 3;
             this.labelLogin.Text = "LOGIN";
             // 
@@ -100,10 +100,9 @@ namespace CapaPresentacion
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogin.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonLogin.Location = new System.Drawing.Point(308, 187);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLogin.Location = new System.Drawing.Point(231, 152);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(436, 53);
+            this.buttonLogin.Size = new System.Drawing.Size(327, 43);
             this.buttonLogin.TabIndex = 4;
             this.buttonLogin.Text = "INGRESAR";
             this.buttonLogin.UseVisualStyleBackColor = false;
@@ -112,10 +111,9 @@ namespace CapaPresentacion
             // Minimize
             // 
             this.Minimize.Image = ((System.Drawing.Image)(resources.GetObject("Minimize.Image")));
-            this.Minimize.Location = new System.Drawing.Point(736, 2);
-            this.Minimize.Margin = new System.Windows.Forms.Padding(4);
+            this.Minimize.Location = new System.Drawing.Point(552, 2);
             this.Minimize.Name = "Minimize";
-            this.Minimize.Size = new System.Drawing.Size(31, 27);
+            this.Minimize.Size = new System.Drawing.Size(23, 22);
             this.Minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Minimize.TabIndex = 5;
             this.Minimize.TabStop = false;
@@ -124,21 +122,30 @@ namespace CapaPresentacion
             // Close
             // 
             this.Close.Image = ((System.Drawing.Image)(resources.GetObject("Close.Image")));
-            this.Close.Location = new System.Drawing.Point(763, 2);
-            this.Close.Margin = new System.Windows.Forms.Padding(4);
+            this.Close.Location = new System.Drawing.Point(572, 2);
             this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(33, 27);
+            this.Close.Size = new System.Drawing.Size(25, 22);
             this.Close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Close.TabIndex = 6;
             this.Close.TabStop = false;
             this.Close.Click += new System.EventHandler(this.Close_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(28, 45);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 121);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(800, 266);
+            this.ClientSize = new System.Drawing.Size(600, 216);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.Minimize);
             this.Controls.Add(this.buttonLogin);
@@ -147,15 +154,16 @@ namespace CapaPresentacion
             this.Controls.Add(this.textUsuario);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLogin";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLogin";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormLogin_MouseDown);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Close)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,5 +178,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.PictureBox Minimize;
         private System.Windows.Forms.PictureBox Close;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
