@@ -72,6 +72,20 @@ CREATE TABLE [dbo].[TAsignacion](
 )
 GO
 
+/****** Object:  Table [dbo].[TSilabo]    Script Date: 24/11/2021 13:04:32 ******/
+
+--drop table TSilabo
+CREATE TABLE [dbo].[TSilabo](
+	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Semestre] [varchar](10) NOT NULL FOREIGN KEY REFERENCES TSemestre(Semestre),
+	[CodCurso] [varchar](10) NOT NULL FOREIGN KEY REFERENCES TCurso(CodCurso),
+	[Unidad] [varchar](20) NOT NULL,
+	[Capitulo] [varchar](50) NOT NULL,
+	[Tema] [varchar](50) NOT NULL,
+	[NroHoras] [int] NOT NULL,
+)
+GO
+
 
 INSERT [dbo].[TCurso] ([CodCurso], [Nombre], [Creditos], [Categoria]) VALUES (N'IF060', N'MUSICA', 2, N'')
 GO
