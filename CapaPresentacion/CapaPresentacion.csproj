@@ -84,6 +84,12 @@
     <Compile Include="C_CRUDDocente.Designer.cs">
       <DependentUpon>C_CRUDDocente.cs</DependentUpon>
     </Compile>
+    <Compile Include="C_Tarjeta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="C_Tarjeta.Designer.cs">
+      <DependentUpon>C_Tarjeta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="C_CRUDDocente.resx">
       <DependentUpon>C_CRUDDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Tarjeta.resx">
+      <DependentUpon>C_Tarjeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

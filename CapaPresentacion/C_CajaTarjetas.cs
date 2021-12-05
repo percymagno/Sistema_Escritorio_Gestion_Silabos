@@ -7,53 +7,62 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidades;
 
 namespace CapaPresentacion
 {
     public partial class C_CajaTarjetas : UserControl
     {
         // Lista de paneles
+        private List<E_Curso> cursos;
         private List<Panel> paneles = new List<Panel>();
-        private int panelWidth = 200;
-        private int panelHeight = 100;
-        private int rows = 0;
-        private int cols = 1;
-        private int minMargin = 20;
-
-        private Random rnd = new Random();
-        public C_CajaTarjetas()
+        private int panelWidth = 280;
+        private int panelHeight = 150;
+        public C_CajaTarjetas(List<E_Curso> pCursos)
         {
+            cursos = pCursos;
             InitializeComponent();
         }
-        private void agregarPanel()
+        private void agregarPanel(E_Curso curso, Color colorFondo)
         {
-            Panel panel = new Panel();
+            // Crear C_Tarjeta
+            C_Tarjeta tarjeta = new C_Tarjeta(curso, colorFondo);
+            tarjeta.Dock = DockStyle.Fill;
 
-            int r = rnd.Next(150, 230), g = rnd.Next(150, 230), b = rnd.Next(150, 230);
-            panel.BackColor = Color.FromArgb(r, g, b);
+            // Crear panel
+            Panel panel = new Panel();
+            panel.BackColor = Color.FromArgb(255,255,255);
             panel.BorderStyle = BorderStyle.FixedSingle;
-            //panel.Controls.Add(C_Tarjeta);
-            //C_Tarjeta.Dock = System.Windows.Forms.DockStyle.Fill;
             panel.Name = "panel" + paneles.Count().ToString();
-            panel.Size = new System.Drawing.Size(panelWidth, panelHeight);
+            panel.Size = new Size(panelWidth, panelHeight);
             panel.TabIndex = 0;
+
+            // Agregar tarjeta
+            panel.Controls.Add(tarjeta);
+
+            // guardar panel
             paneles.Add(panel);
         }
         private void mostrarPaneles()
         {
-            foreach (System.Windows.Forms.Panel panel in paneles)
+            foreach (Panel panel in paneles)
             {
                 // Agregar tarjeta
-                panel.Location = new System.Drawing.Point(5, 5);
+                panel.Location = new Point(5, 5);
                 flowLayoutPanel.Controls.Add(panel);
             }
         }
         private void C_CajaTarjetas_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 7; i++)
-            {
-                agregarPanel();
+            Random rnd = new Random();
+            foreach (E_Curso curso in cursos)
+            { 
+                int r = rnd.Next(90, 180), g = rnd.Next(90, 180), b = rnd.Next(90, 180);
+                Color colorFondo = Color.FromArgb(r, g, b);
+                // crear y agregar paneles a lista de paneles
+                agregarPanel(curso, colorFondo);
             }
+            // agregar paneles a flowLayoutPanel
             mostrarPaneles();
         }
     }
