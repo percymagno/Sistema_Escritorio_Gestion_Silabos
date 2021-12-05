@@ -75,6 +75,7 @@
             this.btnSilabo.TabIndex = 2;
             this.btnSilabo.Text = "SILABO";
             this.btnSilabo.UseVisualStyleBackColor = false;
+            this.btnSilabo.Click += new System.EventHandler(this.btnSilabo_Click);
             // 
             // C_Tarjeta
             // 

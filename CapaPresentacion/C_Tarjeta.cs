@@ -7,24 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidades;
 
 namespace CapaPresentacion
 {
     public partial class C_Tarjeta : UserControl
     {
-        private string Nombre = "";
-        private string CodCurso = "";
-        public C_Tarjeta(string pCodCurso, string pNombre = "Titulo")
+        private E_Curso curso;
+        public C_Tarjeta(E_Curso pCurso)
         {
-            CodCurso = pCodCurso;
-            Nombre = pNombre;
+            curso = pCurso;
 
             InitializeComponent();
         }
 
         private void C_Tarjeta_Load(object sender, EventArgs e)
         {
-            lblTitulo.Text = Nombre;
+            // lblTitulo color de fondo
+            Random rnd = new Random();
+            int r = rnd.Next(90, 180), g = rnd.Next(90, 180), b = rnd.Next(90, 180);
+            lblTitulo.BackColor = Color.FromArgb(r, g, b);
+            // lbltitulo
+            lblTitulo.Text = curso.Nombre;
+        }
+
+        private void btnSilabo_Click(object sender, EventArgs e)
+        {
+            // curso.CodCurso
         }
     }
 }
