@@ -15,6 +15,10 @@ namespace CapaPresentacion
 {
     public partial class Frm_Docente : Form
     {
+        //movimiento variables
+        int mov;
+        int movX, movY;
+
         string cod_docente;
         N_Servicio n_Servicio=new N_Servicio();
         C_CajaTarjetas caja;
@@ -37,6 +41,9 @@ namespace CapaPresentacion
         }
         private void Frm_Docente_Load(object sender, EventArgs e)
         {
+            // form load en el monitor actual
+            this.Location = Screen.AllScreens[0].WorkingArea.Location;
+
             DataTable dt = n_Servicio.BuscarCurso(this.cod_docente);
             List<E_Curso> cursos = new List<E_Curso>();
             foreach(DataRow dr in dt.Rows)
@@ -72,10 +79,49 @@ namespace CapaPresentacion
                 this.WindowState = FormWindowState.Normal;
             }
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        // Movimiento de ventana
+        private void activarMover(MouseEventArgs e)
+        {
+            mov = 1;
+            movX = e.X;
+            movY = e.Y;
+        }
+
+        private void panel2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mov == 1)
+                this.SetDesktopLocation(MousePosition.X - movX, MousePosition.Y - movY);
+        }
+
+        private void panel3_MouseDown(object sender, MouseEventArgs e)
+        {
+            activarMover(e);
+        }
+
+        private void panel3_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mov == 1)
+                this.SetDesktopLocation(MousePosition.X - movX, MousePosition.Y - movY);
+        }
+
+        private void panel3_MouseUp(object sender, MouseEventArgs e)
+        {
+            mov = 0;
+        }
+
+        private void panel2_MouseUp(object sender, MouseEventArgs e)
+        {
+            mov = 0;
+        }
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            activarMover(e);
         }
     }
 }
