@@ -26,10 +26,12 @@ namespace CapaPresentacion
         private void crearCajaTarjeta(List<E_Curso> cursos)
         {
             caja = new C_CajaTarjetas(cursos);
-            caja.Dock = DockStyle.Fill;
-            caja.Location = new Point(0, 0);
+            caja.Location = new Point(5, 5);
             caja.Name = "cajaTarjetas";
             caja.Size = new Size(600, 300);
+            caja.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
+            | AnchorStyles.Left)
+            | AnchorStyles.Right)));
             caja.TabIndex = 0;
             panelPrincipal.Controls.Add(caja);
         }
@@ -42,6 +44,7 @@ namespace CapaPresentacion
                 E_Curso curso = new E_Curso();
                 curso.Nombre = dr["Nombre"].ToString();
                 curso.CodCurso = dr["CodCurso"].ToString();
+                curso.Grupo = dr["Grupo"].ToString();
                 cursos.Add(curso);
             }
             // crear control caja_tarjetas

@@ -37,10 +37,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel.AutoScroll = true;
-            this.flowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel.Location = new System.Drawing.Point(5, 5);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(600, 400);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(592, 392);
             this.flowLayoutPanel.TabIndex = 4;
             // 
             // C_CajaTarjetas
@@ -48,10 +47,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.flowLayoutPanel);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "C_CajaTarjetas";
-            this.Size = new System.Drawing.Size(600, 400);
+            this.Size = new System.Drawing.Size(602, 402);
             this.Load += new System.EventHandler(this.C_CajaTarjetas_Load);
             this.ResumeLayout(false);
 

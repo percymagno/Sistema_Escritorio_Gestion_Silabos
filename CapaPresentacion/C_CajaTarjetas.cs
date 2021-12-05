@@ -16,17 +16,17 @@ namespace CapaPresentacion
         // Lista de paneles
         private List<E_Curso> cursos;
         private List<Panel> paneles = new List<Panel>();
-        private int panelWidth = 250;
-        private int panelHeight = 120;
+        private int panelWidth = 280;
+        private int panelHeight = 150;
         public C_CajaTarjetas(List<E_Curso> pCursos)
         {
             cursos = pCursos;
             InitializeComponent();
         }
-        private void agregarPanel(E_Curso curso)
+        private void agregarPanel(E_Curso curso, Color colorFondo)
         {
             // Crear C_Tarjeta
-            C_Tarjeta tarjeta = new C_Tarjeta(curso);
+            C_Tarjeta tarjeta = new C_Tarjeta(curso, colorFondo);
             tarjeta.Dock = DockStyle.Fill;
 
             // Crear panel
@@ -54,12 +54,13 @@ namespace CapaPresentacion
         }
         private void C_CajaTarjetas_Load(object sender, EventArgs e)
         {
+            Random rnd = new Random();
             foreach (E_Curso curso in cursos)
-            {
-
-                MessageBox.Show(curso.Nombre);
+            { 
+                int r = rnd.Next(90, 180), g = rnd.Next(90, 180), b = rnd.Next(90, 180);
+                Color colorFondo = Color.FromArgb(r, g, b);
                 // crear y agregar paneles a lista de paneles
-                agregarPanel(curso);
+                agregarPanel(curso, colorFondo);
             }
             // agregar paneles a flowLayoutPanel
             mostrarPaneles();
