@@ -86,6 +86,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Name = "C_Tarjeta";
             this.Size = new System.Drawing.Size(250, 120);
+            this.Load += new System.EventHandler(this.C_Tarjeta_Load);
             this.ResumeLayout(false);
 
         }

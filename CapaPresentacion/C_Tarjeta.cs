@@ -12,9 +12,19 @@ namespace CapaPresentacion
 {
     public partial class C_Tarjeta : UserControl
     {
-        public C_Tarjeta()
+        private string Nombre = "";
+        private string CodCurso = "";
+        public C_Tarjeta(string pCodCurso, string pNombre = "Titulo")
         {
+            CodCurso = pCodCurso;
+            Nombre = pNombre;
+
             InitializeComponent();
+        }
+
+        private void C_Tarjeta_Load(object sender, EventArgs e)
+        {
+            lblTitulo.Text = Nombre;
         }
     }
 }
