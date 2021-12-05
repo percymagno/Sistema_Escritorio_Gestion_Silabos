@@ -29,26 +29,37 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvCursoDocentes = new System.Windows.Forms.DataGridView();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.lblUsuario = new System.Windows.Forms.Label();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCursoDocentes)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.Color.Yellow;
             this.panel1.Controls.Add(this.lblUsuario);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(2, -2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(182, 407);
+            this.panel1.Size = new System.Drawing.Size(180, 407);
             this.panel1.TabIndex = 0;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(31, 53);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(120, 20);
+            this.lblUsuario.TabIndex = 2;
+            this.lblUsuario.Text = "Usuario";
+            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -59,19 +70,6 @@
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "BIENVENIDO";
-            // 
-            // dgvCursoDocentes
-            // 
-            this.dgvCursoDocentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCursoDocentes.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCursoDocentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCursoDocentes.Location = new System.Drawing.Point(182, 39);
-            this.dgvCursoDocentes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgvCursoDocentes.Name = "dgvCursoDocentes";
-            this.dgvCursoDocentes.RowHeadersWidth = 51;
-            this.dgvCursoDocentes.RowTemplate.Height = 24;
-            this.dgvCursoDocentes.Size = new System.Drawing.Size(635, 366);
-            this.dgvCursoDocentes.TabIndex = 1;
             // 
             // btnMinimize
             // 
@@ -113,22 +111,22 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::CapaPresentacion.Properties.Resources.close;
             this.btnClose.Location = new System.Drawing.Point(787, 3);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(30, 30);
             this.btnClose.TabIndex = 7;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // lblUsuario
+            // panelPrincipal
             // 
-            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(31, 53);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(120, 20);
-            this.lblUsuario.TabIndex = 2;
-            this.lblUsuario.Text = "Usuario";
-            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelPrincipal.Location = new System.Drawing.Point(180, 40);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(637, 365);
+            this.panelPrincipal.TabIndex = 8;
             // 
             // Frm_Docente
             // 
@@ -136,19 +134,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(816, 405);
+            this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnMaximize);
             this.Controls.Add(this.btnMinimize);
-            this.Controls.Add(this.dgvCursoDocentes);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Frm_Docente";
             this.Text = "Frm_Docente";
             this.Load += new System.EventHandler(this.Frm_Docente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCursoDocentes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -157,10 +154,10 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvCursoDocentes;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Panel panelPrincipal;
     }
 }
