@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C_CajaTarjetas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="C_CajaTarjetas.Designer.cs">
+      <DependentUpon>C_CajaTarjetas.cs</DependentUpon>
+    </Compile>
     <Compile Include="C_Carga.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     <Compile Include="P_Director.Designer.cs">
       <DependentUpon>P_Director.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="C_CajaTarjetas.resx">
+      <DependentUpon>C_CajaTarjetas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="C_Carga.resx">
       <DependentUpon>C_Carga.cs</DependentUpon>
     </EmbeddedResource>
