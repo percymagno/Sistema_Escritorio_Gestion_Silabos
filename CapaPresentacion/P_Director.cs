@@ -16,6 +16,8 @@ namespace CapaPresentacion
 {
     public partial class P_Director : Form
     {
+        //movimiento variables
+        int mov, movX, movY;
         // controles
         private C_CRUDDocente c_CRUDDocente1;
         private C_CRUDCurso c_CRUDCurso1;
@@ -29,13 +31,7 @@ namespace CapaPresentacion
         }
 
         #region funciones para abrir, cerrar, minimizar mover y cambiar tamaño de form
-        // hacer el form movible
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HTCAPTION = 0x2;
-        [DllImport("User32.dll")]
-        public static extern bool ReleaseCapture();
-        [DllImport("User32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        
         protected override void WndProc(ref Message m)
         {
             const int RESIZE_HANDLE_SIZE = 10;
@@ -108,22 +104,43 @@ namespace CapaPresentacion
         }
         #endregion
         #region movimiento de ventanas
+        // Movimiento de ventana
+        private void activarMover(MouseEventArgs e)
+        {
+            mov = 1;
+            movX = e.X;
+            movY = e.Y;
+        }
         private void panelTop_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-            }
+            activarMover(e);
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-            }
+            activarMover(e);
+        }
+
+        private void panelTop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mov == 1)
+                this.SetDesktopLocation(MousePosition.X - movX, MousePosition.Y - movY);
+        }
+
+        private void panelTop_MouseUp(object sender, MouseEventArgs e)
+        {
+            mov = 0;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mov == 1)
+                this.SetDesktopLocation(MousePosition.X - movX, MousePosition.Y - movY);
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            mov = 0;
         }
         #endregion
         #region CONTROLES
