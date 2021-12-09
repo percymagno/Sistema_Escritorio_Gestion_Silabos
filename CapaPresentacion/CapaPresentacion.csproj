@@ -90,11 +90,11 @@
     <Compile Include="C_Tarjeta.Designer.cs">
       <DependentUpon>C_Tarjeta.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="P_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <Compile Include="P_Login.designer.cs">
+      <DependentUpon>P_Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_AddAsignacion.cs">
       <SubType>Form</SubType>
@@ -114,11 +114,11 @@
     <Compile Include="Frm_AddDocente.Designer.cs">
       <DependentUpon>Frm_AddDocente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Docente.cs">
+    <Compile Include="P_Docente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Docente.Designer.cs">
-      <DependentUpon>Frm_Docente.cs</DependentUpon>
+    <Compile Include="P_Docente.Designer.cs">
+      <DependentUpon>P_Docente.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_SubirSilabo.cs">
       <SubType>Form</SubType>
@@ -149,8 +149,8 @@
     <EmbeddedResource Include="C_Tarjeta.resx">
       <DependentUpon>C_Tarjeta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <EmbeddedResource Include="P_Login.resx">
+      <DependentUpon>P_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_AddAsignacion.resx">
       <DependentUpon>Frm_AddAsignacion.cs</DependentUpon>
@@ -161,8 +161,8 @@
     <EmbeddedResource Include="Frm_AddDocente.resx">
       <DependentUpon>Frm_AddDocente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Docente.resx">
-      <DependentUpon>Frm_Docente.cs</DependentUpon>
+    <EmbeddedResource Include="P_Docente.resx">
+      <DependentUpon>P_Docente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_SubirSilabo.resx">
       <DependentUpon>Frm_SubirSilabo.cs</DependentUpon>
