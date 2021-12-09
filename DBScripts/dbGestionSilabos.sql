@@ -79,9 +79,9 @@ CREATE TABLE [dbo].[TSilabo](
 	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Semestre] [varchar](10) NOT NULL FOREIGN KEY REFERENCES TSemestre(Semestre),
 	[CodCurso] [varchar](10) NOT NULL FOREIGN KEY REFERENCES TCurso(CodCurso),
-	[Unidad] [varchar](20) NOT NULL,
-	[Capitulo] [varchar](50) NOT NULL,
-	[Tema] [varchar](50) NOT NULL,
+	[Unidad] [varchar](100) NOT NULL,
+	[Capitulo] [varchar](100) NOT NULL,
+	[Tema] [varchar](100) NOT NULL,
 	[NroHoras] [int] NOT NULL,
 )
 GO
