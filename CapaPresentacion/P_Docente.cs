@@ -13,7 +13,7 @@ using CapaEntidades;
 
 namespace CapaPresentacion
 {
-    public partial class Frm_Docente : Form
+    public partial class P_Docente : Form
     {
         //movimiento variables
         int mov;
@@ -22,7 +22,7 @@ namespace CapaPresentacion
         string cod_docente;
         N_Servicio n_Servicio=new N_Servicio();
         C_CajaTarjetas caja;
-        public Frm_Docente(string pCod_docente = null)
+        public P_Docente(string pCod_docente = null)
         {
             InitializeComponent();
             cod_docente = pCod_docente;

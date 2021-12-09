@@ -18,7 +18,7 @@ namespace CapaPresentacion
         E_Usuario usuario;
         N_Usuario n_usuario;
         P_Director p_Director;
-        Frm_Docente p_Docente;
+        P_Docente p_Docente;
         public P_Login()
         {
             InitializeComponent();
@@ -95,7 +95,7 @@ namespace CapaPresentacion
                 {
                     if(usuario.Acceso == "Docente")
                     {
-                        p_Docente = new Frm_Docente(usuario.Usuario);
+                        p_Docente = new P_Docente(usuario.Usuario);
                         p_Docente.Show();
                         this.Visible=false;
                     }
