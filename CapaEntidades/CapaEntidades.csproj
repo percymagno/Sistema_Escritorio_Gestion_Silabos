@@ -47,6 +47,7 @@
     <Compile Include="E_Docente.cs" />
     <Compile Include="E_Regimen.cs" />
     <Compile Include="E_Semestre.cs" />
+    <Compile Include="E_Silabo.cs" />
     <Compile Include="E_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

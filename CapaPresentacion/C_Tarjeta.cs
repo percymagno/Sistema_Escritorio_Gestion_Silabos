@@ -39,7 +39,8 @@ namespace CapaPresentacion
 
         private void btnSilabo_Click(object sender, EventArgs e)
         {
-            // curso.CodCurso
+            Frm_SubirSilabo SSilabo = new Frm_SubirSilabo(curso.CodCurso);
+            SSilabo.Show();
         }
     }
 }
