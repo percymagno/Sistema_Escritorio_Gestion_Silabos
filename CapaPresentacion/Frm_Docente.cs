@@ -46,13 +46,16 @@ namespace CapaPresentacion
 
             DataTable dt = n_Servicio.BuscarCurso(this.cod_docente);
             List<E_Curso> cursos = new List<E_Curso>();
-            foreach(DataRow dr in dt.Rows)
+            if (dt != null)
             {
-                E_Curso curso = new E_Curso();
-                curso.Nombre = dr["Nombre"].ToString();
-                curso.CodCurso = dr["CodCurso"].ToString();
-                curso.Grupo = dr["Grupo"].ToString();
-                cursos.Add(curso);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    E_Curso curso = new E_Curso();
+                    curso.Nombre = dr["Nombre"].ToString();
+                    curso.CodCurso = dr["CodCurso"].ToString();
+                    curso.Grupo = dr["Grupo"].ToString();
+                    cursos.Add(curso);
+                }
             }
             // crear control caja_tarjetas
             crearCajaTarjeta(cursos);
