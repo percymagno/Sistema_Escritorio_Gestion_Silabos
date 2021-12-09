@@ -13,13 +13,13 @@ using CapaEntidades;
 
 namespace CapaPresentacion
 {
-    public partial class FormLogin : Form
+    public partial class P_Login : Form
     {
         E_Usuario usuario;
         N_Usuario n_usuario;
         P_Director p_Director;
         Frm_Docente p_Docente;
-        public FormLogin()
+        public P_Login()
         {
             InitializeComponent();
         }
