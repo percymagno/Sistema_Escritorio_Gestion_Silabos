@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using CapaDatos;
 using CapaNegocio;
 using CapaEntidades;
+using System.ComponentModel.DataAnnotations;
+
 namespace CapaPresentacion
 {
     public partial class Frm_AddDocente : Form
@@ -33,23 +35,33 @@ namespace CapaPresentacion
             n_Docente.Regimen = comboBox_regimen.SelectedItem.ToString().Trim();
             n_Docente.Correo = text_correo.Text.Trim();
             n_Docente.Telefono = text_telefono.Text.Trim();
-            if (Editar)
+            ValidationContext context = new ValidationContext(n_Docente, null, null);
+            IList<ValidationResult> errors = new List<ValidationResult>();
+            if (!Validator.TryValidateObject(n_Docente, context, errors, true))
             {
-                if (n_Docente.EditarDocente())
-                    MessageBox.Show("Se edito correctamenete");
-                else
-                    MessageBox.Show("Error. Docente no editado");
-                Close();
+                foreach (ValidationResult result in errors)
+                    MessageBox.Show(result.ErrorMessage);
             }
             else
             {
-                if (n_Docente.AgregarDocente())
-                    MessageBox.Show("Se agrego correctamente");
-                else
-                    MessageBox.Show("Error. Docente no agregado");
-                if(btn_agregarDocente.Text == "GUARDAR")
+                if (Editar)
+                {
+                    if (n_Docente.EditarDocente())
+                        MessageBox.Show("Se edito correctamenete");
+                    else
+                        MessageBox.Show("Error. Docente no editado");
                     Close();
-                restablecer();
+                }
+                else
+                {
+                    if (n_Docente.AgregarDocente())
+                        MessageBox.Show("Se agrego correctamente");
+                    else
+                        MessageBox.Show("Error. Docente no agregado");
+                    if (btn_agregarDocente.Text == "GUARDAR")
+                        Close();
+                    restablecer();
+                }
             }
         }
         #region restablecer
