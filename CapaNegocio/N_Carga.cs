@@ -19,6 +19,8 @@ namespace CapaNegocio
         int row = 0;
         int col = 0;
         List<N_Asignacion> carga = new List<N_Asignacion>();
+        List<E_Docente> docentes = new List<E_Docente>();
+        List<E_Curso> cursos = new List<E_Curso>();
         public int Procesar(string path)
         {
             excel = new Excel(path, 1);
@@ -55,9 +57,21 @@ namespace CapaNegocio
         }
         private void ProcesarCarga()
         {
-            // Primera fila, datos de docente
-            string docente = excel.ReadCell(row, col+2);
-            string regimen = excel.ReadCell(row, col);
+            // -- Primera fila, datos de docente
+            E_Docente docente = new E_Docente();
+            docente.Regimen = excel.ReadCell(row, col);
+            string[] nombresCompletos = excel.ReadCell(row, col+2).ToString().Split(' ');
+            // separar nombresCompletos
+            docente.Materno = nombresCompletos[nombresCompletos.Length - 1];
+            docente.Paterno = nombresCompletos[nombresCompletos.Length - 2];
+            string nombres = "";
+            for(int i = 0; i < nombresCompletos.Length-2; i++)
+                nombres += nombresCompletos[i] + " ";
+            docente.Nombres = nombres.Trim();
+            // agregar docente
+            docentes.Add(docente);
+
+
             row++;
             // Carga
             for (int i = row; i < excel.nroRows(); i++)
@@ -80,10 +94,12 @@ namespace CapaNegocio
                 }
                 if (nuevaAsignacion)
                 {
+                    E_Curso curso = new E_Curso { CodCurso = lista[0].Substring(0, 5), Nombre = lista[2], Creditos = Int32.Parse(lista[3]) };
+                    cursos.Add(curso);
                     N_Asignacion asignacion = new N_Asignacion
                     {
-                        Docente = new E_Docente { Nombres = docente, Regimen =  regimen},
-                        Curso = new E_Curso { CodCurso = lista[0].Substring(0, 5), Nombre = lista[2], Creditos = Int32.Parse(lista[3]) },
+                        Docente = docente,
+                        Curso = curso,
                         Carrera = lista[1],
                         Tipo = lista[4],
                         Grupo = lista[5],
@@ -110,6 +126,14 @@ namespace CapaNegocio
         public List<N_Asignacion> getCarga()
         {
             return carga;
+        }
+        public List<E_Docente> getDocentes()
+        {
+            return docentes;
+        }
+        public List<E_Curso> getCursos()
+        {
+            return cursos;
         }
     }
 }
