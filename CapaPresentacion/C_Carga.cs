@@ -111,6 +111,29 @@ namespace CapaPresentacion
                 
         }
 
+        public string buscarDocente(E_Docente doc, DataTable dt)
+        {
+            if (dt == null) return "";
+            foreach (DataRow row in dt.Rows)
+            {
+                string Nombres = (row["Nombres"].ToString() + " " + row["Paterno"].ToString() + " " + row["Materno"].ToString()).Trim();
+                if (doc.Nombres + " " + doc.Paterno + " " + doc.Materno == Nombres)
+                    return row["CodDocente"].ToString();
+            }
+            return "";
+        }
+        public string buscarCurso(E_Curso cur, DataTable dt)
+        {
+            if (dt == null) return "";
+            foreach (DataRow row in dt.Rows)
+            {
+                string CodCurso = row["CodCurso"].ToString();
+                if (cur.CodCurso == CodCurso)
+                    return CodCurso;
+            }
+            return "";
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             N_Docente n_Docente = new N_Docente();
@@ -119,26 +142,34 @@ namespace CapaPresentacion
             N_Curso n_Curso = new N_Curso();
             DataTable dt_Cursos = n_Curso.ObtenerCursos();
             List<N_Asignacion> noGuardados = new List<N_Asignacion>();
-
-            foreach (N_Asignacion asignacion in carga.getCarga())
+            // Guardar docentes no existentes
+            foreach (E_Docente docente in carga.getDocentes())
             {
-                asignacion.Semestre = curSemestre;
-                if (asignacion.buscarDocente(dt_Docentes) == "")
+                if (buscarDocente(docente, dt_Docentes) == "")
                 {
-                    Frm_AddDocente frmDocente = new Frm_AddDocente(asignacion.Docente);
+                    Frm_AddDocente frmDocente = new Frm_AddDocente(docente);
                     frmDocente.ShowDialog();
                     dt_Docentes = n_Docente.ObtenerDocentes();
                 }
-                if (asignacion.buscarCurso(dt_Cursos) == "")
+            }
+            // guardar cursos no existentes
+            foreach (E_Curso curso in carga.getCursos())
+            {
+                if (buscarCurso(curso, dt_Cursos) == "")
                 {
-                    Frm_AddCurso frmCurso = new Frm_AddCurso(asignacion.Curso);
+                    Frm_AddCurso frmCurso = new Frm_AddCurso(curso);
                     frmCurso.ShowDialog();
-                    dt_Cursos = n_Curso.ObtenerCursos();
                 }
+            }
+
+            dt_Docentes = n_Docente.ObtenerDocentes();
+            dt_Cursos = n_Curso.ObtenerCursos();
+            // Guardar asignaciones no existentes
+            foreach (N_Asignacion asignacion in carga.getCarga())
+            {
+                asignacion.Semestre = curSemestre;
                 if (asignacion.Guardar(dt_Docentes, dt_Cursos, dt_Asignacion) == -1)
-                {
                     noGuardados.Add(asignacion);
-                }
             }
             if(noGuardados.Count > 0)
             {

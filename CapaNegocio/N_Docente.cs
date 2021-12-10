@@ -16,6 +16,7 @@ namespace CapaNegocio
     {
         // Definir los atributos o campos que tiene un docente
         [Required(AllowEmptyStrings = false, ErrorMessage = "Codigo de Docente es requerido")]
+        [StringLength(6, MinimumLength = 4, ErrorMessage = "Codigo debe ser de longitud [4, 6]")]
         public string CodDocente { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Apellido paterno del Docente es requerido")]
         public string Paterno { get; set; }

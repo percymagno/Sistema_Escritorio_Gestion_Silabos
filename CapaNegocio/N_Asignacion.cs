@@ -107,7 +107,7 @@ namespace CapaNegocio
             foreach (DataRow row in dt.Rows)
             {
                 string Nombres = (row["Nombres"].ToString() + " " + row["Paterno"].ToString() + " " + row["Materno"].ToString()).Trim();
-                if (this.Docente.Nombres == Nombres)
+                if (this.Docente.Nombres + " " + this.Docente.Paterno + " " + this.Docente.Materno == Nombres)
                     return row["CodDocente"].ToString();
             }
             return "";
