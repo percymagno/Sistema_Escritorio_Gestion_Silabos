@@ -91,5 +91,14 @@ namespace CapaPresentacion
             if (this.Enabled)
                 MostrarDocentes();
         }
+
+        private void text_buscar_TextChanged(object sender, EventArgs e)
+        {
+            // Buscamos los docentes que existen en la BD y lo almacenamos en un DataTable
+            Docentes = new D_Docente().BuscarDocentes(text_buscar.Text);
+
+            // Mostramos en el DataGridView los Docentes
+            dgvDocentes.DataSource = Docentes;
+        }
     }
 }

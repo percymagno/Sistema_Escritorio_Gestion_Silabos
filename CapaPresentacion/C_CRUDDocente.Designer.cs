@@ -38,6 +38,7 @@ namespace CapaPresentacion
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.text_buscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -96,6 +97,7 @@ namespace CapaPresentacion
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.text_buscar);
             this.panel2.Controls.Add(this.btnAgregar);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnEliminar);
@@ -156,6 +158,14 @@ namespace CapaPresentacion
             this.label1.TabIndex = 2;
             this.label1.Text = "DOCENTES";
             // 
+            // text_buscar
+            // 
+            this.text_buscar.Location = new System.Drawing.Point(33, 21);
+            this.text_buscar.Name = "text_buscar";
+            this.text_buscar.Size = new System.Drawing.Size(228, 22);
+            this.text_buscar.TabIndex = 9;
+            this.text_buscar.TextChanged += new System.EventHandler(this.text_buscar_TextChanged);
+            // 
             // C_CRUDDocente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -170,6 +180,7 @@ namespace CapaPresentacion
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -183,5 +194,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox text_buscar;
     }
 }
