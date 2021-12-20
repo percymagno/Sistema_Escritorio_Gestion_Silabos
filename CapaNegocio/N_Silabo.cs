@@ -29,6 +29,7 @@ namespace CapaNegocio
         {
             return "CodCurso: " + CodCurso + ", Unidad: " + Unidad + ", Capitulo: " + Capitulo + ", Tema: " + Tema;
         }
+
         public int Guardar()
         {
             E_Silabo e_Silabo = new E_Silabo

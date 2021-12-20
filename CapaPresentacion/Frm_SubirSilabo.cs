@@ -153,5 +153,30 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            if (dgvSubirSilabo.Rows.Count > 0)
+            {
+                int index = dgvSubirSilabo.SelectedCells[0].RowIndex;
+                if (index >= 0 && index < dgvSubirSilabo.Rows.Count - 1)
+                {
+                    E_Silabo Silabo = new E_Silabo();
+                    String ID = dgvSubirSilabo.Rows[index].Cells[0].Value.ToString();
+                    DialogResult confirm = MessageBox.Show("¿Realmente desea eliminar silabo " + ID + "?", "Sistema de Silabos", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (confirm == DialogResult.OK)
+                    {
+                        
+                        if (new N_Silabo { ID = Silabo.ID }.Eliminar(ID))
+                            MessageBox.Show("silabo " + ID + " eliminado!");
+                        else
+                            MessageBox.Show("No se pudo eliminar silabo " + ID + "!");
+                        RefrescarDGV();
+                        
+                    }
+                }
+            }
+        }
     }
 }

@@ -34,11 +34,11 @@ namespace CapaPresentacion
             this.dgvDocentes = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.text_buscar = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.text_buscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,8 +71,7 @@ namespace CapaPresentacion
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDocentes.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDocentes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.dgvDocentes.Location = new System.Drawing.Point(0, 62);
-            this.dgvDocentes.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvDocentes.Location = new System.Drawing.Point(0, 50);
             this.dgvDocentes.MultiSelect = false;
             this.dgvDocentes.Name = "dgvDocentes";
             this.dgvDocentes.ReadOnly = true;
@@ -80,7 +79,7 @@ namespace CapaPresentacion
             this.dgvDocentes.RowHeadersVisible = false;
             this.dgvDocentes.RowHeadersWidth = 51;
             this.dgvDocentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDocentes.Size = new System.Drawing.Size(1067, 492);
+            this.dgvDocentes.Size = new System.Drawing.Size(800, 400);
             this.dgvDocentes.TabIndex = 9;
             // 
             // panel1
@@ -90,9 +89,8 @@ namespace CapaPresentacion
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1067, 62);
+            this.panel1.Size = new System.Drawing.Size(800, 50);
             this.panel1.TabIndex = 10;
             // 
             // panel2
@@ -102,20 +100,27 @@ namespace CapaPresentacion
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnEliminar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(547, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(410, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(520, 62);
+            this.panel2.Size = new System.Drawing.Size(390, 50);
             this.panel2.TabIndex = 6;
+            // 
+            // text_buscar
+            // 
+            this.text_buscar.Location = new System.Drawing.Point(25, 17);
+            this.text_buscar.Margin = new System.Windows.Forms.Padding(2);
+            this.text_buscar.Name = "text_buscar";
+            this.text_buscar.Size = new System.Drawing.Size(172, 20);
+            this.text_buscar.TabIndex = 9;
+            this.text_buscar.TextChanged += new System.EventHandler(this.text_buscar_TextChanged);
             // 
             // btnAgregar
             // 
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.Location = new System.Drawing.Point(279, 11);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregar.Location = new System.Drawing.Point(209, 9);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(73, 37);
+            this.btnAgregar.Size = new System.Drawing.Size(55, 30);
             this.btnAgregar.TabIndex = 8;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -125,10 +130,9 @@ namespace CapaPresentacion
             // 
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.Location = new System.Drawing.Point(360, 11);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditar.Location = new System.Drawing.Point(270, 9);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(73, 37);
+            this.btnEditar.Size = new System.Drawing.Size(55, 30);
             this.btnEditar.TabIndex = 7;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -137,10 +141,9 @@ namespace CapaPresentacion
             // btnEliminar
             // 
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.Location = new System.Drawing.Point(440, 11);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Location = new System.Drawing.Point(330, 9);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(73, 37);
+            this.btnEliminar.Size = new System.Drawing.Size(55, 30);
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -152,29 +155,19 @@ namespace CapaPresentacion
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 46);
+            this.label1.Size = new System.Drawing.Size(203, 37);
             this.label1.TabIndex = 2;
             this.label1.Text = "DOCENTES";
             // 
-            // text_buscar
-            // 
-            this.text_buscar.Location = new System.Drawing.Point(33, 21);
-            this.text_buscar.Name = "text_buscar";
-            this.text_buscar.Size = new System.Drawing.Size(228, 22);
-            this.text_buscar.TabIndex = 9;
-            this.text_buscar.TextChanged += new System.EventHandler(this.text_buscar_TextChanged);
-            // 
             // C_CRUDDocente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvDocentes);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "C_CRUDDocente";
-            this.Size = new System.Drawing.Size(1067, 554);
+            this.Size = new System.Drawing.Size(800, 450);
             this.EnabledChanged += new System.EventHandler(this.C_CRUDDocente_EnabledChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).EndInit();
             this.panel1.ResumeLayout(false);

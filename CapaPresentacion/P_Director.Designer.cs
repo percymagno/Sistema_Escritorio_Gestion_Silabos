@@ -121,7 +121,7 @@ namespace CapaPresentacion
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::CapaPresentacion.Properties.Resources.close;
             this.btnClose.Location = new System.Drawing.Point(75, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(30, 30);
             this.btnClose.TabIndex = 1;
@@ -238,7 +238,7 @@ namespace CapaPresentacion
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(200, 20);
             this.lblUsuario.TabIndex = 0;
-            this.lblUsuario.Text = "Juan Perez";
+            this.lblUsuario.Text = "Administrador";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
