@@ -131,5 +131,27 @@ namespace CapaPresentacion
             btnGuardar.Visible = false;
             RefrescarDGV();
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvSubirSilabo.Rows.Count > 0)
+            {
+                int index = dgvSubirSilabo.SelectedCells[0].RowIndex;
+                if (index >= 0 && index < dgvSubirSilabo.Rows.Count - 1)
+                {
+                    E_Silabo Silabo = new E_Silabo();
+                    Silabo.ID = Int32.Parse(dgvSubirSilabo.Rows[index].Cells[0].Value.ToString());
+                    Silabo.Semestre = dgvSubirSilabo.Rows[index].Cells[1].Value.ToString();
+                    Silabo.CodCurso = dgvSubirSilabo.Rows[index].Cells[2].Value.ToString();
+                    Silabo.Unidad = dgvSubirSilabo.Rows[index].Cells[3].Value.ToString();
+                    Silabo.Capitulo = dgvSubirSilabo.Rows[index].Cells[4].Value.ToString();
+                    Silabo.Tema = dgvSubirSilabo.Rows[index].Cells[5].Value.ToString();
+                    Silabo.NroHoras = Int32.Parse(dgvSubirSilabo.Rows[index].Cells[6].Value.ToString());
+                    FrmAddSilabo AddSilabo = new FrmAddSilabo(Silabo, true);
+                    AddSilabo.ShowDialog();
+                    RefrescarDGV();
+                }
+            }
+        }
     }
 }

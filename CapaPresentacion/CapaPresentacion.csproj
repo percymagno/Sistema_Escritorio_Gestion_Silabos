@@ -90,6 +90,12 @@
     <Compile Include="C_Tarjeta.Designer.cs">
       <DependentUpon>C_Tarjeta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAddSilabo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddSilabo.Designer.cs">
+      <DependentUpon>FrmAddSilabo.cs</DependentUpon>
+    </Compile>
     <Compile Include="P_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="C_Tarjeta.resx">
       <DependentUpon>C_Tarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAddSilabo.resx">
+      <DependentUpon>FrmAddSilabo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P_Login.resx">
       <DependentUpon>P_Login.cs</DependentUpon>
