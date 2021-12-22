@@ -13,9 +13,8 @@ namespace CapaEntidades
         public string Paterno { get; set; }
         public string Materno { get; set; }
         public string Nombres { get; set; }
+        public string Regimen { get; set; }
         public string Correo { get; set; }
         public string Telefono { get; set; }
-        public string Condicion { get; set; }
-        public string Departamento { get; set; }
     }
 }

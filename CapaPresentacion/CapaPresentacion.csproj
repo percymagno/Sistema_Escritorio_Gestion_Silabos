@@ -33,8 +33,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=5.8.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.5.8.3\lib\net45\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +60,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C_CajaTarjetas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="C_CajaTarjetas.Designer.cs">
+      <DependentUpon>C_CajaTarjetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Carga.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="C_Carga.Designer.cs">
+      <DependentUpon>C_Carga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_CRUDCurso.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="C_CRUDCurso.Designer.cs">
+      <DependentUpon>C_CRUDCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_CRUDDocente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="C_CRUDDocente.Designer.cs">
+      <DependentUpon>C_CRUDDocente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Tarjeta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="C_Tarjeta.Designer.cs">
+      <DependentUpon>C_Tarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAddSilabo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddSilabo.Designer.cs">
+      <DependentUpon>FrmAddSilabo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_Login.designer.cs">
+      <DependentUpon>P_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_AddAsignacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_AddAsignacion.Designer.cs">
+      <DependentUpon>Frm_AddAsignacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_AddCurso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,17 +120,17 @@
     <Compile Include="Frm_AddDocente.Designer.cs">
       <DependentUpon>Frm_AddDocente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Curso.cs">
+    <Compile Include="P_Docente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Curso.Designer.cs">
-      <DependentUpon>Frm_Curso.cs</DependentUpon>
+    <Compile Include="P_Docente.Designer.cs">
+      <DependentUpon>P_Docente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Docente.cs">
+    <Compile Include="Frm_SubirSilabo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Docente.Designer.cs">
-      <DependentUpon>Frm_Docente.cs</DependentUpon>
+    <Compile Include="Frm_SubirSilabo.Designer.cs">
+      <DependentUpon>Frm_SubirSilabo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,17 +140,41 @@
     <Compile Include="P_Director.Designer.cs">
       <DependentUpon>P_Director.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="C_CajaTarjetas.resx">
+      <DependentUpon>C_CajaTarjetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Carga.resx">
+      <DependentUpon>C_Carga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_CRUDCurso.resx">
+      <DependentUpon>C_CRUDCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_CRUDDocente.resx">
+      <DependentUpon>C_CRUDDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Tarjeta.resx">
+      <DependentUpon>C_Tarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAddSilabo.resx">
+      <DependentUpon>FrmAddSilabo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_Login.resx">
+      <DependentUpon>P_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_AddAsignacion.resx">
+      <DependentUpon>Frm_AddAsignacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_AddCurso.resx">
       <DependentUpon>Frm_AddCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_AddDocente.resx">
       <DependentUpon>Frm_AddDocente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Curso.resx">
-      <DependentUpon>Frm_Curso.cs</DependentUpon>
+    <EmbeddedResource Include="P_Docente.resx">
+      <DependentUpon>P_Docente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Docente.resx">
-      <DependentUpon>Frm_Docente.cs</DependentUpon>
+    <EmbeddedResource Include="Frm_SubirSilabo.resx">
+      <DependentUpon>Frm_SubirSilabo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -103,6 +189,7 @@
     <EmbeddedResource Include="P_Director.resx">
       <DependentUpon>P_Director.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -143,6 +230,31 @@
       <Project>{3716500d-9e1d-4faa-b5b2-9ea798b09f64}</Project>
       <Name>CapaEntidades</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{40a7f1b2-d286-43cb-bb25-af81270642d8}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\diskette-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\diskette-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\diskette-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\diskette-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\002-diskette-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\001-diskette.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

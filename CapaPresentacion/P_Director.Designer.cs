@@ -38,6 +38,7 @@ namespace CapaPresentacion
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnCarga = new System.Windows.Forms.Button();
             this.btnCursos = new System.Windows.Forms.Button();
             this.btnDocentes = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -66,6 +67,8 @@ namespace CapaPresentacion
             this.panelTop.Size = new System.Drawing.Size(800, 30);
             this.panelTop.TabIndex = 3;
             this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
+            this.panelTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseMove);
+            this.panelTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseUp);
             // 
             // panel5
             // 
@@ -133,6 +136,8 @@ namespace CapaPresentacion
             this.panel1.Size = new System.Drawing.Size(200, 30);
             this.panel1.TabIndex = 2;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // panelLeft
             // 
@@ -148,6 +153,7 @@ namespace CapaPresentacion
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnCarga);
             this.panel4.Controls.Add(this.btnCursos);
             this.panel4.Controls.Add(this.btnDocentes);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
@@ -155,6 +161,22 @@ namespace CapaPresentacion
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(200, 280);
             this.panel4.TabIndex = 3;
+            // 
+            // btnCarga
+            // 
+            this.btnCarga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(170)))), ((int)(((byte)(211)))));
+            this.btnCarga.FlatAppearance.BorderSize = 0;
+            this.btnCarga.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(0)))));
+            this.btnCarga.Location = new System.Drawing.Point(0, 90);
+            this.btnCarga.Name = "btnCarga";
+            this.btnCarga.Size = new System.Drawing.Size(200, 40);
+            this.btnCarga.TabIndex = 2;
+            this.btnCarga.Text = "Carga Academica";
+            this.btnCarga.UseVisualStyleBackColor = false;
+            this.btnCarga.Click += new System.EventHandler(this.btnCarga_Click);
             // 
             // btnCursos
             // 
@@ -174,7 +196,7 @@ namespace CapaPresentacion
             // 
             // btnDocentes
             // 
-            this.btnDocentes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(170)))), ((int)(((byte)(211)))));
+            this.btnDocentes.BackColor = System.Drawing.Color.White;
             this.btnDocentes.FlatAppearance.BorderSize = 0;
             this.btnDocentes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnDocentes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -216,7 +238,7 @@ namespace CapaPresentacion
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(200, 20);
             this.lblUsuario.TabIndex = 0;
-            this.lblUsuario.Text = "Juan Perez";
+            this.lblUsuario.Text = "Administrador";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
@@ -248,8 +270,10 @@ namespace CapaPresentacion
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(202, 32);
             this.panelMain.Name = "panelMain";
+            this.panelMain.Padding = new System.Windows.Forms.Padding(10, 0, 7, 7);
             this.panelMain.Size = new System.Drawing.Size(600, 420);
             this.panelMain.TabIndex = 5;
+            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
             // P_Director
             // 
@@ -263,6 +287,7 @@ namespace CapaPresentacion
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "P_Director";
             this.Padding = new System.Windows.Forms.Padding(2, 2, 3, 3);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "P_ControlDirector";
             this.panelTop.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -292,5 +317,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnCarga;
     }
 }

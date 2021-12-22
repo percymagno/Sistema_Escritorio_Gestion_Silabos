@@ -16,14 +16,22 @@ namespace CapaPresentacion
 {
     public partial class P_Director : Form
     {
+        //movimiento variables
+        int mov, movX, movY;
+        // controles
+        private C_CRUDDocente c_CRUDDocente1;
+        private C_CRUDCurso c_CRUDCurso1;
+        private C_Carga c_Carga1;
+        public P_Director()
+        {
+            InitializeComponent();
+            Init_C_CRUD_Docente();
+            Init_C_CRUD_Curso();
+            Init_C_Carga();
+        }
+
         #region funciones para abrir, cerrar, minimizar mover y cambiar tamaño de form
-        // hacer el form movible
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HTCAPTION = 0x2;
-        [DllImport("User32.dll")]
-        public static extern bool ReleaseCapture();
-        [DllImport("User32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        
         protected override void WndProc(ref Message m)
         {
             const int RESIZE_HANDLE_SIZE = 10;
@@ -70,13 +78,10 @@ namespace CapaPresentacion
             base.WndProc(ref m);
         }
         #endregion
-        public P_Director()
-        {
-            InitializeComponent();
-        }
+        #region min,max, close
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
@@ -97,37 +102,124 @@ namespace CapaPresentacion
         {
             WindowState = FormWindowState.Minimized;
         }
-
+        #endregion
+        #region movimiento de ventanas
+        // Movimiento de ventana
+        private void activarMover(MouseEventArgs e)
+        {
+            mov = 1;
+            movX = e.X;
+            movY = e.Y;
+        }
         private void panelTop_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-            }
+            activarMover(e);
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-            }
+            activarMover(e);
         }
 
+        private void panelTop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mov == 1)
+                this.SetDesktopLocation(MousePosition.X - movX, MousePosition.Y - movY);
+        }
+
+        private void panelTop_MouseUp(object sender, MouseEventArgs e)
+        {
+            mov = 0;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mov == 1)
+                this.SetDesktopLocation(MousePosition.X - movX, MousePosition.Y - movY);
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            mov = 0;
+        }
+        #endregion
+        #region CONTROLES
+        private void Init_C_CRUD_Docente()
+        {
+            this.c_CRUDDocente1 = new CapaPresentacion.C_CRUDDocente();
+            this.panelMain.Controls.Add(this.c_CRUDDocente1);
+
+            // 
+            // c_CRUDDocente1
+            // 
+            this.c_CRUDDocente1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c_CRUDDocente1.Location = new System.Drawing.Point(0, 0);
+            this.c_CRUDDocente1.Name = "c_CRUDDocente1";
+            this.c_CRUDDocente1.Size = new System.Drawing.Size(600, 420);
+            this.c_CRUDDocente1.TabIndex = 0;
+        }
+        private void Init_C_CRUD_Curso()
+        {
+            this.c_CRUDCurso1 = new CapaPresentacion.C_CRUDCurso();
+            this.panelMain.Controls.Add(this.c_CRUDCurso1);
+
+            // 
+            // c_CRUDCurso1
+            // 
+            this.c_CRUDCurso1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c_CRUDCurso1.Location = new System.Drawing.Point(0, 0);
+            this.c_CRUDCurso1.Name = "c_CRUDCurso1";
+            this.c_CRUDCurso1.Size = new System.Drawing.Size(600, 420);
+            this.c_CRUDCurso1.TabIndex = 1;
+            this.c_CRUDCurso1.SendToBack();
+        }
+        private void Init_C_Carga()
+        {
+            this.c_Carga1 = new CapaPresentacion.C_Carga();
+            this.panelMain.Controls.Add(this.c_Carga1);
+
+            // 
+            // c_Carga1
+            //
+            this.c_Carga1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c_Carga1.Location = new System.Drawing.Point(0, 0);
+            this.c_Carga1.Name = "c_Carga1";
+            this.c_Carga1.Size = new System.Drawing.Size(600, 420);
+            this.c_Carga1.TabIndex = 2;
+            this.c_Carga1.SendToBack();
+        }
+        #endregion
         private void btnDocentes_Click(object sender, EventArgs e)
         {
-            Frm_Docente AddDocente = new Frm_Docente();
-            this.Visible = false;
-            AddDocente.Show();
+            this.c_CRUDDocente1.BringToFront();
+            this.c_CRUDDocente1.Enabled = true;
+            this.btnDocentes.BackColor = Color.White;
+            this.btnCarga.BackColor = Color.FromArgb(68, 170, 211);
+            this.btnCursos.BackColor = Color.FromArgb(68, 170, 211);
         }
 
         private void btnCursos_Click(object sender, EventArgs e)
         {
-            Frm_AddCurso AddCurso = new Frm_AddCurso();
-            this.Visible = false;
-            AddCurso.Show();
+            this.c_CRUDCurso1.BringToFront();
+            this.c_CRUDCurso1.Enabled = true;
+            this.btnCursos.BackColor = Color.White;
+            this.btnCarga.BackColor = Color.FromArgb(68, 170, 211);
+            this.btnDocentes.BackColor = Color.FromArgb(68, 170, 211);
+        }
+
+        private void btnCarga_Click(object sender, EventArgs e)
+        {
+            this.c_Carga1.BringToFront();
+            this.c_CRUDCurso1.Enabled = false;
+            this.c_CRUDDocente1.Enabled = false;
+            this.btnCarga.BackColor = Color.White;
+            this.btnCursos.BackColor = Color.FromArgb(68, 170, 211);
+            this.btnDocentes.BackColor = Color.FromArgb(68, 170, 211);
+        }
+
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
