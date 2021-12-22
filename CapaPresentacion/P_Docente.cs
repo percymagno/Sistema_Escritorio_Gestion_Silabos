@@ -63,7 +63,7 @@ namespace CapaPresentacion
             lblUsuario.Text = new N_Docente().BuscarDocente(this.cod_docente).Rows[0]["Nombres"].ToString();
             //dgvCursoDocentes.DataSource = n_Servicio.BuscarCurso(this.cod_docente);
         }
-
+        #region min, max, close
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -86,6 +86,7 @@ namespace CapaPresentacion
         {
             Application.Exit();
         }
+        #endregion
 
         #region Movimiento de ventana
         private void activarMover(MouseEventArgs e)
