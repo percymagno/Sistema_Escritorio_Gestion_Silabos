@@ -9,18 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
 using CapaEntidades;
-using CapaDatos;
 
 namespace CapaPresentacion
 {
-    public partial class Frm_SubirSilabo : Form
+    public partial class C_Silabo : UserControl
     {
+        //Declarar un delegate y Event. StatusUpdate
+        public delegate void StatusUpdateHandler(object sender, EventArgs e);
+        public event StatusUpdateHandler OnUpdateStatus;
+
         string CodCurso;
         string Semestre = "2021-I";
         N_SubirSilabo Subir_Silabo;
         N_Silabo n_Silabo = new N_Silabo();
         DataTable dt_SubirSilabo;
-        public Frm_SubirSilabo(string pCodCurso)
+        public C_Silabo (string pCodCurso)
         {
             CodCurso = pCodCurso;
             InitializeComponent();
@@ -78,7 +81,7 @@ namespace CapaPresentacion
                 foreach (N_Silabo SSilabo in Subir_Silabo.getSilabo())
                 {
                     string[] row = {
-                        SSilabo.Unidad,  SSilabo.Capitulo, SSilabo.Tema, SSilabo.NroHoras.ToString()};
+                            SSilabo.Unidad,  SSilabo.Capitulo, SSilabo.Tema, SSilabo.NroHoras.ToString()};
                     dgvSubirSilabo.Rows.Add(row);
                 }
                 MessageBox.Show(nroFilas + " filas leidas", "Sistema de Gestion de Sílabos");
@@ -94,30 +97,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnMaximize_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState != FormWindowState.Maximized)
-            {
-                this.btnMaximize.Image = global::CapaPresentacion.Properties.Resources.minimize;
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                this.btnMaximize.Image = global::CapaPresentacion.Properties.Resources.stop;
-                this.WindowState = FormWindowState.Normal;
-            }
-        }
-
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
@@ -126,7 +105,7 @@ namespace CapaPresentacion
                 SSilabo.Guardar();
                 //MessageBox.Show("Se guardó carga correctamente", "Sistema de Gestión de Silabos");
             }
-                
+
 
             btnGuardar.Visible = false;
             RefrescarDGV();
@@ -167,16 +146,29 @@ namespace CapaPresentacion
                     DialogResult confirm = MessageBox.Show("¿Realmente desea eliminar silabo " + ID + "?", "Sistema de Silabos", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                     if (confirm == DialogResult.OK)
                     {
-                        
+
                         if (new N_Silabo { ID = Silabo.ID }.Eliminar(ID))
                             MessageBox.Show("silabo " + ID + " eliminado!");
                         else
                             MessageBox.Show("No se pudo eliminar silabo " + ID + "!");
                         RefrescarDGV();
-                        
+
                     }
                 }
             }
+        }
+        private void UpdateStatus()
+        {
+            //Crear arguments.
+            EventArgs args = new EventArgs();
+
+            //llamar a escuchadores, padres
+            OnUpdateStatus?.Invoke(this, args);
+
+        }
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            UpdateStatus();
         }
     }
 }

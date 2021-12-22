@@ -18,16 +18,49 @@ namespace CapaPresentacion
         private List<Panel> paneles = new List<Panel>();
         private int panelWidth = 280;
         private int panelHeight = 150;
+        private C_Silabo csilabo;
         public C_CajaTarjetas(List<E_Curso> pCursos)
         {
             cursos = pCursos;
             InitializeComponent();
+        }
+        // crear control silabo
+        private void crearCSilabo(E_Curso curso)
+        {
+            csilabo = new C_Silabo(curso.CodCurso);
+            csilabo.Dock = System.Windows.Forms.DockStyle.Fill;
+            csilabo.Location = new Point(0, 0);
+            csilabo.Name = "Silabo";
+            csilabo.Size = new Size(600, 300);
+            csilabo.TabIndex = 0;
+            csilabo.OnUpdateStatus += borrarCSilabo;
+            // agregar silabo
+            Controls.Add(csilabo);
+        }
+        // ocultar silabo, mostrar tarjetas
+        private void borrarCSilabo(object sender, EventArgs e)
+        {
+            csilabo.Visible = false;
+            csilabo = null;
+            flowLayoutPanel.Visible = true;
+        }
+        // Mostrar silabo, ocultar tarjetas
+        private void customControl_OnUpdateStatus(object sender, TarjetaClickSilaboEventArgs e)
+        {
+            E_Curso _curso = e.CursoObject as E_Curso;
+            if (_curso != null)
+            {
+                //C_Silabo SSilabo = new C_Silabo(_curso.CodCurso);
+                crearCSilabo(_curso);
+                flowLayoutPanel.Visible = false;
+            }
         }
         private void agregarPanel(E_Curso curso, Color colorFondo)
         {
             // Crear C_Tarjeta
             C_Tarjeta tarjeta = new C_Tarjeta(curso, colorFondo);
             tarjeta.Dock = DockStyle.Fill;
+            tarjeta.OnUpdateStatus += customControl_OnUpdateStatus;
 
             // Crear panel
             Panel panel = new Panel();

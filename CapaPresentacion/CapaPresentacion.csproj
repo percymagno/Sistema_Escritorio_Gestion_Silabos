@@ -84,6 +84,12 @@
     <Compile Include="C_CRUDDocente.Designer.cs">
       <DependentUpon>C_CRUDDocente.cs</DependentUpon>
     </Compile>
+    <Compile Include="C_Silabo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="C_Silabo.Designer.cs">
+      <DependentUpon>C_Silabo.cs</DependentUpon>
+    </Compile>
     <Compile Include="C_Tarjeta.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +146,7 @@
     <Compile Include="P_Director.Designer.cs">
       <DependentUpon>P_Director.cs</DependentUpon>
     </Compile>
+    <Compile Include="TarjetaClickSilaboEventArgs.cs" />
     <EmbeddedResource Include="C_CajaTarjetas.resx">
       <DependentUpon>C_CajaTarjetas.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="C_CRUDDocente.resx">
       <DependentUpon>C_CRUDDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Silabo.resx">
+      <DependentUpon>C_Silabo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="C_Tarjeta.resx">
       <DependentUpon>C_Tarjeta.cs</DependentUpon>

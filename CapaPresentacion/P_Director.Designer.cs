@@ -289,6 +289,7 @@ namespace CapaPresentacion
             this.Padding = new System.Windows.Forms.Padding(2, 2, 3, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "P_ControlDirector";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelTop.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panelLeft.ResumeLayout(false);

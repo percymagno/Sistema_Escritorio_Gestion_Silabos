@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
@@ -37,7 +38,6 @@
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +55,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(178, 396);
             this.panel1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(2, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(178, 28);
+            this.panel3.TabIndex = 3;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
+            this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseMove);
+            this.panel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseUp);
             // 
             // lblUsuario
             // 
@@ -154,17 +164,7 @@
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
             this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseUp);
             // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(2, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(178, 28);
-            this.panel3.TabIndex = 3;
-            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
-            this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseMove);
-            this.panel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseUp);
-            // 
-            // Frm_Docente
+            // P_Docente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -176,7 +176,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Frm_Docente";
+            this.Name = "P_Docente";
             this.Text = "Frm_Docente";
             this.Load += new System.EventHandler(this.Frm_Docente_Load);
             this.panel1.ResumeLayout(false);

@@ -13,6 +13,10 @@ namespace CapaPresentacion
 {
     public partial class C_Tarjeta : UserControl
     {
+        //Declarar un delegate y Event. StatusUpdate
+        public delegate void StatusUpdateHandler(object sender, TarjetaClickSilaboEventArgs e);
+        public event StatusUpdateHandler OnUpdateStatus;
+
         private E_Curso curso;
         Color colorFondo;
         public C_Tarjeta(E_Curso pCurso)
@@ -36,11 +40,19 @@ namespace CapaPresentacion
             lblTitulo.Text = curso.Nombre;
             lblCodigo.Text = curso.CodCurso + curso.Grupo;
         }
+        private void UpdateStatus()
+        {
+            //Create arguments.  You should also have custom one, or else return EventArgs.Empty();
+            TarjetaClickSilaboEventArgs args = new TarjetaClickSilaboEventArgs(curso);
+
+            //Call any listeners
+            OnUpdateStatus?.Invoke(this, args);
+
+        }
 
         private void btnSilabo_Click(object sender, EventArgs e)
         {
-            Frm_SubirSilabo SSilabo = new Frm_SubirSilabo(curso.CodCurso);
-            SSilabo.Show();
+            UpdateStatus();
         }
     }
 }
