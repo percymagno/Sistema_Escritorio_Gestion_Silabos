@@ -24,23 +24,28 @@ namespace CapaPresentacion
             cursos = pCursos;
             InitializeComponent();
         }
+        // crear control silabo
         private void crearCSilabo(E_Curso curso)
         {
             csilabo = new C_Silabo(curso.CodCurso);
-            csilabo.Location = new Point(5, 5);
+            csilabo.Dock = System.Windows.Forms.DockStyle.Fill;
+            csilabo.Location = new Point(0, 0);
             csilabo.Name = "Silabo";
             csilabo.Size = new Size(600, 300);
-            csilabo.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
-            | AnchorStyles.Left)
-            | AnchorStyles.Right)));
             csilabo.TabIndex = 0;
+            csilabo.OnUpdateStatus += borrarCSilabo;
+            // agregar silabo
             Controls.Add(csilabo);
         }
-        private void borrarCSilabo()
+        // ocultar silabo, mostrar tarjetas
+        private void borrarCSilabo(object sender, EventArgs e)
         {
+            csilabo.Visible = false;
             csilabo = null;
+            flowLayoutPanel.Visible = true;
         }
-        private void customControl_OnUpdateStatus(object sender, SilaboClickEventArgs e)
+        // Mostrar silabo, ocultar tarjetas
+        private void customControl_OnUpdateStatus(object sender, TarjetaClickSilaboEventArgs e)
         {
             E_Curso _curso = e.CursoObject as E_Curso;
             if (_curso != null)

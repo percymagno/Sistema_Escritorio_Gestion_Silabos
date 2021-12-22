@@ -14,6 +14,10 @@ namespace CapaPresentacion
 {
     public partial class C_Silabo : UserControl
     {
+        //Declarar un delegate y Event. StatusUpdate
+        public delegate void StatusUpdateHandler(object sender, EventArgs e);
+        public event StatusUpdateHandler OnUpdateStatus;
+
         string CodCurso;
         string Semestre = "2021-I";
         N_SubirSilabo Subir_Silabo;
@@ -23,7 +27,7 @@ namespace CapaPresentacion
         {
             CodCurso = pCodCurso;
             InitializeComponent();
-        btnSubirSilabo.Visible = false;
+            btnSubirSilabo.Visible = false;
             btnGuardar.Visible = false;
             RefrescarDGV();
         }
@@ -152,6 +156,19 @@ namespace CapaPresentacion
                     }
                 }
             }
+        }
+        private void UpdateStatus()
+        {
+            //Crear arguments.
+            EventArgs args = new EventArgs();
+
+            //llamar a escuchadores, padres
+            OnUpdateStatus?.Invoke(this, args);
+
+        }
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            UpdateStatus();
         }
     }
 }

@@ -7,10 +7,10 @@ using CapaEntidades;
 
 namespace CapaPresentacion
 {
-    public class SilaboClickEventArgs : EventArgs
+    public class TarjetaClickSilaboEventArgs : EventArgs
     {
         private readonly E_Curso _cursoObject;
-        public SilaboClickEventArgs(E_Curso curso)
+        public TarjetaClickSilaboEventArgs(E_Curso curso)
         {
             _cursoObject = curso;
         }

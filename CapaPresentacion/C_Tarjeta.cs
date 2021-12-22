@@ -14,7 +14,7 @@ namespace CapaPresentacion
     public partial class C_Tarjeta : UserControl
     {
         //Declarar un delegate y Event. StatusUpdate
-        public delegate void StatusUpdateHandler(object sender, SilaboClickEventArgs e);
+        public delegate void StatusUpdateHandler(object sender, TarjetaClickSilaboEventArgs e);
         public event StatusUpdateHandler OnUpdateStatus;
 
         private E_Curso curso;
@@ -43,7 +43,7 @@ namespace CapaPresentacion
         private void UpdateStatus()
         {
             //Create arguments.  You should also have custom one, or else return EventArgs.Empty();
-            SilaboClickEventArgs args = new SilaboClickEventArgs(curso);
+            TarjetaClickSilaboEventArgs args = new TarjetaClickSilaboEventArgs(curso);
 
             //Call any listeners
             OnUpdateStatus?.Invoke(this, args);
