@@ -178,7 +178,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "P_Docente";
             this.Text = "Frm_Docente";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Frm_Docente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

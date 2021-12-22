@@ -62,6 +62,7 @@ namespace CapaPresentacion
 
             lblUsuario.Text = new N_Docente().BuscarDocente(this.cod_docente).Rows[0]["Nombres"].ToString();
             //dgvCursoDocentes.DataSource = n_Servicio.BuscarCurso(this.cod_docente);
+            this.WindowState = FormWindowState.Maximized;
         }
         #region min, max, close
         private void btnMinimize_Click(object sender, EventArgs e)
