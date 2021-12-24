@@ -47,7 +47,7 @@ namespace CapaPresentacion
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 267);
+            this.label8.Location = new System.Drawing.Point(15, 244);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 13);
             this.label8.TabIndex = 31;
@@ -56,7 +56,7 @@ namespace CapaPresentacion
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 176);
+            this.label7.Location = new System.Drawing.Point(15, 153);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 30;
@@ -74,14 +74,13 @@ namespace CapaPresentacion
             // txtUnidad
             // 
             this.txtUnidad.Location = new System.Drawing.Point(18, 126);
-            this.txtUnidad.Multiline = true;
             this.txtUnidad.Name = "txtUnidad";
-            this.txtUnidad.Size = new System.Drawing.Size(440, 37);
+            this.txtUnidad.Size = new System.Drawing.Size(440, 20);
             this.txtUnidad.TabIndex = 28;
             // 
             // txtCapitulo
             // 
-            this.txtCapitulo.Location = new System.Drawing.Point(18, 203);
+            this.txtCapitulo.Location = new System.Drawing.Point(18, 180);
             this.txtCapitulo.Name = "txtCapitulo";
             this.txtCapitulo.Size = new System.Drawing.Size(440, 20);
             this.txtCapitulo.TabIndex = 27;
@@ -89,7 +88,7 @@ namespace CapaPresentacion
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 226);
+            this.label3.Location = new System.Drawing.Point(15, 203);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 25;
@@ -111,17 +110,17 @@ namespace CapaPresentacion
             this.btn_AgregarEditarSilabo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AgregarEditarSilabo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AgregarEditarSilabo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_AgregarEditarSilabo.Location = new System.Drawing.Point(136, 282);
+            this.btn_AgregarEditarSilabo.Location = new System.Drawing.Point(136, 259);
             this.btn_AgregarEditarSilabo.Name = "btn_AgregarEditarSilabo";
             this.btn_AgregarEditarSilabo.Size = new System.Drawing.Size(196, 35);
             this.btn_AgregarEditarSilabo.TabIndex = 23;
-            this.btn_AgregarEditarSilabo.Text = "EDITAR";
+            this.btn_AgregarEditarSilabo.Text = "GUARDAR";
             this.btn_AgregarEditarSilabo.UseVisualStyleBackColor = false;
             this.btn_AgregarEditarSilabo.Click += new System.EventHandler(this.btn_AgregarEditarSilabo_Click);
             // 
             // txtTema
             // 
-            this.txtTema.Location = new System.Drawing.Point(18, 242);
+            this.txtTema.Location = new System.Drawing.Point(18, 219);
             this.txtTema.Name = "txtTema";
             this.txtTema.Size = new System.Drawing.Size(440, 20);
             this.txtTema.TabIndex = 21;
@@ -145,7 +144,7 @@ namespace CapaPresentacion
             // 
             // txtNroHoras
             // 
-            this.txtNroHoras.Location = new System.Drawing.Point(18, 283);
+            this.txtNroHoras.Location = new System.Drawing.Point(18, 260);
             this.txtNroHoras.Name = "txtNroHoras";
             this.txtNroHoras.Size = new System.Drawing.Size(50, 20);
             this.txtNroHoras.TabIndex = 32;
