@@ -9,7 +9,6 @@ namespace CapaNegocio
     public class N_Silabo
     {
         public int ID { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "ID requerido")]
         public string Semestre { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "ID requerido")]
         public string CodCurso { get; set; }

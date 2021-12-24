@@ -170,5 +170,12 @@ namespace CapaPresentacion
         {
             UpdateStatus();
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FrmAddSilabo AddCurso = new FrmAddSilabo(null, false, CodCurso, Semestre);
+            AddCurso.ShowDialog();
+            RefrescarDGV();
+        }
     }
 }

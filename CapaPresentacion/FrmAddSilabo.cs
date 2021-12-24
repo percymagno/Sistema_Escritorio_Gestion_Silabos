@@ -18,11 +18,16 @@ namespace CapaPresentacion
     {
         E_Silabo e_Silabo;
         bool Editar = false;
-        public FrmAddSilabo(E_Silabo Silabo = null, bool Editar = false)
+        string CodCurso;
+        string Semestre;
+        public FrmAddSilabo(E_Silabo Silabo = null, bool Editar = false, string pCodCurso = "", string pSemestre = "")
         {
             e_Silabo = Silabo;
             this.Editar = Editar;
+            CodCurso = pCodCurso;
+            Semestre = pSemestre;
             InitializeComponent();
+            txtCodCurso.Enabled = false;
         }
 
         private void FrmAddSilabo_Load(object sender, EventArgs e)
@@ -37,11 +42,16 @@ namespace CapaPresentacion
                 btn_AgregarEditarSilabo.Text = "GUARDAR";
             }
             else
-                e_Silabo = new E_Silabo();
+            {
+                txtCodCurso.Text = CodCurso;
+                e_Silabo = new E_Silabo
+                {
+                    Semestre = Semestre
+                };
+            }
             if (Editar)
             {
                 btn_AgregarEditarSilabo.Text = "EDITAR";
-                txtCodCurso.Enabled = false;
             }
         }
 
@@ -70,6 +80,14 @@ namespace CapaPresentacion
                         MessageBox.Show("Se edito correctamenete");
                     else
                         MessageBox.Show("Error. Docente no editado");
+                    Close();
+                }
+                else
+                {
+                    if (n_Silabo.Guardar() == 1)
+                        MessageBox.Show("Se guardo correctamenete");
+                    else
+                        MessageBox.Show("Error. No se puede guardar");
                     Close();
                 }
             }
