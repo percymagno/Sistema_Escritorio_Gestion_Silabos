@@ -68,27 +68,26 @@ namespace CapaPresentacion
         {
             cboxTipo.SelectedIndex = 0;
             cboxGrupo.SelectedIndex = 0;
-            cboxDia.SelectedIndex = 0;
         }
         private void Frm_AddAsignacion_Load()
         {
             defaultComboBoxItems();
             if (Asignacion != null)
             {
+                
                 tbID.Text = Asignacion.ID.ToString();
                 tbSemestre.Text = Asignacion.Semestre;
-                cboxDocente.SelectedValue = Asignacion.CodDocente;
-                cboxCurso.SelectedValue = Asignacion.CodCurso;
+                cboxDocente.SelectedItem = Asignacion.CodDocente;
+                cboxCurso.SelectedItem = Asignacion.CodCurso;
                 cboxTipo.SelectedItem = Asignacion.Tipo;
                 cboxGrupo.SelectedItem = Asignacion.Grupo;
                 numHT.Value = Asignacion.HT;
                 numHP.Value = Asignacion.HP;
-                cboxDia.Text = Asignacion.Dia;
+                List<string> list = new List<string> { "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO", "DOMINGO" };
+                checkedListDia.SetItemChecked(list.IndexOf(Asignacion.Dia), true);
                 tbAula.Text = Asignacion.Aula;
                 numHR_inicio.Value = Asignacion.HR_inicio;
                 numHR_fin.Value = Asignacion.HR_fin;
-
-
                 btnAgregarAsignacion.Text = "GUARDAR";
             }
             else
@@ -102,49 +101,52 @@ namespace CapaPresentacion
 
         private void btnAgregarAsignacion_Click(object sender, EventArgs e)
         {
-            N_Asignacion n_Asignacion = new N_Asignacion();
-            n_Asignacion.ID = Int32.Parse(tbID != null && tbID.Text != "" ? tbID.Text : "-1");
-            n_Asignacion.Docente = new E_Docente { CodDocente = cboxDocente.SelectedValue.ToString() };
-            n_Asignacion.Curso = new E_Curso { CodCurso = cboxCurso.SelectedValue.ToString() };
-            n_Asignacion.Semestre = tbSemestre.Text;
-            n_Asignacion.Tipo = cboxTipo.SelectedItem.ToString();
-            n_Asignacion.Grupo = cboxGrupo.SelectedItem.ToString();
-            n_Asignacion.HT = (int)numHT.Value;
-            n_Asignacion.HP = (int)numHP.Value;
-            n_Asignacion.Dia = cboxDia.SelectedItem.ToString();
-            n_Asignacion.Aula = tbAula.Text.Trim();
-            n_Asignacion.HR_inicio = (int)numHR_inicio.Value;
-            n_Asignacion.HR_fin = (int)numHR_fin.Value;
-            
-            ValidationContext context = new ValidationContext(n_Asignacion, null, null);
-            IList<ValidationResult> errors = new List<ValidationResult>();
-            if (!Validator.TryValidateObject(n_Asignacion, context, errors, true))
+            foreach (string item in checkedListDia.CheckedItems)
             {
-                foreach (ValidationResult result in errors)
-                    MessageBox.Show(result.ErrorMessage);
-            }
-            else
-            {
-                if (this.Editar)
+                N_Asignacion n_Asignacion = new N_Asignacion();
+                n_Asignacion.ID = Int32.Parse(tbID != null && tbID.Text != "" ? tbID.Text : "-1");
+                n_Asignacion.Docente = new E_Docente { CodDocente = cboxDocente.SelectedValue.ToString() };
+                n_Asignacion.Curso = new E_Curso { CodCurso = cboxCurso.SelectedValue.ToString() };
+                n_Asignacion.Semestre = tbSemestre.Text;
+                n_Asignacion.Tipo = cboxTipo.SelectedItem.ToString();
+                n_Asignacion.Grupo = cboxGrupo.SelectedItem.ToString();
+                n_Asignacion.HT = (int)numHT.Value;
+                n_Asignacion.HP = (int)numHP.Value;
+                n_Asignacion.Dia = item.ToString();
+                n_Asignacion.Aula = tbAula.Text.Trim();
+                n_Asignacion.HR_inicio = (int)numHR_inicio.Value;
+                n_Asignacion.HR_fin = (int)numHR_fin.Value;
+
+                ValidationContext context = new ValidationContext(n_Asignacion, null, null);
+                IList<ValidationResult> errors = new List<ValidationResult>();
+                if (!Validator.TryValidateObject(n_Asignacion, context, errors, true))
                 {
-                    if (n_Asignacion.Editar())
-                        MessageBox.Show("Se edito correctamenete");
-                    else
-                        MessageBox.Show("Error. Curso no editado");
-                    Close();
+                    foreach (ValidationResult result in errors)
+                        MessageBox.Show(result.ErrorMessage);
                 }
                 else
                 {
-                    int ans = n_Asignacion.Guardar(dt_docente, dt_curso);
-                    if (ans == 1)
-                        MessageBox.Show("Se agrego correctamente");
-                    else if (ans == 0)
-                        MessageBox.Show("Curso ya existe en la base de datos");
-                    else
-                        MessageBox.Show("Error. Curso no agregado");
-                    if (btnAgregarAsignacion.Text == "GUARDAR")
+                    if (this.Editar)
+                    {
+                        if (n_Asignacion.Editar())
+                            MessageBox.Show("Se edito correctamenete");
+                        else
+                            MessageBox.Show("Error. Curso no editado");
                         Close();
-                    defaultComboBoxItems();
+                    }
+                    else
+                    {
+                        int ans = n_Asignacion.Guardar(dt_docente, dt_curso);
+                        if (ans == 1)
+                            MessageBox.Show("Se agrego correctamente");
+                        else if (ans == 0)
+                            MessageBox.Show("Curso ya existe en la base de datos");
+                        else
+                            MessageBox.Show("Error. Curso no agregado");
+                        if (btnAgregarAsignacion.Text == "GUARDAR")
+                            Close();
+                        defaultComboBoxItems();
+                    }
                 }
             }
         }
