@@ -126,7 +126,7 @@ namespace CapaPresentacion
                     Silabo.Capitulo = dgvSubirSilabo.Rows[index].Cells[4].Value.ToString();
                     Silabo.Tema = dgvSubirSilabo.Rows[index].Cells[5].Value.ToString();
                     Silabo.NroHoras = Int32.Parse(dgvSubirSilabo.Rows[index].Cells[6].Value.ToString());
-                    FrmAddSilabo AddSilabo = new FrmAddSilabo(Silabo, true);
+                    Frm_AddSilabo AddSilabo = new Frm_AddSilabo(Silabo, true);
                     AddSilabo.ShowDialog();
                     RefrescarDGV();
                 }
@@ -173,7 +173,7 @@ namespace CapaPresentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            FrmAddSilabo AddCurso = new FrmAddSilabo(null, false, CodCurso, Semestre);
+            Frm_AddSilabo AddCurso = new Frm_AddSilabo(null, false, CodCurso, Semestre);
             AddCurso.ShowDialog();
             RefrescarDGV();
         }

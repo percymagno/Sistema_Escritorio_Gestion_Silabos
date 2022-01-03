@@ -14,13 +14,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CapaPresentacion
 {
-    public partial class FrmAddSilabo : Form
+    public partial class Frm_AddSilabo : Form
     {
         E_Silabo e_Silabo;
         bool Editar = false;
         string CodCurso;
         string Semestre;
-        public FrmAddSilabo(E_Silabo Silabo = null, bool Editar = false, string pCodCurso = "", string pSemestre = "")
+        public Frm_AddSilabo(E_Silabo Silabo = null, bool Editar = false, string pCodCurso = "", string pSemestre = "")
         {
             e_Silabo = Silabo;
             this.Editar = Editar;

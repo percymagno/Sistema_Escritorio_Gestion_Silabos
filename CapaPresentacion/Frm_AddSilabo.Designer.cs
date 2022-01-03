@@ -1,7 +1,7 @@
 ﻿
 namespace CapaPresentacion
 {
-    partial class FrmAddSilabo
+    partial class Frm_AddSilabo
     {
         /// <summary>
         /// Required designer variable.
