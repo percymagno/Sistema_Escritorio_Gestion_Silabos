@@ -60,6 +60,7 @@
     <Compile Include="Excel.cs" />
     <Compile Include="N_Carga.cs" />
     <Compile Include="N_Curso.cs" />
+    <Compile Include="N_Dia.cs" />
     <Compile Include="N_Docente.cs" />
     <Compile Include="N_Regimen.cs" />
     <Compile Include="N_Semestre.cs" />

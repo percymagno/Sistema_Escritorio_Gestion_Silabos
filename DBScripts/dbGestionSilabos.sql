@@ -72,6 +72,47 @@ CREATE TABLE [dbo].[TAsignacion](
 )
 GO
 
+
+
+
+
+--drop table TAsignacion
+CREATE TABLE [dbo].[TAsignacion](
+	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Semestre] [varchar](10) NOT NULL FOREIGN KEY REFERENCES TSemestre(Semestre),
+	[CodDocente] [varchar](6) NOT NULL FOREIGN KEY REFERENCES TDocente(CodDocente),
+	[CodCurso] [varchar](10) NOT NULL FOREIGN KEY REFERENCES TCurso(CodCurso),
+	[Grupo] [varchar](2) NOT NULL,
+	[Aula] [varchar](15) NOT NULL,
+)
+GO
+
+--drop table TDia
+CREATE TABLE [dbo].[TDia](
+	[Dia] [varchar](20) not null primary key,
+	[Asignacion] [int] not null foreign key references TAsignacion(ID),
+	[HR_inicio] [int] NOT NULL,
+	[HR_fin] [int] NOT NULL,
+	[Tipo] [varchar] not null,
+)
+
+--drop table TSilabo
+CREATE TABLE [dbo].[TSilabo](
+	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Asignacion] [int] NOT NULL FOREIGN KEY REFERENCES TAsignacion(ID),
+	[Unidad] [varchar](100) NOT NULL,
+	[Capitulo] [varchar](100) NOT NULL,
+	[Tema] [varchar](100) NOT NULL,
+	[NroHoras] [int] NOT NULL,
+)
+GO
+
+
+
+
+
+
+
 /****** Object:  Table [dbo].[TSilabo]    Script Date: 24/11/2021 13:04:32 ******/
 
 --drop table TSilabo

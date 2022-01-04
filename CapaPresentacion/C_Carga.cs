@@ -43,12 +43,12 @@ namespace CapaPresentacion
             dt_Asignacion = n_Asignacion.BuscarSemestre(Semestre);
             if (dt_Asignacion != null)
             {
-                dgvCarga.DataSource = dt_Asignacion;
+                dgvCarga.DataSource = dt_Asignacion;/*
                 dgvCarga.Columns["ID"].Visible = false;
                 dgvCarga.Columns["Semestre"].Visible = false;
                 dgvCarga.Columns["Aula"].Visible = false;
                 dgvCarga.Columns["HT"].Visible = false;
-                dgvCarga.Columns["HP"].Visible = false;
+                dgvCarga.Columns["HP"].Visible = false;*/
             }
         }
         private void RellenarSemestre()
@@ -68,14 +68,11 @@ namespace CapaPresentacion
             dgvCarga.Rows.Clear();
             dgvCarga.Refresh();
 
-            dgvCarga.ColumnCount = 7;
+            dgvCarga.ColumnCount = 4;
             dgvCarga.Columns[0].Name = "Docente";
             dgvCarga.Columns[1].Name = "Curso";
             dgvCarga.Columns[2].Name = "Grupo";
-            dgvCarga.Columns[3].Name = "Tipo";
-            dgvCarga.Columns[4].Name = "Dia";
-            dgvCarga.Columns[5].Name = "HR_inicio";
-            dgvCarga.Columns[6].Name = "HR_fin";
+            dgvCarga.Columns[3].Name = "Semestre";
         }
 
         private void btnAbrir_Click(object sender, EventArgs e)
@@ -91,9 +88,7 @@ namespace CapaPresentacion
                 RellenarHeaders();
                 foreach (N_Asignacion asignacion in carga.getCarga())
                 {
-                    string[] row = {
-                        asignacion.Docente.Nombres, asignacion.Curso.Nombre, asignacion.Grupo,
-                        asignacion.Tipo, asignacion.Dia, asignacion.HR_inicio.ToString(), asignacion.HR_fin.ToString()};
+                    string[] row = {asignacion.Docente.Nombres, asignacion.Curso.Nombre, asignacion.Grupo, asignacion.Carrera};
                     dgvCarga.Rows.Add(row);
                 }
                 MessageBox.Show(nroFilas + " filas leidas", "Sistema de Gestion de Sílabos");
@@ -214,16 +209,12 @@ namespace CapaPresentacion
                         Semestre = dgvCarga.Rows[index].Cells[1].Value.ToString(),
                         CodDocente = dgvCarga.Rows[index].Cells[2].Value.ToString(),
                         CodCurso = dgvCarga.Rows[index].Cells[3].Value.ToString(),
-                        Tipo = dgvCarga.Rows[index].Cells[4].Value.ToString(),
                         Grupo = dgvCarga.Rows[index].Cells[5].Value.ToString(),
-                        HT = Int32.Parse(dgvCarga.Rows[index].Cells[6].Value.ToString()),
-                        HP = Int32.Parse(dgvCarga.Rows[index].Cells[7].Value.ToString()),
-                        Dia = dgvCarga.Rows[index].Cells[8].Value.ToString(),
-                        HR_inicio = Int32.Parse(dgvCarga.Rows[index].Cells[9].Value.ToString()),
-                        HR_fin = Int32.Parse(dgvCarga.Rows[index].Cells[10].Value.ToString()),
                         Aula = dgvCarga.Rows[index].Cells[11].Value.ToString(),
                     };
-
+                    N_Dia n_Dia = new N_Dia();
+                    List<E_Dia> tmpDias = n_Dia.BuscarAsignacion(dgvCarga.Rows[index].Cells[0].Value.ToString());
+                    e_Asignacion.Dias = tmpDias;
                     Frm_AddAsignacion AddAsignacion = new Frm_AddAsignacion(e_Asignacion, true);
                     AddAsignacion.ShowDialog();
                     RefrescarDGV();
