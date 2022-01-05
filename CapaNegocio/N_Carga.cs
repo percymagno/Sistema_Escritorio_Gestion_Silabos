@@ -74,6 +74,7 @@ namespace CapaNegocio
 
             row++;
             // Carga
+            N_Asignacion asignacion = new N_Asignacion();
             for (int i = row; i < excel.nroRows(); i++)
             {
                 bool nuevaAsignacion = true;
@@ -94,25 +95,36 @@ namespace CapaNegocio
                 }
                 if (nuevaAsignacion)
                 {
+                    bool addAsig = false;
                     E_Curso curso = new E_Curso { CodCurso = lista[0].Substring(0, 5), Nombre = lista[2], Creditos = Int32.Parse(lista[3]) };
                     cursos.Add(curso);
-                    N_Asignacion asignacion = new N_Asignacion
+                    if (asignacion.Docente==null || asignacion.Docente.Nombres != docente.Nombres || asignacion.Curso.CodCurso != curso.CodCurso || asignacion.Grupo != lista[0].Substring(5, 1))
                     {
-                        Docente = docente,
-                        Curso = curso,
-                        Carrera = lista[1],
-                        Tipo = lista[4],
-                        Grupo = lista[5],
-                        HT = Int32.Parse(lista[6]),
-                        HP = Int32.Parse(lista[7]),
+                        addAsig = true;
+                        asignacion = new N_Asignacion
+                        {
+                            Docente = docente,
+                            Curso = curso,
+                            Carrera = lista[1],
+                            Grupo = lista[0].Substring(5, 1),
+                            Aula = lista[11],
+                            Matriculados = Int32.Parse(lista[12]),
+                        };
+                    }
+                    E_Dia dia = new E_Dia
+                    {
                         Dia = lista[8],
+                        Tipo = lista[4],
                         HR_inicio = Int32.Parse(lista[9]),
                         HR_fin = Int32.Parse(lista[10]),
-                        Aula = lista[11],
-                        Matriculados = Int32.Parse(lista[12]),
                     };
-                    carga.Add(asignacion);
-                    Console.WriteLine(asignacion);
+                    asignacion.Dias.Add(dia);
+                    if (addAsig)
+                    {
+                        addAsig = false;
+                        carga.Add(asignacion);
+                    }
+                    //Console.WriteLine(dia.Asignacion);
                 }
                 if(i == excel.nroRows() - 1)
                     row = -1;

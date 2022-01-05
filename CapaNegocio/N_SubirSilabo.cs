@@ -13,12 +13,10 @@ namespace CapaNegocio
 {
     public class N_SubirSilabo
     {
-        readonly string CodCurso;
-        readonly string Semestre;
-        public N_SubirSilabo(string pCodCurso, string pSemestre)
+        readonly int asignacion;
+        public N_SubirSilabo(int pAsignacion)
         {
-            CodCurso = pCodCurso;
-            Semestre = pSemestre;
+            asignacion = pAsignacion;
         }
 
         Excel excel;
@@ -68,8 +66,7 @@ namespace CapaNegocio
                 }
                 N_Silabo Silabo = new N_Silabo
                 {
-                    Semestre = Semestre,
-                    CodCurso = CodCurso,
+                    Asignacion = this.asignacion,
                     Unidad = lista[0],
                     Capitulo = lista[1],
                     Tema = lista[2],

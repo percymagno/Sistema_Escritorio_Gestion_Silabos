@@ -13,15 +13,11 @@ namespace CapaEntidades
         public string CodDocente { get; set; }
         public string CodCurso { get; set; }
         public string Carrera { get; set; }
-        public string Tipo { get; set; }
         public string Grupo { get; set; }
-        public int HT { get; set; }
-        public int HP { get; set; }
-        public string Dia { get; set; }
-        public int HR_inicio { get; set; }
-        public int HR_fin { get; set; }
         public string Aula { get; set; }
         public int Matriculados { get; set; }
-
+        public List<E_Dia> Dias { get; set; }
+        public E_Curso Curso = new E_Curso();
+        public E_Docente Docente = new E_Docente();
     }
 }

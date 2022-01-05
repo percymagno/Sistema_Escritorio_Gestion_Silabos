@@ -16,20 +16,15 @@ namespace CapaDatos
         // Metodos CRUD
         public bool Agregar(E_Asignacion asignacion)
         {
-            string sql = "INSERT INTO dbo.TAsignacion (Semestre, CodDocente, CodCurso, Tipo, Grupo, HT, HP, Dia, HR_inicio, HR_fin, Aula)"+
-                                    "VALUES (@Semestre, @CodDocente, @CodCurso, @Tipo, @Grupo, @HT, @HP, @Dia, @HR_inicio, @HR_fin, @Aula)";
+            string sql = "INSERT INTO dbo.TAsignacion (Semestre, CodDocente, CodCurso, Grupo, Aula, Carrera)"+
+                                    "VALUES (@Semestre, @CodDocente, @CodCurso, @Grupo, @Aula, @Carrera)";
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@Semestre", asignacion.Semestre);
             conexion.cmd.Parameters.AddWithValue("@CodDocente", asignacion.CodDocente);
             conexion.cmd.Parameters.AddWithValue("@CodCurso", asignacion.CodCurso);
-            conexion.cmd.Parameters.AddWithValue("@Tipo", asignacion.Tipo);
             conexion.cmd.Parameters.AddWithValue("@Grupo", asignacion.Grupo);
-            conexion.cmd.Parameters.AddWithValue("@HT", asignacion.HT);
-            conexion.cmd.Parameters.AddWithValue("@HP", asignacion.HP);
-            conexion.cmd.Parameters.AddWithValue("@Dia", asignacion.Dia);
-            conexion.cmd.Parameters.AddWithValue("@HR_inicio", asignacion.HR_inicio);
-            conexion.cmd.Parameters.AddWithValue("@HR_fin", asignacion.HR_fin);
             conexion.cmd.Parameters.AddWithValue("@Aula", asignacion.Aula);
+            conexion.cmd.Parameters.AddWithValue("@Carrera", asignacion.Carrera);
 
             return conexion.executeNonQuery() == 1;
         }
@@ -49,9 +44,26 @@ namespace CapaDatos
 
             return conexion.executeReader();
         }
+        public DataTable BuscarDocenteCurso(String codDocente, String codCurso)
+        {
+            string sql = "SELECT * FROM TAsignacion WHERE " +
+                "CodCurso = @CodCurso AND CodDocente = @CodDocente";
+            conexion.setComando(sql);
+            conexion.cmd.Parameters.AddWithValue("@CodCurso", codCurso);
+            conexion.cmd.Parameters.AddWithValue("@CodDocente", codDocente);
+
+            return conexion.executeReader();
+        }
         public DataTable BuscarSemestre(String Texto)
         {
-            string sql = "SELECT * FROM TAsignacion WHERE Semestre = @Texto";
+            //string sql = "SELECT * FROM TAsignacion WHERE Semestre = @Texto";
+            string sql = "SELECT TA.ID as ID, TA.Semestre as Semestre, TA.CodDocente as CodDocente, " +
+                "TA.CodCurso as CodCurso, (TD.Paterno + ' ' + TD.Materno + ' ' + TD.Nombres) as Docente, " +
+                "TC.Nombre as Curso, TA.Grupo as Grupo, TA.Aula as Aula, TA.Carrera as Carrera " +
+                "FROM(TAsignacion TA inner join TCurso TC on TA.CodCurso = TC.CodCurso) " +
+                "inner join TDocente TD on TA.CodDocente = TD.CodDocente " +
+                "WHERE Semestre = @Texto " +
+                "order by TD.Paterno";
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@Texto", Texto);
 
@@ -59,20 +71,14 @@ namespace CapaDatos
         }
         public bool Editar(E_Asignacion asignacion)
         {
-            string sql = "UPDATE dbo.TAsignacion SET Semestre = @Semestre, CodDocente = @CodDocente, CodCurso = @CodCurso, Tipo = @Tipo, Grupo = @Grupo, " +
-                              "HT = @HT, HP = @HP, Dia = @Dia, HR_inicio = @HR_inicio, HR_fin = @HR_fin, Aula = @Aula WHERE ID = @ID";
+            string sql = "UPDATE dbo.TAsignacion SET Semestre = @Semestre, CodDocente = @CodDocente," +
+                              "CodCurso = @CodCurso, Grupo = @Grupo, Aula = @Aula WHERE ID = @ID";
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@ID", asignacion.ID);
             conexion.cmd.Parameters.AddWithValue("@Semestre", asignacion.Semestre);
             conexion.cmd.Parameters.AddWithValue("@CodDocente", asignacion.CodDocente);
             conexion.cmd.Parameters.AddWithValue("@CodCurso", asignacion.CodCurso);
-            conexion.cmd.Parameters.AddWithValue("@Tipo", asignacion.Tipo);
             conexion.cmd.Parameters.AddWithValue("@Grupo", asignacion.Grupo);
-            conexion.cmd.Parameters.AddWithValue("@HT", asignacion.HT);
-            conexion.cmd.Parameters.AddWithValue("@HP", asignacion.HP);
-            conexion.cmd.Parameters.AddWithValue("@Dia", asignacion.Dia);
-            conexion.cmd.Parameters.AddWithValue("@HR_inicio", asignacion.HR_inicio);
-            conexion.cmd.Parameters.AddWithValue("@HR_fin", asignacion.HR_fin);
             conexion.cmd.Parameters.AddWithValue("@Aula", asignacion.Aula);
             return conexion.executeNonQuery() == 1;
         }

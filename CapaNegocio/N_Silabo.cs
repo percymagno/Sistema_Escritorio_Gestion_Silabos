@@ -9,9 +9,7 @@ namespace CapaNegocio
     public class N_Silabo
     {
         public int ID { get; set; }
-        public string Semestre { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "ID requerido")]
-        public string CodCurso { get; set; }
+        public int Asignacion { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "ID requerido")]
         public string Unidad { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Unidad es requerido")]
@@ -26,15 +24,14 @@ namespace CapaNegocio
 
         public override string ToString()
         {
-            return "CodCurso: " + CodCurso + ", Unidad: " + Unidad + ", Capitulo: " + Capitulo + ", Tema: " + Tema;
+            return "AsignacionID: " + Asignacion + ", Unidad: " + Unidad + ", Capitulo: " + Capitulo + ", Tema: " + Tema;
         }
 
         public int Guardar()
         {
             E_Silabo e_Silabo = new E_Silabo
             {
-                Semestre = this.Semestre,
-                CodCurso = this.CodCurso,
+                Asignacion = this.Asignacion,
                 Unidad = this.Unidad,
                 Capitulo = this.Capitulo,
                 Tema = this.Tema,
@@ -45,9 +42,9 @@ namespace CapaNegocio
             d_Silabo.Agregar(e_Silabo);
             return 1;
         }
-        public DataTable Mostrar(string Semestre, string CodCurso)
+        public DataTable Mostrar(string Semestre, int ID)
         {
-            return d_Silabo.MostrarCursoSemestre(Semestre, CodCurso);
+            return d_Silabo.MostrarCursoSemestre(Semestre, ID);
         }
         public DataTable BuscarSemestre(string texto)
         {
@@ -58,8 +55,7 @@ namespace CapaNegocio
             return d_Silabo.Editar(new E_Silabo
             {
                 ID = this.ID,
-                Semestre = this.Semestre,
-                CodCurso = CodCurso,
+                Asignacion = this.Asignacion,
                 Unidad = this.Unidad,
                 Capitulo = this.Capitulo,
                 Tema = this.Tema,
@@ -70,16 +66,16 @@ namespace CapaNegocio
         {
             return d_Silabo.Eliminar(ID);
         }
-        public string buscarCurso(DataTable dt)
+        public int buscarCurso(DataTable dt)
         {
-            if (dt == null) return "";
+            if (dt == null) return -1;
             foreach (DataRow row in dt.Rows)
             {
-                string CodCurso = row["CodCurso"].ToString();
-                if (this.CodCurso == CodCurso)
-                    return CodCurso;
+                int Asignacion = Int32.Parse(row["Asignacion"].ToString());
+                if (this.Asignacion == Asignacion)
+                    return this.Asignacion;
             }
-            return "";
+            return -1;
         }
     }
 }

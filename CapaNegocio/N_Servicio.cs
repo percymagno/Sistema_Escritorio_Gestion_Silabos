@@ -15,5 +15,9 @@ namespace CapaNegocio
         {
             return d_ServicioDocente.BuscarCurso(CodDocente);
         }
+        public DataTable BuscarAsignaciones(string CodDocente)
+        {
+            return d_ServicioDocente.BuscarAsignaciones(CodDocente);
+        }
     }
 }

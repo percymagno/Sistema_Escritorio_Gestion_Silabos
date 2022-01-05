@@ -16,11 +16,10 @@ namespace CapaDatos
         // Metodos CRUD
         public bool Agregar(E_Silabo pSilabo)
         {
-            string sql = "INSERT INTO dbo.TSilabo (Semestre, CodCurso, Unidad, Capitulo, Tema, NroHoras)" +
-                                    "VALUES (@Semestre, @CodCurso, @Unidad, @Capitulo, @Tema, @NroHoras)";
+            string sql = "INSERT INTO dbo.TSilabo (Asignacion, Unidad, Capitulo, Tema, NroHoras)" +
+                                    "VALUES (@Asignacion, @Unidad, @Capitulo, @Tema, @NroHoras)";
             conexion.setComando(sql);
-            conexion.cmd.Parameters.AddWithValue("@Semestre", pSilabo.Semestre);
-            conexion.cmd.Parameters.AddWithValue("@CodCurso", pSilabo.CodCurso);
+            conexion.cmd.Parameters.AddWithValue("@Asignacion", pSilabo.Asignacion);
             conexion.cmd.Parameters.AddWithValue("@Unidad", pSilabo.Unidad);
             conexion.cmd.Parameters.AddWithValue("@Capitulo", pSilabo.Capitulo);
             conexion.cmd.Parameters.AddWithValue("@Tema", pSilabo.Tema);
@@ -28,12 +27,11 @@ namespace CapaDatos
 
             return conexion.executeNonQuery() == 1;
         }
-        public DataTable MostrarCursoSemestre(string Semestre, string CodCurso)
+        public DataTable MostrarCursoSemestre(string Semestre, int ID)
         {
-            string sql = "SELECT * FROM TSilabo WHERE Semestre = @Semestre AND CodCurso = @CodCurso";
+            string sql = "SELECT * FROM TSilabo WHERE Asignacion = @Asignacion";
             conexion.setComando(sql);
-            conexion.cmd.Parameters.AddWithValue("@Semestre", Semestre);
-            conexion.cmd.Parameters.AddWithValue("@CodCurso", CodCurso);
+            conexion.cmd.Parameters.AddWithValue("@Asignacion", ID);
             return conexion.executeReader();
         }
         public DataTable Buscar(String Texto)
@@ -47,12 +45,10 @@ namespace CapaDatos
         }
         public bool Editar(E_Silabo pSilabo)
         {
-            string sql = "UPDATE dbo.TSilabo SET Semestre = @Semestre, CodCurso = @CodCurso, Unidad = @Unidad, Capitulo = @Capitulo, " +
+            string sql = "UPDATE dbo.TSilabo SET Unidad = @Unidad, Capitulo = @Capitulo, " +
                               "Tema = @Tema, NroHoras = @NroHoras WHERE ID = @ID";
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@ID", pSilabo.ID);
-            conexion.cmd.Parameters.AddWithValue("@Semestre", pSilabo.Semestre);
-            conexion.cmd.Parameters.AddWithValue("@CodCurso", pSilabo.CodCurso);
             conexion.cmd.Parameters.AddWithValue("@Unidad", pSilabo.Unidad);
             conexion.cmd.Parameters.AddWithValue("@Capitulo", pSilabo.Capitulo);
             conexion.cmd.Parameters.AddWithValue("@Tema", pSilabo.Tema);
