@@ -45,21 +45,27 @@
             this.tbSemestre = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelSabado = new System.Windows.Forms.Panel();
+            this.numericSabadoIni = new System.Windows.Forms.NumericUpDown();
             this.numericSabadoFin = new System.Windows.Forms.NumericUpDown();
             this.cBoxSabado = new System.Windows.Forms.ComboBox();
             this.panelViernes = new System.Windows.Forms.Panel();
+            this.numericViernesIni = new System.Windows.Forms.NumericUpDown();
             this.numericViernesFin = new System.Windows.Forms.NumericUpDown();
             this.cBoxViernes = new System.Windows.Forms.ComboBox();
             this.panelJueves = new System.Windows.Forms.Panel();
+            this.numericJuevesIni = new System.Windows.Forms.NumericUpDown();
             this.numericJuevesFin = new System.Windows.Forms.NumericUpDown();
             this.cBoxJueves = new System.Windows.Forms.ComboBox();
             this.panelMiercoles = new System.Windows.Forms.Panel();
+            this.numericMiercolesIni = new System.Windows.Forms.NumericUpDown();
             this.numericMiercolesFin = new System.Windows.Forms.NumericUpDown();
             this.cBoxMiercoles = new System.Windows.Forms.ComboBox();
             this.panelMartes = new System.Windows.Forms.Panel();
+            this.numericMartesIni = new System.Windows.Forms.NumericUpDown();
             this.numericMartesFin = new System.Windows.Forms.NumericUpDown();
             this.cBoxMartes = new System.Windows.Forms.ComboBox();
             this.panelLunes = new System.Windows.Forms.Panel();
+            this.numericLunesIni = new System.Windows.Forms.NumericUpDown();
             this.numericLunesFin = new System.Windows.Forms.NumericUpDown();
             this.cBoxLunes = new System.Windows.Forms.ComboBox();
             this.checkSabado = new System.Windows.Forms.CheckBox();
@@ -70,32 +76,26 @@
             this.checkLunes = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericLunesIni = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericMartesIni = new System.Windows.Forms.NumericUpDown();
-            this.numericMiercolesIni = new System.Windows.Forms.NumericUpDown();
-            this.numericJuevesIni = new System.Windows.Forms.NumericUpDown();
-            this.numericViernesIni = new System.Windows.Forms.NumericUpDown();
-            this.numericSabadoIni = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.panelSabado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSabadoIni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSabadoFin)).BeginInit();
             this.panelViernes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericViernesIni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericViernesFin)).BeginInit();
             this.panelJueves.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericJuevesIni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericJuevesFin)).BeginInit();
             this.panelMiercoles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMiercolesIni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMiercolesFin)).BeginInit();
             this.panelMartes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMartesIni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMartesFin)).BeginInit();
             this.panelLunes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericLunesFin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLunesIni)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMartesIni)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMiercolesIni)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericJuevesIni)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericViernesIni)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSabadoIni)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLunesFin)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -114,7 +114,7 @@
             this.btnAgregarAsignacion.FlatAppearance.BorderSize = 0;
             this.btnAgregarAsignacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarAsignacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarAsignacion.Location = new System.Drawing.Point(79, 363);
+            this.btnAgregarAsignacion.Location = new System.Drawing.Point(79, 399);
             this.btnAgregarAsignacion.Name = "btnAgregarAsignacion";
             this.btnAgregarAsignacion.Size = new System.Drawing.Size(250, 35);
             this.btnAgregarAsignacion.TabIndex = 1;
@@ -152,24 +152,24 @@
             // 
             this.cboxDocente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxDocente.FormattingEnabled = true;
-            this.cboxDocente.Location = new System.Drawing.Point(40, 112);
+            this.cboxDocente.Location = new System.Drawing.Point(40, 113);
             this.cboxDocente.Name = "cboxDocente";
-            this.cboxDocente.Size = new System.Drawing.Size(150, 21);
+            this.cboxDocente.Size = new System.Drawing.Size(324, 21);
             this.cboxDocente.TabIndex = 7;
             // 
             // cboxCurso
             // 
             this.cboxCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxCurso.FormattingEnabled = true;
-            this.cboxCurso.Location = new System.Drawing.Point(214, 112);
+            this.cboxCurso.Location = new System.Drawing.Point(40, 155);
             this.cboxCurso.Name = "cboxCurso";
-            this.cboxCurso.Size = new System.Drawing.Size(150, 21);
+            this.cboxCurso.Size = new System.Drawing.Size(324, 21);
             this.cboxCurso.TabIndex = 8;
             // 
             // lblCurso
             // 
             this.lblCurso.AutoSize = true;
-            this.lblCurso.Location = new System.Drawing.Point(211, 96);
+            this.lblCurso.Location = new System.Drawing.Point(37, 139);
             this.lblCurso.Name = "lblCurso";
             this.lblCurso.Size = new System.Drawing.Size(70, 13);
             this.lblCurso.TabIndex = 9;
@@ -178,7 +178,7 @@
             // lblDocente
             // 
             this.lblDocente.AutoSize = true;
-            this.lblDocente.Location = new System.Drawing.Point(37, 96);
+            this.lblDocente.Location = new System.Drawing.Point(37, 97);
             this.lblDocente.Name = "lblDocente";
             this.lblDocente.Size = new System.Drawing.Size(84, 13);
             this.lblDocente.TabIndex = 10;
@@ -187,7 +187,7 @@
             // lblGrupo
             // 
             this.lblGrupo.AutoSize = true;
-            this.lblGrupo.Location = new System.Drawing.Point(211, 143);
+            this.lblGrupo.Location = new System.Drawing.Point(211, 179);
             this.lblGrupo.Name = "lblGrupo";
             this.lblGrupo.Size = new System.Drawing.Size(36, 13);
             this.lblGrupo.TabIndex = 14;
@@ -201,7 +201,7 @@
             "A",
             "B",
             "C"});
-            this.cboxGrupo.Location = new System.Drawing.Point(214, 159);
+            this.cboxGrupo.Location = new System.Drawing.Point(214, 195);
             this.cboxGrupo.Name = "cboxGrupo";
             this.cboxGrupo.Size = new System.Drawing.Size(150, 21);
             this.cboxGrupo.TabIndex = 15;
@@ -209,7 +209,7 @@
             // lblDia
             // 
             this.lblDia.AutoSize = true;
-            this.lblDia.Location = new System.Drawing.Point(40, 193);
+            this.lblDia.Location = new System.Drawing.Point(40, 229);
             this.lblDia.Name = "lblDia";
             this.lblDia.Size = new System.Drawing.Size(41, 13);
             this.lblDia.TabIndex = 21;
@@ -218,7 +218,7 @@
             // lblAula
             // 
             this.lblAula.AutoSize = true;
-            this.lblAula.Location = new System.Drawing.Point(37, 144);
+            this.lblAula.Location = new System.Drawing.Point(37, 180);
             this.lblAula.Name = "lblAula";
             this.lblAula.Size = new System.Drawing.Size(28, 13);
             this.lblAula.TabIndex = 22;
@@ -226,7 +226,7 @@
             // 
             // tbAula
             // 
-            this.tbAula.Location = new System.Drawing.Point(40, 160);
+            this.tbAula.Location = new System.Drawing.Point(40, 196);
             this.tbAula.Name = "tbAula";
             this.tbAula.Size = new System.Drawing.Size(150, 20);
             this.tbAula.TabIndex = 23;
@@ -253,7 +253,7 @@
             this.panel1.Controls.Add(this.checkMiercoles);
             this.panel1.Controls.Add(this.checkMartes);
             this.panel1.Controls.Add(this.checkLunes);
-            this.panel1.Location = new System.Drawing.Point(40, 209);
+            this.panel1.Location = new System.Drawing.Point(40, 245);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(324, 140);
             this.panel1.TabIndex = 33;
@@ -268,6 +268,28 @@
             this.panelSabado.Size = new System.Drawing.Size(225, 21);
             this.panelSabado.TabIndex = 1;
             this.panelSabado.Visible = false;
+            // 
+            // numericSabadoIni
+            // 
+            this.numericSabadoIni.Location = new System.Drawing.Point(99, 0);
+            this.numericSabadoIni.Maximum = new decimal(new int[] {
+            21,
+            0,
+            0,
+            0});
+            this.numericSabadoIni.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericSabadoIni.Name = "numericSabadoIni";
+            this.numericSabadoIni.Size = new System.Drawing.Size(61, 20);
+            this.numericSabadoIni.TabIndex = 3;
+            this.numericSabadoIni.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
             // numericSabadoFin
             // 
@@ -296,8 +318,8 @@
             this.cBoxSabado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxSabado.FormattingEnabled = true;
             this.cBoxSabado.Items.AddRange(new object[] {
-            "Teórico",
-            "Práctico"});
+            "T",
+            "P"});
             this.cBoxSabado.Location = new System.Drawing.Point(0, 0);
             this.cBoxSabado.Name = "cBoxSabado";
             this.cBoxSabado.Size = new System.Drawing.Size(77, 21);
@@ -313,6 +335,28 @@
             this.panelViernes.Size = new System.Drawing.Size(225, 21);
             this.panelViernes.TabIndex = 1;
             this.panelViernes.Visible = false;
+            // 
+            // numericViernesIni
+            // 
+            this.numericViernesIni.Location = new System.Drawing.Point(99, 0);
+            this.numericViernesIni.Maximum = new decimal(new int[] {
+            21,
+            0,
+            0,
+            0});
+            this.numericViernesIni.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericViernesIni.Name = "numericViernesIni";
+            this.numericViernesIni.Size = new System.Drawing.Size(61, 20);
+            this.numericViernesIni.TabIndex = 3;
+            this.numericViernesIni.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
             // numericViernesFin
             // 
@@ -341,8 +385,8 @@
             this.cBoxViernes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxViernes.FormattingEnabled = true;
             this.cBoxViernes.Items.AddRange(new object[] {
-            "Teórico",
-            "Práctico"});
+            "T",
+            "P"});
             this.cBoxViernes.Location = new System.Drawing.Point(0, 0);
             this.cBoxViernes.Name = "cBoxViernes";
             this.cBoxViernes.Size = new System.Drawing.Size(77, 21);
@@ -358,6 +402,28 @@
             this.panelJueves.Size = new System.Drawing.Size(225, 21);
             this.panelJueves.TabIndex = 1;
             this.panelJueves.Visible = false;
+            // 
+            // numericJuevesIni
+            // 
+            this.numericJuevesIni.Location = new System.Drawing.Point(99, 0);
+            this.numericJuevesIni.Maximum = new decimal(new int[] {
+            21,
+            0,
+            0,
+            0});
+            this.numericJuevesIni.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericJuevesIni.Name = "numericJuevesIni";
+            this.numericJuevesIni.Size = new System.Drawing.Size(61, 20);
+            this.numericJuevesIni.TabIndex = 3;
+            this.numericJuevesIni.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
             // numericJuevesFin
             // 
@@ -386,8 +452,8 @@
             this.cBoxJueves.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxJueves.FormattingEnabled = true;
             this.cBoxJueves.Items.AddRange(new object[] {
-            "Teórico",
-            "Práctico"});
+            "T",
+            "P"});
             this.cBoxJueves.Location = new System.Drawing.Point(0, 0);
             this.cBoxJueves.Name = "cBoxJueves";
             this.cBoxJueves.Size = new System.Drawing.Size(77, 21);
@@ -403,6 +469,28 @@
             this.panelMiercoles.Size = new System.Drawing.Size(225, 21);
             this.panelMiercoles.TabIndex = 1;
             this.panelMiercoles.Visible = false;
+            // 
+            // numericMiercolesIni
+            // 
+            this.numericMiercolesIni.Location = new System.Drawing.Point(99, 0);
+            this.numericMiercolesIni.Maximum = new decimal(new int[] {
+            21,
+            0,
+            0,
+            0});
+            this.numericMiercolesIni.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericMiercolesIni.Name = "numericMiercolesIni";
+            this.numericMiercolesIni.Size = new System.Drawing.Size(61, 20);
+            this.numericMiercolesIni.TabIndex = 3;
+            this.numericMiercolesIni.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
             // numericMiercolesFin
             // 
@@ -431,8 +519,8 @@
             this.cBoxMiercoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxMiercoles.FormattingEnabled = true;
             this.cBoxMiercoles.Items.AddRange(new object[] {
-            "Teórico",
-            "Práctico"});
+            "T",
+            "P"});
             this.cBoxMiercoles.Location = new System.Drawing.Point(0, 0);
             this.cBoxMiercoles.Name = "cBoxMiercoles";
             this.cBoxMiercoles.Size = new System.Drawing.Size(77, 21);
@@ -448,6 +536,28 @@
             this.panelMartes.Size = new System.Drawing.Size(225, 21);
             this.panelMartes.TabIndex = 1;
             this.panelMartes.Visible = false;
+            // 
+            // numericMartesIni
+            // 
+            this.numericMartesIni.Location = new System.Drawing.Point(99, 0);
+            this.numericMartesIni.Maximum = new decimal(new int[] {
+            21,
+            0,
+            0,
+            0});
+            this.numericMartesIni.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericMartesIni.Name = "numericMartesIni";
+            this.numericMartesIni.Size = new System.Drawing.Size(61, 20);
+            this.numericMartesIni.TabIndex = 3;
+            this.numericMartesIni.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
             // numericMartesFin
             // 
@@ -476,8 +586,8 @@
             this.cBoxMartes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxMartes.FormattingEnabled = true;
             this.cBoxMartes.Items.AddRange(new object[] {
-            "Teórico",
-            "Práctico"});
+            "T",
+            "P"});
             this.cBoxMartes.Location = new System.Drawing.Point(0, 0);
             this.cBoxMartes.Name = "cBoxMartes";
             this.cBoxMartes.Size = new System.Drawing.Size(77, 21);
@@ -493,6 +603,28 @@
             this.panelLunes.Size = new System.Drawing.Size(225, 21);
             this.panelLunes.TabIndex = 1;
             this.panelLunes.Visible = false;
+            // 
+            // numericLunesIni
+            // 
+            this.numericLunesIni.Location = new System.Drawing.Point(99, 0);
+            this.numericLunesIni.Maximum = new decimal(new int[] {
+            21,
+            0,
+            0,
+            0});
+            this.numericLunesIni.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericLunesIni.Name = "numericLunesIni";
+            this.numericLunesIni.Size = new System.Drawing.Size(61, 20);
+            this.numericLunesIni.TabIndex = 2;
+            this.numericLunesIni.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
             // numericLunesFin
             // 
@@ -522,8 +654,8 @@
             this.cBoxLunes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxLunes.FormattingEnabled = true;
             this.cBoxLunes.Items.AddRange(new object[] {
-            "Teórico",
-            "Práctico"});
+            "T",
+            "P"});
             this.cBoxLunes.Location = new System.Drawing.Point(0, 0);
             this.cBoxLunes.Name = "cBoxLunes";
             this.cBoxLunes.Size = new System.Drawing.Size(77, 21);
@@ -599,7 +731,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(133, 193);
+            this.label1.Location = new System.Drawing.Point(133, 229);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 34;
@@ -608,159 +740,27 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(232, 193);
+            this.label2.Location = new System.Drawing.Point(232, 229);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 35;
             this.label2.Text = "Hora inicio";
             // 
-            // numericLunesIni
-            // 
-            this.numericLunesIni.Location = new System.Drawing.Point(99, 0);
-            this.numericLunesIni.Maximum = new decimal(new int[] {
-            21,
-            0,
-            0,
-            0});
-            this.numericLunesIni.Minimum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.numericLunesIni.Name = "numericLunesIni";
-            this.numericLunesIni.Size = new System.Drawing.Size(61, 20);
-            this.numericLunesIni.TabIndex = 2;
-            this.numericLunesIni.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(297, 193);
+            this.label3.Location = new System.Drawing.Point(297, 229);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 36;
             this.label3.Text = "Hora Fin";
-            // 
-            // numericMartesIni
-            // 
-            this.numericMartesIni.Location = new System.Drawing.Point(99, 0);
-            this.numericMartesIni.Maximum = new decimal(new int[] {
-            21,
-            0,
-            0,
-            0});
-            this.numericMartesIni.Minimum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.numericMartesIni.Name = "numericMartesIni";
-            this.numericMartesIni.Size = new System.Drawing.Size(61, 20);
-            this.numericMartesIni.TabIndex = 3;
-            this.numericMartesIni.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            // 
-            // numericMiercolesIni
-            // 
-            this.numericMiercolesIni.Location = new System.Drawing.Point(99, 0);
-            this.numericMiercolesIni.Maximum = new decimal(new int[] {
-            21,
-            0,
-            0,
-            0});
-            this.numericMiercolesIni.Minimum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.numericMiercolesIni.Name = "numericMiercolesIni";
-            this.numericMiercolesIni.Size = new System.Drawing.Size(61, 20);
-            this.numericMiercolesIni.TabIndex = 3;
-            this.numericMiercolesIni.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            // 
-            // numericJuevesIni
-            // 
-            this.numericJuevesIni.Location = new System.Drawing.Point(99, 0);
-            this.numericJuevesIni.Maximum = new decimal(new int[] {
-            21,
-            0,
-            0,
-            0});
-            this.numericJuevesIni.Minimum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.numericJuevesIni.Name = "numericJuevesIni";
-            this.numericJuevesIni.Size = new System.Drawing.Size(61, 20);
-            this.numericJuevesIni.TabIndex = 3;
-            this.numericJuevesIni.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            // 
-            // numericViernesIni
-            // 
-            this.numericViernesIni.Location = new System.Drawing.Point(99, 0);
-            this.numericViernesIni.Maximum = new decimal(new int[] {
-            21,
-            0,
-            0,
-            0});
-            this.numericViernesIni.Minimum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.numericViernesIni.Name = "numericViernesIni";
-            this.numericViernesIni.Size = new System.Drawing.Size(61, 20);
-            this.numericViernesIni.TabIndex = 3;
-            this.numericViernesIni.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            // 
-            // numericSabadoIni
-            // 
-            this.numericSabadoIni.Location = new System.Drawing.Point(99, 0);
-            this.numericSabadoIni.Maximum = new decimal(new int[] {
-            21,
-            0,
-            0,
-            0});
-            this.numericSabadoIni.Minimum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.numericSabadoIni.Name = "numericSabadoIni";
-            this.numericSabadoIni.Size = new System.Drawing.Size(61, 20);
-            this.numericSabadoIni.TabIndex = 3;
-            this.numericSabadoIni.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
             // 
             // Frm_AddAsignacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(404, 413);
+            this.ClientSize = new System.Drawing.Size(404, 447);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -786,23 +786,23 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelSabado.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericSabadoIni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSabadoFin)).EndInit();
             this.panelViernes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericViernesIni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericViernesFin)).EndInit();
             this.panelJueves.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericJuevesIni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericJuevesFin)).EndInit();
             this.panelMiercoles.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericMiercolesIni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMiercolesFin)).EndInit();
             this.panelMartes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericMartesIni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMartesFin)).EndInit();
             this.panelLunes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericLunesFin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLunesIni)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMartesIni)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMiercolesIni)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericJuevesIni)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericViernesIni)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSabadoIni)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLunesFin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

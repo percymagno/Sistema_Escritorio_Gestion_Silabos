@@ -14,20 +14,20 @@ namespace CapaPresentacion
     public partial class C_CajaTarjetas : UserControl
     {
         // Lista de paneles
-        private List<E_Curso> cursos;
+        private List<E_Asignacion> asignaciones;
         private List<Panel> paneles = new List<Panel>();
         private int panelWidth = 280;
         private int panelHeight = 150;
         private C_Silabo csilabo;
-        public C_CajaTarjetas(List<E_Curso> pCursos)
+        public C_CajaTarjetas(List<E_Asignacion> pAsignaciones)
         {
-            cursos = pCursos;
+            asignaciones = pAsignaciones;
             InitializeComponent();
         }
         // crear control silabo
-        private void crearCSilabo(E_Curso curso)
+        private void crearCSilabo(E_Asignacion asignacion)
         {
-            csilabo = new C_Silabo(curso.CodCurso);
+            csilabo = new C_Silabo(asignacion.ID);
             csilabo.Dock = System.Windows.Forms.DockStyle.Fill;
             csilabo.Location = new Point(0, 0);
             csilabo.Name = "Silabo";
@@ -47,18 +47,18 @@ namespace CapaPresentacion
         // Mostrar silabo, ocultar tarjetas
         private void customControl_OnUpdateStatus(object sender, TarjetaClickSilaboEventArgs e)
         {
-            E_Curso _curso = e.CursoObject as E_Curso;
-            if (_curso != null)
+            E_Asignacion _asignacion = e.CursoObject as E_Asignacion;
+            if (_asignacion != null)
             {
                 //C_Silabo SSilabo = new C_Silabo(_curso.CodCurso);
-                crearCSilabo(_curso);
+                crearCSilabo(_asignacion);
                 flowLayoutPanel.Visible = false;
             }
         }
-        private void agregarPanel(E_Curso curso, Color colorFondo)
+        private void agregarPanel(E_Asignacion asignacion, Color colorFondo)
         {
             // Crear C_Tarjeta
-            C_Tarjeta tarjeta = new C_Tarjeta(curso, colorFondo);
+            C_Tarjeta tarjeta = new C_Tarjeta(asignacion, colorFondo);
             tarjeta.Dock = DockStyle.Fill;
             tarjeta.OnUpdateStatus += customControl_OnUpdateStatus;
 
@@ -88,12 +88,12 @@ namespace CapaPresentacion
         private void C_CajaTarjetas_Load(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            foreach (E_Curso curso in cursos)
+            foreach (E_Asignacion asignacion in asignaciones)
             { 
                 int r = rnd.Next(90, 180), g = rnd.Next(90, 180), b = rnd.Next(90, 180);
                 Color colorFondo = Color.FromArgb(r, g, b);
                 // crear y agregar paneles a lista de paneles
-                agregarPanel(curso, colorFondo);
+                agregarPanel(asignacion, colorFondo);
             }
             // agregar paneles a flowLayoutPanel
             mostrarPaneles();

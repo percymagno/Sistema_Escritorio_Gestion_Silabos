@@ -17,17 +17,17 @@ namespace CapaPresentacion
         public delegate void StatusUpdateHandler(object sender, TarjetaClickSilaboEventArgs e);
         public event StatusUpdateHandler OnUpdateStatus;
 
-        private E_Curso curso;
+        private E_Asignacion asignacion;
         Color colorFondo;
-        public C_Tarjeta(E_Curso pCurso)
+        public C_Tarjeta(E_Asignacion pAsignacion)
         {
-            curso = pCurso;
+            asignacion = pAsignacion;
             colorFondo = Color.White;
             InitializeComponent();
         }
-        public C_Tarjeta(E_Curso pCurso, Color pColorFondo)
+        public C_Tarjeta(E_Asignacion pAsignacion, Color pColorFondo)
         {
-            curso = pCurso;
+            asignacion = pAsignacion;
             colorFondo = pColorFondo;
             InitializeComponent();
         }
@@ -37,13 +37,13 @@ namespace CapaPresentacion
             // lbTitulo color de fondo
             panelTitulo.BackColor = this.colorFondo;
             // titulo
-            lblTitulo.Text = curso.Nombre;
-            lblCodigo.Text = curso.CodCurso + curso.Grupo;
+            lblTitulo.Text = asignacion.Curso.Nombre;
+            lblCodigo.Text = asignacion.Curso.CodCurso + asignacion.Grupo;
         }
         private void UpdateStatus()
         {
             //Create arguments.  You should also have custom one, or else return EventArgs.Empty();
-            TarjetaClickSilaboEventArgs args = new TarjetaClickSilaboEventArgs(curso);
+            TarjetaClickSilaboEventArgs args = new TarjetaClickSilaboEventArgs(asignacion);
 
             //Call any listeners
             OnUpdateStatus?.Invoke(this, args);

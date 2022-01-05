@@ -17,6 +17,7 @@ namespace CapaEntidades
         public string Aula { get; set; }
         public int Matriculados { get; set; }
         public List<E_Dia> Dias { get; set; }
-
+        public E_Curso Curso = new E_Curso();
+        public E_Docente Docente = new E_Docente();
     }
 }

@@ -27,9 +27,9 @@ namespace CapaPresentacion
             InitializeComponent();
             cod_docente = pCod_docente;
         }
-        private void crearCajaTarjeta(List<E_Curso> cursos)
+        private void crearCajaTarjeta(List<E_Asignacion> asignaciones)
         {
-            caja = new C_CajaTarjetas(cursos);
+            caja = new C_CajaTarjetas(asignaciones);
             caja.Location = new Point(5, 5);
             caja.Name = "cajaTarjetas";
             caja.Size = new Size(600, 300);
@@ -44,9 +44,22 @@ namespace CapaPresentacion
             // form load en el monitor actual
             this.Location = Screen.AllScreens[0].WorkingArea.Location;
 
-            DataTable dt = n_Servicio.BuscarCurso(this.cod_docente);
-            List<E_Curso> cursos = new List<E_Curso>();
-            if (dt != null)
+            DataTable dtAsig = n_Servicio.BuscarAsignaciones(this.cod_docente);
+            List<E_Asignacion> asignaciones = new List<E_Asignacion>();
+            if (dtAsig != null)
+            {
+                foreach (DataRow dr in dtAsig.Rows)
+                {
+                    E_Asignacion asignacion = new E_Asignacion();
+                    asignacion.ID = Int32.Parse(dr[0].ToString());
+                    asignacion.Curso.CodCurso = dr[1].ToString();
+                    asignacion.Grupo = dr[2].ToString();
+                    asignacion.Carrera = dr[3].ToString();
+                    asignacion.Curso.Nombre = dr[4].ToString();
+                    asignaciones.Add(asignacion);
+                }
+            }
+            /*if (dt != null)
             {
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -56,9 +69,9 @@ namespace CapaPresentacion
                     curso.Grupo = dr["Grupo"].ToString();
                     cursos.Add(curso);
                 }
-            }
+            }*/
             // crear control caja_tarjetas
-            crearCajaTarjeta(cursos);
+            crearCajaTarjeta(asignaciones);
 
             lblUsuario.Text = new N_Docente().BuscarDocente(this.cod_docente).Rows[0]["Nombres"].ToString();
             //dgvCursoDocentes.DataSource = n_Servicio.BuscarCurso(this.cod_docente);

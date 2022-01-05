@@ -73,38 +73,47 @@ namespace CapaPresentacion
         {
             foreach (E_Dia dia in Dias)
             {
-                switch (dia.Dia)
+                if (dia.Dia.ToLower() == "lunes")
                 {
-                    case "Lunes":
-                        checkLunes.Checked = true;
-                        cBoxLunes.SelectedItem = dia.Tipo;
-                        numericLunesIni.Value = dia.HR_inicio;
-                        numericLunesFin.Value = dia.HR_fin;
-                        break;
-                    case "Martes":
-                        checkMartes.Checked = true;
-                        cBoxMartes.SelectedItem = dia.Tipo;
-                        numericMartesIni.Value = dia.HR_inicio;
-                        numericMartesFin.Value = dia.HR_fin;
-                        break;
-                    case "Miercoles":
-                        checkMiercoles.Checked = true;
-                        cBoxMiercoles.SelectedItem = dia.Tipo;
-                        numericMiercolesIni.Value = dia.HR_inicio;
-                        numericMiercolesFin.Value = dia.HR_fin;
-                        break;
-                    case "Jueves":
-                        checkJueves.Checked = true;
-                        cBoxJueves.SelectedItem = dia.Tipo;
-                        numericJuevesIni.Value = dia.HR_inicio;
-                        numericJuevesFin.Value = dia.HR_fin;
-                        break;
-                    case "Viernes":
-                        checkViernes.Checked = true;
-                        cBoxViernes.SelectedItem = dia.Tipo;
-                        numericViernesIni.Value = dia.HR_inicio;
-                        numericViernesFin.Value = dia.HR_fin;
-                        break;
+                    checkLunes.Checked = true;
+                    cBoxLunes.SelectedItem = dia.Tipo;
+                    numericLunesIni.Value = dia.HR_inicio;
+                    numericLunesFin.Value = dia.HR_fin;
+                }
+                else if (dia.Dia.ToLower() == "martes")
+                {
+                    checkMartes.Checked = true;
+                    cBoxMartes.SelectedItem = dia.Tipo;
+                    numericMartesIni.Value = dia.HR_inicio;
+                    numericMartesFin.Value = dia.HR_fin;
+                }
+                else if (dia.Dia.ToLower() == "miercoles")
+                {
+                    checkMiercoles.Checked = true;
+                    cBoxMiercoles.SelectedItem = dia.Tipo;
+                    numericMiercolesIni.Value = dia.HR_inicio;
+                    numericMiercolesFin.Value = dia.HR_fin;
+                }
+                else if (dia.Dia.ToLower() == "jueves")
+                {
+                    checkJueves.Checked = true;
+                    cBoxJueves.SelectedItem = dia.Tipo;
+                    numericJuevesIni.Value = dia.HR_inicio;
+                    numericJuevesFin.Value = dia.HR_fin;
+                }
+                else if (dia.Dia.ToLower() == "viernes")
+                {
+                    checkViernes.Checked = true;
+                    cBoxViernes.SelectedItem = dia.Tipo;
+                    numericViernesIni.Value = dia.HR_inicio;
+                    numericViernesFin.Value = dia.HR_fin;
+                }
+                else if (dia.Dia.ToLower() == "sabado")
+                {
+                    checkSabado.Checked = true;
+                    cBoxSabado.SelectedItem = dia.Tipo;
+                    numericSabadoIni.Value = dia.HR_inicio;
+                    numericSabadoFin.Value = dia.HR_fin;
                 }
             }
         }
@@ -114,11 +123,10 @@ namespace CapaPresentacion
             defaultComboBoxItems();
             if (Asignacion != null)
             {
-
                 tbID.Text = Asignacion.ID.ToString();
                 tbSemestre.Text = Asignacion.Semestre;
-                cboxDocente.SelectedItem = Asignacion.CodDocente;
-                cboxCurso.SelectedItem = Asignacion.CodCurso;
+                cboxDocente.SelectedValue = Asignacion.CodDocente;
+                cboxCurso.SelectedValue = Asignacion.CodCurso;
                 cboxGrupo.SelectedItem = Asignacion.Grupo;
                 tbAula.Text = Asignacion.Aula;
                 btnAgregarAsignacion.Text = "GUARDAR";
@@ -206,10 +214,11 @@ namespace CapaPresentacion
 
             if(Dias.Count == 0)
             {
-                MessageBox.Show("Seleccionar Día");
+                MessageBox.Show("Debe agregar al menos un día");
             }
             else
             {
+                n_Asignacion.Dias = Dias;
                 ValidationContext context = new ValidationContext(n_Asignacion, null, null);
                 IList<ValidationResult> errors = new List<ValidationResult>();
                 if (!Validator.TryValidateObject(n_Asignacion, context, errors, true))

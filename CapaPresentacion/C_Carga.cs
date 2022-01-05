@@ -209,8 +209,9 @@ namespace CapaPresentacion
                         Semestre = dgvCarga.Rows[index].Cells[1].Value.ToString(),
                         CodDocente = dgvCarga.Rows[index].Cells[2].Value.ToString(),
                         CodCurso = dgvCarga.Rows[index].Cells[3].Value.ToString(),
-                        Grupo = dgvCarga.Rows[index].Cells[5].Value.ToString(),
-                        Aula = dgvCarga.Rows[index].Cells[11].Value.ToString(),
+                        Grupo = dgvCarga.Rows[index].Cells[4].Value.ToString(),
+                        Aula = dgvCarga.Rows[index].Cells[5].Value.ToString(),
+                        Carrera = dgvCarga.Rows[index].Cells[6].Value.ToString()
                     };
                     N_Dia n_Dia = new N_Dia();
                     List<E_Dia> tmpDias = n_Dia.BuscarAsignacion(dgvCarga.Rows[index].Cells[0].Value.ToString());

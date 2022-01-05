@@ -118,7 +118,6 @@ namespace CapaNegocio
                         HR_inicio = Int32.Parse(lista[9]),
                         HR_fin = Int32.Parse(lista[10]),
                     };
-                    Console.WriteLine(dia.Dia + " - " + dia.Tipo);
                     asignacion.Dias.Add(dia);
                     if (addAsig)
                     {

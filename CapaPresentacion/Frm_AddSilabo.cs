@@ -18,14 +18,12 @@ namespace CapaPresentacion
     {
         E_Silabo e_Silabo;
         bool Editar = false;
-        string CodCurso;
-        string Semestre;
-        public Frm_AddSilabo(E_Silabo Silabo = null, bool Editar = false, string pCodCurso = "", string pSemestre = "")
+        int asignacion;
+        public Frm_AddSilabo(E_Silabo Silabo = null, bool Editar = false, int pAsignacion = -1)
         {
             e_Silabo = Silabo;
             this.Editar = Editar;
-            CodCurso = pCodCurso;
-            Semestre = pSemestre;
+            asignacion = pAsignacion;
             InitializeComponent();
             txtCodCurso.Enabled = false;
         }
@@ -34,7 +32,8 @@ namespace CapaPresentacion
         {
             if(e_Silabo != null)
             {
-                txtCodCurso.Text = e_Silabo.CodCurso == null ? "" : e_Silabo.CodCurso;
+                //txtCodCurso.Text = e_Silabo.Asignacion == -1 ? "" : this.asignacion.ToString();
+                txtCodCurso.Text = this.e_Silabo.Asignacion.ToString();
                 txtUnidad.Text = e_Silabo.Unidad == null ? "" : e_Silabo.Unidad;
                 txtCapitulo.Text = e_Silabo.Capitulo == null ? "" : e_Silabo.Capitulo;
                 txtTema.Text = e_Silabo.Tema == null ? "" : e_Silabo.Tema;
@@ -43,11 +42,7 @@ namespace CapaPresentacion
             }
             else
             {
-                txtCodCurso.Text = CodCurso;
-                e_Silabo = new E_Silabo
-                {
-                    Semestre = Semestre
-                };
+                txtCodCurso.Text = asignacion.ToString();
             }
             if (Editar)
             {
@@ -59,8 +54,7 @@ namespace CapaPresentacion
         {
             N_Silabo n_Silabo = new N_Silabo();
             n_Silabo.ID = e_Silabo.ID;
-            n_Silabo.Semestre = e_Silabo.Semestre;
-            n_Silabo.CodCurso = txtCodCurso.Text.Trim();
+            n_Silabo.Asignacion = Int32.Parse(txtCodCurso.Text.Trim()); // ojo
             n_Silabo.Unidad = txtUnidad.Text.Trim();
             n_Silabo.Capitulo = txtCapitulo.Text.Trim();
             n_Silabo.Tema = txtTema.Text.Trim();

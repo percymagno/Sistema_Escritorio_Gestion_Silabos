@@ -49,17 +49,16 @@ namespace CapaNegocio
                 CodCurso = Curso.CodCurso,
                 Grupo = this.Grupo,
                 Aula = this.Aula,
+                Carrera = this.Carrera
             };
             if (buscar(dt_Asignacion)) return 0;
 
-            Console.WriteLine("Guardando: " + this.ToString());
             d_Asignacion.Agregar(e_Asignacion);
             DataTable dt = d_Asignacion.BuscarDocenteCurso(Docente.CodDocente, Curso.CodCurso);
             D_Dia d_Dia = new D_Dia();
-            Console.WriteLine(dt.Rows[0].ToString());
             foreach (E_Dia Dia in Dias)
             {
-                Dia.Asignacion = Int32.Parse(dt.Rows[0].ToString());
+                Dia.Asignacion = Int32.Parse(dt.Rows[0][0].ToString());
                 d_Dia.Agregar(Dia);
             }
 
@@ -75,7 +74,8 @@ namespace CapaNegocio
         }
         public bool Editar()
         {
-            return d_Asignacion.Editar(new E_Asignacion {
+            bool ans = false;
+            ans = d_Asignacion.Editar(new E_Asignacion {
                 ID = this.ID,
                 Semestre = this.Semestre,
                 CodDocente = Docente.CodDocente,
@@ -84,15 +84,18 @@ namespace CapaNegocio
                 Aula = this.Aula,
             });
             D_Dia d_Dia = new D_Dia();
-            d_Dia.EliminarAsignacion(ID);
+            d_Dia.EliminarAsignacion(this.ID);
             foreach (E_Dia Dia in Dias)
             {
                 Dia.Asignacion = ID;
                 d_Dia.Agregar(Dia);
             }
+            return ans;
         }
         public bool Eliminar(string ID)
         {
+            D_Dia d_Dia = new D_Dia();
+            d_Dia.EliminarAsignacion(Int32.Parse(ID));
             return d_Asignacion.Eliminar(ID);
         }
         public string buscarDocente(DataTable dt)
@@ -125,7 +128,6 @@ namespace CapaNegocio
                 string tmpCodDocente = row["CodDocente"].ToString();
                 string tmpCodCurso = row["CodCurso"].ToString();
                 string tmpGrupo = row["Grupo"].ToString();
-                string tmpDia = row["Dia"].ToString();
                 if (Curso.CodCurso == tmpCodCurso && Docente.CodDocente == tmpCodDocente && Grupo == tmpGrupo)
                 {
                     return true;
