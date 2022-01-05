@@ -2,7 +2,10 @@
 
 /****** Object:  Table [dbo].[TCurso]    Script Date: 24/11/2021 13:04:32 ******/
 
---drop table TCurso
+--drop table TCurso ------------------------------------------------------------------------------------------------
+IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TCurso')
+	DROP TABLE TCurso
+GO
 CREATE TABLE [dbo].[TCurso](
 	[CodCurso] [varchar](10) NOT NULL PRIMARY KEY,
 	[Nombre] [varchar](100) NOT NULL,
@@ -12,7 +15,10 @@ CREATE TABLE [dbo].[TCurso](
 GO
 /****** Object:  Table [dbo].[TRegimen]    Script Date: 24/11/2021 13:04:32 ******/
 
---drop table TRegimen
+--drop table TRegimen ------------------------------------------------------------------------------------------------
+IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TRegimen')
+	DROP TABLE TRegimen
+GO
 CREATE TABLE [dbo].[TRegimen](
 	[CodRegimen] [varchar](6) NOT NULL PRIMARY KEY,
 	[NroHoras] [int] NULL,
@@ -20,7 +26,10 @@ CREATE TABLE [dbo].[TRegimen](
 GO
 /****** Object:  Table [dbo].[TDocente]    Script Date: 24/11/2021 13:04:32 ******/
 
---drop table TDocente
+--drop table TDocente ------------------------------------------------------------------------------------------------
+IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TDocente')
+	DROP TABLE TDocente
+GO
 CREATE TABLE [dbo].[TDocente](
 	[CodDocente] [varchar](6) PRIMARY KEY,
 	[Paterno] [varchar](30) NULL,
@@ -34,7 +43,10 @@ GO
 
 /****** Object:  Table [dbo].[TUsuarios]    Script Date: 24/11/2021 13:04:32 ******/
 
---drop table TUsuarios
+--drop table TUsuarios ------------------------------------------------------------------------------------------------
+IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TUsuarios')
+	DROP TABLE TUsuarios
+GO
 CREATE TABLE [dbo].[TUsuarios](
 	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[CodDocente] [varchar](6) NOT NULL FOREIGN KEY REFERENCES TDOCENTE(CodDocente),
@@ -45,7 +57,10 @@ CREATE TABLE [dbo].[TUsuarios](
 GO
 /****** Object:  Table [dbo].[TSemestre]    Script Date: 24/11/2021 13:04:32 ******/
 
---drop table TSemestre
+--drop table TSemestre ------------------------------------------------------------------------------------------------
+IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TSemestre')
+	DROP TABLE TSemestre
+GO
 CREATE TABLE [dbo].[TSemestre](
 	[Semestre] [varchar](10) PRIMARY KEY,
 	[Fecha_inicio] [DATE] NOT NULL,
@@ -55,7 +70,7 @@ GO
 
 /****** Object:  Table [dbo].[TAsignacion]    Script Date: 24/11/2021 13:04:32 ******/
 
---drop table TAsignacion
+/*--drop table TAsignacion
 CREATE TABLE [dbo].[TAsignacion](
 	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Semestre] [varchar](10) NOT NULL FOREIGN KEY REFERENCES TSemestre(Semestre),
@@ -70,13 +85,11 @@ CREATE TABLE [dbo].[TAsignacion](
 	[HR_fin] [int] NOT NULL,
 	[Aula] [varchar](15) NOT NULL,
 )
+GO*/
+--drop table TAsignacion ------------------------------------------------------------------------------------------------
+IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TAsignacion')
+	DROP TABLE TAsignacion
 GO
-
-
-
-
-
---drop table TAsignacion
 CREATE TABLE [dbo].[TAsignacion](
 	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Semestre] [varchar](10) NOT NULL FOREIGN KEY REFERENCES TSemestre(Semestre),
@@ -84,19 +97,27 @@ CREATE TABLE [dbo].[TAsignacion](
 	[CodCurso] [varchar](10) NOT NULL FOREIGN KEY REFERENCES TCurso(CodCurso),
 	[Grupo] [varchar](2) NOT NULL,
 	[Aula] [varchar](15) NOT NULL,
+	[Carrera] [varchar](200) NOT NULL
 )
 GO
-
---drop table TDia
+ 
+--drop table TDia ------------------------------------------------------------------------------------------------
+IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TDia')
+	DROP TABLE TDia
+GO
 CREATE TABLE [dbo].[TDia](
-	[Dia] [varchar](20) not null primary key,
+	[ID] [int] IDENTITY(1,1) not null  primary key,
 	[Asignacion] [int] not null foreign key references TAsignacion(ID),
+	[Dia] [varchar](20) not null,
 	[HR_inicio] [int] NOT NULL,
 	[HR_fin] [int] NOT NULL,
 	[Tipo] [varchar] not null,
 )
 
---drop table TSilabo
+--drop table TSilabo ------------------------------------------------------------------------------------------------
+IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TSilabo')
+	DROP TABLE TSilabo
+GO
 CREATE TABLE [dbo].[TSilabo](
 	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Asignacion] [int] NOT NULL FOREIGN KEY REFERENCES TAsignacion(ID),
@@ -115,7 +136,7 @@ GO
 
 /****** Object:  Table [dbo].[TSilabo]    Script Date: 24/11/2021 13:04:32 ******/
 
---drop table TSilabo
+/*--drop table TSilabo
 CREATE TABLE [dbo].[TSilabo](
 	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Semestre] [varchar](10) NOT NULL FOREIGN KEY REFERENCES TSemestre(Semestre),
@@ -125,6 +146,135 @@ CREATE TABLE [dbo].[TSilabo](
 	[Tema] [varchar](100) NOT NULL,
 	[NroHoras] [int] NOT NULL,
 )
+GO*/
+/********************* TRIGGERS *****************/
+-- insertion docente
+CREATE TRIGGER trDocenteInsercion
+	ON TDocente
+	FOR INSERT
+AS
+BEGIN
+	-- Crear una tabla temporal para copiar la tabla INSERTED
+	CREATE TABLE #INSERTED
+	(
+		[CodDocente] [varchar](6),
+		[Paterno] [varchar](30),
+		[Materno] [varchar](30),
+		[Nombres] [varchar](100),
+		[Regimen] [varchar](6),
+		[Correo] [varchar](30),
+		[Telefono] [varchar](20),
+	);
+
+	-- Copiar la tabla INSERTED en la tabla temporal #INSERTED
+	INSERT INTO #INSERTED
+		SELECT * 
+			FROM INSERTED
+
+	-- Determinar el numero de tuplas de la tabla #INSERTED
+	DECLARE @NroTuplas INT;
+	SELECT @NroTuplas = COUNT(*) FROM #INSERTED;
+
+	-- Recorrer las tuplas de la tabla #INSERTED
+	WHILE @NroTuplas > 0
+	BEGIN
+		-- Declarar variables donde estaran los atributos de la tabla #INSERTED
+		DECLARE @CodDocente varchar (6);
+		DECLARE @Paterno varchar (30);
+		DECLARE @Materno varchar (30);
+		DECLARE @Nombres varchar (100);
+		DECLARE @Regimen varchar (6);
+		DECLARE @Correo varchar (30);
+		DECLARE @Telefono varchar (20);
+
+		-- Recuperar los datos de una tupla en las variables declaradas
+		SELECT @CodDocente = CodDocente,
+			   @Paterno = Paterno,
+			   @Materno = Materno,
+			   @Nombres = Nombres,
+			   @Regimen = Regimen,
+			   @Correo = Correo,
+			   @Telefono = Telefono
+			FROM (SELECT TOP(1) * FROM #INSERTED) AS Insertado
+
+		---- Determinar el IdHistorial
+		--DECLARE @IdHistorial INT;
+		--EXEC spuObtenerIdHistorial @IdHistorial OUTPUT;
+
+		-- Insertar a la tabla Historial, la tupla insertada de la tabla #INSERTED
+		INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES (@CodDocente,@CodDocente,@CodDocente,'Docente')
+		
+		-- Eliminar la tupla insertada de la tabla #INSERTED
+		DELETE TOP (1) FROM #INSERTED
+
+		-- Actualizar el numero de tuplas
+		SELECT @NroTuplas = COUNT(*) FROM #INSERTED;
+	END;
+END;
+GO
+-- Delete Docente
+CREATE TRIGGER trDocenteEliminacion
+	ON TDocente
+	FOR DELETE
+AS
+BEGIN
+	-- Crear una tabla temporal para copiar la tabla DELETED
+	CREATE TABLE #DELETED
+	(
+		[CodDocente] [varchar](6),
+		[Paterno] [varchar](30),
+		[Materno] [varchar](30),
+		[Nombres] [varchar](100),
+		[Regimen] [varchar](6),
+		[Correo] [varchar](30),
+		[Telefono] [varchar](20),
+	);
+
+	-- Copiar la tabla DELETED en la tabla temporal #DELETED
+	INSERT INTO #DELETED
+		SELECT * 
+			FROM DELETED
+
+	-- Determinar el numero de tuplas de la tabla #DELETED
+	DECLARE @NroTuplas INT;
+	SELECT @NroTuplas = COUNT(*) FROM #DELETED;
+
+	-- Recorrer las tuplas de la tabla #DELETED
+	WHILE @NroTuplas > 0
+	BEGIN
+		-- Declarar variables donde estaran los atributos de la tabla #DELETED
+		DECLARE @CodDocente varchar (6);
+		DECLARE @Paterno varchar (30);
+		DECLARE @Materno varchar (30);
+		DECLARE @Nombres varchar (100);
+		DECLARE @Regimen varchar (6);
+		DECLARE @Correo varchar (30);
+		DECLARE @Telefono varchar (20);
+
+		-- Recuperar los datos de una tupla en las variables declaradas
+		SELECT @CodDocente = CodDocente,
+			   @Paterno = Paterno,
+			   @Materno = Materno,
+			   @Nombres = Nombres,
+			   @Regimen = Regimen,
+			   @Correo = Correo,
+			   @Telefono = Telefono
+			FROM (SELECT TOP(1) * FROM #DELETED) AS Eliminado
+
+		---- Determinar el IdHistorial
+		--DECLARE @IdHistorial INT;
+		--EXEC spuObtenerIdHistorial @IdHistorial OUTPUT;
+
+		-- Insertar a la tabla Historial, la tupla insertada de la tabla #DELETED
+		DELETE TUsuarios WHERE CodDocente = @CodDocente
+		
+		-- Eliminar la tupla insertada de la tabla #DELETED
+		DELETE TOP (1) FROM #DELETED
+
+		-- Actualizar el n�mero de las tuplas
+		SELECT @NroTuplas = COUNT(*) FROM #DELETED;
+	END;
+END;
 GO
 
 
@@ -238,10 +388,47 @@ INSERT [dbo].[TCurso] ([CodCurso], [Nombre], [Creditos], [Categoria]) VALUES (N'
 GO
 INSERT [dbo].[TCurso] ([CodCurso], [Nombre], [Creditos], [Categoria]) VALUES (N'IF902', N'TECNOLOGIAS DE LA INFORMACION Y LA COMUNICACION', 3, N'')
 GO
-SET IDENTITY_INSERT [dbo].[TDocente] ON 
+
+
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'A1', 16)
 GO
-select * from TUsuarios
-delete from TUsuarios WHERE Acceso = 'Docente'
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'AS-DE', 10)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'AS-TC', 10)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'AS-TP', 10)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'AU-TC', 10)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'B1', 16)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'B2', 8)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'B3', 4)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'JP-10H', 8)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'JP-20H', 12)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'JP-40H', 14)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'JP10H', 8)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'JP20H', 12)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'JP40H', 14)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'no-re', 0)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'PR-DE', 10)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'PR-TC', 10)
+GO
+INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'PR-TP', 10)
+GO
+
+
+
 --Docente
 INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'716753', N'ACURIO', N'USCA', N'NILA ZONIA', N'PR-DE', N'', N'')
 INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'553642', N'ROZAS', N'HUACHO', N'JAVIER ARTURO', N'PR-DE', N'', N'')
@@ -283,7 +470,7 @@ INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Corr
 INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'976528', N'FALCÓN', N'HUALLPA', N'ÉLIDA', N'B2', N'', N'')
 INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'479091', N'DUEÑAS', N'BUSTINZA', N'DARIO FRANCISCO', N'B2', N'', N'')
 INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'179903', N'MONZÓN', N'CONDORI', N'LUIS ALVARO', N'B3', N'', N'')
-INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'230593', N'GAMARRA', N'SALAS', N'JISBAJ', N'B3', N'', N'')
+INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'230593', N'GAMARRAS', N'SALAS', N'JISBAJ', N'B3', N'', N'')
 INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'750534', N'MONTOYA', N'CUBAS', N'CARLOS FERNANDO', N'B2', N'', N'')
 INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'216139', N'VERA', N'OLIVERA', N'HARLEY', N'B3', N'', N'')
 INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'153047', N'DUEÑAS', N'JIMÉNEZ', N'RAY', N'B1', N'', N'')
@@ -301,118 +488,16 @@ INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Corr
 INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'499417', N'CARBAJAL', N'LUNA', N'JULIO CESAR', N'PR-DE', N'', N'')
 INSERT TDocente ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'140156', N'HUAMAN', N'MENDOZA', N'JOHAN WILFREDO', N'PR-DE', N'140156@unsaac.edu.pe', N'')
 go
--- Usuarios
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('000000','docente','docente','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('716753','716753','716753','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('553642','553642','553642','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('746199','746199','746199','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('737719','737719','737719','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('984424','984424','984424','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('320665','320665','320665','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('123676','123676','123676','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('185297','185297','185297','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('465559','465559','465559','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('699192','699192','699192','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('594458','594458','594458','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('647272','647272','647272','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('780342','780342','780342','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('114617','114617','114617','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('765125','765125','765125','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('413599','413599','413599','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('958746','958746','958746','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('605030','605030','605030','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('334171','334171','334171','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('704404','704404','704404','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('543379','543379','543379','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('691376','691376','691376','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('754279','754279','754279','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('535879','535879','535879','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('535879','535879','535879','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('854187','854187','854187','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('734138','734138','734138','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('542493','542493','542493','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('250497','250497','250497','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('359310','359310','359310','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('637223','637223','637223','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('359087','359087','359087','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('959941','959941','959941','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('804510','804510','804510','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('664065','664065','664065','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('517073','517073','517073','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('355018','355018','355018','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('184245','184245','184245','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('976528','976528','976528','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('479091','479091','479091','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('179903','179903','179903','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('230593','230593','230593','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('750534','750534','750534','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('216139','216139','216139','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('153047','153047','153047','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('456243','456243','456243','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('648948','648948','648948','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('515898','515898','515898','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('643483','643483','643483','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('108757','108757','108757','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('370754','370754','370754','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('951890','951890','951890','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('119815','119815','119815','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('274225','274225','274225','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('970531','970531','970531','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('913460','913460','913460','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('499417','499417','499417','Docente')
-INSERT TUsuarios (CodDocente, Usuario, Contraseña, Acceso) VALUES ('499417','499417','499417','Docente')
-go
 --select * from TUsuarios
 
-GO
-SET IDENTITY_INSERT [dbo].[TDocente] OFF
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'A1', 16)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'AS-DE', 10)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'AS-TC', 10)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'AS-TP', 10)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'AU-TC', 10)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'B1', 16)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'B2', 8)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'B3', 4)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'JP-10H', 8)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'JP-20H', 12)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'JP-40H', 14)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'JP10H', 8)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'JP20H', 12)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'JP40H', 14)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'no-re', 0)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'PR-DE', 10)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'PR-TC', 10)
-GO
-INSERT [dbo].[TRegimen] ([CodRegimen], [NroHoras]) VALUES (N'PR-TP', 10)
-GO
 
-INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'000000', N'', N'', N'docente', N'PR-DE', N'', N'')
-GO
-INSERT [dbo].[TUsuarios] ([CodDocente], [Usuario], [Contraseña], [Acceso]) VALUES (N'000000', N'docente', N'docente', N'Docente')
-GO
-INSERT [dbo].[TUsuarios] ([CodDocente], [Usuario], [Contraseña], [Acceso]) VALUES (N'000000', N'administrador', N'administrador', N'Administrador')
+--INSERT [dbo].[TDocente] ([CodDocente], [Paterno], [Materno], [Nombres], [Regimen], [Correo], [Telefono]) VALUES (N'000000', N'', N'', N'docente', N'PR-DE', N'', N'')
+--GO
+--INSERT [dbo].[TUsuarios] ([CodDocente], [Usuario], [Contraseña], [Acceso]) VALUES (N'000000', N'docente', N'docente', N'Docente')
+--GO
+INSERT [dbo].[TUsuarios] ([CodDocente], [Usuario], [Contraseña], [Acceso]) VALUES (N'716753', N'administrador', N'administrador', N'Administrador')
 GO
 
 INSERT [dbo].[TSemestre] ([Semestre], [Fecha_inicio], [Fecha_fin]) VALUES ('2021-I', CONVERT(DATE,'31-5-2021',105), CONVERT(DATE,'27-9-2021',105))
 INSERT [dbo].[TSemestre] ([Semestre], [Fecha_inicio], [Fecha_fin]) VALUES ('2021-II', CONVERT(DATE,'18-10-2021',105), CONVERT(DATE,'14-2-2022',105))
-
-select * from TSemestre
-select MAX(Semestre) from TSemestre
+GO
