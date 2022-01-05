@@ -56,7 +56,14 @@ namespace CapaDatos
         }
         public DataTable BuscarSemestre(String Texto)
         {
-            string sql = "SELECT * FROM TAsignacion WHERE Semestre = @Texto";
+            //string sql = "SELECT * FROM TAsignacion WHERE Semestre = @Texto";
+            string sql = "SELECT TA.ID as ID, TA.Semestre as Semestre, TA.CodDocente as CodDocente, " +
+                "TA.CodCurso as CodCurso, (TD.Paterno + ' ' + TD.Materno + ' ' + TD.Nombres) as Docente, " +
+                "TC.Nombre as Curso, TA.Grupo as Grupo, TA.Aula as Aula, TA.Carrera as Carrera " +
+                "FROM(TAsignacion TA inner join TCurso TC on TA.CodCurso = TC.CodCurso) " +
+                "inner join TDocente TD on TA.CodDocente = TD.CodDocente " +
+                "WHERE Semestre = @Texto " +
+                "order by TD.Paterno";
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@Texto", Texto);
 

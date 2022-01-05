@@ -43,12 +43,10 @@ namespace CapaPresentacion
             dt_Asignacion = n_Asignacion.BuscarSemestre(Semestre);
             if (dt_Asignacion != null)
             {
-                dgvCarga.DataSource = dt_Asignacion;/*
+                dgvCarga.DataSource = dt_Asignacion;
                 dgvCarga.Columns["ID"].Visible = false;
                 dgvCarga.Columns["Semestre"].Visible = false;
-                dgvCarga.Columns["Aula"].Visible = false;
-                dgvCarga.Columns["HT"].Visible = false;
-                dgvCarga.Columns["HP"].Visible = false;*/
+                dgvCarga.Columns["CodCurso"].Visible = false;
             }
         }
         private void RellenarSemestre()
@@ -209,9 +207,9 @@ namespace CapaPresentacion
                         Semestre = dgvCarga.Rows[index].Cells[1].Value.ToString(),
                         CodDocente = dgvCarga.Rows[index].Cells[2].Value.ToString(),
                         CodCurso = dgvCarga.Rows[index].Cells[3].Value.ToString(),
-                        Grupo = dgvCarga.Rows[index].Cells[4].Value.ToString(),
-                        Aula = dgvCarga.Rows[index].Cells[5].Value.ToString(),
-                        Carrera = dgvCarga.Rows[index].Cells[6].Value.ToString()
+                        Grupo = dgvCarga.Rows[index].Cells[6].Value.ToString(),
+                        Aula = dgvCarga.Rows[index].Cells[7].Value.ToString(),
+                        Carrera = dgvCarga.Rows[index].Cells[8].Value.ToString()
                     };
                     N_Dia n_Dia = new N_Dia();
                     List<E_Dia> tmpDias = n_Dia.BuscarAsignacion(dgvCarga.Rows[index].Cells[0].Value.ToString());
