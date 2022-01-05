@@ -16,14 +16,15 @@ namespace CapaDatos
         // Metodos CRUD
         public bool Agregar(E_Asignacion asignacion)
         {
-            string sql = "INSERT INTO dbo.TAsignacion (Semestre, CodDocente, CodCurso, Grupo, Aula)"+
-                                    "VALUES (@Semestre, @CodDocente, @CodCurso, @Grupo, @Aula)";
+            string sql = "INSERT INTO dbo.TAsignacion (Semestre, CodDocente, CodCurso, Grupo, Aula, Carrera)"+
+                                    "VALUES (@Semestre, @CodDocente, @CodCurso, @Grupo, @Aula, @Carrera)";
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@Semestre", asignacion.Semestre);
             conexion.cmd.Parameters.AddWithValue("@CodDocente", asignacion.CodDocente);
             conexion.cmd.Parameters.AddWithValue("@CodCurso", asignacion.CodCurso);
             conexion.cmd.Parameters.AddWithValue("@Grupo", asignacion.Grupo);
             conexion.cmd.Parameters.AddWithValue("@Aula", asignacion.Aula);
+            conexion.cmd.Parameters.AddWithValue("@Carrera", asignacion.Carrera);
 
             return conexion.executeNonQuery() == 1;
         }
