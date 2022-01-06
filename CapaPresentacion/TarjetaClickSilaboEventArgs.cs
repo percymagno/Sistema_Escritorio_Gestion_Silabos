@@ -10,10 +10,13 @@ namespace CapaPresentacion
     public class TarjetaClickSilaboEventArgs : EventArgs
     {
         private readonly E_Asignacion _asignacionObject;
-        public TarjetaClickSilaboEventArgs(E_Asignacion asignacion)
+        private readonly string _button;
+        public TarjetaClickSilaboEventArgs(E_Asignacion asignacion, string button = "")
         {
             _asignacionObject = asignacion;
+            _button = button;
         }
         public E_Asignacion CursoObject { get { return _asignacionObject; } }
+        public string Button { get { return _button; } }
     }
 }

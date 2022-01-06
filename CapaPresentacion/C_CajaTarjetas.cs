@@ -19,11 +19,13 @@ namespace CapaPresentacion
         private int panelWidth = 280;
         private int panelHeight = 150;
         private C_Silabo csilabo;
+        private C_Control ccontrol;
         public C_CajaTarjetas(List<E_Asignacion> pAsignaciones)
         {
             asignaciones = pAsignaciones;
             InitializeComponent();
         }
+        #region Controles
         // crear control silabo
         private void crearCSilabo(E_Asignacion asignacion)
         {
@@ -44,20 +46,48 @@ namespace CapaPresentacion
             csilabo = null;
             flowLayoutPanel.Visible = true;
         }
+        private void crearCControl(E_Asignacion asignacion)
+        {
+            ccontrol = new C_Control(asignacion.ID);
+            ccontrol.Dock = System.Windows.Forms.DockStyle.Fill;
+            ccontrol.Location = new Point(0, 0);
+            ccontrol.Name = "Silabo";
+            ccontrol.Size = new Size(600, 300);
+            ccontrol.TabIndex = 0;
+            ccontrol.OnUpdateStatus += borrarCControl;
+            // agregar silabo
+            Controls.Add(ccontrol);
+        }
+        // ocultar silabo, mostrar tarjetas
+        private void borrarCControl(object sender, EventArgs e)
+        {
+            ccontrol.Visible = false;
+            ccontrol = null;
+            flowLayoutPanel.Visible = true;
+        }
+        #endregion
         // Mostrar silabo, ocultar tarjetas
         private void customControl_OnUpdateStatus(object sender, TarjetaClickSilaboEventArgs e)
         {
             E_Asignacion _asignacion = e.CursoObject as E_Asignacion;
+            string _button = e.Button as string;
             if (_asignacion != null)
             {
                 //C_Silabo SSilabo = new C_Silabo(_curso.CodCurso);
-                crearCSilabo(_asignacion);
-                flowLayoutPanel.Visible = false;
+                if(_button == "silabo")
+                {
+                    crearCSilabo(_asignacion);
+                    flowLayoutPanel.Visible = false;
+                }
+                else if(_button == "control")
+                {
+                    crearCControl(_asignacion);
+                    flowLayoutPanel.Visible = false;
+                }
             }
         }
         private void agregarPanel(E_Asignacion asignacion, Color colorFondo)
-        {
-            // Crear C_Tarjeta
+        {            // Crear C_Tarjeta
             C_Tarjeta tarjeta = new C_Tarjeta(asignacion, colorFondo);
             tarjeta.Dock = DockStyle.Fill;
             tarjeta.OnUpdateStatus += customControl_OnUpdateStatus;
