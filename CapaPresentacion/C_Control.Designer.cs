@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -43,12 +45,13 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.labelAsignacion = new System.Windows.Forms.Label();
             this.panelLine = new System.Windows.Forms.Panel();
+            this.dgvAlumnos = new System.Windows.Forms.DataGridView();
             this.panelHeader.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -199,20 +202,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelPrincipal.BackColor = System.Drawing.Color.White;
-            this.panelPrincipal.Controls.Add(this.labelAsignacion);
+            this.panelPrincipal.Controls.Add(this.dgvAlumnos);
             this.panelPrincipal.Location = new System.Drawing.Point(0, 101);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(802, 352);
+            this.panelPrincipal.Size = new System.Drawing.Size(800, 352);
             this.panelPrincipal.TabIndex = 3;
-            // 
-            // labelAsignacion
-            // 
-            this.labelAsignacion.AutoSize = true;
-            this.labelAsignacion.Location = new System.Drawing.Point(14, 20);
-            this.labelAsignacion.Name = "labelAsignacion";
-            this.labelAsignacion.Size = new System.Drawing.Size(35, 13);
-            this.labelAsignacion.TabIndex = 0;
-            this.labelAsignacion.Text = "label6";
             // 
             // panelLine
             // 
@@ -223,6 +217,42 @@
             this.panelLine.Name = "panelLine";
             this.panelLine.Size = new System.Drawing.Size(780, 1);
             this.panelLine.TabIndex = 4;
+            // 
+            // dgvAlumnos
+            // 
+            this.dgvAlumnos.AllowUserToAddRows = false;
+            this.dgvAlumnos.AllowUserToDeleteRows = false;
+            this.dgvAlumnos.AllowUserToResizeRows = false;
+            this.dgvAlumnos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(170)))), ((int)(((byte)(211)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(170)))), ((int)(((byte)(211)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAlumnos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.dgvAlumnos.Location = new System.Drawing.Point(20, 5);
+            this.dgvAlumnos.MultiSelect = false;
+            this.dgvAlumnos.Name = "dgvAlumnos";
+            this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvAlumnos.RowHeadersWidth = 51;
+            this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvAlumnos.Size = new System.Drawing.Size(760, 342);
+            this.dgvAlumnos.TabIndex = 0;
             // 
             // C_Control
             // 
@@ -239,7 +269,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelPrincipal.ResumeLayout(false);
-            this.panelPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -261,7 +291,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelPrincipal;
         private System.Windows.Forms.Panel panelLine;
-        private System.Windows.Forms.Label labelAsignacion;
         private System.Windows.Forms.Button btnAtras;
+        private System.Windows.Forms.DataGridView dgvAlumnos;
     }
 }
