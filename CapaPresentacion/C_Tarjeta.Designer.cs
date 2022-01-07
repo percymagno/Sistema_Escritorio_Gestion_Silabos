@@ -31,8 +31,8 @@
             this.btnControl = new System.Windows.Forms.Button();
             this.btnSilabo = new System.Windows.Forms.Button();
             this.panelTitulo = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.panelTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +50,7 @@
             this.btnControl.TabIndex = 1;
             this.btnControl.Text = "CONTROL";
             this.btnControl.UseVisualStyleBackColor = false;
+            this.btnControl.Click += new System.EventHandler(this.btnControl_Click);
             // 
             // btnSilabo
             // 
@@ -79,6 +80,17 @@
             this.panelTitulo.Size = new System.Drawing.Size(280, 75);
             this.panelTitulo.TabIndex = 3;
             // 
+            // lblCodigo
+            // 
+            this.lblCodigo.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.ForeColor = System.Drawing.Color.White;
+            this.lblCodigo.Location = new System.Drawing.Point(5, 55);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(270, 20);
+            this.lblCodigo.TabIndex = 2;
+            this.lblCodigo.Text = "Codigo";
+            this.lblCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lblTitulo
             // 
             this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -94,17 +106,6 @@
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Planeamiento y direccion estrategica de tecnologias de la informacion";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblCodigo
-            // 
-            this.lblCodigo.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.ForeColor = System.Drawing.Color.White;
-            this.lblCodigo.Location = new System.Drawing.Point(5, 55);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(270, 20);
-            this.lblCodigo.TabIndex = 2;
-            this.lblCodigo.Text = "Codigo";
-            this.lblCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // C_Tarjeta
             // 

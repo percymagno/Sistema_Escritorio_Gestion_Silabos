@@ -72,6 +72,12 @@
     <Compile Include="C_Carga.Designer.cs">
       <DependentUpon>C_Carga.cs</DependentUpon>
     </Compile>
+    <Compile Include="C_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="C_Control.Designer.cs">
+      <DependentUpon>C_Control.cs</DependentUpon>
+    </Compile>
     <Compile Include="C_CRUDCurso.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="C_Carga.resx">
       <DependentUpon>C_Carga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Control.resx">
+      <DependentUpon>C_Control.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="C_CRUDCurso.resx">
       <DependentUpon>C_CRUDCurso.cs</DependentUpon>
