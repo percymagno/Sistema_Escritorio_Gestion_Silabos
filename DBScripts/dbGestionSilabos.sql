@@ -128,6 +128,21 @@ CREATE TABLE [dbo].[TSilabo](
 )
 GO
 
+--drop table TAlumno ------------------------------------------------------------------------------------------------
+IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TAlumno')
+	DROP TABLE TAlumno
+GO
+CREATE TABLE [dbo].[TAlumno](
+	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Asignacion] [int] NOT NULL FOREIGN KEY REFERENCES TAsignacion(ID),
+	[NRO] [int] NOT NULL,
+	[CodAlumno] [varchar](6) NOT NULL,
+	[Paterno] [varchar](30) NULL,
+	[Materno] [varchar](30) NULL,
+	[Nombres] [varchar](100) NOT NULL,
+)
+GO
+
 
 
 
