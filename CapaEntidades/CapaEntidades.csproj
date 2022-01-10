@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="E_Alumno.cs" />
     <Compile Include="E_Asignacion.cs" />
     <Compile Include="E_Curso.cs" />
     <Compile Include="E_Dia.cs" />
