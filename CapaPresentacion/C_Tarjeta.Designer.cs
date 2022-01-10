@@ -33,6 +33,7 @@
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnAlumno = new System.Windows.Forms.Button();
             this.panelTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.btnControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnControl.ForeColor = System.Drawing.Color.White;
-            this.btnControl.Location = new System.Drawing.Point(170, 115);
+            this.btnControl.Location = new System.Drawing.Point(194, 122);
             this.btnControl.Name = "btnControl";
             this.btnControl.Size = new System.Drawing.Size(80, 25);
             this.btnControl.TabIndex = 1;
@@ -60,7 +61,7 @@
             this.btnSilabo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSilabo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSilabo.ForeColor = System.Drawing.Color.White;
-            this.btnSilabo.Location = new System.Drawing.Point(30, 115);
+            this.btnSilabo.Location = new System.Drawing.Point(13, 122);
             this.btnSilabo.Name = "btnSilabo";
             this.btnSilabo.Size = new System.Drawing.Size(80, 25);
             this.btnSilabo.TabIndex = 2;
@@ -107,11 +108,28 @@
             this.lblTitulo.Text = "Planeamiento y direccion estrategica de tecnologias de la informacion";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnAlumno
+            // 
+            this.btnAlumno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAlumno.BackColor = System.Drawing.Color.Green;
+            this.btnAlumno.FlatAppearance.BorderSize = 0;
+            this.btnAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlumno.ForeColor = System.Drawing.Color.White;
+            this.btnAlumno.Location = new System.Drawing.Point(99, 122);
+            this.btnAlumno.Name = "btnAlumno";
+            this.btnAlumno.Size = new System.Drawing.Size(89, 25);
+            this.btnAlumno.TabIndex = 4;
+            this.btnAlumno.Text = "ALUMNOS";
+            this.btnAlumno.UseVisualStyleBackColor = false;
+            this.btnAlumno.Click += new System.EventHandler(this.btnAlumno_Click);
+            // 
             // C_Tarjeta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnAlumno);
             this.Controls.Add(this.panelTitulo);
             this.Controls.Add(this.btnSilabo);
             this.Controls.Add(this.btnControl);
@@ -129,5 +147,6 @@
         private System.Windows.Forms.Panel panelTitulo;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.Button btnAlumno;
     }
 }

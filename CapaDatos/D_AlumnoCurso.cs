@@ -27,7 +27,10 @@ namespace CapaDatos
         }
         public DataTable MostrarAsignacion(int Asignacion)
         {
-            string sql = "SELECT * FROM TAlumnoCurso WHERE Asignacion = @Asignacion";
+            string sql = "SELECT NRO, AC.CodAlumno, Nombres  " +
+                "FROM TAlumnoCurso AC INNER JOIN TALumno A ON AC.CodAlumno = A.CodAlumno " +
+                "WHERE Asignacion = @Asignacion " +
+                "ORDER BY NRO";
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@Asignacion", Asignacion);
             return conexion.executeReader();
