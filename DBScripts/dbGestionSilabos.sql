@@ -133,21 +133,21 @@ IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TAlumno')
 	DROP TABLE TAlumno
 GO
 CREATE TABLE [dbo].[TAlumno](
-	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	[Asignacion] [int] NOT NULL FOREIGN KEY REFERENCES TAsignacion(ID),
 	[NRO] [int] NOT NULL,
-	[CodAlumno] [varchar](6) NOT NULL,
-	[Paterno] [varchar](30) NULL,
-	[Materno] [varchar](30) NULL,
+	[CodAlumno] [varchar](6) NOT NULL PRIMARY KEY,
 	[Nombres] [varchar](100) NOT NULL,
 )
 GO
-
-
-
-
-
-
+--drop table TAlumnoCurso ------------------------------------------------------------------------------------------------
+IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TAlumnoCurso')
+	DROP TABLE TAlumnoCurso
+GO
+CREATE TABLE [dbo].[TAlumnoCurso](
+	[Asignacion] [int] NOT NULL FOREIGN KEY REFERENCES TAsignacion(ID),
+	[CodAlumno] [varchar](6) NOT NULL FOREIGN KEY REFERENCES TAlumno(CodAlumno),
+	PRIMARY KEY ([Asignacion], [CodAlumno])
+)
+GO
 
 /****** Object:  Table [dbo].[TSilabo]    Script Date: 24/11/2021 13:04:32 ******/
 
