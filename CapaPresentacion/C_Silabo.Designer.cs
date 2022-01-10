@@ -176,6 +176,7 @@
             this.dgvSubirSilabo.Name = "dgvSubirSilabo";
             this.dgvSubirSilabo.Size = new System.Drawing.Size(666, 335);
             this.dgvSubirSilabo.TabIndex = 0;
+            this.dgvSubirSilabo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubirSilabo_CellContentClick);
             // 
             // openFileDialog1
             // 

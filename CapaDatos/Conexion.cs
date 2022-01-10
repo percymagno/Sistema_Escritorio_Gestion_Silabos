@@ -10,17 +10,21 @@ using System.Threading.Tasks;
 namespace CapaDatos
 {
     public class Conexion
+
     {
+        private SqlDataAdapter aAdaptador;
+        private DataSet aDatos;
         // Definir la conexion a la base de datos
         public readonly SqlConnection Conectar = new SqlConnection(ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString);
         public SqlCommand cmd;
         // Metodos abrir y cerrar la conexion
-        private void Abrir()
+        private SqlConnection aConexion;
+        public void Abrir()
         {
             if (Conectar.State == ConnectionState.Closed)
                 Conectar.Open();
         }
-        private void Cerrar()
+        public void Cerrar()
         {
             if (Conectar.State == ConnectionState.Open)
                 Conectar.Close();
@@ -94,5 +98,21 @@ namespace CapaDatos
                 Cerrar();
             }
         }
+             public SqlConnection Connexion
+        {
+            get { return aConexion; }
+        }
+        public virtual DataSet EjecutarSelect(string pConsulta)
+        { // metodo para ejecutar consultas del tipo SELECT
+            aAdaptador.SelectCommand = new SqlCommand(pConsulta, aConexion);
+            aDatos = new DataSet();
+            aAdaptador.Fill(aDatos);
+            return aDatos;
+        }
+        public DataSet Datos
+        {
+            get { return aDatos; }
+        }
     }
 }
+

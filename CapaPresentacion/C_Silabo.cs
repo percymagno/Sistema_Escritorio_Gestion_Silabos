@@ -179,5 +179,10 @@ namespace CapaPresentacion
             AddCurso.ShowDialog();
             RefrescarDGV();
         }
+
+        private void dgvSubirSilabo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
     }
 }

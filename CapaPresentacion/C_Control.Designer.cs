@@ -45,8 +45,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.panelLine = new System.Windows.Forms.Panel();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
+            this.panelLine = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -140,9 +140,9 @@
             this.labelTimeDate.AutoSize = true;
             this.labelTimeDate.Location = new System.Drawing.Point(603, 3);
             this.labelTimeDate.Name = "labelTimeDate";
-            this.labelTimeDate.Size = new System.Drawing.Size(74, 13);
+            this.labelTimeDate.Size = new System.Drawing.Size(69, 13);
             this.labelTimeDate.TabIndex = 2;
-            this.labelTimeDate.Text = "Sabado 10:30";
+            this.labelTimeDate.Text = "Lunes  17:35";
             this.labelTimeDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // comboBox3
@@ -186,6 +186,8 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(296, 21);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.Leave += new System.EventHandler(this.C_Control_Load);
             // 
             // label1
             // 
@@ -207,16 +209,6 @@
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(800, 352);
             this.panelPrincipal.TabIndex = 3;
-            // 
-            // panelLine
-            // 
-            this.panelLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelLine.BackColor = System.Drawing.Color.Silver;
-            this.panelLine.Location = new System.Drawing.Point(10, 90);
-            this.panelLine.Name = "panelLine";
-            this.panelLine.Size = new System.Drawing.Size(780, 1);
-            this.panelLine.TabIndex = 4;
             // 
             // dgvAlumnos
             // 
@@ -254,6 +246,16 @@
             this.dgvAlumnos.Size = new System.Drawing.Size(760, 342);
             this.dgvAlumnos.TabIndex = 0;
             // 
+            // panelLine
+            // 
+            this.panelLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelLine.BackColor = System.Drawing.Color.Silver;
+            this.panelLine.Location = new System.Drawing.Point(10, 90);
+            this.panelLine.Name = "panelLine";
+            this.panelLine.Size = new System.Drawing.Size(780, 1);
+            this.panelLine.TabIndex = 4;
+            // 
             // C_Control
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,6 +266,7 @@
             this.Controls.Add(this.panelHeader);
             this.Name = "C_Control";
             this.Size = new System.Drawing.Size(800, 450);
+            this.Load += new System.EventHandler(this.C_Control_Load_1);
             this.panelHeader.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

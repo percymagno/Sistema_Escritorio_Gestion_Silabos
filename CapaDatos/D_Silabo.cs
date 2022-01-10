@@ -13,6 +13,7 @@ namespace CapaDatos
     public class D_Silabo
     {
         Conexion conexion = new Conexion();
+        protected Conexion aConexion;
         // Metodos CRUD
         public bool Agregar(E_Silabo pSilabo)
         {
@@ -71,6 +72,36 @@ namespace CapaDatos
             conexion.cmd.Parameters.AddWithValue("@CodCurso", CodCurso);
 
             return conexion.executeNonQuery() >= 0;
+        }
+        public DataTable Lista_por_tema()
+        { //-- lista los ejemplares que le corresponden a un x determinado
+            //Cadena de texto de Consulta a la BD
+            string query = "SELECT Unidad,Capitulo,Tema FROM TSilabo ";
+
+            // Ejecutar la consulta
+            conexion.setComando(query);
+
+            return conexion.executeReader();
+        }
+        public DataTable Lista_por_capitulo()
+        { //-- lista los ejemplares que le corresponden a un x determinado
+            //Cadena de texto de Consulta a la BD
+            string query = "SELECT DISTINCT Capitulo FROM TSilabo ";
+
+            // Ejecutar la consulta
+            conexion.setComando(query);
+
+            return conexion.executeReader();
+        }
+        public DataTable Lista_por_unidad()
+        { //-- lista los ejemplares que le corresponden a un x determinado
+            //Cadena de texto de Consulta a la BD
+            string query = "SELECT  DISTINCT Unidad FROM TSilabo ";
+
+            // Ejecutar la consulta
+            conexion.setComando(query);
+
+            return conexion.executeReader();
         }
     }
 }
