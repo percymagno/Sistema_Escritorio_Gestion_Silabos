@@ -30,6 +30,13 @@ namespace CapaDatos
             conexion.setComando(sql);
             return conexion.executeReader();
         }
+        public DataTable MostrarPorCurso(int Asig)
+        {
+            string sql = "SELECT distinct A.CodAlumno, A.Nombres from TAlumno A , TAlumnoCurso B where(B.Asignacion = @Asignacion)";
+            conexion.setComando(sql);
+            conexion.cmd.Parameters.AddWithValue("@Asignacion", Asig);
+            return conexion.executeReader();
+        }
         public DataTable Buscar(String Texto)
         {
             string sql = "SELECT * FROM TAlumno WHERE CodAlumno LIKE (@Texto + '%') OR Nombres LIKE (@Texto + '%') " +

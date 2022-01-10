@@ -67,6 +67,8 @@ namespace CapaPresentacion
             {
                 comboBox1.Items.Add(aux2.Rows[i]["Unidad"].ToString());
             }
+            D_Alumno d_Alumno = new D_Alumno();
+            dgvAlumnos.DataSource = d_Alumno.MostrarPorCurso(52);
         }
     }
 }
