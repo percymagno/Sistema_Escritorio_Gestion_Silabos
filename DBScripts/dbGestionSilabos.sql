@@ -133,7 +133,6 @@ IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TAlumno')
 	DROP TABLE TAlumno
 GO
 CREATE TABLE [dbo].[TAlumno](
-	[NRO] [int] NOT NULL,
 	[CodAlumno] [varchar](6) NOT NULL PRIMARY KEY,
 	[Nombres] [varchar](100) NOT NULL,
 )
@@ -144,6 +143,7 @@ IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TAlumnoCurso')
 GO
 CREATE TABLE [dbo].[TAlumnoCurso](
 	[Asignacion] [int] NOT NULL FOREIGN KEY REFERENCES TAsignacion(ID),
+	[NRO] [int] NOT NULL,
 	[CodAlumno] [varchar](6) NOT NULL FOREIGN KEY REFERENCES TAlumno(CodAlumno),
 	PRIMARY KEY ([Asignacion], [CodAlumno])
 )
