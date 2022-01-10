@@ -16,28 +16,23 @@ namespace CapaDatos
         // Metodos CRUD
         public bool Agregar(E_Alumno pAlumno)
         {
-            string sql = "INSERT INTO dbo.TAlumno (Asignacion, NRO, CodAlumno, Paterno, Materno, Nombres)" +
-                                    "VALUES (@Asignacion, @NRO, @CodAlumno, @Paterno, @Materno, @Nombres)";
+            string sql = "INSERT INTO dbo.TAlumno (CodAlumno, Nombres)" +
+                                    "VALUES (@CodAlumno, @Nombres)";
             conexion.setComando(sql);
-            conexion.cmd.Parameters.AddWithValue("@Asignacion", pAlumno.Asignacion);
-            conexion.cmd.Parameters.AddWithValue("@NRO", pAlumno.NRO);
             conexion.cmd.Parameters.AddWithValue("@CodAlumno", pAlumno.CodAlumno);
-            conexion.cmd.Parameters.AddWithValue("@Paterno", pAlumno.Paterno);
-            conexion.cmd.Parameters.AddWithValue("@Materno", pAlumno.Materno);
             conexion.cmd.Parameters.AddWithValue("@Nombres", pAlumno.Nombres);
 
             return conexion.executeNonQuery() == 1;
         }
-        public DataTable MostrarCursoSemestre(string Semestre, int ID)
+        public DataTable Mostrar()
         {
-            string sql = "SELECT * FROM TAlumno WHERE Asignacion = @Asignacion";
+            string sql = "SELECT * FROM TAlumno";
             conexion.setComando(sql);
-            conexion.cmd.Parameters.AddWithValue("@Asignacion", ID);
             return conexion.executeReader();
         }
         public DataTable Buscar(String Texto)
         {
-            string sql = "SELECT * FROM TAlumno WHERE ID LIKE (@Texto + '%') OR Semestre LIKE (@Texto + '%') " +
+            string sql = "SELECT * FROM TAlumno WHERE CodAlumno LIKE (@Texto + '%') OR Nombres LIKE (@Texto + '%') " +
                 "OR CodCurso LIKE (@Texto + '%')";
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@Texto", Texto);
@@ -46,31 +41,19 @@ namespace CapaDatos
         }
         public bool Editar(E_Alumno pAlumno)
         {
-            string sql = "UPDATE dbo.TAlumno SET NRO = @NRO, Paterno = @Paterno, " +
-                              "Materno = @Materno, Nombres = @Nombres WHERE ID = @ID";
+            string sql = "UPDATE dbo.TAlumno SET Nombres = @Nombres WHERE CodAlumno = @CodAlumno";
             conexion.setComando(sql);
-            conexion.cmd.Parameters.AddWithValue("@ID", pAlumno.ID);
-            conexion.cmd.Parameters.AddWithValue("@NRO", pAlumno.NRO);
-            conexion.cmd.Parameters.AddWithValue("@Paterno", pAlumno.Paterno);
-            conexion.cmd.Parameters.AddWithValue("@Materno", pAlumno.Materno);
+            conexion.cmd.Parameters.AddWithValue("@CodAlumno", pAlumno.CodAlumno);
             conexion.cmd.Parameters.AddWithValue("@Nombres", pAlumno.Nombres);
             return conexion.executeNonQuery() == 1;
         }
-        public bool Eliminar(string ID)
+        public bool Eliminar(string CodAlumno)
         {
-            string sql = "DELETE FROM TAlumno WHERE ID = @ID";
+            string sql = "DELETE FROM TAlumno WHERE CodAlumno = @CodAlumno";
             conexion.setComando(sql);
-            conexion.cmd.Parameters.AddWithValue("@ID", ID);
+            conexion.cmd.Parameters.AddWithValue("@CodAlumno", CodAlumno);
 
             return conexion.executeNonQuery() == 1;
-        }
-        public bool ElminarCodCursoSemestre(int ID)
-        {
-            string sql = "DELETE FROM TAlumno WHERE Asignacion = @Asignacion";
-            conexion.setComando(sql);
-            conexion.cmd.Parameters.AddWithValue("@Asignacion", ID);
-
-            return conexion.executeNonQuery() >= 0;
         }
     }
 }
