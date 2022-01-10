@@ -6,7 +6,7 @@ using System.Data;
 
 namespace CapaNegocio
 {
-    class N_Alumno
+    public class N_Alumno
     {
         public string CodAlumno { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "CodAlumno es requerido")]

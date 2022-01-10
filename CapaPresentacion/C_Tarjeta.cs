@@ -68,5 +68,11 @@ namespace CapaPresentacion
         {
             UpdateStatusControl();
         }
+
+        private void btnAlumno_Click(object sender, EventArgs e)
+        {
+            FrmAlumno Al = new FrmAlumno(asignacion.ID);
+            Al.Show();
+        }
     }
 }
