@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="N_Alumno.cs" />
     <Compile Include="N_Asignacion.cs" />
     <Compile Include="Excel.cs" />
     <Compile Include="N_Carga.cs" />
