@@ -52,20 +52,48 @@ namespace CapaPresentacion
         private void C_Control_Load_1(object sender, EventArgs e)
         {
             D_Silabo registro = new D_Silabo();
-            DataTable aux = registro.Lista_por_tema();
-            for (int i = 0; i < aux.Rows.Count; i++)
+            DataTable silabo = registro.Lista(asignacionID);
+
+            var unidades = new BindingList<string>();
+            var capitulos = new BindingList<string>();
+            var temas = new BindingList<string>();
+
+
+            if (silabo != null)
             {
-                comboBox3.Items.Add(aux.Rows[i]["Tema"].ToString());
+                // separar temas, capitulos y unidades
+                foreach (DataRow row in silabo.Rows)
+                {
+                    string tmpUni = row["Unidad"].ToString();
+                    string tmpCap = row["Capitulo"].ToString();
+                    string tmpTem = row["Tema"].ToString();
+
+                    if (!unidades.Contains(tmpUni))
+                        unidades.Add(tmpUni);
+                    if (!capitulos.Contains(tmpCap))
+                        capitulos.Add(tmpCap);
+                    if (!temas.Contains(tmpTem))
+                        temas.Add(tmpTem);
+                }
+
+                // Rellenar tema
+                comboBox3.DataSource = temas;
+
+                // Rellenar capitulos
+                comboBox2.DataSource = capitulos;
+
+                // Rellenar unidades
+                comboBox1.DataSource = unidades;
+
+                // seleccionados - por defecto segundo row
+                DataRow frsRow = silabo.Rows[1];
+                comboBox3.SelectedItem = frsRow["Tema"];
+                comboBox2.SelectedItem = frsRow["Capitulo"];
+                comboBox3.SelectedItem = frsRow["Unidad"];
             }
-            DataTable aux1 = registro.Lista_por_capitulo();
-            for (int i = 0; i < aux1.Rows.Count; i++)
+            else
             {
-                comboBox2.Items.Add(aux1.Rows[i]["Capitulo"].ToString());
-            }
-            DataTable aux2 = registro.Lista_por_unidad();
-            for (int i = 0; i < aux2.Rows.Count; i++)
-            {
-                comboBox1.Items.Add(aux2.Rows[i]["Unidad"].ToString());
+                Console.WriteLine("silabo vacio " + asignacionID.ToString());
             }
             D_Alumno d_Alumno = new D_Alumno();
             dgvAlumnos.DataSource = d_Alumno.MostrarPorCurso(52);
