@@ -28,10 +28,6 @@ namespace CapaPresentacion
         {
             AsignacionID = pAsignacionID;
             InitializeComponent();
-            dgvAlumnos.Visible = true;
-            rTBSubirAlumnos.Visible = false;
-            btnGuardar.Visible = false;
-            RefrescarDGV();
         }
         private void RefrescarDGV()
         {
@@ -95,6 +91,14 @@ namespace CapaPresentacion
         private void btnAtras_Click(object sender, EventArgs e)
         {
             UpdateStatus();
+        }
+
+        private void C_Alumno_Load(object sender, EventArgs e)
+        {
+            dgvAlumnos.Visible = true;
+            rTBSubirAlumnos.Visible = false;
+            btnGuardar.Visible = false;
+            RefrescarDGV();
         }
     }
 }

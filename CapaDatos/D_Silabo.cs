@@ -73,6 +73,16 @@ namespace CapaDatos
 
             return conexion.executeNonQuery() >= 0;
         }
+        public DataTable Lista(int Asignacion)
+        {
+            string query = "SELECT * FROM TSilabo WHERE Asignacion = @Asignacion";
+
+            // Ejecutar la consulta
+            conexion.setComando(query);
+            conexion.cmd.Parameters.AddWithValue("@Asignacion", Asignacion);
+
+            return conexion.executeReader();
+        }
         public DataTable Lista_por_tema()
         { //-- lista los ejemplares que le corresponden a un x determinado
             //Cadena de texto de Consulta a la BD
