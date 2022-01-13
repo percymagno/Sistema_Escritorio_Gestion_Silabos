@@ -110,6 +110,7 @@
             this.Controls.Add(this.dgvAlumnos);
             this.Name = "C_Alumno";
             this.Size = new System.Drawing.Size(800, 450);
+            this.Load += new System.EventHandler(this.C_Alumno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.ResumeLayout(false);
 
