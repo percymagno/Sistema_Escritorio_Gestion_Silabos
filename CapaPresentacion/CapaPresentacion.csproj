@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C_Alumno.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="C_Alumno.Designer.cs">
+      <DependentUpon>C_Alumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="C_CajaTarjetas.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -153,6 +159,9 @@
       <DependentUpon>P_Director.cs</DependentUpon>
     </Compile>
     <Compile Include="TarjetaClickSilaboEventArgs.cs" />
+    <EmbeddedResource Include="C_Alumno.resx">
+      <DependentUpon>C_Alumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="C_CajaTarjetas.resx">
       <DependentUpon>C_CajaTarjetas.cs</DependentUpon>
     </EmbeddedResource>

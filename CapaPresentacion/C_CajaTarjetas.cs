@@ -20,6 +20,7 @@ namespace CapaPresentacion
         private int panelHeight = 150;
         private C_Silabo csilabo;
         private C_Control ccontrol;
+        private C_Alumno calumno;
         public C_CajaTarjetas(List<E_Asignacion> pAsignaciones)
         {
             asignaciones = pAsignaciones;
@@ -51,7 +52,7 @@ namespace CapaPresentacion
             ccontrol = new C_Control(asignacion.ID);
             ccontrol.Dock = System.Windows.Forms.DockStyle.Fill;
             ccontrol.Location = new Point(0, 0);
-            ccontrol.Name = "Silabo";
+            ccontrol.Name = "Control";
             ccontrol.Size = new Size(600, 300);
             ccontrol.TabIndex = 0;
             ccontrol.OnUpdateStatus += borrarCControl;
@@ -63,6 +64,25 @@ namespace CapaPresentacion
         {
             ccontrol.Visible = false;
             ccontrol = null;
+            flowLayoutPanel.Visible = true;
+        }
+        private void crearCAlumnos(E_Asignacion asignacion)
+        {
+            calumno = new C_Alumno(asignacion.ID);
+            calumno.Dock = System.Windows.Forms.DockStyle.Fill;
+            calumno.Location = new Point(0, 0);
+            calumno.Name = "Control";
+            calumno.Size = new Size(600, 300);
+            calumno.TabIndex = 0;
+            calumno.OnUpdateStatus += borrarCAlumnos;
+            // agregar silabo
+            Controls.Add(calumno);
+        }
+        // ocultar silabo, mostrar tarjetas
+        private void borrarCAlumnos(object sender, EventArgs e)
+        {
+            calumno.Visible = false;
+            calumno = null;
             flowLayoutPanel.Visible = true;
         }
         #endregion
@@ -82,6 +102,11 @@ namespace CapaPresentacion
                 else if(_button == "control")
                 {
                     crearCControl(_asignacion);
+                    flowLayoutPanel.Visible = false;
+                }
+                else if (_button == "alumno")
+                {
+                    crearCAlumnos(_asignacion);
                     flowLayoutPanel.Visible = false;
                 }
             }

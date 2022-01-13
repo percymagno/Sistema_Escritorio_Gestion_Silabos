@@ -40,39 +40,29 @@ namespace CapaPresentacion
             lblTitulo.Text = asignacion.Curso.Nombre;
             lblCodigo.Text = asignacion.Curso.CodCurso + asignacion.Grupo;
         }
-        private void UpdateStatusSilabo()
+
+        private void UpdateStatus(string texto)
         {
             //Create arguments.  You should also have custom one, or else return EventArgs.Empty();
-            TarjetaClickSilaboEventArgs args = new TarjetaClickSilaboEventArgs(asignacion, "silabo");
+            TarjetaClickSilaboEventArgs args = new TarjetaClickSilaboEventArgs(asignacion, texto);
 
             //Call any listeners
             OnUpdateStatus?.Invoke(this, args);
-
-        }
-        private void UpdateStatusControl()
-        {
-            //Create arguments.  You should also have custom one, or else return EventArgs.Empty();
-            TarjetaClickSilaboEventArgs args = new TarjetaClickSilaboEventArgs(asignacion, "control");
-
-            //Call any listeners
-            OnUpdateStatus?.Invoke(this, args);
-
         }
 
         private void btnSilabo_Click(object sender, EventArgs e)
         {
-            UpdateStatusSilabo();
+            UpdateStatus("silabo");
         }
 
         private void btnControl_Click(object sender, EventArgs e)
         {
-            UpdateStatusControl();
+            UpdateStatus("control");
         }
 
         private void btnAlumno_Click(object sender, EventArgs e)
         {
-            FrmAlumno Al = new FrmAlumno(asignacion.ID);
-            Al.Show();
+            UpdateStatus("alumno");
         }
     }
 }
