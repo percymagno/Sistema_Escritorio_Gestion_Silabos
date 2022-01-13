@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CapaDatos;
+using CapaNegocio;
 using CapaEntidades;
 
 namespace CapaPresentacion
@@ -85,7 +86,7 @@ namespace CapaPresentacion
                 // Rellenar unidades
                 comboBox1.DataSource = unidades;
 
-                // seleccionados - por defecto segundo row
+                // seleccionados - por defecto segunda fila
                 DataRow frsRow = silabo.Rows[1];
                 comboBox3.SelectedItem = frsRow["Tema"];
                 comboBox2.SelectedItem = frsRow["Capitulo"];
@@ -95,8 +96,13 @@ namespace CapaPresentacion
             {
                 Console.WriteLine("silabo vacio " + asignacionID.ToString());
             }
-            D_Alumno d_Alumno = new D_Alumno();
-            dgvAlumnos.DataSource = d_Alumno.MostrarPorCurso(52);
+            // rellenar lista de alumnos
+            N_AlumnoCurso n_AlumnoCurso = new N_AlumnoCurso();
+            DataTable dt_SubirAlumnosCurso = n_AlumnoCurso.Mostrar(asignacionID);
+            if (dt_SubirAlumnosCurso != null)
+            {
+                dgvAlumnos.DataSource = dt_SubirAlumnosCurso;
+            }
         }
     }
 }
