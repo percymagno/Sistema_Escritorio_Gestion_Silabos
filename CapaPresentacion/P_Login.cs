@@ -32,7 +32,7 @@ namespace CapaPresentacion
             if(textUsuario.Text == "USUARIO")
             {
                 textUsuario.Text = "";
-                textUsuario.ForeColor = Color.LightGray;
+                textUsuario.ForeColor = Color.Black;
             }
         }
 
@@ -41,7 +41,7 @@ namespace CapaPresentacion
             if (textUsuario.Text == "")
             {
                 textUsuario.Text = "USUARIO";
-                textUsuario.ForeColor = Color.DimGray ;
+                textUsuario.ForeColor = Color.DarkGray ;
             }
         }
 
@@ -50,7 +50,7 @@ namespace CapaPresentacion
             if (textContraseña.Text == "CONTRASEÑA")
             {
                 textContraseña.Text = "";
-                textContraseña.ForeColor = Color.LightGray;
+                textContraseña.ForeColor = Color.Black;
                 textContraseña.UseSystemPasswordChar = true;
             }
         }
@@ -60,7 +60,7 @@ namespace CapaPresentacion
             if (textContraseña.Text == "")
             {
                 textContraseña.Text = "CONTRASEÑA";
-                textContraseña.ForeColor = Color.DimGray;
+                textContraseña.ForeColor = Color.DarkGray;
                 textContraseña.UseSystemPasswordChar = false;
             }
         }
