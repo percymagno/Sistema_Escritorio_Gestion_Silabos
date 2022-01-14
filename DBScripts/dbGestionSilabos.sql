@@ -149,6 +149,30 @@ CREATE TABLE [dbo].[TAlumnoCurso](
 )
 GO
 
+--drop table TRegistroAvance ------------------------------------------------------------------------------------------------
+IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TRegistroAvance')
+	DROP TABLE TRegistroAvance
+GO
+CREATE TABLE [dbo].[TRegistroAvance](
+	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[ID_Silabo] [int] NOT NULL FOREIGN KEY REFERENCES TSilabo(ID),
+	[Fecha] datetime NOT NULL,
+	[Observacion] [varchar](200) NOT NULL,
+)
+GO
+
+--drop table TAsistencia ------------------------------------------------------------------------------------------------
+IF EXISTS (SELECT *  FROM SYSOBJECTS WHERE NAME = 'TAsistencia')
+	DROP TABLE TAsistencia
+GO
+CREATE TABLE [dbo].[TAsistencia](
+	[ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[ID_Registro] [int] NOT NULL FOREIGN KEY REFERENCES TRegistroAvance(ID),
+	[CodAlumno] [varchar](6) NOT NULL FOREIGN KEY REFERENCES TAlumno(CodAlumno),
+	[Asistio] [bit] NOT NULL,
+)
+GO
+
 /****** Object:  Table [dbo].[TSilabo]    Script Date: 24/11/2021 13:04:32 ******/
 
 /*--drop table TSilabo
