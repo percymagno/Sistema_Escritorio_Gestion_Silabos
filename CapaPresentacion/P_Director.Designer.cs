@@ -174,7 +174,7 @@ namespace CapaPresentacion
             this.btnCarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCarga.ForeColor = System.Drawing.Color.Black;
-            this.btnCarga.Location = new System.Drawing.Point(-3, 119);
+            this.btnCarga.Location = new System.Drawing.Point(0, 95);
             this.btnCarga.Name = "btnCarga";
             this.btnCarga.Size = new System.Drawing.Size(200, 40);
             this.btnCarga.TabIndex = 2;
@@ -190,9 +190,9 @@ namespace CapaPresentacion
             this.btnCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCursos.ForeColor = System.Drawing.Color.Black;
-            this.btnCursos.Location = new System.Drawing.Point(0, 67);
+            this.btnCursos.Location = new System.Drawing.Point(0, 55);
             this.btnCursos.Name = "btnCursos";
-            this.btnCursos.Size = new System.Drawing.Size(197, 40);
+            this.btnCursos.Size = new System.Drawing.Size(200, 40);
             this.btnCursos.TabIndex = 1;
             this.btnCursos.Text = "Cursos";
             this.btnCursos.UseVisualStyleBackColor = false;
@@ -206,7 +206,7 @@ namespace CapaPresentacion
             this.btnDocentes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDocentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDocentes.ForeColor = System.Drawing.Color.Black;
-            this.btnDocentes.Location = new System.Drawing.Point(-3, 15);
+            this.btnDocentes.Location = new System.Drawing.Point(0, 15);
             this.btnDocentes.Name = "btnDocentes";
             this.btnDocentes.Size = new System.Drawing.Size(200, 40);
             this.btnDocentes.TabIndex = 0;
@@ -228,7 +228,7 @@ namespace CapaPresentacion
             // 
             // pbxUsuario
             // 
-            this.pbxUsuario.BackColor = System.Drawing.Color.White;
+            this.pbxUsuario.BackColor = System.Drawing.Color.Transparent;
             this.pbxUsuario.BackgroundImage = global::CapaPresentacion.Properties.Resources.admin;
             this.pbxUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxUsuario.Location = new System.Drawing.Point(50, 10);
@@ -239,9 +239,10 @@ namespace CapaPresentacion
             // 
             // lblUsuario
             // 
-            this.lblUsuario.BackColor = System.Drawing.Color.White;
+            this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(-4, 80);
+            this.lblUsuario.ForeColor = System.Drawing.Color.White;
+            this.lblUsuario.Location = new System.Drawing.Point(0, 80);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(200, 20);
             this.lblUsuario.TabIndex = 0;

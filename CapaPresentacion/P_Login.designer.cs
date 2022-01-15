@@ -45,7 +45,7 @@ namespace CapaPresentacion
             this.textUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textUsuario.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textUsuario.ForeColor = System.Drawing.Color.DimGray;
-            this.textUsuario.Location = new System.Drawing.Point(214, 229);
+            this.textUsuario.Location = new System.Drawing.Point(214, 228);
             this.textUsuario.Multiline = true;
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Size = new System.Drawing.Size(202, 20);
@@ -60,12 +60,11 @@ namespace CapaPresentacion
             this.textContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textContraseña.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textContraseña.ForeColor = System.Drawing.Color.DimGray;
-            this.textContraseña.Location = new System.Drawing.Point(214, 276);
-            this.textContraseña.Multiline = true;
+            this.textContraseña.Location = new System.Drawing.Point(214, 275);
             this.textContraseña.Name = "textContraseña";
-            this.textContraseña.Size = new System.Drawing.Size(202, 20);
+            this.textContraseña.Size = new System.Drawing.Size(202, 19);
             this.textContraseña.TabIndex = 2;
-            this.textContraseña.Text = "CONTRASEÑA";
+            this.textContraseña.Text = " CONTRASEÑA";
             this.textContraseña.Enter += new System.EventHandler(this.textContraseña_Enter);
             this.textContraseña.Leave += new System.EventHandler(this.textContraseña_Leave);
             // 
