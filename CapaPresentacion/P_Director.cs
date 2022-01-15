@@ -207,6 +207,17 @@ namespace CapaPresentacion
             this.btnDocentes.BackColor = Color.FromArgb(68, 170, 211);
         }
 
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            //this.Parent.
+            this.Close();
+        }
+
+        private void P_Director_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Console.WriteLine("closing");
+        }
+
         private void btnCarga_Click(object sender, EventArgs e)
         {
             this.c_Carga1.BringToFront();

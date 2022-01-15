@@ -143,6 +143,12 @@ namespace CapaPresentacion
         {
             activarMover(e);
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         // cambio de tamaño
         protected override void WndProc(ref Message m)
         {

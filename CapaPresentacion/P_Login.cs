@@ -16,17 +16,12 @@ namespace CapaPresentacion
     public partial class P_Login : Form
     {
         E_Usuario usuario;
-        N_Usuario n_usuario;
         P_Director p_Director;
         P_Docente p_Docente;
         public P_Login()
         {
             InitializeComponent();
         }
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd,int wsg,int wparam,int lparam);
         private void textUsuario_Enter(object sender, EventArgs e)
         {
             if(textUsuario.Text == "USUARIO")
@@ -65,12 +60,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void FormLogin_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             string Usuario = textUsuario.Text;
@@ -85,9 +74,10 @@ namespace CapaPresentacion
             }
             else
             {
-                if(usuario.Acceso == "Administrador")
+                if (usuario.Acceso == "Administrador")
                 {
                     p_Director = new P_Director();
+                    p_Director.FormClosing += frm_FormClosing;
                     p_Director.Show();
                     this.Visible = false;
                 }
@@ -96,13 +86,21 @@ namespace CapaPresentacion
                     if(usuario.Acceso == "Docente")
                     {
                         p_Docente = new P_Docente(usuario.Usuario);
+                        p_Docente.FormClosing += frm_FormClosing;
                         p_Docente.Show();
-                        this.Visible=false;
+                        this.Visible = false;
                     }
                 }
+
+                textUsuario.Text = "USUARIO";
+                textContraseña.Text = "CONTRASEÑA";
             }
         }
 
+        void frm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Visible = true;
+        }
         private void Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -111,17 +109,6 @@ namespace CapaPresentacion
         private void Minimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void iconoCarrera_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
