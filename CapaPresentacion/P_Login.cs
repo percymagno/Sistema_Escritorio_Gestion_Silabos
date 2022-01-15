@@ -42,7 +42,7 @@ namespace CapaPresentacion
 
         private void textContraseña_Enter(object sender, EventArgs e)
         {
-            if (textContraseña.Text == "CONTRASEÑA")
+            if (textContraseña.Text == " CONTRASEÑA")
             {
                 textContraseña.Text = "";
                 textContraseña.ForeColor = Color.Black;
@@ -54,7 +54,7 @@ namespace CapaPresentacion
         {
             if (textContraseña.Text == "")
             {
-                textContraseña.Text = "CONTRASEÑA";
+                textContraseña.Text = " CONTRASEÑA";
                 textContraseña.ForeColor = Color.DarkGray;
                 textContraseña.UseSystemPasswordChar = false;
             }
@@ -68,32 +68,33 @@ namespace CapaPresentacion
             usuario = n_Usuario.BuscarUsuario(Usuario, Contrasenia);
             if(usuario == null)
             {
-                textUsuario.Text = "USUARIO";
-                textContraseña.Text = "CONTRASEÑA";
                 MessageBox.Show("Usuario o Contraseña incorrectos");
             }
             else
             {
                 if (usuario.Acceso == "Administrador")
                 {
+                    this.Visible = false;
                     p_Director = new P_Director();
                     p_Director.FormClosing += frm_FormClosing;
                     p_Director.Show();
-                    this.Visible = false;
                 }
                 else
                 {
                     if(usuario.Acceso == "Docente")
                     {
+                        this.Visible = false;
                         p_Docente = new P_Docente(usuario.Usuario);
                         p_Docente.FormClosing += frm_FormClosing;
                         p_Docente.Show();
-                        this.Visible = false;
                     }
                 }
 
                 textUsuario.Text = "USUARIO";
+                textUsuario.ForeColor = Color.DarkGray;
                 textContraseña.Text = "CONTRASEÑA";
+                textContraseña.ForeColor = Color.DarkGray;
+                textContraseña.UseSystemPasswordChar = false;
             }
         }
 
