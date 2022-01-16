@@ -46,10 +46,12 @@
     <Compile Include="D_AlumnoCurso.cs" />
     <Compile Include="D_Asignacion.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="D_Asistencia.cs" />
     <Compile Include="D_Curso.cs" />
     <Compile Include="D_Dia.cs" />
     <Compile Include="D_Docente.cs" />
     <Compile Include="D_Regimen.cs" />
+    <Compile Include="D_RegistroAvance.cs" />
     <Compile Include="D_Semestre.cs" />
     <Compile Include="D_ServicioDocente.cs" />
     <Compile Include="D_Silabo.cs" />
