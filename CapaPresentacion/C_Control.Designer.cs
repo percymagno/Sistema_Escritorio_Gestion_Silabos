@@ -47,6 +47,7 @@
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
             this.panelLine = new System.Windows.Forms.Panel();
+            this.columnaAsistencia = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panelHeader.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -61,7 +62,7 @@
             this.panelHeader.Controls.Add(this.panel1);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(4);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(1067, 98);
             this.panelHeader.TabIndex = 2;
@@ -71,7 +72,7 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(1014, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(53, 98);
             this.flowLayoutPanel1.TabIndex = 4;
@@ -81,7 +82,7 @@
             this.panel3.Controls.Add(this.btnAtras);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(107, 98);
             this.panel3.TabIndex = 3;
@@ -92,7 +93,7 @@
             this.btnAtras.FlatAppearance.BorderSize = 0;
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtras.Location = new System.Drawing.Point(0, 0);
-            this.btnAtras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAtras.Margin = new System.Windows.Forms.Padding(4);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(107, 98);
             this.btnAtras.TabIndex = 0;
@@ -115,7 +116,7 @@
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(108, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(907, 98);
             this.panel1.TabIndex = 2;
@@ -124,7 +125,7 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(569, 60);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(327, 35);
@@ -157,7 +158,7 @@
             // 
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(68, 70);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(393, 24);
             this.comboBox3.TabIndex = 1;
@@ -176,7 +177,7 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(68, 37);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(393, 24);
             this.comboBox2.TabIndex = 1;
@@ -195,7 +196,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(68, 4);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(393, 24);
             this.comboBox1.TabIndex = 1;
@@ -220,7 +221,7 @@
             this.panelPrincipal.BackColor = System.Drawing.Color.White;
             this.panelPrincipal.Controls.Add(this.dgvAlumnos);
             this.panelPrincipal.Location = new System.Drawing.Point(0, 124);
-            this.panelPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelPrincipal.Margin = new System.Windows.Forms.Padding(4);
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(1067, 433);
             this.panelPrincipal.TabIndex = 3;
@@ -245,6 +246,8 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAlumnos.ColumnHeadersHeight = 29;
+            this.dgvAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columnaAsistencia});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -255,13 +258,13 @@
             this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAlumnos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dgvAlumnos.Location = new System.Drawing.Point(27, 6);
-            this.dgvAlumnos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvAlumnos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAlumnos.MultiSelect = false;
             this.dgvAlumnos.Name = "dgvAlumnos";
             this.dgvAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvAlumnos.RowHeadersWidth = 51;
             this.dgvAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvAlumnos.Size = new System.Drawing.Size(1013, 421);
+            this.dgvAlumnos.Size = new System.Drawing.Size(1013, 360);
             this.dgvAlumnos.TabIndex = 0;
             // 
             // panelLine
@@ -270,10 +273,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelLine.BackColor = System.Drawing.Color.Silver;
             this.panelLine.Location = new System.Drawing.Point(13, 111);
-            this.panelLine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLine.Margin = new System.Windows.Forms.Padding(4);
             this.panelLine.Name = "panelLine";
             this.panelLine.Size = new System.Drawing.Size(1040, 1);
             this.panelLine.TabIndex = 4;
+            // 
+            // columnaAsistencia
+            // 
+            this.columnaAsistencia.HeaderText = "Asistencia";
+            this.columnaAsistencia.MinimumWidth = 6;
+            this.columnaAsistencia.Name = "columnaAsistencia";
             // 
             // C_Control
             // 
@@ -283,7 +292,7 @@
             this.Controls.Add(this.panelLine);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.panelHeader);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "C_Control";
             this.Size = new System.Drawing.Size(1067, 554);
             this.Load += new System.EventHandler(this.C_Control_Load_1);
@@ -316,5 +325,6 @@
         private System.Windows.Forms.Panel panelLine;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.DataGridView dgvAlumnos;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn columnaAsistencia;
     }
 }
