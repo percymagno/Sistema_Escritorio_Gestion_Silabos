@@ -158,6 +158,7 @@ CREATE TABLE [dbo].[TRegistroAvance](
 	[ID_Silabo] [int] NOT NULL FOREIGN KEY REFERENCES TSilabo(ID),
 	[Fecha] datetime NOT NULL,
 	[Observacion] [varchar](200) NOT NULL,
+	[NroHoras] [int] Not Null
 )
 GO
 
