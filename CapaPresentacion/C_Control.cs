@@ -77,19 +77,22 @@ namespace CapaPresentacion
         {
             N_RegistroAvance n_RegistroAvance = new N_RegistroAvance();
             DataTable dt = n_RegistroAvance.TemasSinAvanzar(asignacionID);
-            List<string> list = ObtenerUnidad(dt);
-            List<string> vs = ObtenerCapitulo(dt);
-            foreach(string item in list)
+            if(dt != null)
             {
-                cbUnidad.Items.Add(item);
-            }
-            foreach (string item in vs)
-            {
-                cbCapitulo.Items.Add(item);
-            }
-            foreach (DataRow dr in dt.Rows)
-            {
-                cbTema.Items.Add(dr["Tema"]);
+                List<string> list = ObtenerUnidad(dt);
+                List<string> vs = ObtenerCapitulo(dt);
+                foreach (string item in list)
+                {
+                    cbUnidad.Items.Add(item);
+                }
+                foreach (string item in vs)
+                {
+                    cbCapitulo.Items.Add(item);
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbTema.Items.Add(dr["Tema"]);
+                }
             }
             // rellenar lista de alumnos
             N_AlumnoCurso n_AlumnoCurso = new N_AlumnoCurso();
@@ -97,6 +100,19 @@ namespace CapaPresentacion
             if (dt_SubirAlumnosCurso != null)
             {
                 dgvAlumnos.DataSource = dt_SubirAlumnosCurso;
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            foreach(DataGridViewRow fila in dgvAlumnos.Rows)
+            {
+                DataGridViewCheckBoxCell b =(DataGridViewCheckBoxCell)fila.Cells["Asistencia"];
+
+                if (Convert.ToBoolean(b.Value))
+                {
+                    MessageBox.Show(fila.Cells[3].Value.ToString());
+                }
             }
         }
     }
