@@ -58,5 +58,9 @@ namespace CapaNegocio
         {
             return d_RegistroAvance.Eliminar(ID);
         }
+        public DataTable TemasSinAvanzar(int IdAsignacion)
+        {
+            return d_RegistroAvance.TemasSinAvanzar(IdAsignacion);
+        }
     }
 }

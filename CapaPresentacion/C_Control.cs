@@ -49,52 +49,47 @@ namespace CapaPresentacion
         {
 
         }
-
+        private List<string> ObtenerCapitulo(DataTable dt)
+        {
+            List<string> list = new List<string>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (!list.Contains(dr["Capitulo"]))
+                {
+                    list.Add(dr["Capitulo"].ToString());
+                }
+            }
+            return list;
+        }
+        private List<string> ObtenerUnidad(DataTable dt)
+        {
+            List<string> list = new List<string>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (!list.Contains(dr["Unidad"]))
+                {
+                    list.Add(dr["Unidad"].ToString());
+                }
+            }
+            return list;
+        }
         private void C_Control_Load_1(object sender, EventArgs e)
         {
-            D_Silabo registro = new D_Silabo();
-            DataTable silabo = registro.Lista(asignacionID);
-
-            var unidades = new BindingList<string>();
-            var capitulos = new BindingList<string>();
-            var temas = new BindingList<string>();
-
-
-            if (silabo != null)
+            N_RegistroAvance n_RegistroAvance = new N_RegistroAvance();
+            DataTable dt = n_RegistroAvance.TemasSinAvanzar(asignacionID);
+            List<string> list = ObtenerUnidad(dt);
+            List<string> vs = ObtenerCapitulo(dt);
+            foreach(string item in list)
             {
-                // separar temas, capitulos y unidades
-                foreach (DataRow row in silabo.Rows)
-                {
-                    string tmpUni = row["Unidad"].ToString();
-                    string tmpCap = row["Capitulo"].ToString();
-                    string tmpTem = row["Tema"].ToString();
-
-                    if (!unidades.Contains(tmpUni))
-                        unidades.Add(tmpUni);
-                    if (!capitulos.Contains(tmpCap))
-                        capitulos.Add(tmpCap);
-                    if (!temas.Contains(tmpTem))
-                        temas.Add(tmpTem);
-                }
-
-                // Rellenar tema
-                comboBox3.DataSource = temas;
-
-                // Rellenar capitulos
-                comboBox2.DataSource = capitulos;
-
-                // Rellenar unidades
-                comboBox1.DataSource = unidades;
-
-                // seleccionados - por defecto segunda fila
-                DataRow frsRow = silabo.Rows[1];
-                comboBox3.SelectedItem = frsRow["Tema"];
-                comboBox2.SelectedItem = frsRow["Capitulo"];
-                comboBox3.SelectedItem = frsRow["Unidad"];
+                cbUnidad.Items.Add(item);
             }
-            else
+            foreach (string item in vs)
             {
-                Console.WriteLine("silabo vacio " + asignacionID.ToString());
+                cbCapitulo.Items.Add(item);
+            }
+            foreach (DataRow dr in dt.Rows)
+            {
+                cbTema.Items.Add(dr["Tema"]);
             }
             // rellenar lista de alumnos
             N_AlumnoCurso n_AlumnoCurso = new N_AlumnoCurso();

@@ -64,5 +64,13 @@ namespace CapaDatos
 
             return conexion.executeNonQuery() == 1;
         }
+        public DataTable TemasSinAvanzar(int IdAsignacion)
+        {
+            string sql = "select S.ID, S.Unidad, S.Capitulo, S.Tema from TSilabo S  Left JOIN TRegistroAvance R " +
+                "ON S.Id = R.ID_Silabo  where R.ID_Silabo IS NULL and S.Asignacion = @IdAsignacion";
+            conexion.setComando(sql);
+            conexion.cmd.Parameters.AddWithValue("@IdAsignacion", IdAsignacion);
+            return conexion.executeReader();
+        }
     }
 }

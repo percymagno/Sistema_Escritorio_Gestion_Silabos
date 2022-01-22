@@ -38,16 +38,16 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.labelTimeDate = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbTema = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbCapitulo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbUnidad = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
-            this.panelLine = new System.Windows.Forms.Panel();
             this.columnaAsistencia = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.panelLine = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -109,11 +109,11 @@
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.labelTimeDate);
-            this.panel1.Controls.Add(this.comboBox3);
+            this.panel1.Controls.Add(this.cbTema);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.cbCapitulo);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cbUnidad);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(108, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
@@ -154,14 +154,14 @@
             this.labelTimeDate.Text = "Lunes  17:35";
             this.labelTimeDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // comboBox3
+            // cbTema
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(68, 70);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(393, 24);
-            this.comboBox3.TabIndex = 1;
+            this.cbTema.FormattingEnabled = true;
+            this.cbTema.Location = new System.Drawing.Point(68, 70);
+            this.cbTema.Margin = new System.Windows.Forms.Padding(4);
+            this.cbTema.Name = "cbTema";
+            this.cbTema.Size = new System.Drawing.Size(393, 24);
+            this.cbTema.TabIndex = 1;
             // 
             // label3
             // 
@@ -173,14 +173,14 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Tema:";
             // 
-            // comboBox2
+            // cbCapitulo
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(68, 37);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(393, 24);
-            this.comboBox2.TabIndex = 1;
+            this.cbCapitulo.FormattingEnabled = true;
+            this.cbCapitulo.Location = new System.Drawing.Point(68, 37);
+            this.cbCapitulo.Margin = new System.Windows.Forms.Padding(4);
+            this.cbCapitulo.Name = "cbCapitulo";
+            this.cbCapitulo.Size = new System.Drawing.Size(393, 24);
+            this.cbCapitulo.TabIndex = 1;
             // 
             // label2
             // 
@@ -192,16 +192,16 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Capítulo:";
             // 
-            // comboBox1
+            // cbUnidad
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(68, 4);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(393, 24);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            this.comboBox1.Leave += new System.EventHandler(this.C_Control_Load);
+            this.cbUnidad.FormattingEnabled = true;
+            this.cbUnidad.Location = new System.Drawing.Point(68, 4);
+            this.cbUnidad.Margin = new System.Windows.Forms.Padding(4);
+            this.cbUnidad.Name = "cbUnidad";
+            this.cbUnidad.Size = new System.Drawing.Size(393, 24);
+            this.cbUnidad.TabIndex = 1;
+            this.cbUnidad.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbUnidad.Leave += new System.EventHandler(this.C_Control_Load);
             // 
             // label1
             // 
@@ -267,6 +267,12 @@
             this.dgvAlumnos.Size = new System.Drawing.Size(1013, 360);
             this.dgvAlumnos.TabIndex = 0;
             // 
+            // columnaAsistencia
+            // 
+            this.columnaAsistencia.HeaderText = "Asistencia";
+            this.columnaAsistencia.MinimumWidth = 6;
+            this.columnaAsistencia.Name = "columnaAsistencia";
+            // 
             // panelLine
             // 
             this.panelLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -277,12 +283,6 @@
             this.panelLine.Name = "panelLine";
             this.panelLine.Size = new System.Drawing.Size(1040, 1);
             this.panelLine.TabIndex = 4;
-            // 
-            // columnaAsistencia
-            // 
-            this.columnaAsistencia.HeaderText = "Asistencia";
-            this.columnaAsistencia.MinimumWidth = 6;
-            this.columnaAsistencia.Name = "columnaAsistencia";
             // 
             // C_Control
             // 
@@ -315,11 +315,11 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelTimeDate;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbTema;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbCapitulo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbUnidad;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelPrincipal;
         private System.Windows.Forms.Panel panelLine;
