@@ -17,12 +17,13 @@ namespace CapaDatos
         // Metodos CRUD
         public bool Agregar(E_RegistroAvance pRegistro)
         {
-            string sql = "INSERT INTO dbo.TRegistroAvance (ID_Silabo, Fecha, Observacion)" +
-                                    "VALUES (@ID_Silabo, @Fecha, @Observacion)";
+            string sql = "INSERT INTO dbo.TRegistroAvance (ID_Silabo, Fecha, Observacion, NroHoras)" +
+                                    "VALUES (@ID_Silabo, @Fecha, @Observacion, @nroHoras)";
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@ID_Silabo", pRegistro.ID_Silabo);
             conexion.cmd.Parameters.AddWithValue("@Fecha", pRegistro.Fecha);
             conexion.cmd.Parameters.AddWithValue("@Observacion", pRegistro.Observacion);
+            conexion.cmd.Parameters.AddWithValue("@nroHoras", pRegistro.NroHoras);
 
             return conexion.executeNonQuery() == 1;
         }
@@ -66,10 +67,17 @@ namespace CapaDatos
         }
         public DataTable TemasSinAvanzar(int IdAsignacion)
         {
-            string sql = "select S.ID, S.Unidad, S.Capitulo, S.Tema from TSilabo S  Left JOIN TRegistroAvance R " +
+            string sql = "select S.ID, S.Unidad, S.Capitulo, S.Tema, S.NroHoras from TSilabo S  Left JOIN TRegistroAvance R " +
                 "ON S.Id = R.ID_Silabo  where R.ID_Silabo IS NULL and S.Asignacion = @IdAsignacion";
             conexion.setComando(sql);
             conexion.cmd.Parameters.AddWithValue("@IdAsignacion", IdAsignacion);
+            return conexion.executeReader();
+        }
+        public DataTable ObtenerRegistro(int idSilabo)
+        {
+            string sql = "select * from TRegistroAvance where ID_Silabo = @IdSilabo";
+            conexion.setComando(sql);
+            conexion.cmd.Parameters.AddWithValue("@IdSilabo", idSilabo);
             return conexion.executeReader();
         }
     }

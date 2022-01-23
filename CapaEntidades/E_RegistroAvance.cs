@@ -12,5 +12,6 @@ namespace CapaEntidades
         public int ID_Silabo{ get; set; }
         public DateTime Fecha { get; set; }
         public string Observacion { get; set; }
+        public int NroHoras { get; set; }
     }
 }

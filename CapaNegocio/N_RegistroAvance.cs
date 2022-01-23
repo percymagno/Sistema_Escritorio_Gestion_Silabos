@@ -16,6 +16,9 @@ namespace CapaNegocio
         public string Observacion { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Observacion es requerido")]
 
+        public int NroHoras { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Numero horas es requerido")]
+
         D_RegistroAvance d_RegistroAvance = new D_RegistroAvance();
 
         public override string ToString()
@@ -30,6 +33,7 @@ namespace CapaNegocio
                 ID_Silabo = this.ID_Silabo,
                 Fecha = this.Fecha,
                 Observacion = this.Observacion,
+                NroHoras = this.NroHoras
             };
 
             Console.WriteLine("Guardando: " + this.ToString());
@@ -52,6 +56,7 @@ namespace CapaNegocio
                 ID_Silabo = this.ID_Silabo,
                 Fecha = this.Fecha,
                 Observacion = this.Observacion,
+                NroHoras = this.NroHoras
             });
         }
         public bool Eliminar(string ID)
@@ -62,5 +67,15 @@ namespace CapaNegocio
         {
             return d_RegistroAvance.TemasSinAvanzar(IdAsignacion);
         }
+        public int IdRegistro(int IdSilabo)
+        {
+            DataTable dataTable = d_RegistroAvance.ObtenerRegistro(IdSilabo);
+            foreach (DataRow row in dataTable.Rows)
+            {
+                return Convert.ToInt32(row["ID"]);
+            }
+            return -1;
+        }
+        
     }
 }
